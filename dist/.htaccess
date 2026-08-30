@@ -105,7 +105,7 @@ ErrorDocument 403 /404.html
   <FilesMatch "\.(css|js)$">
     Header set Cache-Control "public, max-age=3600, stale-while-revalidate=86400"
   </FilesMatch>
-  <FilesMatch "\.(svg|png)$">
+  <FilesMatch "\.(svg|png|ico)$">
     Header set Cache-Control "public, max-age=604800"
   </FilesMatch>
   # HTML and machine files: always revalidate, so a deploy is visible immediately.

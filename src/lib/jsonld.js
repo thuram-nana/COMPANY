@@ -18,7 +18,7 @@ export function orgNode(f) {
     description: f.org.definition,
     disambiguatingDescription: f.org.disambiguation,
     url: f.org.url,
-    logo: f.org.url + "/og-image.png",
+    logo: { "@type": "ImageObject", url: f.org.url + "/logo.png", width: 512, height: 512 },
     image: f.org.url + "/og-image.png",
     email: f.org.email,
     telephone: f.org.phone,

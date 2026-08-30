@@ -1,5 +1,15 @@
 import { writeFileSync } from "fs";
 // A square favicon: centered astroid seal with a short reticle, ink on transparent.
+//
+// The committed raster set is rendered from the SVG this script writes:
+//   magick -density 512 -background none public/favicon.svg -resize 460x460 \
+//     -gravity center -extent 512x512 PNG32:- | magick - -background "#F7F5F0" -flatten PNG24:public/logo.png
+//   magick -density 512 -background none public/favicon.svg -resize 140x140 \
+//     -gravity center -extent 180x180 -background "#F7F5F0" -flatten PNG24:public/apple-touch-icon.png
+//   magick -density 512 -background none public/favicon.svg -define icon:auto-resize=48,32,16 public/favicon.ico
+//   magick -density 512 -background none public/favicon.svg -resize 96x96 PNG32:public/icon-96.png
+// logo.png (square, bone plate) is what Organization.logo in the JSON-LD points
+// at — Google's requirement for the logo shown beside search results / panels.
 const SEAL = "#F8605A", INK = "#303030";
 function astroid(a){let d="";const n=96;for(let i=0;i<=n;i++){const t=i/n*Math.PI*2;const x=a*Math.cos(t)**3;const y=a*Math.sin(t)**3;d+=(i===0?"M":"L")+x.toFixed(2)+","+y.toFixed(2)+" ";}return d+"Z";}
 const S=64,c=S/2,seal=S*0.26;
