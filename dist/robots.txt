@@ -1,0 +1,52 @@
+# SIGIL SARL — sigilsovereign.com
+# This site wants to be found, read, and cited — by search engines and by
+# answer engines. Crawlers are allowed explicitly.
+#
+# NOTE for the operator: if this site sits behind Cloudflare, the
+# "Block AI bots" / "AI Scrapers and Crawlers" setting must be OFF, or the
+# allowances below are silently overridden at the edge.
+
+User-agent: *
+Allow: /
+
+# Search engines
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: DuckDuckBot
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: YandexBot
+Allow: /
+
+# Answer engines / AI crawlers
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://sigilsovereign.com/sitemap-index.xml

@@ -1,0 +1,14 @@
+# SIGIL SARL — security disclosure
+# https://sigilsovereign.com/.well-known/security.txt
+# This file should be served over HTTPS and signed with the SIGIL PGP key.
+
+Contact: mailto:security@sigilsovereign.com
+Contact: https://sigilsovereign.com/contact/
+Encryption: https://sigilsovereign.com/pgp.txt
+Preferred-Languages: en, fr
+Canonical: https://sigilsovereign.com/.well-known/security.txt
+Policy: https://sigilsovereign.com/trust/
+# Fingerprint of the SIGIL PGP key (verify before use):
+# C1C4 A87F EB43 04DB 9E62  86A1 F013 6C58 BB19 5F0C
+# Expires: set to <=1 year from signing at deploy time, e.g. 2027-08-29T00:00:00.000Z
+Expires: 2027-08-29T00:00:00.000Z

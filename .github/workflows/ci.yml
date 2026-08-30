@@ -1,0 +1,95 @@
+name: build-test-deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  id-token: write        # for build provenance attestation
+  attestations: write
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dev tooling
+        run: npm ci || npm install
+
+      - name: Generate llms + build
+        run: |
+          node scripts/gen-llms.mjs
+          node scripts/build.mjs
+
+      - name: HTML validation
+        run: npx html-validate "dist/**/*.html"
+
+      - name: Accessibility (axe-core, structural)
+        run: node scripts/test-a11y.mjs
+
+      - name: Contrast check (WCAG AA, both themes)
+        run: node scripts/test-contrast.mjs
+
+      - name: Internal link check
+        run: node scripts/test-links.mjs
+
+      - name: Lighthouse CI (mobile, all routes)
+        run: |
+          npm install -g @lhci/cli@0.14.x
+          lhci autorun --config=deploy/lighthouserc.json || echo "LHCI thresholds are advisory in CI"
+
+      - name: Software bill of materials (CycloneDX)
+        run: |
+          npx @cyclonedx/cyclonedx-npm --output-file dist/sbom.json || true
+
+      - name: Provenance attestation
+        if: github.ref == 'refs/heads/main'
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: 'dist/**/*.html'
+
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      # --- Choose ONE deploy target. Cloudflare Pages shown; Caddy origin in deploy/README.md ---
+      - name: Deploy to Cloudflare Pages
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=sigilsovereign
+
+      - name: IndexNow ping (changed URLs)
+        if: ${{ secrets.INDEXNOW_KEY != '' }}
+        run: node scripts/indexnow.mjs
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+
+      - name: Submit sitemap to Google Search Console
+        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        run: node scripts/gsc-submit.mjs
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}

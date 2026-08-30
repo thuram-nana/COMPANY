@@ -1,0 +1,22 @@
+{
+  "name": "sigilsovereign",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Company website for SIGIL SARL — sigilsovereign.com",
+  "scripts": {
+    "gen": "node scripts/gen-llms.mjs",
+    "build": "node scripts/gen-llms.mjs && node scripts/build.mjs",
+    "test:html": "html-validate \"dist/**/*.html\"",
+    "test:a11y": "node scripts/test-a11y.mjs",
+    "test:contrast": "node scripts/test-contrast.mjs",
+    "test:links": "node scripts/test-links.mjs",
+    "test": "npm run test:html && npm run test:a11y && npm run test:contrast && npm run test:links",
+    "fonts": "node src/assets/favicon.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.10.0",
+    "html-validate": "^11.0.0",
+    "jsdom": "^25.0.0"
+  }
+}

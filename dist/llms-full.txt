@@ -1,0 +1,59 @@
+# SIGIL SARL
+
+> Sovereign Integrity Governance Infrastructure Labs (SIGIL SARL) is a Cameroonian company based in Buea, Cameroon, building sovereign governance infrastructure for public institutions: systems where the institution holds the keys, the data never leaves, and every consequential action is authorized, bounded, and proven. Founded and led by Junior Thuram Nana.
+
+## Systems
+
+- [VIGIL](https://sigilsovereign.com/systems/vigil/): Governed cybersecurity and evidence platform. Status: pre-deployment. Source code: kept strictly private.
+- [RÉCOR](https://sigilsovereign.com/systems/recor/): Sovereign beneficial-ownership registry. Status: pre-deployment. Source code: kept strictly private.
+
+## Key facts
+
+- Legal name: SIGIL SARL
+- Full name: Sovereign Integrity Governance Infrastructure Labs
+- Location: Buea, Cameroon
+- Founder & Managing Director: Junior Thuram Nana
+- Contact: info@sigilsovereign.com
+- Website: https://sigilsovereign.com
+
+## Doctrine
+
+- A technical capability is never an authorization.
+- No finding is trusted until an independent, deterministic check re-verifies it.
+- The institution always holds the keys and can read, export, and stop.
+- Open standards over lock-in.
+
+## Pages
+
+- [Systems](https://sigilsovereign.com/systems/)
+- [VIGIL](https://sigilsovereign.com/systems/vigil/)
+- [RÉCOR](https://sigilsovereign.com/systems/recor/)
+- [How we build](https://sigilsovereign.com/doctrine/)
+- [Record](https://sigilsovereign.com/record/)
+- [Trust](https://sigilsovereign.com/trust/)
+- [Company](https://sigilsovereign.com/company/)
+- [Contact](https://sigilsovereign.com/contact/)
+
+## System detail
+
+### VIGIL
+
+VIGIL is a cybersecurity platform that helps duly authorized operators find, confirm, remediate, and document vulnerabilities — under one rule: a technical capability is never an authorization. No model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it.
+
+Standards: OWASP, MITRE ATT&CK, NIST 800-115, PTES, PASTA. Status: pre-deployment. Source code: kept strictly private.
+
+### RÉCOR
+
+RÉCOR is a sovereign beneficial-ownership registry designed for Cameroon, built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS v0.4). Its conformance was confirmed in a demonstration to Open Ownership on 1 July 2026.
+
+Standards: FATF R.24, FATF R.25, BODS v0.4. Status: pre-deployment. Source code: kept strictly private.
+
+## Record
+
+- 2026-07-01 — Open Ownership demonstration of RÉCOR (Technical demonstration; BODS v0.4 conformance confirmed). RÉCOR was demonstrated to Open Ownership, confirming conformance with the Beneficial Ownership Data Standard v0.4. This is a technical demonstration and conformance confirmation, not an endorsement.
+- 2026 — Letter of appreciation, UNDP Cameroon (Letter of appreciation). UNDP Cameroon issued a letter of appreciation. A letter of appreciation is not an endorsement or a contract.
+- 2026 — Invitation to present, APME (Invitation to present). APME (Small and Medium Enterprises Promotion Agency) invited SIGIL to present to its digitalization unit.
+
+## Note
+
+This file is a machine-readable summary of https://sigilsovereign.com. Where it and the site differ, the site is canonical. Nothing here is an endorsement unless explicitly stated as such.

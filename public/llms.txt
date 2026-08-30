@@ -1,0 +1,35 @@
+# SIGIL SARL
+
+> Sovereign Integrity Governance Infrastructure Labs (SIGIL SARL) is a Cameroonian company based in Buea, Cameroon, building sovereign governance infrastructure for public institutions: systems where the institution holds the keys, the data never leaves, and every consequential action is authorized, bounded, and proven. Founded and led by Junior Thuram Nana.
+
+## Systems
+
+- [VIGIL](https://sigilsovereign.com/systems/vigil/): Governed cybersecurity and evidence platform. Status: pre-deployment. Source code: kept strictly private.
+- [RÉCOR](https://sigilsovereign.com/systems/recor/): Sovereign beneficial-ownership registry. Status: pre-deployment. Source code: kept strictly private.
+
+## Key facts
+
+- Legal name: SIGIL SARL
+- Full name: Sovereign Integrity Governance Infrastructure Labs
+- Location: Buea, Cameroon
+- Founder & Managing Director: Junior Thuram Nana
+- Contact: info@sigilsovereign.com
+- Website: https://sigilsovereign.com
+
+## Doctrine
+
+- A technical capability is never an authorization.
+- No finding is trusted until an independent, deterministic check re-verifies it.
+- The institution always holds the keys and can read, export, and stop.
+- Open standards over lock-in.
+
+## Pages
+
+- [Systems](https://sigilsovereign.com/systems/)
+- [VIGIL](https://sigilsovereign.com/systems/vigil/)
+- [RÉCOR](https://sigilsovereign.com/systems/recor/)
+- [How we build](https://sigilsovereign.com/doctrine/)
+- [Record](https://sigilsovereign.com/record/)
+- [Trust](https://sigilsovereign.com/trust/)
+- [Company](https://sigilsovereign.com/company/)
+- [Contact](https://sigilsovereign.com/contact/)

@@ -1,0 +1,13 @@
+SIGIL SARL — PGP public key
+===========================
+
+Fingerprint: C1C4 A87F EB43 04DB 9E62  86A1 F013 6C58 BB19 5F0C
+
+[KEY-PENDING]
+The armored public key block will be published here. Until it is, verify any
+key claiming to be SIGIL's against the fingerprint above, published at
+https://sigilsovereign.com/trust/ and in /.well-known/security.txt.
+
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+(the armored public key will be placed here at deployment)
+-----END PGP PUBLIC KEY BLOCK-----

@@ -1,0 +1,411 @@
+/* ============================================================================
+   SIGIL — design system
+   Registration-mark language: seal (astroid) · rule · terminal · axis.
+   Light is default (a registrar, not a red team); dark follows preference/toggle.
+   ========================================================================== */
+
+/* ---- fonts (self-hosted, subset EN+FR) --------------------------------- */
+@font-face {
+  font-family: "Plex Sans";
+  src: url("/fonts/plex-sans-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+  size-adjust: 100%;
+}
+@font-face {
+  font-family: "Plex Sans";
+  src: url("/fonts/plex-sans-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Plex Mono";
+  src: url("/fonts/plex-mono-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Plex Mono";
+  src: url("/fonts/plex-mono-500.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+
+/* System-font fallbacks with matched metrics keep CLS at 0 if woff2 is absent. */
+:root {
+  --font-sans: "Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Plex Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+
+  /* palette — from the corrected logo + dossier diagram ramp */
+  --seal: #F8605A;
+  --seal-700: #C43E39;
+  --ink: #303030;
+  --ink-900: #141414;
+  --bone: #F7F5F0;
+  --paper: #FFFFFF;
+  --slate: #616872;
+  --diagram-cool: #E8F0F0;
+  --diagram-warm: #F8F0E0;
+  --diagram-deep: #102840;
+
+  /* semantic (light) */
+  --bg: var(--bone);
+  --surface: var(--paper);
+  --text: var(--ink);
+  --text-soft: var(--slate);
+  --accent: var(--seal);
+  --accent-ink: var(--seal-700);          /* accent that must pass AA on light */
+  --focus: #D33F39;                       /* focus ring, ≥3:1 on bone */
+  --rule: rgba(48, 48, 48, 0.14);
+  --rule-strong: rgba(48, 48, 48, 0.28);
+  --grid: rgba(48, 48, 48, 0.045);
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 1px 0 rgba(48,48,48,.06), 0 24px 48px -24px rgba(48,48,48,.25);
+  --code-bg: rgba(48, 48, 48, 0.05);
+
+  /* scale (1.25 modular, 16px base) */
+  --step--1: 0.8rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.5625rem;
+  --step-3: 1.953rem;
+  --step-4: 2.44rem;
+  --step-5: 3.05rem;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  --radius-control: 4px;
+  --radius-card: 12px;
+  --measure: 68ch;
+  --wrap: 74rem;
+
+  --ease-cusp: cubic-bezier(.2, .8, .2, 1);
+  --dur-1: 200ms;
+  --dur-2: 400ms;
+  --dur-3: 800ms;
+
+  color-scheme: light dark;
+}
+
+/* semantic (dark) */
+:root[data-theme="dark"] {
+  --bg: var(--ink-900);
+  --surface: #1c1c1f;
+  --text: var(--bone);
+  --text-soft: #9aa1ab;
+  --accent: var(--seal);
+  --accent-ink: #ff8a84;                   /* lighter coral for AA on dark */
+  --focus: #F8605A;                        /* bright coral ≥3:1 on ink-900 */
+  --rule: rgba(247, 245, 240, 0.14);
+  --rule-strong: rgba(247, 245, 240, 0.3);
+  --grid: rgba(247, 245, 240, 0.05);
+  --glass-bg: rgba(20, 20, 20, 0.6);
+  --glass-border: rgba(247, 245, 240, 0.1);
+  --glass-shadow: 0 1px 0 rgba(0,0,0,.4), 0 24px 48px -24px rgba(0,0,0,.7);
+  --code-bg: rgba(247, 245, 240, 0.06);
+  --diagram-cool: #1e2a2a;
+  --diagram-warm: #2a2620;
+  --diagram-deep: #cfe0f0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: var(--ink-900);
+    --surface: #1c1c1f;
+    --text: var(--bone);
+    --text-soft: #9aa1ab;
+    --accent-ink: #ff8a84;
+    --focus: #F8605A;
+    --rule: rgba(247, 245, 240, 0.14);
+    --rule-strong: rgba(247, 245, 240, 0.3);
+    --grid: rgba(247, 245, 240, 0.05);
+    --glass-bg: rgba(20, 20, 20, 0.6);
+    --glass-border: rgba(247, 245, 240, 0.1);
+    --glass-shadow: 0 1px 0 rgba(0,0,0,.4), 0 24px 48px -24px rgba(0,0,0,.7);
+    --code-bg: rgba(247, 245, 240, 0.06);
+    --diagram-cool: #1e2a2a;
+    --diagram-warm: #2a2620;
+    --diagram-deep: #cfe0f0;
+  }
+}
+
+/* ---- reset ------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* survey-grid ground: fine rules + a soft coral glow behind glass */
+  background-image:
+    radial-gradient(60rem 40rem at 78% -10%, color-mix(in srgb, var(--seal) 9%, transparent), transparent 60%),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: auto, 2.5rem 2.5rem, 2.5rem 2.5rem;
+  background-attachment: fixed, fixed, fixed;
+  min-height: 100vh;
+}
+
+img, svg, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-color: var(--rule-strong); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--accent); }
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- typography -------------------------------------------------------- */
+h1, h2, h3, h4 { line-height: 1.12; font-weight: 600; letter-spacing: -0.01em; }
+h1 { font-size: var(--step-5); letter-spacing: -0.025em; }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-1); }
+h4 { font-size: var(--step-0); }
+p { max-width: var(--measure); }
+p + p { margin-top: var(--space-2); }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-soft);
+}
+.lead { font-size: var(--step-1); line-height: 1.5; color: var(--text); }
+.mono { font-family: var(--font-mono); }
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+/* ---- layout ------------------------------------------------------------ */
+.wrap { width: min(100% - 2.5rem, var(--wrap)); margin-inline: auto; }
+.section { padding-block: var(--space-6); }
+.section:first-of-type { padding-top: var(--space-4); }
+.stack > * + * { margin-top: var(--space-3); }
+.rule-top { border-top: 1px solid var(--rule); }
+
+.grid-2 { display: grid; gap: var(--space-4); }
+.grid-3 { display: grid; gap: var(--space-3); }
+@media (min-width: 46rem) {
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-2.lead-col { grid-template-columns: 1.1fr 0.9fr; }
+}
+
+/* ---- glass card -------------------------------------------------------- */
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-card);
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+  padding: var(--space-3);
+}
+.card h3 { margin-bottom: var(--space-1); }
+
+/* Devices that can't afford blur, or ask not to have it, get solid surfaces. */
+@media (prefers-reduced-transparency: reduce) {
+  .glass { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; border-color: var(--rule); }
+}
+.no-glass .glass { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; border-color: var(--rule); }
+
+/* ---- header / nav ------------------------------------------------------ */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  padding: var(--space-1) 0;
+}
+.site-header .bar {
+  display: flex; align-items: center; gap: var(--space-3);
+  padding: 0.6rem 1rem;
+}
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.02em; text-decoration: none; }
+.brand .mk { width: 2.4rem; height: auto; flex: none; }
+.brand b { font-weight: 500; font-size: var(--step-0); }
+.nav { display: flex; gap: 0.25rem 1.1rem; flex-wrap: wrap; margin-inline-start: auto; align-items: center; }
+.nav a { font-size: var(--step--1); text-decoration: none; padding: 0.35rem 0.2rem; color: var(--text-soft); border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
+.nav .util { display: inline-flex; gap: 0.4rem; }
+.iconbtn {
+  font-family: var(--font-mono); font-size: var(--step--1);
+  background: transparent; color: var(--text-soft);
+  border: 1px solid var(--rule); border-radius: var(--radius-control);
+  padding: 0.3rem 0.55rem; cursor: pointer; line-height: 1;
+}
+.iconbtn:hover { color: var(--text); border-color: var(--rule-strong); }
+.iconbtn[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
+
+/* language banner (first-visit suggestion; never a redirect) */
+.lang-banner {
+  display: none;
+  font-size: var(--step--1);
+  padding: 0.5rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+  text-align: center;
+}
+.lang-banner.show { display: block; }
+.lang-banner a { font-family: var(--font-mono); }
+.lang-banner button { background: none; border: 0; color: var(--text-soft); cursor: pointer; text-decoration: underline; margin-inline-start: 0.5rem; font-size: inherit; }
+
+/* ---- hero -------------------------------------------------------------- */
+.hero { padding-block: var(--space-5) var(--space-4); }
+.hero .mk-hero { width: min(38rem, 82vw); height: auto; margin-bottom: var(--space-3); }
+.hero h1 { max-width: 20ch; }
+.hero .thesis { font-size: var(--step-2); line-height: 1.32; max-width: 34ch; margin-top: var(--space-2); font-weight: 400; }
+.hero .thesis b { font-weight: 600; }
+
+/* ---- buttons ----------------------------------------------------------- */
+.btn {
+  --t: 0px;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.02em;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--ink); background: var(--ink); color: var(--bone);
+  text-decoration: none; cursor: pointer;
+  transition: transform var(--dur-1) var(--ease-cusp);
+}
+:root[data-theme="dark"] .btn { border-color: var(--bone); background: var(--bone); color: var(--ink-900); }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--rule-strong); }
+.btn .term { transition: transform var(--dur-1) var(--ease-cusp); }
+.btn:hover .term { transform: translateX(4px); }
+
+/* ---- section heading with stamping seal -------------------------------- */
+.h-seal { display: inline-flex; align-items: center; gap: 0.55rem; }
+.h-seal .mk-glyph { width: 1.1em; height: 1.1em; flex: none; opacity: 0; transform: scale(0.6) rotate(-8deg); }
+.h-seal.stamped .mk-glyph { animation: stamp var(--dur-2) var(--ease-cusp) forwards; }
+
+/* ---- status chip ------------------------------------------------------- */
+.chip {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-size: var(--step--1);
+  padding: 0.25rem 0.55rem; border-radius: 999px;
+  border: 1px solid var(--rule-strong); color: var(--text-soft);
+}
+.chip::before { content: ""; width: 0.5rem; height: 0.5rem; border-radius: 999px; background: var(--accent); }
+.chip.status-pre::before { background: var(--slate); }
+
+/* ---- guarantees table -------------------------------------------------- */
+.table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius-card); }
+table { border-collapse: collapse; width: 100%; font-size: var(--step-0); }
+th, td { text-align: left; padding: 0.8rem 1rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+thead th { font-family: var(--font-mono); font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-soft); background: color-mix(in srgb, var(--text) 3%, transparent); }
+tbody tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 600; white-space: nowrap; }
+
+/* ---- systems index cards ---------------------------------------------- */
+.system-card { display: flex; flex-direction: column; gap: var(--space-1); text-decoration: none; color: inherit; padding: var(--space-3); }
+.system-card:hover { border-color: var(--rule-strong); }
+.system-card .name { font-family: var(--font-mono); font-size: var(--step-2); display: flex; align-items: baseline; gap: 0.6rem; }
+.system-card .tagline { color: var(--text-soft); }
+.system-card .more { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent-ink); margin-top: auto; }
+
+/* ---- record list ------------------------------------------------------- */
+.record { list-style: none; padding: 0; }
+.record li { display: grid; gap: 0.3rem 1.5rem; padding: var(--space-3) 0; border-top: 1px solid var(--rule); }
+@media (min-width: 46rem) { .record li { grid-template-columns: 9rem 1fr; } }
+.record .date { font-family: var(--font-mono); color: var(--text-soft); font-size: var(--step--1); padding-top: 0.2rem; }
+.record .title { font-weight: 600; }
+.record .artifact { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent-ink); }
+
+/* ---- diagram frame ----------------------------------------------------- */
+figure.diagram { border: 1px solid var(--rule); border-radius: var(--radius-card); padding: var(--space-3); background: var(--surface); }
+figure.diagram svg { width: 100%; height: auto; }
+figure.diagram figcaption { font-size: var(--step--1); color: var(--text-soft); margin-top: var(--space-2); font-family: var(--font-mono); }
+
+/* ---- notes / prose ----------------------------------------------------- */
+.prose { max-width: var(--measure); }
+.prose h2 { margin-top: var(--space-4); }
+.prose h3 { margin-top: var(--space-3); }
+.prose p, .prose ul, .prose ol { margin-top: var(--space-2); }
+.prose ul, .prose ol { padding-inline-start: 1.4rem; }
+.prose li + li { margin-top: 0.4rem; }
+.prose blockquote { border-inline-start: 3px solid var(--accent); padding-inline-start: 1rem; color: var(--text-soft); font-style: italic; margin-top: var(--space-2); }
+
+/* ---- footer ------------------------------------------------------------ */
+.site-footer { border-top: 1px solid var(--rule); padding-block: var(--space-4); margin-top: var(--space-5); font-size: var(--step--1); }
+.site-footer .cols { display: grid; gap: var(--space-3); }
+@media (min-width: 46rem) { .site-footer .cols { grid-template-columns: 2fr 1fr 1fr; } }
+.site-footer a { color: var(--text-soft); text-decoration: none; display: block; padding: 0.15rem 0; }
+.site-footer a:hover { color: var(--text); }
+.site-footer .legal { color: var(--text-soft); margin-top: var(--space-3); display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; align-items: center; }
+.controlled { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; color: var(--text-soft); text-transform: uppercase; }
+
+/* ---- skip link --------------------------------------------------------- */
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--bone); padding: 0.6rem 1rem; z-index: 100; border-radius: 0 0 var(--radius-control) 0; }
+.skip:focus { left: 0; }
+
+/* ---- utilities --------------------------------------------------------- */
+.muted { color: var(--text-soft); }
+.center { text-align: center; }
+.flow-tight > * + * { margin-top: var(--space-1); }
+.pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag { font-family: var(--font-mono); font-size: var(--step--1); border: 1px solid var(--rule); border-radius: 999px; padding: 0.2rem 0.6rem; color: var(--text-soft); }
+.callout { border: 1px solid var(--rule-strong); border-left: 3px solid var(--accent); border-radius: var(--radius-card); padding: var(--space-3); background: var(--surface); }
+.callout strong { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); display: block; margin-bottom: var(--space-1); }
+
+/* ============================================================================
+   MOTION — every animation has a job. All opt out under reduced-motion.
+   ========================================================================== */
+@keyframes stamp {
+  0% { opacity: 0; transform: scale(0.6) rotate(-8deg); }
+  60% { opacity: 1; transform: scale(1.08) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+/* mark draw-in: arms extend from the seal, then the seal blooms */
+.mk-animated .mk-arm { transform-box: fill-box; }
+.mk-animated.play .mk-arm {
+  animation: armgrow var(--dur-3) var(--ease-cusp) both;
+  animation-delay: calc(var(--mk-i) * 60ms);
+}
+.mk-animated.play .mk-arm[style*="--mk-i:0"] { animation-duration: var(--dur-3); }
+.mk-animated .mk-seal { transform-box: fill-box; transform-origin: center; }
+.mk-animated.play .mk-seal { animation: bloom var(--dur-3) var(--ease-cusp) both; animation-delay: 240ms; }
+@keyframes armgrow { from { opacity: 0; transform: scaleX(0.05); transform-origin: left center; } to { opacity: 1; transform: scaleX(1); } }
+@keyframes bloom { 0% { opacity: 0; transform: scale(0.2); } 70% { transform: scale(1.04); } 100% { opacity: 1; transform: scale(1); } }
+
+/* reading axis (top progress rule) */
+.axis { position: fixed; top: 0; left: 0; height: 2px; width: 100%; z-index: 60; background: transparent; pointer-events: none; }
+.axis > i { display: block; height: 100%; width: var(--p, 0%); background: var(--accent); transition: width 80ms linear; }
+
+/* reveal on scroll — only hidden once JS is confirmed present (html.js), so a
+   no-JS or JS-error render shows everything. */
+.js .reveal { opacity: 0; transform: translateY(12px); transition: opacity var(--dur-2) var(--ease-cusp), transform var(--dur-2) var(--ease-cusp); }
+.js .reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mk-animated.play .mk-arm,
+  .mk-animated.play .mk-seal { animation: none; }
+  .h-seal .mk-glyph { opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .axis { display: none; }
+  .btn .term { transition: none; }
+}
+
+/* ---- print ------------------------------------------------------------- */
+@media print {
+  body { background: #fff; color: #000; }
+  .site-header, .site-footer, .axis, .lang-banner, .btn { display: none !important; }
+  .glass { background: #fff; box-shadow: none; border: 1px solid #ccc; }
+  a { text-decoration: underline; }
+}

@@ -1,0 +1,15 @@
+# Cloudflare Worker config for the briefing form.
+# Deploy: cd worker && wrangler deploy  (after setting secrets — see deploy/README.md)
+name = "sigil-briefing"
+main = "briefing.js"
+compatibility_date = "2026-01-01"
+
+# Bind the Worker to the same-origin endpoint the contact form posts to.
+routes = [
+  { pattern = "sigilsovereign.com/api/briefing", zone_name = "sigilsovereign.com" }
+]
+
+# Secrets (set with `wrangler secret put NAME`, never commit):
+#   ZOHO_USER, ZOHO_PASS, TO_ADDRESS, RECEIPT_SECRET, TURNSTILE_SECRET (optional)
+[vars]
+# non-secret defaults can go here if desired

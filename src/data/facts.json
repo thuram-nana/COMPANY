@@ -1,0 +1,97 @@
+{
+  "org": {
+    "legalName": "SIGIL SARL",
+    "shortName": "SIGIL",
+    "fullName": "Sovereign Integrity Governance Infrastructure Labs",
+    "location": "Buea, Cameroon",
+    "country": "CM",
+    "phone": "+237 672 571 821",
+    "email": "info@sigilsovereign.com",
+    "securityEmail": "security@sigilsovereign.com",
+    "pressEmail": "press@sigilsovereign.com",
+    "domain": "sigilsovereign.com",
+    "url": "https://sigilsovereign.com",
+    "founderName": "Junior Thuram Nana",
+    "founderRole": "Founder & Managing Director",
+    "founderId": "https://thuramnana.com/#person",
+    "pgpFingerprint": "C1C4 A87F EB43 04DB 9E62 86A1 F013 6C58 BB19 5F0C",
+    "foundedYear": "2026"
+  },
+  "systems": [
+    {
+      "slug": "vigil",
+      "name": "VIGIL",
+      "status": "pre-deployment",
+      "category": "GovernmentApplication",
+      "code_visibility": "private",
+      "en": {
+        "tagline": "Governed cybersecurity and evidence platform",
+        "answer": "VIGIL is a cybersecurity platform that helps duly authorized operators find, confirm, remediate, and document vulnerabilities — under one rule: a technical capability is never an authorization. No model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it.",
+        "standards": ["OWASP", "MITRE ATT&CK", "NIST 800-115", "PTES", "PASTA"]
+      },
+      "fr": {
+        "tagline": "Plateforme de cybersécurité gouvernée et de preuve",
+        "answer": "VIGIL est une plateforme de cybersécurité qui assiste des opérateurs dûment autorisés dans l’identification, la confirmation, la correction et la documentation de vulnérabilités — selon un principe unique : une capacité technique n’est jamais une autorisation. Aucun modèle ni agent ne s’auto-autorise, et aucun constat n’est retenu tant qu’une vérification indépendante et re-vérifiable ne l’a pas confirmé.",
+        "standards": ["OWASP", "MITRE ATT&CK", "NIST 800-115", "PTES", "PASTA"]
+      }
+    },
+    {
+      "slug": "recor",
+      "name": "RÉCOR",
+      "status": "pre-deployment",
+      "category": "GovernmentApplication",
+      "code_visibility": "private",
+      "en": {
+        "tagline": "Sovereign beneficial-ownership registry",
+        "answer": "RÉCOR is a sovereign beneficial-ownership registry designed for Cameroon, built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS v0.4). Its conformance was confirmed in a demonstration to Open Ownership on 1 July 2026.",
+        "standards": ["FATF R.24", "FATF R.25", "BODS v0.4"]
+      },
+      "fr": {
+        "tagline": "Registre souverain des bénéficiaires effectifs",
+        "answer": "RÉCOR est un registre souverain des bénéficiaires effectifs conçu pour le Cameroun, bâti pour satisfaire les recommandations 24 et 25 du GAFI et exporter vers le standard de données sur les bénéficiaires effectifs (BODS v0.4). Sa conformité a été confirmée lors d’une démonstration à Open Ownership le 1 juillet 2026.",
+        "standards": ["GAFI R.24", "GAFI R.25", "BODS v0.4"]
+      }
+    }
+  ],
+  "record": [
+    {
+      "date": "2026-07-01",
+      "en": {
+        "title": "Open Ownership demonstration of RÉCOR",
+        "artifact": "Technical demonstration; BODS v0.4 conformance confirmed",
+        "detail": "RÉCOR was demonstrated to Open Ownership, confirming conformance with the Beneficial Ownership Data Standard v0.4. This is a technical demonstration and conformance confirmation, not an endorsement."
+      },
+      "fr": {
+        "title": "Démonstration de RÉCOR à Open Ownership",
+        "artifact": "Démonstration technique ; conformité BODS v0.4 confirmée",
+        "detail": "RÉCOR a été présenté à Open Ownership, confirmant la conformité au standard de données sur les bénéficiaires effectifs (BODS v0.4). Il s’agit d’une démonstration technique et d’une confirmation de conformité, non d’un soutien institutionnel."
+      }
+    },
+    {
+      "date": "2026",
+      "en": {
+        "title": "Letter of appreciation, UNDP Cameroon",
+        "artifact": "Letter of appreciation",
+        "detail": "UNDP Cameroon issued a letter of appreciation. A letter of appreciation is not an endorsement or a contract."
+      },
+      "fr": {
+        "title": "Lettre d’appréciation, PNUD Cameroun",
+        "artifact": "Lettre d’appréciation",
+        "detail": "Le PNUD Cameroun a émis une lettre d’appréciation. Une lettre d’appréciation ne constitue ni un soutien ni un contrat."
+      }
+    },
+    {
+      "date": "2026",
+      "en": {
+        "title": "Invitation to present, APME",
+        "artifact": "Invitation to present",
+        "detail": "APME (Small and Medium Enterprises Promotion Agency) invited SIGIL to present to its digitalization unit."
+      },
+      "fr": {
+        "title": "Invitation à présenter, APME",
+        "artifact": "Invitation à présenter",
+        "detail": "L’APME (Agence de Promotion des Petites et Moyennes Entreprises) a invité SIGIL à présenter devant son unité de digitalisation."
+      }
+    }
+  ]
+}
