@@ -1,5 +1,6 @@
 /* Briefing form enhancement. Loaded only on the contact page.
-   If /api/briefing is live (the PHP handler on cPanel, or the Cloudflare Worker),
+   If /api/briefing is live (the serverless function on Vercel, the PHP handler
+   on cPanel, or the Cloudflare Worker),
    the form submits via fetch and shows an inline receipt; the button and the
    note under it say so. If that POST fails, the button and note revert to the
    native mailto: behaviour and the next submit opens the visitor's mail client,

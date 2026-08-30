@@ -6,24 +6,28 @@ to a live, secured, indexed site. It is written to be followed top to bottom.
 Everything the site needs at runtime is static; the only server-side component is
 the optional briefing-form handler (§5). The site works without it.
 
-**Where things stand (30 Aug 2026).** The domain is registered at Namecheap and
-already points at a **Namecheap shared-hosting (cPanel / LiteSpeed) account** —
-nameservers `dns1/dns2.namecheaphosting.com`, server `server402-2.web-hosting.com`,
-AutoSSL certificate issued for the apex and `www`. It currently serves the
-Namecheap parking page. §4c below is the path that matches what you have; the
-Cloudflare Pages and Caddy paths (§4a, §4b) remain valid if you move later.
+**Where things stand (30 Aug 2026).** The domain is registered at Namecheap; its
+DNS runs on the Namecheap shared-hosting nameservers
+(`dns1/dns2.namecheaphosting.com`, server `server402-2.web-hosting.com`), which
+also host mail. **The chosen web host is Vercel (§4d):** DNS stays where it is —
+only the `@` A record and the `www` record point at Vercel, so cPanel mail keeps
+working untouched. The Namecheap-cPanel (§4c), Cloudflare Pages (§4a) and Caddy
+(§4b) paths remain fully documented if you ever move.
 
 ---
 
 ## 0. What you are deploying
 
 - A static site in `dist/` (38 pages, EN + FR, plus machine files).
-- Security headers, three ways — pick the one your host reads:
-  `public/.htaccess` (Apache / LiteSpeed, i.e. **Namecheap cPanel**),
-  `public/_headers` (Cloudflare Pages), `deploy/Caddyfile` (Caddy origin).
-  Keep the three in sync; the CSP hash lives in all of them.
-- The briefing-form handler, two ways: `public/api/briefing.php` (runs as-is on
-  cPanel) or the Cloudflare Worker in `worker/`. Optional either way.
+- Security headers, four ways — the host you deploy to reads exactly one:
+  `vercel.json` (**Vercel — the chosen host**), `public/.htaccess`
+  (Apache / LiteSpeed, i.e. Namecheap cPanel), `public/_headers` (Cloudflare
+  Pages), `deploy/Caddyfile` (Caddy origin). Keep them in sync; the build fails
+  if the CSP hash drifts in any of the four.
+- The briefing-form handler, three ways: `api/briefing.js` (Vercel serverless
+  function, SMTP), `public/api/briefing.php` (runs as-is on cPanel), or the
+  Cloudflare Worker in `worker/`. Optional either way — without one the form
+  falls back to the visitor's own mail client.
 - CI that builds, tests, deploys, smoke-tests, and pings indexers
   (`.github/workflows/ci.yml`), and `.cpanel.yml` for cPanel's own Git deploy.
 
@@ -149,7 +153,89 @@ Then, for full marks on mail-security scanners:
 
 ## 4. Hosting — choose one
 
-### 4c. Namecheap shared hosting — cPanel / LiteSpeed (what you have)
+### 4d. Vercel (the chosen host)
+
+Static files plus one serverless function. `vercel.json` carries the headers,
+caching, and trailing-slash canonicalisation; `api/briefing.js` serves
+`POST /api/briefing`. CI deploys with the Vercel CLI after every green build on
+`main` — production only ever gets what the tests passed.
+
+**One-time setup (≈10 minutes):**
+
+1. **Account + token.** Sign up at <https://vercel.com/signup> (you can log in
+   with your GitHub account). **Plan:** Vercel's fair-use terms restrict the free
+   Hobby plan to personal, non-commercial use; a company site belongs on **Pro**
+   (US$20/user/month, trial available) — Hobby will work technically but risks
+   the deployment being paused for policy reasons. Your call to make, knowingly.
+   Then create a token at <https://vercel.com/account/settings/tokens> — name it
+   `sigil-ci`, scope: your account, expiration as you like. Copy it.
+2. **GitHub secret.** Add `VERCEL_TOKEN` at
+   <https://github.com/thuram-nana/COMPANY/settings/secrets/actions/new>.
+   That is the only secret this path needs — CI creates/links the Vercel project
+   (`sigilsovereign`) by itself on the first run.
+3. **First deploy.** Push to `main` or run the workflow by hand
+   (<https://github.com/thuram-nana/COMPANY/actions/workflows/ci.yml> → *Run
+   workflow*). The `deploy` job builds, deploys to production, and tries to
+   attach the domains (harmless if that needs finishing in the dashboard).
+4. **Domains.** In the Vercel dashboard → project `sigilsovereign` → **Settings →
+   Domains**, make sure both `sigilsovereign.com` (primary) and
+   `www.sigilsovereign.com` (redirect to the primary) are listed. Vercel shows
+   the DNS records it wants — use exactly those values in step 5.
+5. **DNS (cPanel → Zone Editor → Manage;** mail stays untouched**):**
+   - Edit the `A` record for `sigilsovereign.com.` → change `162.213.253.110` to
+     the IP Vercel's domain page shows (typically `76.76.21.21`).
+   - Delete the `A` record for `www.sigilsovereign.com.` and add a `CNAME`
+     `www` → exactly the value Vercel shows (a project-specific
+     `….vercel-dns-0xx.com` name on newer projects).
+   - Touch nothing else: `MX`, `mail`, `webmail`, TXT records all stay.
+   Propagation is minutes (up to a few hours). Vercel then issues certificates
+   for both names automatically.
+6. **Verify.** Re-run the workflow (the Vercel smoke test arms itself once the
+   domain resolves to Vercel), or locally:
+   `bash deploy/smoke.sh https://sigilsovereign.com` — all `ok`.
+7. **Briefing form (optional server-side sending).** The form works from day one
+   via the visitor's mail client. To make it send server-side, give the function
+   SMTP credentials in Vercel → project → **Settings → Environment Variables**
+   (Production):
+
+   | Variable | Value |
+   |----------|-------|
+   | `BRIEFING_SMTP_HOST` | `server402-2.web-hosting.com` (cPanel mail) or `smtp.zoho.com` |
+   | `BRIEFING_SMTP_PORT` | `465` |
+   | `BRIEFING_SMTP_USER` | `website@sigilsovereign.com` — create this mailbox first (§2a) |
+   | `BRIEFING_SMTP_PASS` | that mailbox's password |
+   | `BRIEFING_TO` | `info@sigilsovereign.com` |
+   | `RECEIPT_SECRET` | any long random string (optional) |
+
+   Redeploy (any push) and `curl -s https://sigilsovereign.com/api/briefing`
+   must answer `405 {"ok":false,"error":"method_not_allowed"}`.
+
+**Notes.**
+- The briefing function rate-limits per warm instance (5/IP per 10 min, 60/hour
+  overall — same numbers as the PHP handler), but serverless instances don't
+  share state, so this is best-effort. For hard enforcement add a Vercel WAF
+  rate-limit rule on `POST /api/briefing` (Firewall tab; requires the Pro plan)
+  or an external store.
+- Page URLs canonicalise to a trailing slash via an explicit redirect that
+  **excludes `/api/`** — Vercel's `trailingSlash: true` would 308-redirect
+  `/api/briefing` before the function runs. Keep it that way.
+- Vercel answers permanent redirects with **308** (equivalent to 301; the smoke
+  test accepts both) and redirects `http://` to `https://` on the same host, so
+  the HSTS-preload requirements hold here too.
+- The 404 page is the built `404.html`; Vercel has no per-directory 404s, so
+  `/fr/…` misses get the English page (correct 404 status either way).
+- `vercel build` in CI strips the files that belong to other hosts
+  (`_headers`, `.htaccess`, `api/briefing.php`) from the upload.
+- **Alternative (no CI involvement):** import the repo in the Vercel dashboard
+  (<https://vercel.com/new>, framework "Other" — `vercel.json` supplies the
+  build). Vercel then deploys every push itself. Downsides: deploys are not
+  gated on the test suite, and Vercel's shallow clone degrades the sitemap's
+  per-page `lastmod` accuracy. Don't run both paths at once — pick the token
+  path **or** the Git integration.
+- If Namecheap hosting is ever cancelled, its nameservers go with it: move DNS
+  to Cloudflare (§1b) or Namecheap BasicDNS first, re-creating the records.
+
+### 4c. Namecheap shared hosting — cPanel / LiteSpeed (fallback, fully wired)
 
 The site is plain files in `public_html`; `public/.htaccess` (built into
 `dist/.htaccess`) supplies HTTPS + `www`→apex redirects, the security headers,
@@ -267,7 +353,10 @@ The contact form works with no server at all: JavaScript posts to
 native `mailto:` action and opens the visitor's mail client. Deploying a handler
 upgrades that to a true server-side submission with an inline receipt.
 
-### 5a. On Namecheap / cPanel — `public/api/briefing.php` (already deployed)
+**On Vercel — the chosen host — the handler is `api/briefing.js`; its SMTP
+variables are in §4d step 7.** The sections below cover the other hosts.
+
+### 5a. On Namecheap / cPanel — `public/api/briefing.php`
 
 Nothing to install: the file ships with `dist/`, `.htaccess` routes
 `/api/briefing` to it, and it sends with PHP `mail()` through the server's MTA.
@@ -330,7 +419,8 @@ honeypot works without any of this.
 
 | Secret | For | Required? |
 |--------|-----|-----------|
-| `NAMECHEAP_FTP_HOST` / `_USER` / `_PASSWORD` | Namecheap FTPS deploy (§4c) | **yes, for the current hosting** |
+| `VERCEL_TOKEN` | Vercel deploy (§4d) | **yes — the chosen host** |
+| `NAMECHEAP_FTP_HOST` / `_USER` / `_PASSWORD` | Namecheap FTPS deploy (§4c) | only if using cPanel hosting |
 | `NAMECHEAP_FTP_DIR` (a *variable*) | upload directory, default `public_html/` | optional |
 | `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` | Pages deploy (§4a) | if using Pages |
 | `INDEXNOW_KEY` | IndexNow ping | recommended |
@@ -367,9 +457,10 @@ console.log("sha256-" + h);
 EOS
 ```
 
-Put the new value in `public/.htaccess`, `public/_headers`, and `deploy/Caddyfile`
-(the `script-src` directive). `scripts/build.mjs` recomputes the hash on every
-build and **fails if any of the three files does not allowlist it**;
+Put the new value in `vercel.json`, `public/.htaccess`, `public/_headers`, and
+`deploy/Caddyfile` (the `script-src` directive). `scripts/build.mjs` recomputes
+the hash on every build and **fails if any of the four files does not allowlist
+it**;
 `deploy/smoke.sh` re-checks it against the live site. Browsers hash the exact
 child text of the `<script>` element — the newlines after `<script>` and before
 `</script>` included — which is why the recipe above must not trim.
@@ -387,9 +478,10 @@ stay restricted to `'self'`.
       it names the real issuer.
 - [ ] Mail: `info@`, `security@`, `press@` receive mail; SPF/DKIM/DMARC pass at
       internet.nl / dmarcian; Remote Mail Exchanger set if MX is external.
-- [ ] Namecheap: FTP secrets set; `nc_assets/` and placeholder files removed;
-      no cPanel tool writes to `public_html/.htaccess`; CI `deploy` job green;
-      `bash deploy/smoke.sh https://sigilsovereign.com` all `ok`.
+- [ ] Vercel: `VERCEL_TOKEN` set; domains attached; DNS `@`/`www` moved (§4d);
+      CI `deploy` job green; `bash deploy/smoke.sh https://sigilsovereign.com`
+      all `ok`. (If on cPanel instead: FTP secrets set, `nc_assets/` removed,
+      no cPanel tool writes to `public_html/.htaccess`.)
 - [ ] `https://sigilsovereign.com` serves; `www` and `http://` redirect in one hop.
 - [ ] Headers score **A+** at securityheaders.com and Mozilla Observatory.
 - [ ] Briefing form: a test submission arrives with a `SIGIL-…` receipt.
@@ -418,10 +510,13 @@ stay restricted to `'self'`.
 The full plan is in `docs/GEO-AEO-PLAN.md`. Everything on-site is enforced in
 code and CI. These are the steps only the founder can take, in priority order.
 
-**Edge blocking (one-time, critical):** on Namecheap there is no bot-blocking
-layer, so nothing to switch off. If you ever put Cloudflare in front: under
-Security → Bots, set "Block AI bots" / "AI Scrapers and Crawlers" to **OFF** and
-Pay-Per-Crawl to **OFF**. Do not apply a managed challenge to verified crawlers.
+**Edge blocking (one-time, critical):** on Vercel, edge blocking is opt-in — in
+the project's **Firewall** tab, leave **Attack Challenge Mode OFF** in normal
+operation (it challenges every visitor, crawlers included), do not enable
+managed bot-protection / "block AI bots" rules, and make sure no custom WAF rule
+challenges verified crawlers. (On Namecheap hosting there is no bot-blocking
+layer. If you ever put Cloudflare in front: Security → Bots → "Block AI bots"
+**OFF**, Pay-Per-Crawl **OFF**, no managed challenge for verified crawlers.)
 `robots.txt` is an honor system; an edge block silently removes the site from
 every AI answer engine.
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Post-deploy smoke test — run by CI after the Namecheap upload, or by hand:
+# Post-deploy smoke test — run by CI after the Vercel or Namecheap deploy, or by hand:
 #   bash deploy/smoke.sh https://sigilsovereign.com
 # Fails (exit 1) if the live site does not serve the build with the expected
 # redirects, headers, 404 pages, machine files, and form endpoint.
@@ -37,19 +37,24 @@ else
   bad "CSP hash" "could not find the inline <head> script in the home page"
 fi
 
+# Permanent redirects: LiteSpeed/.htaccess answers 301, Vercel answers 308 — both are correct.
+redir() { grep -qE "^30(1|8) " <<<"$1"; }
 r="$(curl -s -o /dev/null -m 25 -w '%{http_code} %{redirect_url}' "https://www.$HOST/")"
-[ "$r" = "301 $BASE/" ] && ok "https www → apex 301" || bad "https www → apex" "got: $r"
+redir "$r" && [ "${r#* }" = "$BASE/" ] && ok "https www → apex (${r%% *})" || bad "https www → apex" "got: $r"
 r="$(curl -s -o /dev/null -m 25 -w '%{http_code} %{redirect_url}' "http://$HOST/systems/vigil/")"
-[ "$r" = "301 $BASE/systems/vigil/" ] && ok "http → https 301 (single hop, path kept)" || bad "http → https" "got: $r"
+redir "$r" && [ "${r#* }" = "$BASE/systems/vigil/" ] && ok "http → https (single hop, path kept, ${r%% *})" || bad "http → https" "got: $r"
 r="$(curl -s -o /dev/null -m 25 -w '%{http_code} %{redirect_url}' "http://www.$HOST/")"
-[ "$r" = "301 https://www.$HOST/" ] && ok "http www → https www 301 (same host first, HSTS-preload rule)" || bad "http www → https www" "got: $r"
+redir "$r" && [ "${r#* }" = "https://www.$HOST/" ] && ok "http www → https www (same host first, HSTS-preload rule, ${r%% *})" || bad "http www → https www" "got: $r"
 
 [ "$(code "$BASE/systems/vigil/")" = "200" ] && ok "nested route /systems/vigil/" || bad "nested route" "/systems/vigil/ not 200"
 [ "$(code "$BASE/fr/")" = "200" ]            && ok "french mirror /fr/"          || bad "french mirror" "/fr/ not 200"
 r="$(curl -s -o /dev/null -m 25 -w '%{http_code}' "$BASE/this-page-does-not-exist/")"
 [ "$r" = "404" ] && ok "unknown route → 404" || bad "404 status" "got: $r"
 curl -s -m 25 "$BASE/this-page-does-not-exist/" | grep -q "SIGIL SARL" && ok "404 page is the built 404.html" || bad "404 body" "custom 404 page not served"
-curl -s -m 25 "$BASE/fr/page-inexistante/" | grep -q 'lang="fr"' && ok "French 404 page under /fr/" || bad "French 404" "/fr/* 404 is not the French page"
+frc="$(code "$BASE/fr/page-inexistante/")"; frb="$(curl -s -m 25 "$BASE/fr/page-inexistante/")"
+if [ "$frc" = "404" ] && grep -q '<html lang="fr"' <<<"$frb"; then ok "French 404 page under /fr/"
+elif [ "$frc" = "404" ] && grep -q "SIGIL SARL" <<<"$frb"; then ok "404 under /fr/ serves the built page (English — this host has no scoped 404s)"
+else bad "French 404" "status $frc, body not a built 404 page"; fi
 
 ct="$(hdr "$BASE/.well-known/security.txt" content-type)"
 grep -qi "text/plain" <<<"$ct" && ok "security.txt is text/plain" || bad "security.txt" "content-type: $ct"
@@ -59,11 +64,12 @@ grep -qi "text/plain" <<<"$ct" && ok "security.txt is text/plain" || bad "securi
 [ "$(code "$BASE/styles/app.css")" = "200" ]    && ok "stylesheet"    || bad "stylesheet" "/styles/app.css not 200"
 [ "$(code "$BASE/fonts/plex-sans-400.woff2")" = "200" ] && ok "fonts" || bad "fonts" "woff2 not 200"
 
-# The PHP handler ships with every deploy: a GET must get the JSON 405, not a 404 page or raw source.
+# A briefing handler ships with every deploy (api/briefing.js on Vercel, briefing.php
+# on cPanel, the Worker on Cloudflare): a GET must get the JSON 405, not a 404 or a redirect.
 r="$(curl -s -m 25 -w '\n%{http_code}' "$BASE/api/briefing")"
 rb="${r%$'\n'*}"; rc="${r##*$'\n'}"
 if [ "$rc" = "405" ] && [ "$rb" = '{"ok":false,"error":"method_not_allowed"}' ]; then
-  ok "briefing endpoint answers 405 JSON to GET (PHP handler live)"
+  ok "briefing endpoint answers 405 JSON to GET (handler live)"
 else
   bad "briefing endpoint" "GET → $rc, body: ${rb:0:80} (expected 405 {\"ok\":false,\"error\":\"method_not_allowed\"})"
 fi

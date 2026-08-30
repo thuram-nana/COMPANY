@@ -29,6 +29,7 @@ jobs:
 
       - name: Generate llms + build
         run: |
+          export BUILD_DATE=$(git log -1 --format=%cs)   # deterministic across jobs
           node scripts/gen-llms.mjs
           node scripts/build.mjs
 
@@ -81,12 +82,15 @@ jobs:
     # every earlier run of this workflow failed at startup with no jobs). Expose
     # "is this secret set?" flags through the job environment instead.
     env:
+      HAS_VERCEL:     ${{ secrets.VERCEL_TOKEN != '' }}
       HAS_NAMECHEAP:  ${{ secrets.NAMECHEAP_FTP_HOST != '' && secrets.NAMECHEAP_FTP_USER != '' && secrets.NAMECHEAP_FTP_PASSWORD != '' }}
       HAS_CLOUDFLARE: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
       HAS_INDEXNOW:   ${{ secrets.INDEXNOW_KEY != '' }}
       HAS_GSC:        ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # `vercel build` rebuilds; sitemap lastmod needs history
       - uses: actions/setup-node@v4
         with:
           node-version: 22   # html-validate 11 needs Node ^22.22 || >=24.8
@@ -100,15 +104,46 @@ jobs:
 
       - name: Deploy target summary
         run: |
+          echo "Vercel:             $HAS_VERCEL"
           echo "Namecheap (FTPS):   $HAS_NAMECHEAP"
           echo "Cloudflare Pages:   $HAS_CLOUDFLARE"
           echo "IndexNow ping:      $HAS_INDEXNOW"
           echo "GSC sitemap submit: $HAS_GSC"
-          if [ "$HAS_NAMECHEAP" != "true" ] && [ "$HAS_CLOUDFLARE" != "true" ]; then
-            echo "::warning::No deploy target configured — set all three NAMECHEAP_FTP_* secrets (or CLOUDFLARE_*); see deploy/README.md §4"
+          if [ "$HAS_VERCEL" != "true" ] && [ "$HAS_NAMECHEAP" != "true" ] && [ "$HAS_CLOUDFLARE" != "true" ]; then
+            echo "::warning::No deploy target configured — set VERCEL_TOKEN (or the NAMECHEAP_FTP_* / CLOUDFLARE_* secrets); see deploy/README.md §4"
           fi
 
-      # --- Target A: Namecheap shared hosting (cPanel / LiteSpeed) over FTPS -----
+      # --- Target A: Vercel (runbook §4d — the chosen host) ------------------------
+      # One secret: VERCEL_TOKEN. `vercel link --yes` creates/link the project,
+      # `vercel build` rebuilds from source on this runner (full git history, so
+      # sitemap lastmod stays accurate) and bundles api/briefing.js, and
+      # `deploy --prebuilt --prod` ships exactly that output.
+      - name: Deploy to Vercel (production)
+        if: env.HAS_VERCEL == 'true'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          export BUILD_DATE=$(git log -1 --format=%cs)   # same date stamp as the tested build
+          npm i -g vercel@latest
+          vercel link --yes --project sigilsovereign --token "$VERCEL_TOKEN"
+          vercel pull --yes --environment=production --token "$VERCEL_TOKEN"
+          vercel build --prod --token "$VERCEL_TOKEN"
+          vercel deploy --prebuilt --prod --token "$VERCEL_TOKEN"
+          # Best-effort domain attach TO THE PROJECT (second positional arg);
+          # harmless if already attached — finish in the dashboard otherwise.
+          vercel domains add sigilsovereign.com sigilsovereign --token "$VERCEL_TOKEN" || true
+          vercel domains add www.sigilsovereign.com sigilsovereign --token "$VERCEL_TOKEN" || true
+
+      - name: Smoke-test the live site (Vercel)
+        if: env.HAS_VERCEL == 'true'
+        run: |
+          if curl -sI -m 20 https://sigilsovereign.com/ | grep -qiE '^server: *vercel'; then
+            bash deploy/smoke.sh https://sigilsovereign.com
+          else
+            echo "::notice::sigilsovereign.com does not resolve to Vercel yet (DNS pending) — smoke test skipped; see deploy/README.md §4d for the DNS records"
+          fi
+
+      # --- Target B: Namecheap shared hosting (cPanel / LiteSpeed) over FTPS -----
       # Secrets: NAMECHEAP_FTP_HOST, NAMECHEAP_FTP_USER, NAMECHEAP_FTP_PASSWORD.
       # Variable (optional): NAMECHEAP_FTP_DIR — where the FTP login lands relative
       # to the site root. Main cPanel login → "public_html/" (default); a dedicated
@@ -132,11 +167,11 @@ jobs:
             _headers
             sbom.json
 
-      - name: Smoke-test the live site
+      - name: Smoke-test the live site (Namecheap)
         if: env.HAS_NAMECHEAP == 'true'
         run: bash deploy/smoke.sh https://sigilsovereign.com
 
-      # --- Target B: Cloudflare Pages (runbook §4a) --------------------------------
+      # --- Target C: Cloudflare Pages (runbook §4a) --------------------------------
       # The FTP action drops its state file into dist/; that and the
       # Apache/PHP-only files must not be published on Pages.
       - name: Strip Namecheap-only files before the Pages upload
@@ -152,17 +187,17 @@ jobs:
 
       # --- Post-deploy indexing pings (only once something was deployed) ----------
       - name: IndexNow ping (changed URLs)
-        if: env.HAS_INDEXNOW == 'true' && (env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
+        if: env.HAS_INDEXNOW == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
         run: node scripts/indexnow.mjs
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
 
       - name: WebSub publish ping (instant feed discovery)
-        if: env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true'
+        if: env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true'
         run: node scripts/websub-ping.mjs
 
       - name: Submit sitemap to Google Search Console
-        if: env.HAS_GSC == 'true' && (env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
+        if: env.HAS_GSC == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
         run: node scripts/gsc-submit.mjs
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}

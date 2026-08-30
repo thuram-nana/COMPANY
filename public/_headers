@@ -1,7 +1,7 @@
 # Security headers for sigilsovereign.com — Cloudflare Pages (and any host that
-# honours a _headers file). The same policy lives in public/.htaccess
-# (Apache/LiteSpeed — the Namecheap host) and deploy/Caddyfile (Caddy origin);
-# the build fails if the CSP hash drifts between the three.
+# honours a _headers file). The same policy lives in vercel.json (Vercel — the
+# chosen host), public/.htaccess (Apache/LiteSpeed) and deploy/Caddyfile (Caddy);
+# the build fails if the CSP hash drifts between the four.
 #
 # CSP: the site ships ONE inline script (the pre-paint theme/JS marker in
 # src/lib/layout.js), allowlisted by the SHA-256 of its exact text including the

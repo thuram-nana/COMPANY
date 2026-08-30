@@ -2,8 +2,9 @@
 #
 # Target: Namecheap shared hosting (cPanel, LiteSpeed). scripts/build.mjs copies
 # this file verbatim from public/ into dist/, and the deploy puts it at the root
-# of public_html. It mirrors public/_headers (Cloudflare Pages) and
-# deploy/Caddyfile (Caddy origin) — the build fails if the CSP hash drifts.
+# of public_html. It mirrors vercel.json (Vercel — the chosen host),
+# public/_headers (Cloudflare Pages) and deploy/Caddyfile (Caddy origin) — the
+# build fails if the CSP hash drifts between the four.
 #
 # This file is owned by the repository. The CI deploy re-uploads it only when
 # public/.htaccess changes in git (the FTP action diffs against its own state

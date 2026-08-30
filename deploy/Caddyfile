@@ -1,8 +1,8 @@
 # Caddy configuration for a SIGIL-controlled origin (a static origin behind
 # Cloudflare). Serves dist/ with HTTP/3, compression, the full security header
-# set, and long-cache fonts. The same policy lives in public/.htaccess
-# (Apache/LiteSpeed — the Namecheap host) and public/_headers (Cloudflare Pages);
-# the build fails if the CSP hash drifts between the three.
+# set, and long-cache fonts. The same policy lives in vercel.json (Vercel — the
+# chosen host), public/.htaccess (Apache/LiteSpeed) and public/_headers
+# (Cloudflare Pages); the build fails if the CSP hash drifts between the four.
 #
 # Usage: caddy run --config deploy/Caddyfile
 # Point the site root at the built dist/ directory.

@@ -3,10 +3,21 @@
 **Site:** sigilsovereign.com · **Company:** SIGIL SARL, Buea, Cameroon
 **Build:** static, bilingual (EN + FR) · **Date:** 2026-08-30
 
+## Revision — hosting on Vercel (30 Aug 2026, same day, superseding the cPanel target below)
+
+The founder chose **Vercel** as the host; DNS and mail stay on Namecheap.
+`vercel.json` (headers, caching, /api-exempt trailing-slash canonicalisation)
+and `api/briefing.js` (serverless form endpoint with a dependency-free SMTP
+client; rate-limited, RFC 2047/5321-conformant, 24 local tests incl. a real TLS
+SMTP session) were added; CI deploys with the Vercel CLI (pull → build →
+deploy --prebuilt) gated on `VERCEL_TOKEN`, then smoke-tests the live site once
+DNS points at Vercel. The route table was verified offline with `vercel build`.
+See `deploy/README.md` §4d. The cPanel work below remains wired as the fallback.
+
 ## Revision — hosting on Namecheap cPanel (30 Aug 2026)
 
 The domain already points at a Namecheap shared-hosting account (cPanel /
-LiteSpeed), so the deploy target is now that host — see `deploy/README.md` §4c.
+LiteSpeed) — see `deploy/README.md` §4c (now the fallback path).
 
 - `public/.htaccess` (→ `dist/.htaccess`): HTTPS + `www`→apex redirects (HSTS-preload
   compliant), the security-header set, caching, MIME types, EN/FR 404 pages, the

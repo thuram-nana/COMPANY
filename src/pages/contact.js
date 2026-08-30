@@ -83,8 +83,8 @@ export function contact(lang) {
 
   // The form is a progressive-enhancement mailto: composer (the subject rides in
   // the action URL; form fields can only become the mail body). With JS,
-  // src/assets/briefing.js posts to data-endpoint (the PHP handler on cPanel or
-  // the Worker on Cloudflare) and swaps the button/note copy to the *_live
+  // src/assets/briefing.js posts to data-endpoint (api/briefing.js on Vercel,
+  // the PHP handler on cPanel, the Worker on Cloudflare) and swaps the copy to the *_live
   // strings; if that POST fails it reverts to the native mailto: behaviour.
   const body = `
 <section class="section wrap">

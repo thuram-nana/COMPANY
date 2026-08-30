@@ -40,15 +40,17 @@ an SBOM, and build-provenance attestation.
 
 ## Deploy
 
-The site is hosted on **Namecheap shared hosting (cPanel / LiteSpeed)**. CI
-builds and tests on every push to `main`, uploads `dist/` to `public_html` over
-FTPS, and smoke-tests the live site. `public/.htaccess` carries the redirects,
-security headers, caching and the `/api/briefing` route for that host;
-`public/api/briefing.php` is the contact-form handler there.
+The site is hosted on **Vercel**; DNS and mail stay on Namecheap. CI builds and
+tests on every push to `main`, then deploys to Vercel production with the CLI
+and smoke-tests the live site. `vercel.json` carries the headers, caching and
+canonicalisation for that host; `api/briefing.js` is the contact-form endpoint
+there (SMTP). The Namecheap-cPanel path (`public/.htaccess` +
+`public/api/briefing.php` + FTPS deploy) and the Cloudflare/Caddy paths stay
+fully wired as fallbacks.
 
-See **`deploy/README.md`** — the full runbook (Namecheap DNS and cPanel setup,
-mail records, the FTPS deploy and its secrets, the cPanel Git alternative, the
-Cloudflare/Caddy paths, the briefing handler, indexing, and a go-live checklist).
+See **`deploy/README.md`** — the full runbook (§4d Vercel setup, DNS records,
+mail, CI secrets, the alternative hosts, the briefing handler, indexing, and a
+go-live checklist).
 
 ---
 
@@ -66,8 +68,9 @@ src/
     mark.js           The SIGIL registration mark, as vector (astroid + arms).
     diagrams.js       Inline-SVG diagrams (auth gate, lead→fact, RÉCOR pipeline).
     app.js            Progressive enhancement: theme, language banner, motion.
-    briefing.js       Contact-form upgrade (mailto → POST /api/briefing: PHP handler
-                      on cPanel, Worker on Cloudflare; falls back to mailto).
+    briefing.js       Contact-form upgrade (mailto → POST /api/briefing: serverless
+                      function on Vercel, PHP on cPanel, Worker on Cloudflare;
+                      falls back to mailto).
     favicon.mjs       Generates favicon.svg + og-image.(svg|png).
   styles/
     app.css           The whole design system: tokens, themes, glass, motion, a11y.
@@ -86,9 +89,11 @@ scripts/
   indexnow.mjs        Post-deploy IndexNow ping.
   gsc-submit.mjs      Post-deploy Search Console sitemap submit.
   websub-ping.mjs     Post-deploy WebSub hub ping for the notes feed.
+api/                  Vercel serverless function for the briefing form (Vercel hosting).
 worker/               Cloudflare Worker for the briefing form (Cloudflare hosting only).
 deploy/               Deploy runbook, smoke test, Caddyfile, Lighthouse config.
 .cpanel.yml           cPanel "Git Version Control" deploy tasks (manual alternative).
+vercel.json           Vercel hosting configuration (headers, caching, build).
 ```
 
 ### Editing content

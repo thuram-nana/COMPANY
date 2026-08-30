@@ -152,7 +152,7 @@ ${feedEntries.join("\n")}
   const inline = (readFileSync(join(DIST, "index.html"), "utf8").match(/<script>([\s\S]*?)<\/script>/) || [])[1];
   if (!inline) throw new Error("CSP guard: inline <head> script not found in dist/index.html");
   const cspHash = "sha256-" + createHash("sha256").update(inline).digest("base64");
-  for (const f of ["public/.htaccess", "public/_headers", "deploy/Caddyfile"]) {
+  for (const f of ["public/.htaccess", "public/_headers", "deploy/Caddyfile", "vercel.json"]) {
     if (!readFileSync(join(ROOT, f), "utf8").includes(`'${cspHash}'`)) {
       throw new Error(`CSP guard: ${f} does not allowlist '${cspHash}' for the inline <head> script — update it (deploy/README.md §7)`);
     }
