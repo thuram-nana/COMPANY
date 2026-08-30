@@ -1,8 +1,8 @@
 import { page } from "../lib/layout.js";
 import { strings, routes } from "../data/strings.js";
-import { h2, cta } from "../lib/ui.js";
+import { h2, cta, entityFaq, entityBlock } from "../lib/ui.js";
 import { seal } from "../assets/mark.js";
-import { orgNode, breadcrumb, graph } from "../lib/jsonld.js";
+import { orgNode, breadcrumb, faqNode, graph } from "../lib/jsonld.js";
 import facts from "../data/facts.json" with { type: "json" };
 
 const copy = {
@@ -69,6 +69,7 @@ export function company(lang) {
   const alt = lang === "en" ? "fr" : "en";
   const jsonld = graph([
     orgNode(facts),
+    faqNode(entityFaq(lang)),
     breadcrumb(facts, [
       { name: "SIGIL", path: routes.home[lang] },
       { name: c.title, path: routes.company[lang] }
@@ -86,6 +87,15 @@ export function company(lang) {
   <p class="eyebrow">${strings[lang].nav.company}</p>
   <h1>SIGIL SARL</h1>
   <p class="lead" style="margin-top:1rem;max-width:62ch">${c.lede}</p>
+</section>
+
+${entityBlock(lang)}
+
+<section class="section wrap rule-top">
+  ${h2(lang === "fr" ? "Questions fréquentes" : "Frequently asked")}
+  <div class="stack" style="margin-top:1.5rem">
+    ${entityFaq(lang).map(f => `<details class="card"><summary class="mono" style="cursor:pointer;font-weight:600">${f.q}</summary><p style="margin-top:.8rem">${f.a}</p></details>`).join("")}
+  </div>
 </section>
 
 <section class="section wrap rule-top">

@@ -1,3 +1,4 @@
+import facts from "../data/facts.json" with { type: "json" };
 import { mark, seal } from "../assets/mark.js";
 import { strings, routes, statusLabel } from "../data/strings.js";
 import { escapeHtml } from "./layout.js";
@@ -38,4 +39,36 @@ export function heroMark() {
 
 export function tagRow(items) {
   return `<div class="pill-row">${items.map((t) => `<span class="tag">${escapeHtml(t)}</span>`).join("")}</div>`;
+}
+
+
+// ---- Entity answer block + FAQ (shared by home + company; text mirrors Organization schema) ----
+export function entityFaq(lang) {
+  const o = facts.org;
+  return lang === "fr" ? [
+    { q: "Qu’est-ce que SIGIL ?", a: o.definitionFr },
+    { q: "Où SIGIL est-elle basée ?", a: "SIGIL SARL est basée à Buea, au Cameroun." },
+    { q: "Que construit SIGIL ?", a: "SIGIL conçoit trois systèmes pour les institutions publiques : VIGIL, une plateforme de cybersécurité gouvernée et de preuve ; RÉCOR, un registre souverain des bénéficiaires effectifs ; et APEX, une plateforme de renseignement anti-corruption pour la commande publique. Les trois sont en pré-déploiement et leur code source est gardé strictement privé." },
+    { q: "Qui a fondé SIGIL ?", a: "SIGIL SARL a été fondée en 2026 par Junior Thuram Nana, qui en est le fondateur et directeur général." },
+    { q: "SIGIL est-elle l’éditeur d’ebooks Sigil ?", a: o.disambiguationFr }
+  ] : [
+    { q: "What is SIGIL?", a: o.definition },
+    { q: "Where is SIGIL based?", a: "SIGIL SARL is based in Buea, Cameroon." },
+    { q: "What does SIGIL build?", a: "SIGIL builds three systems for public institutions: VIGIL, a governed cybersecurity and evidence platform; RÉCOR, a sovereign beneficial-ownership registry; and APEX, an anti-corruption intelligence platform for public procurement. All three are pre-deployment and their source code is kept strictly private." },
+    { q: "Who founded SIGIL?", a: "SIGIL SARL was founded in 2026 by Junior Thuram Nana, its Founder and Managing Director." },
+    { q: "Is SIGIL the Sigil ebook editor?", a: o.disambiguation }
+  ];
+}
+
+export function entityBlock(lang) {
+  const o = facts.org;
+  const t = lang === "fr"
+    ? { h: "Qu’est-ce que SIGIL ?", facts: ["Fondée en 2026, basée à Buea, au Cameroun.", "Trois systèmes : VIGIL, RÉCOR et APEX — tous en pré-déploiement.", "Fondateur et directeur général : Junior Thuram Nana."], dis: o.disambiguationFr, def: o.definitionFr }
+    : { h: "What is SIGIL?", facts: ["Founded in 2026, based in Buea, Cameroon.", "Three systems: VIGIL, RÉCOR, and APEX — all pre-deployment.", "Founder and Managing Director: Junior Thuram Nana."], dis: o.disambiguation, def: o.definition };
+  return `<section class="section wrap rule-top" id="what-is-sigil">
+  ${h2(t.h)}
+  <p style="margin-top:1rem;max-width:64ch">${t.def}</p>
+  <ul style="margin-top:1rem;max-width:64ch">${t.facts.map(x => `<li>${x}</li>`).join("")}</ul>
+  <p class="muted" style="margin-top:1rem;max-width:64ch">${t.dis}</p>
+</section>`;
 }

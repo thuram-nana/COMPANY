@@ -210,3 +210,36 @@ directive). The current hash is in `deploy_csp_hash.txt`.
 - No RCCM on the site (by instruction); company location is "Buea, Cameroon".
 - VIGIL and RÉCOR source code is stated as strictly private throughout.
 - No mention of any regulatory submission.
+
+---
+
+## 10. GEO / AEO — operator steps that code cannot do
+
+The full plan is in `docs/GEO-AEO-PLAN.md`. Everything on-site is enforced in
+code and CI. These are the steps only the founder can take, in priority order.
+
+**Cloudflare (one-time, critical):** Under Security → Bots, set "Block AI bots" /
+"AI Scrapers and Crawlers" to **OFF** and Pay-Per-Crawl to **OFF**. Do not apply a
+managed challenge to verified crawlers. `robots.txt` is an honor system; an edge
+block silently removes the site from every AI answer engine.
+
+**Verification (one-time, unlocks auto-indexing):** verify the domain in Google
+Search Console and Bing Webmaster Tools (DNS TXT). Then every push submits the
+sitemap to Google, pings IndexNow (Bing/Yandex/Naver/Seznam → ChatGPT search,
+Copilot, DuckDuckGo), and publishes the feed via WebSub — no further manual work.
+
+**Entity (the real lever for the word "SIGIL"):**
+1. Create a **Wikidata item** for SIGIL SARL — instance of *business*; country
+   Cameroon; headquarters Buea; inception 2026; founder; official website. Then
+   add its URL to `Organization.sameAs` in `src/lib/jsonld.js`.
+2. Create a **Google Business Profile** for SIGIL SARL (Buea).
+3. On **thuramnana.com**, add `worksFor` / `founder` structured data pointing to
+   `https://sigilsovereign.com/#org` and a visible link to the company.
+4. Where appropriate, ask Open Ownership and UNDP for a public mention or link —
+   the interactions are real; one institutional link outweighs any on-page tactic.
+5. Publish two to four reference-grade notes a quarter; agent crawlers re-fetch
+   reference pages almost daily.
+
+**Quarterly:** refresh the crawler allow-list in `public/robots.txt` (new AI bots
+ship quarterly), re-check the Cloudflare bot settings, and confirm sitemap
+`<lastmod>` values are real (they come from git history in CI).

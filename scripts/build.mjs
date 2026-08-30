@@ -1,11 +1,26 @@
 import { mkdirSync, writeFileSync, copyFileSync, readFileSync, existsSync, readdirSync, rmSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { execSync } from "child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const DIST = join(ROOT, "dist");
 const ORIGIN = "https://sigilsovereign.com";
+
+const BUILD_DATE = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
+const SHARED = ["src/data/facts.json", "src/data/strings.js", "src/lib/layout.js", "src/lib/ui.js", "src/lib/jsonld.js", "src/styles/app.css"];
+function gitDate(files) {
+  // Most recent commit date across the given files; null if git/ history unavailable.
+  try {
+    const outp = execSync(`git log -1 --format=%cs -- ${files.map(f => JSON.stringify(f)).join(" ")}`, { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
+    return outp || null;
+  } catch { return null; }
+}
+function pageLastmod(sourceFiles) {
+  const d = gitDate(sourceFiles.concat(SHARED));
+  return d || BUILD_DATE;
+}
 
 function out(routePath, html) {
   // "/systems/vigil/" -> dist/systems/vigil/index.html ; "/" -> dist/index.html
@@ -32,6 +47,7 @@ async function run() {
   mkdirSync(DIST, { recursive: true });
 
   const built = [];
+  const srcOf = {}; // routePath -> page source file
 
   // ---- pages -------------------------------------------------------------
   const { home } = await import("../src/pages/home.js");
@@ -50,23 +66,23 @@ async function run() {
 
   const langs = ["en", "fr"];
   for (const lang of langs) {
-    built.push(out(routes.home[lang], home(lang)));
-    built.push(out(routes.systems[lang], systemsIndex(lang)));
-    built.push(out(routes.vigil[lang], vigil(lang)));
-    built.push(out(routes.vigilGov[lang], vigilGovernance(lang)));
-    built.push(out(routes.vigilEvid[lang], vigilEvidence(lang)));
-    built.push(out(routes.vigilSov[lang], vigilSovereignty(lang)));
-    built.push(out(routes.recor[lang], recor(lang)));
-    built.push(out(routes.apex[lang], apex(lang)));
-    built.push(out(routes.doctrine[lang], doctrine(lang)));
-    built.push(out(routes.record[lang], record(lang)));
-    built.push(out(routes.trust[lang], trust(lang)));
-    built.push(out(routes.company[lang], company(lang)));
-    built.push(out(routes.contact[lang], contact(lang)));
-    built.push(out(routes.notes[lang], notesIndex(lang)));
-    built.push(out(routes.privacy[lang], privacy(lang)));
-    built.push(out(routes.mentions[lang], mentions(lang)));
-    for (const np of notePages(lang)) built.push(out(np.path, np.html));
+    built.push(out(routes.home[lang], home(lang))); srcOf[routes.home[lang]] = "src/pages/home.js";
+    built.push(out(routes.systems[lang], systemsIndex(lang))); srcOf[routes.systems[lang]] = "src/pages/systems.js";
+    built.push(out(routes.vigil[lang], vigil(lang))); srcOf[routes.vigil[lang]] = "src/pages/vigil.js";
+    built.push(out(routes.vigilGov[lang], vigilGovernance(lang))); srcOf[routes.vigilGov[lang]] = "src/pages/vigil.js";
+    built.push(out(routes.vigilEvid[lang], vigilEvidence(lang))); srcOf[routes.vigilEvid[lang]] = "src/pages/vigil.js";
+    built.push(out(routes.vigilSov[lang], vigilSovereignty(lang))); srcOf[routes.vigilSov[lang]] = "src/pages/vigil.js";
+    built.push(out(routes.recor[lang], recor(lang))); srcOf[routes.recor[lang]] = "src/pages/recor.js";
+    built.push(out(routes.apex[lang], apex(lang))); srcOf[routes.apex[lang]] = "src/pages/apex.js";
+    built.push(out(routes.doctrine[lang], doctrine(lang))); srcOf[routes.doctrine[lang]] = "src/pages/doctrine.js";
+    built.push(out(routes.record[lang], record(lang))); srcOf[routes.record[lang]] = "src/pages/record.js";
+    built.push(out(routes.trust[lang], trust(lang))); srcOf[routes.trust[lang]] = "src/pages/trust.js";
+    built.push(out(routes.company[lang], company(lang))); srcOf[routes.company[lang]] = "src/pages/company.js";
+    built.push(out(routes.contact[lang], contact(lang))); srcOf[routes.contact[lang]] = "src/pages/contact.js";
+    built.push(out(routes.notes[lang], notesIndex(lang))); srcOf[routes.notes[lang]] = "src/pages/notes.js";
+    built.push(out(routes.privacy[lang], privacy(lang))); srcOf[routes.privacy[lang]] = "src/pages/legal.js";
+    built.push(out(routes.mentions[lang], mentions(lang))); srcOf[routes.mentions[lang]] = "src/pages/legal.js";
+    for (const np of notePages(lang)) { built.push(out(np.path, np.html)); srcOf[np.path] = "src/pages/notes.js"; }
   }
 
   // ---- static assets -----------------------------------------------------
@@ -76,22 +92,56 @@ async function run() {
   copyFileSync(join(ROOT, "src", "assets", "app.js"), join(DIST, "app.js"));
   copyFileSync(join(ROOT, "src", "assets", "briefing.js"), join(DIST, "briefing.js"));
 
-  // ---- sitemap (per-language, lastmod from build or git) -----------------
-  const lastmod = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
-  const urls = built.filter((p) => p.endsWith("index.html")).map((p) => {
-    const loc = ORIGIN + "/" + p.replace(/index\.html$/, "").replace(/^\//, "");
-    return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod></url>`;
+  // ---- sitemap (per-URL lastmod from git history; accurate freshness) ----
+  const urlEntries = built.map((p) => {
+    const routePath = p.endsWith("index.html") ? p.slice(0, -"index.html".length) : p;
+    const loc = ORIGIN + routePath;
+    const lm = pageLastmod([srcOf[routePath] || "src/pages/home.js"]);
+    return `  <url><loc>${loc}</loc><lastmod>${lm}</lastmod></url>`;
   });
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.join("\n")}
+${urlEntries.join("\n")}
 </urlset>`;
   writeFileSync(join(DIST, "sitemap.xml"), sitemap);
+  const newest = urlEntries.map(e => (e.match(/<lastmod>([^<]+)</) || [])[1]).filter(Boolean).sort().pop() || BUILD_DATE;
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>${ORIGIN}/sitemap.xml</loc><lastmod>${lastmod}</lastmod></sitemap>
+  <sitemap><loc>${ORIGIN}/sitemap.xml</loc><lastmod>${newest}</lastmod></sitemap>
 </sitemapindex>`;
   writeFileSync(join(DIST, "sitemap-index.xml"), sitemapIndex);
+
+  // ---- Atom feed of notes (discovery signal for Google, aggregators, and AI) ----
+  const { notes } = await import("../src/pages/notes.js");
+  const feedEntries = [...notes].sort((a, b) => (a.date < b.date ? 1 : -1)).map((n) => {
+    const L = n.en; const url = ORIGIN + routes.notes.en + n.slug.en + "/";
+    const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    return `  <entry>
+    <title>${esc(L.title)}</title>
+    <link rel="alternate" href="${url}"/>
+    <id>${url}</id>
+    <updated>${n.date}T00:00:00Z</updated>
+    <published>${n.date}T00:00:00Z</published>
+    <author><name>Junior Thuram Nana</name><uri>https://thuramnana.com/</uri></author>
+    <summary>${esc(L.abstract)}</summary>
+  </entry>`;
+  });
+  const feed = `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SIGIL SARL — notes</title>
+  <subtitle>Engineering and doctrine notes from Sovereign Integrity Governance Infrastructure Labs.</subtitle>
+  <link href="${ORIGIN}/feed.xml" rel="self"/>
+  <link href="${ORIGIN}/" rel="alternate"/>
+  <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
+  <id>${ORIGIN}/</id>
+  <updated>${newest}T00:00:00Z</updated>
+${feedEntries.join("\n")}
+</feed>`;
+  writeFileSync(join(DIST, "feed.xml"), feed);
+
+  // ---- 404 page (static hosts serve /404.html) ----
+  const { notFound } = await import("../src/pages/notfound.js");
+  writeFileSync(join(DIST, "404.html"), notFound("en"));
 
   console.log(`Built ${built.length} pages -> ${DIST}`);
 }

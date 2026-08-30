@@ -1,5 +1,7 @@
 import { mark } from "../assets/mark.js";
 import { strings, routes } from "../data/strings.js";
+import { webPageNode } from "./jsonld.js";
+import facts from "../data/facts.json" with { type: "json" };
 
 const ORIGIN = "https://sigilsovereign.com";
 
@@ -36,7 +38,17 @@ export function page(p) {
   const brandMark = mark({ size: 40, cls: "brand-mk" });
   const heroTitle = "SIGIL SARL — " + p.title;
 
-  const jsonldTag = p.jsonld ? `<script type="application/ld+json">${p.jsonld}</script>` : "";
+  let jsonldOut = p.jsonld;
+  if (jsonldOut) {
+    try {
+      const g = JSON.parse(jsonldOut);
+      const dm = p.dateModified || process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
+      g["@graph"] = (g["@graph"] || []).concat([webPageNode(facts, { path: p.path, title: p.title, description: p.description, lang: p.lang, datePublished: p.datePublished, dateModified: dm })]);
+      jsonldOut = JSON.stringify(g);
+    } catch (e) { /* leave as-is */ }
+  }
+  const jsonldTag = jsonldOut ? `<script type="application/ld+json">${jsonldOut}</script>` : "";
+  const lastUpdated = p.dateModified || process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 
   return `<!DOCTYPE html>
 <html lang="${s.htmlLang}" dir="${s.dir}" data-alt-url="${altHref}" data-alt-lang="${p.altLang}">
@@ -46,10 +58,11 @@ export function page(p) {
 <title>${escapeHtml(p.title)} — SIGIL SARL</title>
 <meta name="description" content="${escapeAttr(p.description)}">
 <link rel="canonical" href="${canonical}">
+<link rel="alternate" type="application/atom+xml" title="SIGIL SARL — notes" href="${ORIGIN}/feed.xml">
 <link rel="alternate" hreflang="${s.htmlLang}" href="${canonical}">
 <link rel="alternate" hreflang="${p.altLang}" href="${altHref}">
 <link rel="alternate" hreflang="x-default" href="${xdefault}">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="theme-color" content="#F7F5F0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
@@ -135,6 +148,7 @@ ${p.body}
       <a href="${routes.privacy[p.lang]}" style="display:inline">${s.footer.privacy}</a>
       <a href="${routes.mentions[p.lang]}" style="display:inline">${s.footer.mentions}</a>
       <span>© ${new Date().getFullYear()} SIGIL SARL. ${s.footer.rights}</span>
+      <span class="mono muted"><time datetime="${lastUpdated}">${p.lang === "fr" ? "Mis à jour le" : "Last updated"} ${lastUpdated}</time></span>
     </div>
   </div>
 </footer>

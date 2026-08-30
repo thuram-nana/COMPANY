@@ -172,3 +172,5 @@ export function notePages(lang) {
     };
   });
 }
+
+export const notes = NOTES;

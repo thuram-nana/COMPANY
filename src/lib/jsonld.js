@@ -8,11 +8,23 @@ export function orgNode(f) {
     "@id": f.org.url + "/#org",
     name: f.org.legalName,
     legalName: f.org.legalName,
-    alternateName: [f.org.shortName, f.org.fullName],
+    alternateName: [
+      f.org.shortName,
+      f.org.fullName,
+      "SIGIL Labs",
+      "SIGIL Sovereign",
+      "sigilsovereign"
+    ],
+    description: f.org.definition,
+    disambiguatingDescription: f.org.disambiguation,
     url: f.org.url,
+    logo: f.org.url + "/og-image.png",
+    image: f.org.url + "/og-image.png",
     email: f.org.email,
     telephone: f.org.phone,
     foundingDate: f.org.foundedYear,
+    foundingLocation: { "@type": "Place", name: "Buea, Cameroon", address: { "@type": "PostalAddress", addressLocality: "Buea", addressCountry: "CM" } },
+    areaServed: { "@type": "Country", name: "Cameroon" },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Buea",
@@ -22,19 +34,27 @@ export function orgNode(f) {
       "@type": "Person",
       "@id": f.org.founderId,
       name: f.org.founderName,
-      jobTitle: f.org.founderRole
+      jobTitle: f.org.founderRole,
+      url: "https://thuramnana.com/",
+      worksFor: { "@id": f.org.url + "/#org" }
     },
     contactPoint: [
       { "@type": "ContactPoint", contactType: "institutional", email: f.org.email, telephone: f.org.phone },
       { "@type": "ContactPoint", contactType: "security", email: f.org.securityEmail }
     ],
     knowsAbout: [
-      "beneficial ownership",
+      "sovereign governance infrastructure",
+      "beneficial ownership registries",
       "FATF Recommendation 24",
       "FATF Recommendation 25",
+      "Beneficial Ownership Data Standard (BODS)",
+      "public procurement integrity",
+      "anti-corruption intelligence",
+      "United Nations Convention Against Corruption (UNCAC)",
+      "Open Contracting Data Standard (OCDS)",
       "governed cybersecurity",
       "cryptographic proof of finding",
-      "sovereign digital infrastructure"
+      "sovereign digital infrastructure for public institutions"
     ]
   };
 }
@@ -66,6 +86,22 @@ export function websiteNode(f, lang) {
     name: f.org.legalName,
     inLanguage: lang,
     publisher: { "@id": f.org.url + "/#org" }
+  };
+}
+
+export function webPageNode(f, p) {
+  return {
+    "@type": "WebPage",
+    "@id": f.org.url + p.path + "#webpage",
+    url: f.org.url + p.path,
+    name: p.title,
+    description: p.description,
+    inLanguage: p.lang,
+    isPartOf: { "@id": f.org.url + "/#website" },
+    about: { "@id": f.org.url + "/#org" },
+    primaryImageOfPage: { "@type": "ImageObject", url: f.org.url + "/og-image.png", width: 1200, height: 630 },
+    datePublished: p.datePublished || f.org.sitePublished,
+    dateModified: p.dateModified
   };
 }
 

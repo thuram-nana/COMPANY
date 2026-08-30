@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history: per-URL sitemap lastmod comes from git
 
       - uses: actions/setup-node@v4
         with:
@@ -87,6 +89,9 @@ jobs:
         run: node scripts/indexnow.mjs
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+
+      - name: WebSub publish ping (instant feed discovery)
+        run: node scripts/websub-ping.mjs
 
       - name: Submit sitemap to Google Search Console
         if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}

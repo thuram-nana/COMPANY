@@ -1,16 +1,23 @@
 # SIGIL SARL — sigilsovereign.com
 # This site wants to be found, read, and cited — by search engines and by
-# answer engines. Crawlers are allowed explicitly.
+# answer engines. Every crawler class is allowed explicitly (2026 token set).
+# Reviewed quarterly: new AI crawlers ship on a quarterly cadence.
 #
-# NOTE for the operator: if this site sits behind Cloudflare, the
-# "Block AI bots" / "AI Scrapers and Crawlers" setting must be OFF, or the
-# allowances below are silently overridden at the edge.
+# OPERATOR NOTE: robots.txt is an honor system. If this site sits behind
+# Cloudflare, "Block AI bots" / "AI Scrapers and Crawlers" must be OFF and
+# Pay-Per-Crawl must be OFF, or these allowances are silently overridden at
+# the edge. Do not challenge verified crawlers in the WAF.
+
+# Cloudflare Content Signals — explicit preferences for every use.
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 User-agent: *
 Allow: /
 
-# Search engines
+# ---- Search engines (classic index; also feeds AI answers) ----
 User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Image
 Allow: /
 User-agent: Bingbot
 Allow: /
@@ -20,23 +27,41 @@ User-agent: Applebot
 Allow: /
 User-agent: YandexBot
 Allow: /
+User-agent: Yeti
+Allow: /
+User-agent: SeznamBot
+Allow: /
 
-# Answer engines / AI crawlers
-User-agent: GPTBot
-Allow: /
+# ---- Retrieval crawlers (build the indexes AI engines cite from) ----
 User-agent: OAI-SearchBot
-Allow: /
-User-agent: ChatGPT-User
-Allow: /
-User-agent: ClaudeBot
 Allow: /
 User-agent: Claude-SearchBot
 Allow: /
-User-agent: Claude-User
-Allow: /
 User-agent: PerplexityBot
 Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: YouBot
+Allow: /
+
+# ---- Agent crawlers (live fetch when a person asks an assistant) ----
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Claude-User
+Allow: /
 User-agent: Perplexity-User
+Allow: /
+User-agent: Meta-ExternalFetcher
+Allow: /
+User-agent: MistralAI-User
+Allow: /
+
+# ---- Training crawlers (how future models learn SIGIL SARL exists) ----
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
 Allow: /
 User-agent: Google-Extended
 Allow: /
@@ -47,6 +72,10 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 User-agent: Amazonbot
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://sigilsovereign.com/sitemap-index.xml

@@ -1,8 +1,8 @@
 import { page } from "../lib/layout.js";
 import { strings, routes } from "../data/strings.js";
-import { h2, statusChip, cta, heroMark } from "../lib/ui.js";
+import { h2, statusChip, cta, heroMark, entityFaq, entityBlock } from "../lib/ui.js";
 import { mark, seal } from "../assets/mark.js";
-import { orgNode, websiteNode, systemNode, statusTerms, breadcrumb, graph } from "../lib/jsonld.js";
+import { orgNode, websiteNode, systemNode, statusTerms, breadcrumb, faqNode, graph } from "../lib/jsonld.js";
 import facts from "../data/facts.json" with { type: "json" };
 
 const copy = {
@@ -60,6 +60,7 @@ export function home(lang) {
     systemNode(facts, facts.systems[0], lang),
     systemNode(facts, facts.systems[1], lang),
     systemNode(facts, facts.systems[2], lang),
+    faqNode(entityFaq(lang)),
     breadcrumb(facts, [{ name: "SIGIL", path: routes.home[lang] }])
   ]);
 
@@ -71,6 +72,8 @@ export function home(lang) {
   <p class="thesis">${c.thesisPre}<b>${c.thesisEmph}</b></p>
   <p style="margin-top:2rem">${cta(lang)}</p>
 </section>
+
+${entityBlock(lang)}
 
 <section class="section wrap rule-top">
   ${h2(c.systemsH)}
