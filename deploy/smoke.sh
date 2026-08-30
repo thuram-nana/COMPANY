@@ -28,9 +28,10 @@ for h in strict-transport-security content-security-policy x-content-type-option
 done
 
 # The CSP must allowlist the hash of the inline <head> script exactly as served.
-inline="$(printf '%s' "$body" | perl -0777 -ne 'print $1 if /<script>(.*?)<\/script>/s')"
-if [ -n "$inline" ]; then
-  want="sha256-$(printf '%s' "$inline" | openssl dgst -sha256 -binary | openssl base64 -A)"
+# Hash in ONE pipeline: a $(…) capture of the script text would strip its
+# trailing newline, and browsers hash the exact bytes, newline included.
+want="sha256-$(printf '%s' "$body" | perl -0777 -ne 'print $1 if /<script>(.*?)<\/script>/s' | openssl dgst -sha256 -binary | openssl base64 -A)"
+if [ "$want" != "sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=" ]; then   # sha256 of empty input
   csp="$(hdr "$BASE/" content-security-policy)"
   grep -qF "'$want'" <<<"$csp" && ok "CSP allowlists the inline script ($want)" || bad "CSP hash" "served CSP lacks '$want' — the inline <head> script is blocked"
 else
