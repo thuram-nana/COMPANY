@@ -99,7 +99,7 @@ ${jsonldTag}
 <a class="skip" href="#main">${s.skip}</a>
 <div class="axis" aria-hidden="true"><i></i></div>
 <div class="lang-banner" id="lang-banner" role="region" aria-label="Language">
-  ${s.langBanner.text} <a href="${altHref}">${s.langBanner.view}</a>
+  ${s.langBanner.text} <a href="${p.altPath}">${s.langBanner.view}</a>
   <button type="button" data-lang-dismiss>${s.langBanner.dismiss}</button>
 </div>
 <header class="site-header">
@@ -111,7 +111,7 @@ ${jsonldTag}
       <nav class="nav" aria-label="Primary">
         ${navLinks(p.lang, p.current)}
         <span class="util">
-          <a class="iconbtn" href="${altHref}" hreflang="${p.altLang}" lang="${p.altLang}">${s.langName}</a>
+          <a class="iconbtn" href="${p.altPath}" hreflang="${p.altLang}" lang="${p.altLang}">${s.langName}</a>
           <button class="iconbtn" type="button" data-theme-toggle aria-pressed="false">
             <span data-theme-label>${s.theme.dark}</span>
           </button>

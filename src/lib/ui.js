@@ -49,13 +49,13 @@ export function entityFaq(lang) {
     { q: "Qu’est-ce que SIGIL ?", a: o.definitionFr },
     { q: "Où SIGIL est-elle basée ?", a: "SIGIL SARL est basée à Buea, au Cameroun." },
     { q: "Que construit SIGIL ?", a: "SIGIL conçoit trois systèmes pour les institutions publiques : VIGIL, une plateforme de cybersécurité gouvernée et de preuve ; RÉCOR, un registre souverain des bénéficiaires effectifs ; et APEX, une plateforme de renseignement anti-corruption pour la commande publique. Les trois sont en pré-déploiement et leur code source est gardé strictement privé." },
-    { q: "Qui a fondé SIGIL ?", a: "SIGIL SARL a été fondée en 2026 par Junior Thuram Nana, qui en est le fondateur et directeur général." },
+    { q: "Qui a fondé SIGIL ?", a: "SIGIL SARL a été fondée en 2023 par Junior Thuram Nana, qui en est le fondateur et directeur général." },
     { q: "SIGIL est-elle l’éditeur d’ebooks Sigil ?", a: o.disambiguationFr }
   ] : [
     { q: "What is SIGIL?", a: o.definition },
     { q: "Where is SIGIL based?", a: "SIGIL SARL is based in Buea, Cameroon." },
     { q: "What does SIGIL build?", a: "SIGIL builds three systems for public institutions: VIGIL, a governed cybersecurity and evidence platform; RÉCOR, a sovereign beneficial-ownership registry; and APEX, an anti-corruption intelligence platform for public procurement. All three are pre-deployment and their source code is kept strictly private." },
-    { q: "Who founded SIGIL?", a: "SIGIL SARL was founded in 2026 by Junior Thuram Nana, its Founder and Managing Director." },
+    { q: "Who founded SIGIL?", a: "SIGIL SARL was founded in 2023 by Junior Thuram Nana, its Founder and Managing Director." },
     { q: "Is SIGIL the Sigil ebook editor?", a: o.disambiguation }
   ];
 }

@@ -13,9 +13,7 @@ const copy = {
     lede: "For institutional enquiries, evaluations, or a briefing on VIGIL or RÉCOR, reach us directly. Security disclosures have their own channel.",
     channelsH: "Channels",
     channels: [
-      ["Institutional", facts.org.email, "General and institutional enquiries."],
-      ["Security", facts.org.securityEmail, "Coordinated disclosure. See security.txt for the PGP key."],
-      ["Press", facts.org.pressEmail, "Press and media."]
+      ["Institutional", facts.org.email, "General and institutional enquiries — including security disclosure and press."]
     ],
     detailsH: "Details",
     phone: "Phone",
@@ -40,9 +38,7 @@ const copy = {
     lede: "Pour les demandes institutionnelles, les évaluations ou une présentation de VIGIL ou RÉCOR, contactez-nous directement. Les divulgations de sécurité disposent de leur propre canal.",
     channelsH: "Canaux",
     channels: [
-      ["Institutionnel", facts.org.email, "Demandes générales et institutionnelles."],
-      ["Sécurité", facts.org.securityEmail, "Divulgation coordonnée. Voir security.txt pour la clé PGP."],
-      ["Presse", facts.org.pressEmail, "Presse et médias."]
+      ["Institutionnel", facts.org.email, "Demandes générales et institutionnelles — y compris divulgation de sécurité et presse."]
     ],
     detailsH: "Coordonnées",
     phone: "Téléphone",

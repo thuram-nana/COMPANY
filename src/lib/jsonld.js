@@ -39,8 +39,7 @@ export function orgNode(f) {
       worksFor: { "@id": f.org.url + "/#org" }
     },
     contactPoint: [
-      { "@type": "ContactPoint", contactType: "institutional", email: f.org.email, telephone: f.org.phone },
-      { "@type": "ContactPoint", contactType: "security", email: f.org.securityEmail }
+      { "@type": "ContactPoint", contactType: "institutional", email: f.org.email, telephone: f.org.phone }
     ],
     knowsAbout: [
       "sovereign governance infrastructure",

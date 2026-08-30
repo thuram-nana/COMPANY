@@ -29,7 +29,7 @@ const copy = {
       ]],
       ["Disclosure", [
         ["security.txt", "An RFC 9116 security.txt, signed with the SIGIL PGP key."],
-        ["Policy", "A coordinated-disclosure policy with a safe-harbour statement; security@sigilsovereign.com is monitored."]
+        ["Policy", "A coordinated-disclosure policy with a safe-harbour statement; info@sigilsovereign.com is monitored."]
       ]],
       ["Supply chain", [
         ["Bill of materials", "This site's software bill of materials and build provenance are published per release."],
@@ -69,7 +69,7 @@ const copy = {
       ]],
       ["Divulgation", [
         ["security.txt", "Un security.txt conforme RFC 9116, signé avec la clé PGP de SIGIL."],
-        ["Politique", "Une politique de divulgation coordonnée avec clause de safe-harbour ; security@sigilsovereign.com est surveillé."]
+        ["Politique", "Une politique de divulgation coordonnée avec clause de safe-harbour ; info@sigilsovereign.com est surveillé."]
       ]],
       ["Chaîne d’approvisionnement", [
         ["Nomenclature", "La nomenclature logicielle de ce site et sa provenance de build sont publiées à chaque version."],

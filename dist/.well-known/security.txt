@@ -2,7 +2,7 @@
 # https://sigilsovereign.com/.well-known/security.txt
 # This file should be served over HTTPS and signed with the SIGIL PGP key.
 
-Contact: mailto:security@sigilsovereign.com
+Contact: mailto:info@sigilsovereign.com
 Contact: https://sigilsovereign.com/contact/
 Encryption: https://sigilsovereign.com/pgp.txt
 Preferred-Languages: en, fr

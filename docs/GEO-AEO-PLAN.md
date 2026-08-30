@@ -98,7 +98,7 @@ The `Organization` node (`#org`, referenced by every page) is hardened so machin
 
 ## 7. Off-site entity work — THE LEVERS FOR "SIGIL" ITSELF (founder actions, cannot be automated)
 In priority order. Each one, once done, gets added to `Organization.sameAs` — never before.
-1. **Wikidata item for SIGIL SARL** — instance of *business*; country Cameroon; headquarters Buea; inception 2026; founder → (create/link the founder item); official website. This is the single strongest Knowledge-Graph and AI-disambiguation signal available to a new entity.
+1. **Wikidata item for SIGIL SARL** — instance of *business*; country Cameroon; headquarters Buea; inception 2023; founder → (create/link the founder item); official website. This is the single strongest Knowledge-Graph and AI-disambiguation signal available to a new entity.
 2. **Google Business Profile** (Buea) — a local entity and Knowledge Panel seed.
 3. **Founder's site → company:** on thuramnana.com add `worksFor`/`founder` structured data pointing at `https://sigilsovereign.com/#org` and a visible link. The founder entity already exists; this transfers recognition to the company.
 4. **Authoritative directories with an identical NAP** (name/address/phone) — optional and at the founder's discretion, since no company GitHub/LinkedIn is to be published.
