@@ -122,17 +122,44 @@ jobs:
         if: env.HAS_VERCEL == 'true'
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          BRIEFING_SMTP_PASS: ${{ secrets.BRIEFING_SMTP_PASS }}
+          RECEIPT_SECRET: ${{ secrets.RECEIPT_SECRET }}
         run: |
           export BUILD_DATE=$(git log -1 --format=%cs)   # same date stamp as the tested build
           npm i -g vercel@latest
-          vercel link --yes --project sigilsovereign --token "$VERCEL_TOKEN"
-          vercel pull --yes --environment=production --token "$VERCEL_TOKEN"
+          # The CLI never auto-selects a team without a TTY ("Multiple teams found"):
+          # resolve the account's default team through the API and pass it as --scope.
+          SCOPE=$(curl -sf https://api.vercel.com/v2/user -H "Authorization: Bearer $VERCEL_TOKEN" \
+                  | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{const j=JSON.parse(d);const u=j.user||j;process.stdout.write(u.defaultTeamId||"")})')
+          if [ -z "$SCOPE" ]; then
+            SCOPE=$(curl -sf https://api.vercel.com/v2/teams -H "Authorization: Bearer $VERCEL_TOKEN" \
+                    | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{const j=JSON.parse(d);process.stdout.write((j.teams&&j.teams[0]&&j.teams[0].id)||"")})')
+          fi
+          if [ -n "$SCOPE" ]; then SCOPE_ARG="--scope $SCOPE"; echo "Using Vercel scope: $SCOPE"; else SCOPE_ARG=""; fi
+          vercel link --yes --project sigilsovereign $SCOPE_ARG --token "$VERCEL_TOKEN"
+          vercel pull --yes --environment=production $SCOPE_ARG --token "$VERCEL_TOKEN"
+          # Briefing-form SMTP settings for api/briefing.js (runbook §4d step 7):
+          # synced from GitHub secrets so the whole setup lives in one place.
+          # Only runs when BRIEFING_SMTP_PASS is set; values land before the deploy.
+          if [ -n "$BRIEFING_SMTP_PASS" ]; then
+            setenv() { vercel env rm "$1" production --yes $SCOPE_ARG --token "$VERCEL_TOKEN" >/dev/null 2>&1 || true
+                       printf '%s' "$2" | vercel env add "$1" production $SCOPE_ARG --token "$VERCEL_TOKEN"; }
+            setenv BRIEFING_SMTP_HOST "server402-2.web-hosting.com"
+            setenv BRIEFING_SMTP_PORT "465"
+            setenv BRIEFING_SMTP_USER "website@sigilsovereign.com"
+            setenv BRIEFING_SMTP_PASS "$BRIEFING_SMTP_PASS"
+            setenv BRIEFING_TO       "info@sigilsovereign.com"
+            [ -n "$RECEIPT_SECRET" ] && setenv RECEIPT_SECRET "$RECEIPT_SECRET"
+            echo "Briefing SMTP env synced to Vercel (production)"
+          else
+            echo "BRIEFING_SMTP_PASS secret not set — form keeps its mailto fallback for now"
+          fi
           vercel build --prod --token "$VERCEL_TOKEN"
-          vercel deploy --prebuilt --prod --token "$VERCEL_TOKEN"
+          vercel deploy --prebuilt --prod $SCOPE_ARG --token "$VERCEL_TOKEN"
           # Best-effort domain attach TO THE PROJECT (second positional arg);
           # harmless if already attached — finish in the dashboard otherwise.
-          vercel domains add sigilsovereign.com sigilsovereign --token "$VERCEL_TOKEN" || true
-          vercel domains add www.sigilsovereign.com sigilsovereign --token "$VERCEL_TOKEN" || true
+          vercel domains add sigilsovereign.com sigilsovereign $SCOPE_ARG --token "$VERCEL_TOKEN" || true
+          vercel domains add www.sigilsovereign.com sigilsovereign $SCOPE_ARG --token "$VERCEL_TOKEN" || true
 
       - name: Smoke-test the live site (Vercel)
         if: env.HAS_VERCEL == 'true'
