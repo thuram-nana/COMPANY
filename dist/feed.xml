@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>SIGIL SARL — notes</title>
+  <subtitle>Engineering and doctrine notes from Sovereign Integrity Governance Infrastructure Labs.</subtitle>
+  <link href="https://sigilsovereign.com/feed.xml" rel="self"/>
+  <link href="https://sigilsovereign.com/" rel="alternate"/>
+  <link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
+  <id>https://sigilsovereign.com/</id>
+  <updated>2026-08-30T00:00:00Z</updated>
+  <entry>
+    <title>Capability is not authorization</title>
+    <link rel="alternate" href="https://sigilsovereign.com/notes/capability-is-not-authorization/"/>
+    <id>https://sigilsovereign.com/notes/capability-is-not-authorization/</id>
+    <updated>2026-08-15T00:00:00Z</updated>
+    <published>2026-08-15T00:00:00Z</published>
+    <author><name>Junior Thuram Nana</name><uri>https://thuramnana.com/</uri></author>
+    <summary>Why a system should treat the ability to act and the permission to act as two separate things — and how a conjunctive, fail-closed gate enforces that separation.</summary>
+  </entry>
+  <entry>
+    <title>Lead versus fact: why a scanner should refuse to guess</title>
+    <link rel="alternate" href="https://sigilsovereign.com/notes/lead-versus-fact/"/>
+    <id>https://sigilsovereign.com/notes/lead-versus-fact/</id>
+    <updated>2026-08-08T00:00:00Z</updated>
+    <published>2026-08-08T00:00:00Z</published>
+    <author><name>Junior Thuram Nana</name><uri>https://thuramnana.com/</uri></author>
+    <summary>The difference between an observation and a confirmed fact, and why re-verifiable evidence is the only honest basis for a security finding.</summary>
+  </entry>
+  <entry>
+    <title>A revocable key that is not a kill-switch</title>
+    <link rel="alternate" href="https://sigilsovereign.com/notes/a-key-that-is-not-a-kill-switch/"/>
+    <id>https://sigilsovereign.com/notes/a-key-that-is-not-a-kill-switch/</id>
+    <updated>2026-08-01T00:00:00Z</updated>
+    <published>2026-08-01T00:00:00Z</published>
+    <author><name>Junior Thuram Nana</name><uri>https://thuramnana.com/</uri></author>
+    <summary>How to make a usage right revocable without building a remote channel into a sovereign deployment — and why the difference matters.</summary>
+  </entry>
+</feed>
