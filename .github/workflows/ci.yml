@@ -160,6 +160,15 @@ jobs:
           # harmless if already attached — finish in the dashboard otherwise.
           vercel domains add sigilsovereign.com sigilsovereign $SCOPE_ARG --token "$VERCEL_TOKEN" || true
           vercel domains add www.sigilsovereign.com sigilsovereign $SCOPE_ARG --token "$VERCEL_TOKEN" || true
+          # www must 308 to the apex (canonical + HSTS-preload); the CLI has no
+          # flag for this, so set the project-domain redirect through the API.
+          PRJ=$(node -e 'console.log(JSON.parse(require("fs").readFileSync(".vercel/project.json","utf8")).projectId)')
+          TQ=""; [ -n "$SCOPE" ] && TQ="?teamId=$SCOPE"
+          curl -sf -X PATCH "https://api.vercel.com/v9/projects/$PRJ/domains/www.sigilsovereign.com$TQ" \
+            -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
+            -d '{"redirect":"sigilsovereign.com","redirectStatusCode":308}' >/dev/null \
+            && echo "www to apex redirect (308) enforced" \
+            || echo "::warning::could not set the www redirect - set it in Vercel Settings / Domains"
 
       - name: Smoke-test the live site (Vercel)
         if: env.HAS_VERCEL == 'true'
