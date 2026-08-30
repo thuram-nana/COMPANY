@@ -14,19 +14,13 @@
   68 occurrences; RÉCOR is correctly accented in all 27 occurrences; "SIGIL SARL"
   is the entity name in all formal/legal/structured-data contexts.
 
-## PGP key — action still required
+## PGP key — installed and verified
 
-The published fingerprint is **C1C4 A87F EB43 04DB 9E62 86A1 F013 6C58 BB19 5F0C**
-(on /trust/ and in security.txt). A fingerprint is a one-way hash of the public
-key; the armored key itself cannot be derived from it, so `public/pgp.txt` still
-carries the KEY-PENDING marker. To finish, export your public key and drop it in:
-
-    gpg --armor --export C1C4A87FEB4304DB9E6286A1F0136C58BB195F0C > public/pgp.txt
-    node scripts/build.mjs   # then redeploy
-
-The fingerprint the site advertises will then match the key you publish.
-
----
+The founder's public key (RSA-4096, created 2026-04-12, thuram@thuramnana.com)
+is published at `/pgp.txt`. It was imported into an isolated keyring and its
+fingerprint independently computed as **C1C4 A87F EB43 04DB 9E62 86A1 F013 6C58
+BB19 5F0C**, matching the fingerprint published on `/trust/` and in
+`security.txt`. The armor checksum validated. Nothing about the key is pending.
 
 ## What was built
 
@@ -131,9 +125,7 @@ low-end devices and under `prefers-reduced-transparency`. All motion honours
 
 ## What needs your input before go-live
 
-1. **PGP public key** — currently a `KEY-PENDING` marker with the correct
-   fingerprint and plumbing. Paste the armored key into `public/pgp.txt` and sign
-   `security.txt`. (One-line swap.)
+1. **PGP** — done: key installed at `/pgp.txt` and fingerprint-verified. Optionally sign `security.txt` at deploy.
 2. **Briefing Worker** (optional) — deploy per `worker/README.md` to upgrade the
    form from `mailto:` to server-side; set Zoho + receipt secrets.
 3. **DNS + mail + hosting** — follow `deploy/README.md`.
