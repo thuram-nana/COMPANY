@@ -116,7 +116,7 @@ export function notesIndex(lang) {
   const items = NOTES.map((n) => {
     const L = n[lang];
     return `<li class="reveal">
-      <span class="date">${new Date(n.date).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
+      <span class="date">${new Date(n.date).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</span>
       <div>
         <div class="title"><a href="${notePath(n, lang)}" style="text-decoration:none">${L.title}</a></div>
         <p class="muted" style="margin-top:.4rem">${L.abstract}</p>
@@ -157,7 +157,7 @@ export function notePages(lang) {
     ]);
     const body = `
 <article class="section wrap">
-  <p class="eyebrow"><a href="${routes.notes[lang]}" style="color:inherit;text-decoration:none">${strings[lang].nav.notes}</a> · ${new Date(n.date).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
+  <p class="eyebrow"><a href="${routes.notes[lang]}" style="color:inherit;text-decoration:none">${strings[lang].nav.notes}</a> · ${new Date(n.date).toLocaleDateString(lang === "fr" ? "fr-FR" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</p>
   <h1>${L.title}</h1>
   <p class="lead" style="margin-top:1rem;max-width:62ch">${L.abstract}</p>
   <div class="prose" style="margin-top:2.5rem">${L.body}</div>

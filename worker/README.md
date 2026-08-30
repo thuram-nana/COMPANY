@@ -7,6 +7,10 @@ validates it, emails it to `info@sigilsovereign.com`, and returns a receipt.
 `mailto:` composer that opens the visitor's mail client. Deploying the Worker
 upgrades that to a true server-side submission with an inline success message.
 
+**On Namecheap / cPanel hosting you do not deploy this Worker at all** — the
+same endpoint is served by `public/api/briefing.php`, which ships with the
+static build (see `deploy/README.md` §5a). This Worker is for Cloudflare hosting.
+
 ## Deploy
 
 ```bash
@@ -30,10 +34,12 @@ instead of `mailto:`.
 
 ## How mail is sent
 
-`briefing.js` relays through **MailChannels**, which is free to call from
-Cloudflare Workers and requires no SMTP credentials in the Worker. If you would
-rather send through Zoho SMTP directly (`smtp.zoho.com:465`), stand up a tiny
-relay and point the `sendViaZoho()` fetch at it — the function is isolated and
+`briefing.js` posts to the MailChannels Email API. **This transport is stale
+and untested:** the free, unauthenticated MailChannels-for-Workers integration
+was retired on 30 June 2024 and unauthenticated calls have been rejected since.
+Before deploying, give `sendViaZoho()` a real transport — a paid MailChannels
+API key (`X-Api-Key` header), Cloudflare's own email sending, or a tiny SMTP
+relay in front of Zoho (`smtp.zoho.com:465`). The function is isolated and
 commented for exactly this.
 
 ## Spam protection

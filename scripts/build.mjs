@@ -2,6 +2,7 @@ import { mkdirSync, writeFileSync, copyFileSync, readFileSync, existsSync, readd
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { execSync } from "child_process";
+import { createHash } from "crypto";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -139,9 +140,23 @@ ${feedEntries.join("\n")}
 </feed>`;
   writeFileSync(join(DIST, "feed.xml"), feed);
 
-  // ---- 404 page (static hosts serve /404.html) ----
+  // ---- 404 pages (static hosts serve /404.html; /fr/404.html scopes French routes) ----
   const { notFound } = await import("../src/pages/notfound.js");
   writeFileSync(join(DIST, "404.html"), notFound("en"));
+  mkdirSync(join(DIST, "fr"), { recursive: true });
+  writeFileSync(join(DIST, "fr", "404.html"), notFound("fr"));
+
+  // ---- CSP hash guard ----
+  // The one inline <head> script must be allowlisted, byte-for-byte (browsers
+  // hash the exact child text, newlines included), in all three header configs.
+  const inline = (readFileSync(join(DIST, "index.html"), "utf8").match(/<script>([\s\S]*?)<\/script>/) || [])[1];
+  if (!inline) throw new Error("CSP guard: inline <head> script not found in dist/index.html");
+  const cspHash = "sha256-" + createHash("sha256").update(inline).digest("base64");
+  for (const f of ["public/.htaccess", "public/_headers", "deploy/Caddyfile"]) {
+    if (!readFileSync(join(ROOT, f), "utf8").includes(`'${cspHash}'`)) {
+      throw new Error(`CSP guard: ${f} does not allowlist '${cspHash}' for the inline <head> script — update it (deploy/README.md §7)`);
+    }
+  }
 
   console.log(`Built ${built.length} pages -> ${DIST}`);
 }

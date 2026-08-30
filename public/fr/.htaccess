@@ -1,0 +1,3 @@
+# French routes get the French 404 page (per-directory ErrorDocument; the rest
+# of the configuration is inherited from /.htaccess).
+ErrorDocument 404 /fr/404.html

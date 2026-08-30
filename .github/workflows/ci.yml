@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -21,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22   # html-validate 11 needs Node ^22.22 || >=24.8
 
       - name: Install dev tooling
         run: npm ci || npm install
@@ -43,6 +44,9 @@ jobs:
       - name: Internal link check
         run: node scripts/test-links.mjs
 
+      - name: PHP syntax check (briefing endpoint)
+        run: php -l public/api/briefing.php
+
       - name: Lighthouse CI (mobile, all routes)
         run: |
           npm install -g @lhci/cli@0.14.x
@@ -63,38 +67,102 @@ jobs:
         with:
           name: dist
           path: dist
+          include-hidden-files: true   # .htaccess and .well-known/ must ship
 
   deploy:
     needs: build-and-test
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    # One upload at a time (job-level, so every push is still built and tested).
+    concurrency:
+      group: deploy-${{ github.ref }}
+      cancel-in-progress: false
+    # The `secrets` context is not available in a step-level `if:` (that is why
+    # every earlier run of this workflow failed at startup with no jobs). Expose
+    # "is this secret set?" flags through the job environment instead.
+    env:
+      HAS_NAMECHEAP:  ${{ secrets.NAMECHEAP_FTP_HOST != '' && secrets.NAMECHEAP_FTP_USER != '' && secrets.NAMECHEAP_FTP_PASSWORD != '' }}
+      HAS_CLOUDFLARE: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+      HAS_INDEXNOW:   ${{ secrets.INDEXNOW_KEY != '' }}
+      HAS_GSC:        ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22   # html-validate 11 needs Node ^22.22 || >=24.8
+      # Deploy exactly what build-and-test validated — not the committed dist/.
+      - name: Replace committed dist/ with the tested build
+        run: rm -rf dist
       - uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist
 
-      # --- Choose ONE deploy target. Cloudflare Pages shown; Caddy origin in deploy/README.md ---
+      - name: Deploy target summary
+        run: |
+          echo "Namecheap (FTPS):   $HAS_NAMECHEAP"
+          echo "Cloudflare Pages:   $HAS_CLOUDFLARE"
+          echo "IndexNow ping:      $HAS_INDEXNOW"
+          echo "GSC sitemap submit: $HAS_GSC"
+          if [ "$HAS_NAMECHEAP" != "true" ] && [ "$HAS_CLOUDFLARE" != "true" ]; then
+            echo "::warning::No deploy target configured — set all three NAMECHEAP_FTP_* secrets (or CLOUDFLARE_*); see deploy/README.md §4"
+          fi
+
+      # --- Target A: Namecheap shared hosting (cPanel / LiteSpeed) over FTPS -----
+      # Secrets: NAMECHEAP_FTP_HOST, NAMECHEAP_FTP_USER, NAMECHEAP_FTP_PASSWORD.
+      # Variable (optional): NAMECHEAP_FTP_DIR — where the FTP login lands relative
+      # to the site root. Main cPanel login → "public_html/" (default); a dedicated
+      # FTP account whose directory already IS public_html → "./".
+      - name: Deploy to Namecheap (FTPS → public_html)
+        if: env.HAS_NAMECHEAP == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.NAMECHEAP_FTP_HOST }}
+          username: ${{ secrets.NAMECHEAP_FTP_USER }}
+          password: ${{ secrets.NAMECHEAP_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: strict           # verify the server certificate (issued for *.web-hosting.com)
+          local-dir: dist/
+          server-dir: ${{ vars.NAMECHEAP_FTP_DIR || 'public_html/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            _headers
+            sbom.json
+
+      - name: Smoke-test the live site
+        if: env.HAS_NAMECHEAP == 'true'
+        run: bash deploy/smoke.sh https://sigilsovereign.com
+
+      # --- Target B: Cloudflare Pages (runbook §4a) --------------------------------
+      # The FTP action drops its state file into dist/; that and the
+      # Apache/PHP-only files must not be published on Pages.
+      - name: Strip Namecheap-only files before the Pages upload
+        if: env.HAS_CLOUDFLARE == 'true'
+        run: rm -f dist/.ftp-deploy-sync-state.json dist/.htaccess dist/fr/.htaccess dist/api/briefing.php
       - name: Deploy to Cloudflare Pages
-        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+        if: env.HAS_CLOUDFLARE == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=sigilsovereign
 
+      # --- Post-deploy indexing pings (only once something was deployed) ----------
       - name: IndexNow ping (changed URLs)
-        if: ${{ secrets.INDEXNOW_KEY != '' }}
+        if: env.HAS_INDEXNOW == 'true' && (env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
         run: node scripts/indexnow.mjs
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
 
       - name: WebSub publish ping (instant feed discovery)
+        if: env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true'
         run: node scripts/websub-ping.mjs
 
       - name: Submit sitemap to Google Search Console
-        if: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON != '' }}
+        if: env.HAS_GSC == 'true' && (env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
         run: node scripts/gsc-submit.mjs
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}

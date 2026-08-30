@@ -12,6 +12,8 @@ source code is private; this repository is the marketing site only.
 
 ## Quick start
 
+Requires Node **≥ 22.22** (html-validate 11).
+
 ```bash
 npm install
 node scripts/gen-llms.mjs      # regenerate llms.txt / llms-full.txt from facts
@@ -38,9 +40,15 @@ an SBOM, and build-provenance attestation.
 
 ## Deploy
 
-See **`deploy/README.md`** — the full runbook (Namecheap → Cloudflare DNS, Zoho
-mail records, hosting options, the briefing Worker, CI secrets, indexing, and a
-go-live checklist).
+The site is hosted on **Namecheap shared hosting (cPanel / LiteSpeed)**. CI
+builds and tests on every push to `main`, uploads `dist/` to `public_html` over
+FTPS, and smoke-tests the live site. `public/.htaccess` carries the redirects,
+security headers, caching and the `/api/briefing` route for that host;
+`public/api/briefing.php` is the contact-form handler there.
+
+See **`deploy/README.md`** — the full runbook (Namecheap DNS and cPanel setup,
+mail records, the FTPS deploy and its secrets, the cPanel Git alternative, the
+Cloudflare/Caddy paths, the briefing handler, indexing, and a go-live checklist).
 
 ---
 
@@ -58,7 +66,8 @@ src/
     mark.js           The SIGIL registration mark, as vector (astroid + arms).
     diagrams.js       Inline-SVG diagrams (auth gate, lead→fact, RÉCOR pipeline).
     app.js            Progressive enhancement: theme, language banner, motion.
-    briefing.js       Contact-form upgrade (mailto → Worker POST).
+    briefing.js       Contact-form upgrade (mailto → POST /api/briefing: PHP handler
+                      on cPanel, Worker on Cloudflare; falls back to mailto).
     favicon.mjs       Generates favicon.svg + og-image.(svg|png).
   styles/
     app.css           The whole design system: tokens, themes, glass, motion, a11y.
@@ -68,15 +77,18 @@ src/
     jsonld.js         Structured-data @graph builders.
   pages/
     *.js              One module per page; each returns EN and FR HTML.
-public/               Static files copied verbatim (robots, security.txt, fonts…).
+public/               Static files copied verbatim (robots, security.txt, fonts,
+                      .htaccess for cPanel/LiteSpeed, api/briefing.php).
 scripts/
   build.mjs           Renders all pages, copies assets, writes sitemaps.
   gen-llms.mjs        Builds llms.txt / llms-full.txt from facts.json.
   test-*.mjs          CI gates.
   indexnow.mjs        Post-deploy IndexNow ping.
   gsc-submit.mjs      Post-deploy Search Console sitemap submit.
-worker/               Cloudflare Worker for the briefing form.
-deploy/               Caddyfile, Lighthouse config, and the deploy runbook.
+  websub-ping.mjs     Post-deploy WebSub hub ping for the notes feed.
+worker/               Cloudflare Worker for the briefing form (Cloudflare hosting only).
+deploy/               Deploy runbook, smoke test, Caddyfile, Lighthouse config.
+.cpanel.yml           cPanel "Git Version Control" deploy tasks (manual alternative).
 ```
 
 ### Editing content

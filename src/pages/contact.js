@@ -23,13 +23,15 @@ const copy = {
     pgp: "PGP",
     pgpVal: "See security.txt",
     formH: "Request a briefing",
-    formP: "Tell us who you are and what you would like to discuss. This form opens your email client with the details filled in; you can also write to us directly.",
+    formP: "Tell us who you are and what you would like to discuss; you can also write to us directly at the addresses above.",
     f_name: "Your name",
     f_org: "Organization",
     f_email: "Your email",
     f_msg: "What would you like to discuss?",
     f_send: "Compose email",
     f_note: "This opens your email application with the message prepared. Nothing is sent until you send it.",
+    f_send_live: "Send request",
+    f_note_live: "Your request is sent to us directly and you receive a receipt number. If that fails, the button opens your email application instead.",
     subject: "Briefing request — VIGIL / RÉCOR"
   },
   fr: {
@@ -48,13 +50,15 @@ const copy = {
     pgp: "PGP",
     pgpVal: "Voir security.txt",
     formH: "Demander une présentation",
-    formP: "Dites-nous qui vous êtes et ce que vous souhaitez aborder. Ce formulaire ouvre votre messagerie avec les informations pré-remplies ; vous pouvez aussi nous écrire directement.",
+    formP: "Dites-nous qui vous êtes et ce que vous souhaitez aborder ; vous pouvez aussi nous écrire directement aux adresses ci-dessus.",
     f_name: "Votre nom",
     f_org: "Organisation",
     f_email: "Votre courriel",
     f_msg: "Que souhaitez-vous aborder ?",
     f_send: "Composer le courriel",
     f_note: "Ceci ouvre votre application de messagerie avec le message préparé. Rien n’est envoyé tant que vous ne l’envoyez pas.",
+    f_send_live: "Envoyer la demande",
+    f_note_live: "Votre demande nous est transmise directement et vous recevez un numéro de reçu. En cas d’échec, le bouton ouvre votre messagerie à la place.",
     subject: "Demande de présentation — VIGIL / RÉCOR"
   }
 };
@@ -77,9 +81,11 @@ export function contact(lang) {
       <p class="muted" style="margin-top:.4rem">${note}</p>
     </div>`).join("");
 
-  // The form is a progressive-enhancement mailto: composer. It works with zero
-  // JS-server dependency; the Worker (see /worker) can replace the action for a
-  // true POST once deployed. data-endpoint lets app-side code upgrade it later.
+  // The form is a progressive-enhancement mailto: composer (the subject rides in
+  // the action URL; form fields can only become the mail body). With JS,
+  // src/assets/briefing.js posts to data-endpoint (the PHP handler on cPanel or
+  // the Worker on Cloudflare) and swaps the button/note copy to the *_live
+  // strings; if that POST fails it reverts to the native mailto: behaviour.
   const body = `
 <section class="section wrap">
   <p class="eyebrow">${strings[lang].nav.contact}</p>
@@ -108,17 +114,16 @@ export function contact(lang) {
   <p style="margin-top:1rem;max-width:62ch">${c.formP}</p>
   <form class="card" style="margin-top:1.5rem;max-width:44rem" id="briefing-form"
         data-endpoint="/api/briefing"
-        action="mailto:${facts.org.email}" method="post" enctype="text/plain">
+        action="mailto:${facts.org.email}?subject=${encodeURIComponent(c.subject)}" method="post" enctype="text/plain">
     <div class="stack">
-      <label>${c.f_name}<br><input type="text" name="name" required autocomplete="name" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
-      <label>${c.f_org}<br><input type="text" name="organization" autocomplete="organization" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
-      <label>${c.f_email}<br><input name="email" type="email" required autocomplete="email" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
-      <label>${c.f_msg}<br><textarea name="message" rows="5" required style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></textarea></label>
-      <input type="hidden" name="subject" value="${c.subject}">
+      <label>${c.f_name}<br><input type="text" name="name" required minlength="2" maxlength="200" autocomplete="name" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
+      <label>${c.f_org}<br><input type="text" name="organization" maxlength="200" autocomplete="organization" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
+      <label>${c.f_email}<br><input name="email" type="email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+" autocomplete="email" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
+      <label>${c.f_msg}<br><textarea name="message" rows="5" required minlength="10" maxlength="5000" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></textarea></label>
       <div>
-        <button class="btn" type="submit">${c.f_send} <span class="term" aria-hidden="true">→</span></button>
+        <button class="btn" type="submit" data-label-native="${c.f_send}" data-label-send="${c.f_send_live}"><span data-label>${c.f_send}</span> <span class="term" aria-hidden="true">→</span></button>
       </div>
-      <p class="muted" style="font-size:var(--step--1)">${c.f_note}</p>
+      <p class="muted" id="briefing-note" data-note-native="${c.f_note}" data-note-send="${c.f_note_live}" style="font-size:var(--step--1)">${c.f_note}</p>
     </div>
   </form>
 </section>`;

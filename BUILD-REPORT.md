@@ -3,7 +3,31 @@
 **Site:** sigilsovereign.com · **Company:** SIGIL SARL, Buea, Cameroon
 **Build:** static, bilingual (EN + FR) · **Date:** 2026-08-30
 
-## Revision — name consistency (this update)
+## Revision — hosting on Namecheap cPanel (30 Aug 2026)
+
+The domain already points at a Namecheap shared-hosting account (cPanel /
+LiteSpeed), so the deploy target is now that host — see `deploy/README.md` §4c.
+
+- `public/.htaccess` (→ `dist/.htaccess`): HTTPS + `www`→apex redirects (HSTS-preload
+  compliant), the security-header set, caching, MIME types, EN/FR 404 pages, the
+  `/api/briefing` route. `public/api/briefing.php` replaces the Cloudflare Worker
+  on this host (same contract, plus rate limiting and header hardening).
+- CI (`.github/workflows/ci.yml`) was failing at startup (`secrets` in a step-level
+  `if:`); rewritten with a Namecheap FTPS deploy, a live smoke test
+  (`deploy/smoke.sh`), and Node 22 (html-validate 11 requires it). `.cpanel.yml`
+  adds a manual cPanel Git alternative.
+- Two site-wide CSP defects fixed in all three header configs: the inline
+  `<head>` script hash was computed over trimmed text (browsers hash the exact
+  text, so the theme/JS marker was blocked on every page), and `style-src` lacked
+  `'unsafe-inline'` for the `style=""` attributes the pages rely on. The build now
+  fails if the hash drifts.
+- Contact form: the mailto fallback actually works when no endpoint answers, the
+  mail subject rides in the `mailto:` URL, and the button/note copy says truthfully
+  whether a submission is sent directly or composed in the visitor's mail client.
+- Build output no longer depends on the build machine's timezone; a French 404
+  page is built.
+
+## Revision — name consistency
 
 - The header wordmark now reads **SIGIL SARL** on every page, matching the footer
   (previously the header showed a bare "SIGIL"). All wordmarks are now identical.

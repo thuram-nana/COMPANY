@@ -4,18 +4,30 @@ This is the operational guide to take `sigilsovereign.com` from this repository
 to a live, secured, indexed site. It is written to be followed top to bottom.
 
 Everything the site needs at runtime is static; the only server-side component is
-the optional briefing-form Worker (§5). The site works without it.
+the optional briefing-form handler (§5). The site works without it.
+
+**Where things stand (30 Aug 2026).** The domain is registered at Namecheap and
+already points at a **Namecheap shared-hosting (cPanel / LiteSpeed) account** —
+nameservers `dns1/dns2.namecheaphosting.com`, server `server402-2.web-hosting.com`,
+AutoSSL certificate issued for the apex and `www`. It currently serves the
+Namecheap parking page. §4c below is the path that matches what you have; the
+Cloudflare Pages and Caddy paths (§4a, §4b) remain valid if you move later.
 
 ---
 
 ## 0. What you are deploying
 
-- A static site in `dist/` (36 pages, EN + FR, plus machine files).
-- Security headers (`public/_headers`, mirrored in `deploy/Caddyfile`).
-- A Cloudflare Worker for the briefing form (`worker/`), optional.
-- CI that builds, tests, deploys, and pings indexers (`.github/workflows/ci.yml`).
+- A static site in `dist/` (38 pages, EN + FR, plus machine files).
+- Security headers, three ways — pick the one your host reads:
+  `public/.htaccess` (Apache / LiteSpeed, i.e. **Namecheap cPanel**),
+  `public/_headers` (Cloudflare Pages), `deploy/Caddyfile` (Caddy origin).
+  Keep the three in sync; the CSP hash lives in all of them.
+- The briefing-form handler, two ways: `public/api/briefing.php` (runs as-is on
+  cPanel) or the Cloudflare Worker in `worker/`. Optional either way.
+- CI that builds, tests, deploys, smoke-tests, and pings indexers
+  (`.github/workflows/ci.yml`), and `.cpanel.yml` for cPanel's own Git deploy.
 
-Build locally at any time:
+Build locally at any time (Node ≥ 22.22):
 
 ```bash
 npm install
@@ -26,7 +38,29 @@ node scripts/build.mjs
 
 ---
 
-## 1. Domain & DNS — Namecheap → Cloudflare (recommended)
+## 1. Domain & DNS
+
+### 1a. Stay on Namecheap DNS (current setup — nothing to change)
+
+DNS is served by the hosting nameservers and edited in **cPanel → Zone Editor**.
+The `A` record for `@` and `www` already points at the hosting server; the
+parking page is just the placeholder `index.html` in `public_html`.
+
+Two cautions specific to Namecheap hosting:
+
+- **CAA.** AutoSSL on Namecheap does not use Let's Encrypt: the live certificate
+  is issued by **SSL.com** (verified on 30 Aug 2026; older accounts may see
+  Sectigo). If you add a CAA record, it must include the issuer that actually
+  renews your certificate (check with
+  `openssl s_client -connect sigilsovereign.com:443 </dev/null | openssl x509 -noout -issuer`)
+  — a CAA that only lists `letsencrypt.org` silently breaks the next renewal.
+  Easiest: do not add CAA until you control issuance yourself.
+- **DNSSEC.** Not available on this setup: Namecheap does not support DNSSEC for
+  domains pointed at its shared-hosting nameservers. It becomes possible only
+  after §1b (Cloudflare signs the zone and you paste the DS record into
+  Namecheap → Advanced DNS).
+
+### 1b. Move DNS to Cloudflare (optional, later)
 
 Namecheap stays the **registrar** (you keep ownership); Cloudflare runs the
 **DNS** so you get API-driven records, one-click DNSSEC, and a CDN/WAF in front.
@@ -35,23 +69,41 @@ Namecheap stays the **registrar** (you keep ownership); Cloudflare runs the
 2. Cloudflare shows two nameservers (e.g. `xxx.ns.cloudflare.com`).
 3. In **Namecheap → Domain List → Manage → Nameservers**, choose **Custom DNS**
    and enter the two Cloudflare nameservers. Save. (Propagation: minutes to a
-   few hours.)
+   few hours.) Re-create the `A`/`MX`/`TXT` records from cPanel's Zone Editor in
+   Cloudflare first, or mail and the site go dark during the switch.
 4. In **Cloudflare → DNS**, enable **DNSSEC** (it gives you a DS record to add
    back in Namecheap under **Advanced DNS → DNSSEC**).
-5. Add a **CAA** record so only your CA may issue certs, e.g.
-   `sigilsovereign.com CAA 0 issue "letsencrypt.org"` (and your CA if different).
-
-> Prefer to stay entirely on Namecheap? You can — enable DNSSEC in Namecheap and
-> add records there. You then lose Cloudflare's CDN/WAF and API-driven records,
-> and the CI "Deploy to Cloudflare Pages" step does not apply (use the Caddy
-> origin path in §4 instead).
+5. Add a **CAA** record matching your certificate issuer (§1a caution applies).
+6. Set SSL/TLS mode to **Full (strict)**. The `.htaccess` also honours
+   `X-Forwarded-Proto`, so a proxied origin never redirect-loops.
 
 ---
 
-## 2. Mail — Zoho
+## 2. Mail
 
-Add these DNS records (in Cloudflare, or Namecheap if you kept DNS there). Values
-come from your Zoho admin console; the policy records below are what to publish.
+Today `MX` points at Namecheap's hosting mail (`mx*-hosting.jellyfish.systems`),
+so mailboxes live in cPanel. Two options:
+
+### 2a. cPanel mailboxes (works today)
+
+**cPanel → Email Accounts** → create `info@`, `security@`, `press@` (or one
+mailbox plus forwarders). The zone already carries cPanel's SPF
+(`v=spf1 +a +mx … include:spf.web-hosting.com ~all`), a DKIM key
+(`default._domainkey`) and a `_dmarc` record with `p=none`. **cPanel → Email
+Deliverability** shows SPF/DKIM status with one-click repair. In **Zone Editor**,
+**edit the existing `_dmarc` TXT** (do not add a second one — two DMARC records
+cancel each other out, RFC 7489 §6.6.3) to:
+
+| Type | Host | Value |
+|------|------|-------|
+| TXT | `_dmarc` | `v=DMARC1; p=reject; rua=mailto:dmarc@sigilsovereign.com; adkim=s; aspf=s` |
+
+### 2b. Zoho (the original plan)
+
+Add or edit these records (in cPanel → Zone Editor, or Cloudflare if you moved
+DNS). Values come from your Zoho admin console; the policy records below are
+what to publish. **A zone must hold exactly one `v=spf1` TXT and one `_dmarc`
+TXT** — replace the existing values, never add a second record.
 
 | Type | Host | Value | Purpose |
 |------|------|-------|---------|
@@ -61,14 +113,21 @@ come from your Zoho admin console; the policy records below are what to publish.
 | TXT | `_dmarc` | `v=DMARC1; p=reject; rua=mailto:dmarc@sigilsovereign.com; adkim=s; aspf=s` | DMARC, reject |
 | TXT | `@` | (Zoho domain-verification token) | Zoho verify |
 
+**Required on cPanel when MX points off-server:** **cPanel → Email Routing →
+Remote Mail Exchanger** for `sigilsovereign.com`. Otherwise the server treats the
+domain as local and mail from the site (the PHP briefing handler, §5) never leaves.
+The PHP handler sends from the hosting server with `Return-Path`
+`website@sigilsovereign.com` and cPanel's DKIM signature, so keep
+`+a include:spf.web-hosting.com` in the SPF record and keep the
+`default._domainkey` DKIM record alongside Zoho's — or the briefing mails fail
+DMARC at Zoho.
+
 Then, for full marks on mail-security scanners:
 
 - **MTA-STS:** publish `_mta-sts.sigilsovereign.com TXT "v=STSv1; id=..."` and host
   a policy file at `https://mta-sts.sigilsovereign.com/.well-known/mta-sts.txt`
   listing `mx.zoho.com` etc. with `mode: enforce`.
 - **TLS-RPT:** `_smtp._tls.sigilsovereign.com TXT "v=TLSRPTv1; rua=mailto:tls@sigilsovereign.com"`.
-
-Create the mailboxes/aliases the site uses: `info@`, `security@`, `press@`.
 
 > DMARC note: start with `p=none` for a week if you want to watch the `rua`
 > reports before enforcing, then move to `p=reject`. The site's own mail is
@@ -90,35 +149,155 @@ Create the mailboxes/aliases the site uses: `info@`, `security@`, `press@`.
 
 ## 4. Hosting — choose one
 
-### 4a. Cloudflare Pages (fastest path)
+### 4c. Namecheap shared hosting — cPanel / LiteSpeed (what you have)
 
-- CI already has a **Deploy to Cloudflare Pages** step. In Cloudflare, create a
-  Pages project named `sigilsovereign` (can be "Direct Upload").
+The site is plain files in `public_html`; `public/.htaccess` (built into
+`dist/.htaccess`) supplies HTTPS + `www`→apex redirects, the security headers,
+caching, MIME types, the 404 page, and the `/api/briefing` route. CI uploads
+`dist/` over **FTPS** after every green build on `main`, then runs
+`deploy/smoke.sh` against the live site.
+
+**One-time setup (≈10 minutes):**
+
+1. **FTP credentials.** Either use the main cPanel login, or (better) create a
+   dedicated account: **cPanel → FTP Accounts → Add FTP Account**, directory
+   `public_html`. Host **must be `server402-2.web-hosting.com`**, port **21**,
+   explicit **FTPS**: the FTP server presents a certificate for
+   `*.web-hosting.com`, so `ftp.sigilsovereign.com` (which also resolves) fails
+   certificate verification — the workflow verifies it (`security: strict`).
+2. **GitHub → repo → Settings → Secrets and variables → Actions:**
+
+   | Kind | Name | Value |
+   |------|------|-------|
+   | Secret | `NAMECHEAP_FTP_HOST` | `server402-2.web-hosting.com` |
+   | Secret | `NAMECHEAP_FTP_USER` | the FTP username (dedicated accounts look like `deploy@sigilsovereign.com`) |
+   | Secret | `NAMECHEAP_FTP_PASSWORD` | its password |
+   | Variable (optional) | `NAMECHEAP_FTP_DIR` | `public_html/` (default, for the main cPanel login) or `./` for a dedicated account rooted at `public_html` |
+
+3. **Clean the parking page.** In **cPanel → File Manager → public_html**, delete
+   `nc_assets/` and any placeholder `.htaccess` (the deploy overwrites
+   `index.html` and ships its own `.htaccess`, but never deletes files it did
+   not upload). Leave `cgi-bin/` alone.
+   **From now on `public_html/.htaccess` belongs to the repository.** The FTPS
+   deploy re-uploads it only when `public/.htaccess` changes in git (the action
+   diffs against its own state file, not the server), so a block written there
+   by a cPanel tool (PHP-version handler, "Force HTTPS Redirect", Hotlink
+   Protection, Directory Privacy…) lingers for a while and then vanishes with an
+   unrelated commit. Never enable those tools; put what you need in
+   `public/.htaccess` instead.
+4. **PHP.** The account default (PHP 8.2 on Namecheap shared servers) is fine;
+   `briefing.php` needs ≥ 7.4. If you change it, Namecheap's tool is **cPanel →
+   Exclusive for Namecheap Customers → Select PHP Version** (some accounts also
+   show MultiPHP Manager); afterwards open `public_html/.htaccess` in File
+   Manager and, if a `# php -- BEGIN cPanel-generated handler` block appeared,
+   move it into `public/.htaccess` (see step 3). Keep the `mbstring` extension
+   on (correct character counting for accented text). PHP may create
+   `public_html/api/error_log`; `.htaccess` refuses to serve it.
+5. **Deploy.** Push to `main`, or **Actions → build-test-deploy → Run workflow**.
+   The `deploy` job prints which targets are configured, uploads, and the smoke
+   test verifies redirects, headers, the 404, machine files, and the endpoint.
+
+**The CI FTPS deploy is the only routine writer of `public_html`.** It syncs
+against `public_html/.ftp-deploy-sync-state.json`, not against the server: if
+anything else ever writes there (the two alternatives below, or a File Manager
+edit), delete that state file afterwards so the next CI run re-uploads
+everything.
+
+**Deploying by hand (no CI):** any FTPS client to `public_html`, or over SSH on
+port **21098** — shell access is **off by default** on Namecheap shared hosting;
+enable it first in **cPanel → Exclusive for Namecheap Customers → Manage Shell**
+(SFTP on the same port works without it, `rsync` does not):
+
+```bash
+rsync -avz --delete \
+  --exclude _headers --exclude sbom.json --exclude '.ftp-deploy-sync-state.json' \
+  --exclude cgi-bin --exclude '.well-known/pki-validation' --exclude '.well-known/acme-challenge' \
+  --exclude 'api/briefing.config.php' --exclude 'api/error_log' \
+  -e 'ssh -p 21098' dist/ <cpanel-user>@server402-2.web-hosting.com:public_html/
+bash deploy/smoke.sh https://sigilsovereign.com
+```
+
+#### cPanel Git deploy (alternative, no secrets in GitHub)
+
+`dist/` is committed, so **cPanel → Git Version Control → Create** (clone
+`https://github.com/thuram-nana/COMPANY.git` to a path *outside* `public_html`),
+then **Update from Remote → Deploy HEAD Commit**. `.cpanel.yml` copies `dist/`
+into `public_html` (and removes the FTP state file, see above). This is a manual
+pull of whatever is committed; CI's FTPS deploy is the automatic, tested one.
+
+**Compression:** LiteSpeed compresses server-wide; verify with a GET (LiteSpeed
+omits `Content-Encoding` on HEAD, so `curl -I` always prints nothing):
+`curl -s -o /dev/null -D - -H 'Accept-Encoding: br, gzip' https://sigilsovereign.com/ | grep -i content-encoding`.
+
+**HSTS preload:** the header already carries `includeSubDomains; preload`, and
+`.htaccess` redirects `http://www` to `https://www` before going to the apex
+(hstspreload.org requires the same-host hop). Before submitting, confirm
+`mail.`, `webmail.`, `cpanel.` and any other subdomain you use also answer over
+valid HTTPS — preload is hard to undo.
+
+### 4a. Cloudflare Pages
+
+- CI has a **Deploy to Cloudflare Pages** step. In Cloudflare, create a Pages
+  project named `sigilsovereign` (can be "Direct Upload").
 - Add repo secrets `CLOUDFLARE_API_TOKEN` (Pages:Edit) and
   `CLOUDFLARE_ACCOUNT_ID`. Push to `main` → CI builds, tests, and deploys `dist/`.
-- Pages serves `public/_headers` automatically.
+- Pages serves `public/_headers` automatically (`.htaccess` is ignored there).
 - **Important:** in Cloudflare, under **Bots / AI Scrapers and Crawlers**, leave
   "Block AI bots" **OFF** — otherwise the crawler allowances in `robots.txt`
   are silently overridden and the GEO/AEO work is defeated.
 
-### 4b. SIGIL-controlled origin behind Cloudflare (recommended for the sovereignty story)
+### 4b. SIGIL-controlled origin behind Cloudflare (the sovereignty posture)
 
 - Put `dist/` on a small server you control (e.g. Hetzner/OVH), served by Caddy
   using `deploy/Caddyfile` (HTTP/3, Brotli, headers, immutable caching).
 - In Cloudflare DNS, add an `A`/`AAAA` record for `@` (and `www`) to the origin,
   **proxied** (orange cloud). Restrict the origin firewall to Cloudflare IP
   ranges so the origin is only reachable through Cloudflare.
-- Deploy by rsync from CI (replace the Pages step) or by a pull on the origin.
+- Deploy by rsync from CI (replace the FTPS step) or by a pull on the origin.
 
 Either way: submit the domain to the **HSTS preload list** (hstspreload.org)
 once HTTPS is confirmed and the HSTS header (already set) is live.
 
 ---
 
-## 5. Briefing form Worker (optional)
+## 5. Briefing form handler (optional)
 
-The contact form works today as a `mailto:` composer. To make it a true
-server-side submission:
+The contact form works with no server at all: JavaScript posts to
+`/api/briefing`; if that fails, the next press of **Send** uses the form's
+native `mailto:` action and opens the visitor's mail client. Deploying a handler
+upgrades that to a true server-side submission with an inline receipt.
+
+### 5a. On Namecheap / cPanel — `public/api/briefing.php` (already deployed)
+
+Nothing to install: the file ships with `dist/`, `.htaccess` routes
+`/api/briefing` to it, and it sends with PHP `mail()` through the server's MTA.
+Validation, honeypot and the `SIGIL-…` receipt id follow the same rules as the
+Worker, plus a 200-character cap on the organization field (mirrored by the
+form), header-safe email characters only, and a rate limit the Worker left to
+Cloudflare (5 submissions per IP per 10 minutes, 60 per hour overall → `429`,
+after which the form falls back to the visitor's mail client).
+
+- Delivery goes to `info@sigilsovereign.com` from `website@sigilsovereign.com`,
+  with the envelope sender (`Return-Path`) set to the same address so SPF/DMARC
+  align and cPanel's DKIM signs for the domain. If the mailbox is in cPanel
+  (§2a) that is local delivery and just works. If MX is external (§2b) set
+  **Email Routing → Remote Mail Exchanger** first.
+- To change addresses or sign receipts, create `public_html/api/briefing.config.php`
+  **on the server** (never commit it; the deploy leaves it alone and `.htaccess`
+  refuses to serve it):
+
+  ```php
+  <?php return [
+    'to'             => 'info@sigilsovereign.com',
+    'from'           => 'website@sigilsovereign.com',
+    'receipt_secret' => 'a long random string',
+  ];
+  ```
+- Test: submit the form on `/contact/`; the inline message shows the receipt id,
+  and the email carries the same id. `curl -s https://sigilsovereign.com/api/briefing`
+  must answer `405 {"ok":false,"error":"method_not_allowed"}`.
+
+### 5b. On Cloudflare — the Worker in `worker/`
 
 ```bash
 cd worker
@@ -133,9 +312,13 @@ wrangler deploy
 
 `wrangler.toml` binds the Worker to `POST sigilsovereign.com/api/briefing` — the
 same-origin endpoint the form's `data-endpoint` names, so the front-end upgrades
-automatically once the Worker is live. The Worker relays through MailChannels
-(free from Workers); if you prefer raw Zoho SMTP, run a tiny relay and point the
-Worker at it (see comments in `worker/briefing.js`).
+automatically once the Worker is live. **The Worker's mail transport is stale and
+untested:** it posts to the MailChannels API without credentials, but the free
+MailChannels-for-Workers integration was retired on 30 June 2024 and
+unauthenticated calls are rejected. Before using this path, give
+`sendViaZoho()` in `worker/briefing.js` a real transport (a paid MailChannels
+API key, Cloudflare's own email sending, or an SMTP relay). On Namecheap, the
+PHP handler (§5a) is the supported path.
 
 Add a Turnstile widget to the form if you want visible spam protection; the
 Worker already verifies the token when `TURNSTILE_SECRET` is set. The invisible
@@ -147,10 +330,15 @@ honeypot works without any of this.
 
 | Secret | For | Required? |
 |--------|-----|-----------|
-| `CLOUDFLARE_API_TOKEN` | Pages deploy | if using Pages |
-| `CLOUDFLARE_ACCOUNT_ID` | Pages deploy | if using Pages |
+| `NAMECHEAP_FTP_HOST` / `_USER` / `_PASSWORD` | Namecheap FTPS deploy (§4c) | **yes, for the current hosting** |
+| `NAMECHEAP_FTP_DIR` (a *variable*) | upload directory, default `public_html/` | optional |
+| `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` | Pages deploy (§4a) | if using Pages |
 | `INDEXNOW_KEY` | IndexNow ping | recommended |
 | `GSC_SERVICE_ACCOUNT_JSON` | GSC sitemap submit | recommended |
+
+The workflow reads presence of these secrets into job-level `env` flags and
+skips unconfigured steps (the `secrets` context cannot be used in a step-level
+`if:` — that is what made every early run fail before any job started).
 
 For **IndexNow**, pick a key (a random 32-hex string), set it as `INDEXNOW_KEY`,
 and add a matching file at the site root: `dist/<key>.txt` containing just the
@@ -170,34 +358,46 @@ inline script, regenerate the hash:
 
 ```bash
 node scripts/build.mjs
-node - <<'EOF'
+node - <<'EOS'
 import { readFileSync } from "fs"; import crypto from "crypto";
 const html = readFileSync("dist/index.html","utf8");
-const m = html.match(/<script>\n([\s\S]*?)\n<\/script>/);
+const m = html.match(/<script>([\s\S]*?)<\/script>/);   // exact text, newlines included
 const h = crypto.createHash("sha256").update(m[1]).digest("base64");
 console.log("sha256-" + h);
-EOF
+EOS
 ```
 
-Put the new value in `public/_headers` and `deploy/Caddyfile` (the `script-src`
-directive). The current hash is in `deploy_csp_hash.txt`.
+Put the new value in `public/.htaccess`, `public/_headers`, and `deploy/Caddyfile`
+(the `script-src` directive). `scripts/build.mjs` recomputes the hash on every
+build and **fails if any of the three files does not allowlist it**;
+`deploy/smoke.sh` re-checks it against the live site. Browsers hash the exact
+child text of the `<script>` element — the newlines after `<script>` and before
+`</script>` included — which is why the recipe above must not trim.
+
+The policy also carries `style-src-attr 'unsafe-inline'`: the pages use
+`style=""` attributes (form fields, spacing, the mark's `--mk-i` indices), and a
+CSP without it silently strips all of them. `<style>` elements and stylesheets
+stay restricted to `'self'`.
 
 ---
 
 ## 8. Go-live checklist
 
-- [ ] Nameservers moved; DNSSEC enabled; CAA set.
-- [ ] Zoho MX/SPF/DKIM/DMARC(+MTA-STS/TLS-RPT) live; test at internet.nl and
-      dmarcian; `info@`, `security@`, `press@` receive mail.
-- [ ] Site deployed; `https://sigilsovereign.com` serves; `www` redirects.
-- [ ] Cloudflare "Block AI bots" is **OFF**.
+- [ ] DNS: decided §1a or §1b; DNSSEC on (only possible after §1b); CAA only if
+      it names the real issuer.
+- [ ] Mail: `info@`, `security@`, `press@` receive mail; SPF/DKIM/DMARC pass at
+      internet.nl / dmarcian; Remote Mail Exchanger set if MX is external.
+- [ ] Namecheap: FTP secrets set; `nc_assets/` and placeholder files removed;
+      no cPanel tool writes to `public_html/.htaccess`; CI `deploy` job green;
+      `bash deploy/smoke.sh https://sigilsovereign.com` all `ok`.
+- [ ] `https://sigilsovereign.com` serves; `www` and `http://` redirect in one hop.
 - [ ] Headers score **A+** at securityheaders.com and Mozilla Observatory.
-- [ ] HSTS preload submitted.
+- [ ] Briefing form: a test submission arrives with a `SIGIL-…` receipt.
+- [ ] HSTS preload submitted (after the subdomain check in §4c).
 - [ ] GSC + Bing verified; sitemap submitted; IndexNow key file live.
 - [ ] Replace the PGP key: put the real armored public key in `public/pgp.txt`
       and sign `/.well-known/security.txt`; confirm the fingerprint on `/trust/`.
 - [ ] Set the `Expires` date in `security.txt` to ≤1 year out.
-- [ ] (Optional) Worker deployed; submit a test briefing and confirm receipt.
 - [ ] Re-run `node scripts/build.mjs && npx html-validate "dist/**/*.html"` and
       the three `scripts/test-*.mjs` gates — all green.
 
@@ -218,10 +418,12 @@ directive). The current hash is in `deploy_csp_hash.txt`.
 The full plan is in `docs/GEO-AEO-PLAN.md`. Everything on-site is enforced in
 code and CI. These are the steps only the founder can take, in priority order.
 
-**Cloudflare (one-time, critical):** Under Security → Bots, set "Block AI bots" /
-"AI Scrapers and Crawlers" to **OFF** and Pay-Per-Crawl to **OFF**. Do not apply a
-managed challenge to verified crawlers. `robots.txt` is an honor system; an edge
-block silently removes the site from every AI answer engine.
+**Edge blocking (one-time, critical):** on Namecheap there is no bot-blocking
+layer, so nothing to switch off. If you ever put Cloudflare in front: under
+Security → Bots, set "Block AI bots" / "AI Scrapers and Crawlers" to **OFF** and
+Pay-Per-Crawl to **OFF**. Do not apply a managed challenge to verified crawlers.
+`robots.txt` is an honor system; an edge block silently removes the site from
+every AI answer engine.
 
 **Verification (one-time, unlocks auto-indexing):** verify the domain in Google
 Search Console and Bing Webmaster Tools (DNS TXT). Then every push submits the
@@ -241,5 +443,5 @@ Copilot, DuckDuckGo), and publishes the feed via WebSub — no further manual wo
    reference pages almost daily.
 
 **Quarterly:** refresh the crawler allow-list in `public/robots.txt` (new AI bots
-ship quarterly), re-check the Cloudflare bot settings, and confirm sitemap
+ship quarterly), re-check any edge bot settings, and confirm sitemap
 `<lastmod>` values are real (they come from git history in CI).

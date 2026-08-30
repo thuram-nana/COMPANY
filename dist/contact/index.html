@@ -106,20 +106,19 @@ try{var t=localStorage.getItem("sigil-theme");if(t)document.documentElement.setA
 
 <section class="section wrap rule-top">
   <h2 class="h-seal"><svg class="mk-glyph" aria-hidden="true" viewBox="-12.8 -12.8 25.5 25.5" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M11.00,0.00 L10.93,0.00 L10.72,0.02 L10.38,0.08 L9.91,0.19 L9.34,0.37 L8.67,0.62 L7.94,0.95 L7.14,1.37 L6.32,1.89 L5.49,2.48 L4.67,3.15 L3.89,3.89 L3.15,4.67 L2.48,5.49 L1.89,6.32 L1.38,7.14 L0.95,7.94 L0.62,8.67 L0.37,9.34 L0.19,9.91 L0.08,10.38 L0.02,10.72 L0.00,10.93 L0.00,11.00 L-0.00,10.93 L-0.02,10.72 L-0.08,10.38 L-0.19,9.91 L-0.37,9.34 L-0.62,8.67 L-0.95,7.94 L-1.37,7.14 L-1.89,6.32 L-2.48,5.49 L-3.15,4.67 L-3.89,3.89 L-4.67,3.15 L-5.49,2.48 L-6.32,1.89 L-7.14,1.37 L-7.94,0.95 L-8.67,0.62 L-9.34,0.37 L-9.91,0.19 L-10.38,0.08 L-10.72,0.02 L-10.93,0.00 L-11.00,0.00 L-10.93,-0.00 L-10.72,-0.02 L-10.38,-0.08 L-9.91,-0.19 L-9.34,-0.37 L-8.67,-0.62 L-7.94,-0.95 L-7.14,-1.38 L-6.32,-1.89 L-5.49,-2.48 L-4.67,-3.15 L-3.89,-3.89 L-3.15,-4.67 L-2.48,-5.49 L-1.89,-6.32 L-1.38,-7.14 L-0.95,-7.94 L-0.62,-8.67 L-0.37,-9.34 L-0.19,-9.91 L-0.08,-10.38 L-0.02,-10.72 L-0.00,-10.93 L-0.00,-11.00 L0.00,-10.93 L0.02,-10.72 L0.08,-10.38 L0.19,-9.91 L0.37,-9.34 L0.62,-8.67 L0.95,-7.94 L1.38,-7.14 L1.89,-6.32 L2.48,-5.49 L3.15,-4.67 L3.89,-3.89 L4.67,-3.15 L5.49,-2.48 L6.32,-1.89 L7.14,-1.38 L7.94,-0.95 L8.67,-0.62 L9.34,-0.37 L9.91,-0.19 L10.38,-0.08 L10.72,-0.02 L10.93,-0.00 L11.00,-0.00 Z" fill="#F8605A"/></svg><span>Request a briefing</span></h2>
-  <p style="margin-top:1rem;max-width:62ch">Tell us who you are and what you would like to discuss. This form opens your email client with the details filled in; you can also write to us directly.</p>
+  <p style="margin-top:1rem;max-width:62ch">Tell us who you are and what you would like to discuss; you can also write to us directly at the addresses above.</p>
   <form class="card" style="margin-top:1.5rem;max-width:44rem" id="briefing-form"
         data-endpoint="/api/briefing"
-        action="mailto:info@sigilsovereign.com" method="post" enctype="text/plain">
+        action="mailto:info@sigilsovereign.com?subject=Briefing%20request%20%E2%80%94%20VIGIL%20%2F%20R%C3%89COR" method="post" enctype="text/plain">
     <div class="stack">
-      <label>Your name<br><input type="text" name="name" required autocomplete="name" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
-      <label>Organization<br><input type="text" name="organization" autocomplete="organization" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
-      <label>Your email<br><input name="email" type="email" required autocomplete="email" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
-      <label>What would you like to discuss?<br><textarea name="message" rows="5" required style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></textarea></label>
-      <input type="hidden" name="subject" value="Briefing request — VIGIL / RÉCOR">
+      <label>Your name<br><input type="text" name="name" required minlength="2" maxlength="200" autocomplete="name" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
+      <label>Organization<br><input type="text" name="organization" maxlength="200" autocomplete="organization" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
+      <label>Your email<br><input name="email" type="email" required pattern="[^s@]+@[^s@]+.[^s@]+" autocomplete="email" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></label>
+      <label>What would you like to discuss?<br><textarea name="message" rows="5" required minlength="10" maxlength="5000" style="width:100%;margin-top:.3rem;padding:.6rem;border:1px solid var(--rule-strong);border-radius:var(--radius-control);background:var(--surface);color:var(--text);font:inherit"></textarea></label>
       <div>
-        <button class="btn" type="submit">Compose email <span class="term" aria-hidden="true">→</span></button>
+        <button class="btn" type="submit" data-label-native="Compose email" data-label-send="Send request"><span data-label>Compose email</span> <span class="term" aria-hidden="true">→</span></button>
       </div>
-      <p class="muted" style="font-size:var(--step--1)">This opens your email application with the message prepared. Nothing is sent until you send it.</p>
+      <p class="muted" id="briefing-note" data-note-native="This opens your email application with the message prepared. Nothing is sent until you send it." data-note-send="Your request is sent to us directly and you receive a receipt number. If that fails, the button opens your email application instead." style="font-size:var(--step--1)">This opens your email application with the message prepared. Nothing is sent until you send it.</p>
     </div>
   </form>
 </section>

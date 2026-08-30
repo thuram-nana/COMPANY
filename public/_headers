@@ -1,14 +1,16 @@
-# Security headers for sigilsovereign.com
-# Works on Cloudflare Pages and any host that honours a _headers file.
-# For a Caddy/nginx origin, the same directives are in deploy/Caddyfile.
+# Security headers for sigilsovereign.com — Cloudflare Pages (and any host that
+# honours a _headers file). The same policy lives in public/.htaccess
+# (Apache/LiteSpeed — the Namecheap host) and deploy/Caddyfile (Caddy origin);
+# the build fails if the CSP hash drifts between the three.
 #
-# CSP note: the site ships two small inline scripts (the pre-paint theme/JS
-# marker in <head>, and none elsewhere). They are allowlisted by hash below.
-# If you edit the inline <head> script in src/lib/layout.js, regenerate the
-# hash (see deploy/README.md → "Updating the CSP hash").
+# CSP: the site ships ONE inline script (the pre-paint theme/JS marker in
+# src/lib/layout.js), allowlisted by the SHA-256 of its exact text including the
+# surrounding newlines (deploy/README.md → "Updating the CSP hash").
+# style-src: the pages use style="" attributes ('unsafe-inline' on style-src-attr);
+# <style> elements and stylesheets stay restricted to 'self'.
 
 /*
-  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self' 'sha256-Er+vLp5IAuSeKg60tNDrLeE+lBaJbEnzs75ajoyekIM='; connect-src 'self'; form-action 'self' mailto:; manifest-src 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; style-src-attr 'unsafe-inline'; font-src 'self'; script-src 'self' 'sha256-KP7L7cim+yAsJHmXibDh8BpaZhSAsch1lM1rxIBb9yc='; connect-src 'self'; form-action 'self' mailto:; manifest-src 'self'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
@@ -17,14 +19,16 @@
   Cross-Origin-Resource-Policy: same-origin
   X-Frame-Options: DENY
 
+# Fonts never change (self-hosted IBM Plex subsets): immutable for a year.
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
+# app.css / app.js / briefing.js are not content-hashed: revalidate (cheap 304).
 /styles/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 /*.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 /.well-known/security.txt
   Content-Type: text/plain; charset=utf-8
@@ -34,3 +38,6 @@
 
 /llms-full.txt
   Content-Type: text/plain; charset=utf-8
+
+/feed.xml
+  Content-Type: application/atom+xml; charset=utf-8

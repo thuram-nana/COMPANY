@@ -17,6 +17,8 @@ export function notFound(lang) {
   // A 404 must not be indexed and must not claim a canonical; robots noindex is set via body meta-free approach:
   return page({
     lang, current: "", title: t.title, description: t.p,
-    path: "/404.html", altPath: "/404.html", altLang: alt, ogType: "website", body
+    path: lang === "fr" ? "/fr/404.html" : "/404.html",
+    altPath: lang === "fr" ? "/404.html" : "/fr/404.html",
+    altLang: alt, ogType: "website", body
   }).replace('<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">', '<meta name="robots" content="noindex, follow">');
 }

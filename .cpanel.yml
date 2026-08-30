@@ -1,0 +1,21 @@
+---
+# cPanel "Git Version Control" deployment — the no-secrets alternative to the
+# CI FTPS deploy (deploy/README.md §4c → "cPanel Git deploy").
+#
+#   cPanel → Git Version Control → Create → Clone URL:
+#     https://github.com/thuram-nana/COMPANY.git
+#   (repository path OUTSIDE public_html, e.g. /home/<user>/repos/COMPANY)
+#   Then: "Update from Remote" → "Deploy HEAD Commit". cPanel runs the tasks
+#   below as your account user; they copy the committed dist/ into public_html.
+#
+# No build runs on the server: dist/ is committed to the repository, so what
+# CI validated is exactly what is deployed.
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html
+    - /bin/mkdir -p "$DEPLOYPATH"
+    - /bin/cp -R dist/. "$DEPLOYPATH/"
+    - /bin/rm -f "$DEPLOYPATH/_headers" "$DEPLOYPATH/sbom.json"
+    # The CI FTPS deploy syncs against this state file, not the server: drop it
+    # so the next CI run re-uploads everything on top of what was copied here.
+    - /bin/rm -f "$DEPLOYPATH/.ftp-deploy-sync-state.json"

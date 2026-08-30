@@ -1,0 +1,132 @@
+# sigilsovereign.com — Apache / LiteSpeed configuration
+#
+# Target: Namecheap shared hosting (cPanel, LiteSpeed). scripts/build.mjs copies
+# this file verbatim from public/ into dist/, and the deploy puts it at the root
+# of public_html. It mirrors public/_headers (Cloudflare Pages) and
+# deploy/Caddyfile (Caddy origin) — the build fails if the CSP hash drifts.
+#
+# This file is owned by the repository. The CI deploy re-uploads it only when
+# public/.htaccess changes in git (the FTP action diffs against its own state
+# file, never against the server), so anything a cPanel tool writes into
+# public_html/.htaccess (a PHP-version handler block, "Force HTTPS Redirect",
+# Hotlink Protection, Directory Privacy…) lingers until then and is then dropped
+# without warning. Never let cPanel tools edit it; put any needed block here.
+#
+# CSP: the site ships ONE inline script (the pre-paint theme/JS marker in
+# src/lib/layout.js), allowlisted by the SHA-256 of its exact text — including
+# the newline after <script> and before </script>, which browsers hash too.
+# style-src: the pages use style="" attributes, which need 'unsafe-inline' on
+# style-src-attr; <style> elements and stylesheets stay restricted to 'self'.
+
+# ---- basics ------------------------------------------------------------------
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+ServerSignature Off
+
+# The built 404 pages carry noindex and the full site chrome.
+# (dist/fr/.htaccess scopes /fr/* to the French page.)
+ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html
+
+# ---- MIME types --------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/svg+xml   .svg
+  AddType font/woff2      .woff2
+  AddType text/plain      .txt
+  AddType application/xml .xml
+  AddCharset UTF-8        .txt .xml .svg .css .js
+</IfModule>
+<Files "feed.xml">
+  ForceType application/atom+xml
+</Files>
+
+# ---- canonical host + HTTPS --------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Exempt from every redirect below:
+  #  - certificate validation (cPanel AutoSSL / ACME fetches these over plain http)
+  #  - the error documents (an ErrorDocument sub-request must not turn a 404
+  #    into a 301 → /404.html served as 200)
+
+  # 1. http://www.…  →  https://www.…  (same host first — required by hstspreload.org)
+  RewriteCond %{REQUEST_URI} !^/\.well-known/(acme-challenge|pki-validation)/
+  RewriteCond %{REQUEST_URI} !^/(fr/)?404\.html$
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteCond %{HTTP_HOST} ^www\.sigilsovereign\.com$ [NC]
+  RewriteRule ^ https://www.sigilsovereign.com%{REQUEST_URI} [R=301,L]
+
+  # 2. http://anything-else  →  https://sigilsovereign.com/…
+  #    (X-Forwarded-Proto keeps this loop-free if a CDN is ever placed in front.)
+  RewriteCond %{REQUEST_URI} !^/\.well-known/(acme-challenge|pki-validation)/
+  RewriteCond %{REQUEST_URI} !^/(fr/)?404\.html$
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://sigilsovereign.com%{REQUEST_URI} [R=301,L]
+
+  # 3. https://www.… (or any other alias)  →  https://sigilsovereign.com/…
+  RewriteCond %{REQUEST_URI} !^/\.well-known/(acme-challenge|pki-validation)/
+  RewriteCond %{REQUEST_URI} !^/(fr/)?404\.html$
+  RewriteCond %{HTTP_HOST} !^sigilsovereign\.com$ [NC]
+  RewriteRule ^ https://sigilsovereign.com%{REQUEST_URI} [R=301,L]
+
+  # Briefing form: /api/briefing → api/briefing.php. Internal rewrite (no redirect)
+  # so the POST body survives. Same path the Cloudflare Worker binds to.
+  RewriteRule ^api/briefing/?$ api/briefing.php [L]
+
+  # Never expose a checked-out repository, whatever lands here.
+  RewriteRule (^|/)\.git(/|$) - [R=404,L]
+</IfModule>
+
+# ---- security headers (mirror public/_headers and deploy/Caddyfile) -----------
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; style-src-elem 'self'; style-src-attr 'unsafe-inline'; font-src 'self'; script-src 'self' 'sha256-KP7L7cim+yAsJHmXibDh8BpaZhSAsch1lM1rxIBb9yc='; connect-src 'self'; form-action 'self' mailto:; manifest-src 'self'; upgrade-insecure-requests"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-origin"
+  Header always set X-Frame-Options "DENY"
+  Header always unset X-Powered-By
+  Header unset X-Powered-By
+
+  # ---- caching ----
+  # Fonts are self-hosted IBM Plex subsets that never change: immutable for a year.
+  <FilesMatch "\.woff2$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # app.css / app.js / briefing.js are NOT content-hashed, so they must be able
+  # to revalidate (ETag / Last-Modified make that a cheap 304). Do not mark them
+  # immutable or a style change would not reach returning visitors for a year.
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=3600, stale-while-revalidate=86400"
+  </FilesMatch>
+  <FilesMatch "\.(svg|png)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  # HTML and machine files: always revalidate, so a deploy is visible immediately.
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ---- compression (LiteSpeed compresses server-wide; this covers plain Apache) ----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/atom+xml application/javascript image/svg+xml
+</IfModule>
+
+# ---- files that must never be served ------------------------------------------
+# Includes what cPanel/PHP may create in public_html (php.ini, .user.ini, error_log)
+# and the FTP deploy's own state file.
+<FilesMatch "^(\.htaccess|\.htpasswd|\.user\.ini|php\.ini|error_log|_headers|\.ftp-deploy-sync-state\.json|\.cpanel\.yml|sbom\.json|briefing\.config\.php)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
