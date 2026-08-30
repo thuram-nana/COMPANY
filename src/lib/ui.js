@@ -60,11 +60,24 @@ export function entityFaq(lang) {
   ];
 }
 
+// Visible FAQ — the same five Q&As the FAQPage schema declares, so structured
+// data always matches page content (Google spam policy) and the disambiguation
+// answer sits readable on the highest-authority URLs.
+export function faqBlock(lang) {
+  const t = lang === "fr" ? "Questions fréquentes" : "Frequently asked";
+  const items = entityFaq(lang).map(({ q, a }) =>
+    `<details class="faq-item"><summary>${escapeHtml(q)}</summary><p>${a}</p></details>`).join("");
+  return `<section class="section wrap rule-top" id="faq">
+  ${h2(t)}
+  <div class="faq" style="margin-top:1rem;max-width:64ch">${items}</div>
+</section>`;
+}
+
 export function entityBlock(lang) {
   const o = facts.org;
   const t = lang === "fr"
-    ? { h: "Qu’est-ce que SIGIL ?", facts: ["Fondée en 2026, basée à Buea, au Cameroun.", "Trois systèmes : VIGIL, RÉCOR et APEX — tous en pré-déploiement.", "Fondateur et directeur général : Junior Thuram Nana."], dis: o.disambiguationFr, def: o.definitionFr }
-    : { h: "What is SIGIL?", facts: ["Founded in 2026, based in Buea, Cameroon.", "Three systems: VIGIL, RÉCOR, and APEX — all pre-deployment.", "Founder and Managing Director: Junior Thuram Nana."], dis: o.disambiguation, def: o.definition };
+    ? { h: "Qu’est-ce que SIGIL ?", facts: ["Fondée en 2023, basée à Buea, au Cameroun.", "Trois systèmes : VIGIL, RÉCOR et APEX — tous en pré-déploiement.", "Fondateur et directeur général : Junior Thuram Nana."], dis: o.disambiguationFr, def: o.definitionFr }
+    : { h: "What is SIGIL?", facts: ["Founded in 2023, based in Buea, Cameroon.", "Three systems: VIGIL, RÉCOR, and APEX — all pre-deployment.", "Founder and Managing Director: Junior Thuram Nana."], dis: o.disambiguation, def: o.definition };
   return `<section class="section wrap rule-top" id="what-is-sigil">
   ${h2(t.h)}
   <p style="margin-top:1rem;max-width:64ch">${t.def}</p>

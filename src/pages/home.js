@@ -1,6 +1,6 @@
 import { page } from "../lib/layout.js";
 import { strings, routes } from "../data/strings.js";
-import { h2, statusChip, cta, heroMark, entityFaq, entityBlock } from "../lib/ui.js";
+import { h2, statusChip, cta, heroMark, entityFaq, entityBlock, faqBlock } from "../lib/ui.js";
 import { mark, seal } from "../assets/mark.js";
 import { orgNode, websiteNode, systemNode, statusTerms, breadcrumb, faqNode, graph } from "../lib/jsonld.js";
 import facts from "../data/facts.json" with { type: "json" };
@@ -74,6 +74,7 @@ export function home(lang) {
 </section>
 
 ${entityBlock(lang)}
+${faqBlock(lang)}
 
 <section class="section wrap rule-top">
   ${h2(c.systemsH)}

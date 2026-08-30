@@ -89,6 +89,11 @@ async function run() {
   // ---- static assets -----------------------------------------------------
   copyDir(join(ROOT, "src", "styles"), "styles");
   copyDir(join(ROOT, "public"), ".");
+  // IndexNow key verification file: shipped automatically whenever the CI
+  // secret is present — rotation is just changing the secret (runbook §6).
+  if (process.env.INDEXNOW_KEY && /^[A-Za-z0-9-]{8,128}$/.test(process.env.INDEXNOW_KEY)) {
+    writeFileSync(join(DIST, process.env.INDEXNOW_KEY + ".txt"), process.env.INDEXNOW_KEY);
+  }
   // app.js sits at root
   copyFileSync(join(ROOT, "src", "assets", "app.js"), join(DIST, "app.js"));
   copyFileSync(join(ROOT, "src", "assets", "briefing.js"), join(DIST, "briefing.js"));

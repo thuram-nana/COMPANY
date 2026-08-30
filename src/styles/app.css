@@ -9,7 +9,28 @@
   font-family: "Plex Sans";
   src: url("/fonts/plex-sans-400.woff2") format("woff2");
   font-weight: 400; font-style: normal; font-display: swap;
-  size-adjust: 100%;
+}
+/* Metric-matched local fallbacks: zero layout shift when the web fonts swap in.
+   Overrides computed from the IBM Plex tables (upm 1000, hhea 1025/-275/0). */
+@font-face {
+  font-family: "Plex Sans Fallback";
+  src: local("Arial"), local("Liberation Sans");
+  font-weight: 400; font-style: normal;
+  ascent-override: 102.5%; descent-override: 27.5%; line-gap-override: 0%;
+  size-adjust: 100.45%;
+}
+@font-face {
+  font-family: "Plex Sans Fallback";
+  src: local("Arial"), local("Liberation Sans");
+  font-weight: 600; font-style: normal;
+  ascent-override: 102.5%; descent-override: 27.5%; line-gap-override: 0%;
+  size-adjust: 97.22%;
+}
+@font-face {
+  font-family: "Plex Mono Fallback";
+  src: local("Courier New"), local("Liberation Mono");
+  ascent-override: 102.5%; descent-override: 27.5%; line-gap-override: 0%;
+  size-adjust: 99.98%;
 }
 @font-face {
   font-family: "Plex Sans";
@@ -29,8 +50,8 @@
 
 /* System-font fallbacks with matched metrics keep CLS at 0 if woff2 is absent. */
 :root {
-  --font-sans: "Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: "Plex Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  --font-sans: "Plex Sans", "Plex Sans Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Plex Mono", "Plex Mono Fallback", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 
   /* palette — from the corrected logo + dossier diagram ramp */
   --seal: #F8605A;
@@ -254,15 +275,28 @@ code, kbd, samp {
 .iconbtn[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
 
 /* language banner (first-visit suggestion; never a redirect) */
+/* Language suggestion: a fixed overlay, never in layout flow — appearing must
+   not shift the page (CLS 0). Animates opacity/transform only. */
 .lang-banner {
-  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  transform: translate(-50%, 8px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 70;
+  max-width: min(92vw, 34rem);
   font-size: var(--step--1);
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   background: var(--surface);
-  border-bottom: 1px solid var(--rule);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-card);
+  box-shadow: 0 12px 32px -16px rgba(0, 0, 0, 0.35);
   text-align: center;
+  transition: opacity var(--dur-2) var(--ease-cusp), transform var(--dur-2) var(--ease-cusp), visibility 0s;
 }
-.lang-banner.show { display: block; }
+.lang-banner.show { opacity: 1; visibility: visible; transform: translate(-50%, 0); pointer-events: auto; }
 .lang-banner a { font-family: var(--font-mono); }
 .lang-banner button { background: none; border: 0; color: var(--text-soft); cursor: pointer; text-decoration: underline; margin-inline-start: 0.5rem; font-size: inherit; }
 
@@ -361,6 +395,11 @@ figure.diagram figcaption { font-size: var(--step--1); color: var(--text-soft); 
 .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .tag { font-family: var(--font-mono); font-size: var(--step--1); border: 1px solid var(--rule); border-radius: 999px; padding: 0.2rem 0.6rem; color: var(--text-soft); }
 .callout { border: 1px solid var(--rule-strong); border-left: 3px solid var(--accent); border-radius: var(--radius-card); padding: var(--space-3); background: var(--surface); }
+.faq-item { border-top: 1px solid var(--rule); padding: 0.8rem 0; }
+.faq-item:last-child { border-bottom: 1px solid var(--rule); }
+.faq-item summary { cursor: pointer; font-weight: 600; }
+.faq-item summary:hover { color: var(--accent-ink); }
+.faq-item > p { margin-top: 0.6rem; max-width: 62ch; color: var(--text-soft); }
 .callout strong { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-ink); display: block; margin-bottom: var(--space-1); }
 
 /* ============================================================================
@@ -402,6 +441,7 @@ figure.diagram figcaption { font-size: var(--step--1); color: var(--text-soft); 
   .mk-animated.play .mk-seal { animation: none; }
   .h-seal .mk-glyph { opacity: 1; transform: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .lang-banner { transition: none; }
   .axis { display: none; }
   .btn .term { transition: none; }
 }

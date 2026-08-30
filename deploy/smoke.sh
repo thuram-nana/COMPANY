@@ -74,6 +74,15 @@ if [ "$rc" = "405" ] && [ "$rb" = '{"ok":false,"error":"method_not_allowed"}' ];
 else
   bad "briefing endpoint" "GET → $rc, body: ${rb:0:80} (expected 405 {\"ok\":false,\"error\":\"method_not_allowed\"})"
 fi
+# Crawlers must reach the real page — a tripwire against edge bot-blocking
+# silently removing the site from search and AI answers (runbook §10).
+for ua in "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" "GPTBot/1.1 (+https://openai.com/gptbot)"; do
+  name="$(cut -d'/' -f1 <<<"${ua##*compatible; }")"
+  b="$(curl -s -m 25 -A "$ua" "$BASE/")"
+  grep -q "SIGIL SARL" <<<"$b" && ok "crawler UA gets the real page (${name%%;*})" || bad "crawler blocked" "${name%%;*} did not receive the site HTML"
+done
+curl -s -m 25 -A "Mozilla/5.0 (compatible; Googlebot/2.1)" "$BASE/robots.txt" | grep -q "^Sitemap:" && ok "robots.txt serves crawlers with the Sitemap line" || bad "robots.txt for crawlers" "missing or blocked"
+
 r="$(code "$BASE/_headers")"; [ "$r" = "200" ] && bad "_headers exposed" "should be 403/404" || ok "_headers not served ($r)"
 r="$(code "$BASE/.ftp-deploy-sync-state.json")"; [ "$r" = "200" ] && bad "deploy state exposed" "should be 403/404" || ok "deploy state file not served ($r)"
 r="$(code "$BASE/api/briefing.config.php")"; [ "$r" = "200" ] && bad "config exposed" "should be 403/404" || ok "briefing.config.php not served ($r)"

@@ -85,7 +85,9 @@ export function page(p) {
 <link rel="icon" href="/icon-96.png" type="image/png" sizes="96x96">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/plex-sans-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/plex-mono-500.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles/app.css">
 <script>
 /* mark JS present (enables scroll-reveal hiding) and set stored theme before paint */

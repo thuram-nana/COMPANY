@@ -141,10 +141,15 @@ Then, for full marks on mail-security scanners:
 
 ## 3. Search Console & Bing — one-time verification (enables auto-indexing)
 
-1. **Google Search Console** → add property `sigilsovereign.com` (Domain
-   property) → verify by **DNS TXT** (add the token as a TXT on `@`).
-2. **Bing Webmaster Tools** → add the site → verify by DNS TXT as well (or import
-   from GSC).
+1. **Google Search Console** → add property → choose **URL prefix** (NOT
+   "Domain") → enter `https://sigilsovereign.com/` → verify with the **HTML
+   file** method: download the `google<token>.html` file and commit it to
+   `public/` (the build ships it forever; no DNS involved). The URL-prefix type
+   matters: `scripts/gsc-submit.mjs` targets exactly this property string — a
+   Domain property would 403 the API call.
+2. **Bing Webmaster Tools** → Sign in → Add site → **Import from Google Search
+   Console** (one click, no DNS). Then find Bing's **AI Performance** report —
+   the only free first-party metric of AI-answer citations (Copilot/Bing).
 3. For the CI auto-submit step (§6), create a Google Cloud **service account**,
    enable the **Search Console API**, add the service-account email as a **full
    user** of the GSC property, and download its JSON key.
@@ -430,13 +435,11 @@ The workflow reads presence of these secrets into job-level `env` flags and
 skips unconfigured steps (the `secrets` context cannot be used in a step-level
 `if:` — that is what made every early run fail before any job started).
 
-For **IndexNow**, pick a key (a random 32-hex string), set it as `INDEXNOW_KEY`,
-and add a matching file at the site root: `dist/<key>.txt` containing just the
-key. The simplest way is to drop the file in `public/` so the build copies it:
-
-```bash
-echo "YOUR_KEY" > public/YOUR_KEY.txt
-```
+**IndexNow is fully automated:** the `INDEXNOW_KEY` secret is set, and the
+build writes `dist/<key>.txt` automatically whenever it is present — every
+deploy pings Bing/Yandex/Naver/Seznam (which feed Copilot, DuckDuckGo and
+ChatGPT-adjacent retrieval). Rotation = change the one secret; engines
+re-verify on their own. No manual key file, ever.
 
 ---
 

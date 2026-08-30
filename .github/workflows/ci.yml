@@ -28,6 +28,8 @@ jobs:
         run: npm ci || npm install
 
       - name: Generate llms + build
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}   # build ships dist/<key>.txt
         run: |
           export BUILD_DATE=$(git log -1 --format=%cs)   # deterministic across jobs
           node scripts/gen-llms.mjs
@@ -124,6 +126,7 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           BRIEFING_SMTP_PASS: ${{ secrets.BRIEFING_SMTP_PASS }}
           RECEIPT_SECRET: ${{ secrets.RECEIPT_SECRET }}
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}   # vercel build rebuilds — ship the key file there too
         run: |
           export BUILD_DATE=$(git log -1 --format=%cs)   # same date stamp as the tested build
           npm i -g vercel@latest
@@ -221,19 +224,33 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy dist --project-name=sigilsovereign
 
-      # --- Post-deploy indexing pings (only once something was deployed) ----------
+      # --- Post-deploy indexing pings — but never announce a dead origin -----------
+      # (The apex must serve THIS deployment: pinging engines while DNS points
+      #  elsewhere teaches them 404s. Gate on live health, not just secrets.)
+      - name: Apex health gate for indexing pings
+        if: env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true'
+        run: |
+          ok=false
+          if curl -sSI -m 20 https://sigilsovereign.com/ | grep -qiE '^server: *(vercel|litespeed)' \
+             && [ "$(curl -s -o /dev/null -m 20 -w '%{http_code}' https://sigilsovereign.com/sitemap-index.xml)" = "200" ]; then
+            ok=true
+          else
+            echo "::warning::apex is not serving the site (or sitemap 404s) — indexing pings skipped"
+          fi
+          echo "APEX_OK=$ok" >> "$GITHUB_ENV"
+
       - name: IndexNow ping (changed URLs)
-        if: env.HAS_INDEXNOW == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
+        if: env.APEX_OK == 'true' && env.HAS_INDEXNOW == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
         run: node scripts/indexnow.mjs
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
 
       - name: WebSub publish ping (instant feed discovery)
-        if: env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true'
+        if: env.APEX_OK == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
         run: node scripts/websub-ping.mjs
 
       - name: Submit sitemap to Google Search Console
-        if: env.HAS_GSC == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
+        if: env.APEX_OK == 'true' && env.HAS_GSC == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
         run: node scripts/gsc-submit.mjs
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
