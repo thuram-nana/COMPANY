@@ -14,7 +14,7 @@ for (const f of files) {
   for (const h of hrefs) {
     checked++;
     let p;
-    if (/\.(txt|xml|svg|png|jpg|css|js|woff2|json|webmanifest|ico)$/.test(h)) p = join(DIST, h);
+    if (/\.(txt|xml|svg|png|jpg|css|js|woff2|json|webmanifest|ico|html)$/.test(h)) p = join(DIST, h);
     else p = h.endsWith("/") ? join(DIST, h, "index.html") : join(DIST, h + "/index.html");
     if (!existsSync(p)) { broken++; console.error(`BROKEN ${h}  (in ${f.replace(DIST, "")})`); }
   }
