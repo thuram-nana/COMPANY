@@ -45,19 +45,26 @@ function arm(L, seal) {
  */
 export function mark({ size = 120, animated = false, title = '', cls = '' } = {}) {
   const seal = size * 0.21;           // seal half-diagonal
-  const shortArm = size * 0.40;
-  const longArm = size * 0.40 * 2.5 / 2.5 * 2.5; // keep ratio explicit below
   const L = size * 0.40;              // short arm reach from centre
   const LONG = size * 0.40 * 2.5;     // long (right) arm reach = 2.5x
 
   const armClass = animated ? ' class="mk-arm"' : '';
   const sealClass = animated ? ' class="mk-seal"' : '';
 
+  // The rotation lives on an OUTER group and the animated class on an INNER one:
+  // a CSS `transform` (the draw-in animation) REPLACES an SVG transform
+  // attribute on the same element, which un-rotated three arms and mangled the
+  // mark whenever motion was enabled. Nesting keeps rotation and animation on
+  // separate elements so they compose.
+  const armG = (i, rot, len) =>
+    `<g${rot ? ` transform="rotate(${rot})"` : ''}>` +
+    `<g${armClass} style="--mk-i:${i}">${arm(len, seal)}</g>` +
+    `</g>`;
   const arms =
-    `<g${armClass} style="--mk-i:0">${arm(LONG, seal)}</g>` +                                  // right (long)
-    `<g${armClass} style="--mk-i:1" transform="rotate(180)">${arm(L, seal)}</g>` +             // left
-    `<g${armClass} style="--mk-i:2" transform="rotate(-90)">${arm(L, seal)}</g>` +             // up
-    `<g${armClass} style="--mk-i:3" transform="rotate(90)">${arm(L, seal)}</g>`;               // down
+    armG(0, 0, LONG) +      // right (long — the reading axis)
+    armG(1, 180, L) +       // left
+    armG(2, -90, L) +       // up
+    armG(3, 90, L);         // down
 
   const seatd = astroidPath(seal);
   const titleTag = title ? `<title>${title}</title>` : '';

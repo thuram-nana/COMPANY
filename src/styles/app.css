@@ -372,8 +372,12 @@ figure.diagram figcaption { font-size: var(--step--1); color: var(--text-soft); 
   100% { opacity: 1; transform: scale(1) rotate(0); }
 }
 
+/* The mark's rules follow the theme: ink on bone, bone on ink. (The SVG's own
+   stroke attribute stays #303030 for standalone uses like the favicon.) */
+.mk line { stroke: var(--text); }
+
 /* mark draw-in: arms extend from the seal, then the seal blooms */
-.mk-animated .mk-arm { transform-box: fill-box; }
+.mk-animated .mk-arm { transform-box: fill-box; transform-origin: left center; }
 .mk-animated.play .mk-arm {
   animation: armgrow var(--dur-3) var(--ease-cusp) both;
   animation-delay: calc(var(--mk-i) * 60ms);
