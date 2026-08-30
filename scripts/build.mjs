@@ -38,6 +38,7 @@ async function run() {
   const { systemsIndex } = await import("../src/pages/systems.js");
   const { vigil, vigilGovernance, vigilEvidence, vigilSovereignty } = await import("../src/pages/vigil.js");
   const { recor } = await import("../src/pages/recor.js");
+  const { apex } = await import("../src/pages/apex.js");
   const { doctrine } = await import("../src/pages/doctrine.js");
   const { record } = await import("../src/pages/record.js");
   const { trust } = await import("../src/pages/trust.js");
@@ -56,6 +57,7 @@ async function run() {
     built.push(out(routes.vigilEvid[lang], vigilEvidence(lang)));
     built.push(out(routes.vigilSov[lang], vigilSovereignty(lang)));
     built.push(out(routes.recor[lang], recor(lang)));
+    built.push(out(routes.apex[lang], apex(lang)));
     built.push(out(routes.doctrine[lang], doctrine(lang)));
     built.push(out(routes.record[lang], record(lang)));
     built.push(out(routes.trust[lang], trust(lang)));

@@ -6,6 +6,7 @@
 
 - [VIGIL](https://sigilsovereign.com/systems/vigil/): Governed cybersecurity and evidence platform. Status: pre-deployment. Source code: kept strictly private.
 - [RÉCOR](https://sigilsovereign.com/systems/recor/): Sovereign beneficial-ownership registry. Status: pre-deployment. Source code: kept strictly private.
+- [APEX](https://sigilsovereign.com/systems/apex/): Anti-corruption intelligence for public procurement. Status: pre-deployment. Source code: kept strictly private.
 
 ## Key facts
 

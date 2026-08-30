@@ -119,6 +119,7 @@ ${p.body}
         <p class="eyebrow" style="margin-bottom:.6rem">${s.footer.systems}</p>
         <a href="${routes.vigil[p.lang]}">VIGIL</a>
         <a href="${routes.recor[p.lang]}">RÉCOR</a>
+        <a href="${routes.apex[p.lang]}">APEX</a>
         <a href="${routes.doctrine[p.lang]}">${s.nav.doctrine}</a>
       </div>
       <div>

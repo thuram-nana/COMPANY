@@ -6,6 +6,7 @@
 
 - [VIGIL](https://sigilsovereign.com/systems/vigil/): Governed cybersecurity and evidence platform. Status: pre-deployment. Source code: kept strictly private.
 - [RÉCOR](https://sigilsovereign.com/systems/recor/): Sovereign beneficial-ownership registry. Status: pre-deployment. Source code: kept strictly private.
+- [APEX](https://sigilsovereign.com/systems/apex/): Anti-corruption intelligence for public procurement. Status: pre-deployment. Source code: kept strictly private.
 
 ## Key facts
 
@@ -47,6 +48,12 @@ Standards: OWASP, MITRE ATT&CK, NIST 800-115, PTES, PASTA. Status: pre-deploymen
 RÉCOR is a sovereign beneficial-ownership registry designed for Cameroon, built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS v0.4). Its conformance was confirmed in a demonstration to Open Ownership on 1 July 2026.
 
 Standards: FATF R.24, FATF R.25, BODS v0.4. Status: pre-deployment. Source code: kept strictly private.
+
+### APEX
+
+APEX reads public data — procurement notices, sanctions lists, corporate registries, court records, and citizen tips — detects defined patterns of procurement fraud, and scores each finding with a calibrated certainty engine. No single person can escalate a case: a five-member council, each holding a hardware key, must reach quorum, and every finding is independently verifiable against a public ledger without trusting the platform. It compiles evidence and signals confidence; a human institution makes every consequential decision.
+
+Standards: UNCAC, OCDS. Status: pre-deployment. Source code: kept strictly private.
 
 ## Record
 

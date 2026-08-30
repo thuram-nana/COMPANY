@@ -8,13 +8,13 @@ import facts from "../data/facts.json" with { type: "json" };
 const copy = {
   en: {
     title: "Sovereign governance infrastructure",
-    description: "SIGIL SARL builds sovereign governance infrastructure from Buea, Cameroon: systems where the institution holds the keys, the data never leaves, and every consequential action is authorized, bounded, and proven. Two systems: VIGIL and RÉCOR.",
+    description: "SIGIL SARL builds sovereign governance infrastructure from Buea, Cameroon: systems where the institution holds the keys, the data never leaves, and every consequential action is authorized, bounded, and proven. Three systems: VIGIL, RÉCOR, and APEX.",
     thesisPre: "SIGIL builds systems where the institution holds the keys, the data never leaves, and every consequential action is ",
     thesisEmph: "authorized, bounded, and proven.",
-    systemsH: "Two systems",
+    systemsH: "Three systems",
     systemsLede: "SIGIL builds a small number of systems, deeply. Each is designed for a public institution, runs on the institution's own infrastructure, and is described here exactly as it stands today.",
     doctrineH: "How we build",
-    doctrineLede: "One doctrine runs through both systems: a technical capability is never an authorization, no finding is trusted until it is independently re-verified, and the institution can always read, export, and stop. These are properties you can check, not claims you have to take on trust.",
+    doctrineLede: "One doctrine runs through all three systems: a technical capability is never an authorization, no finding is trusted until it is independently re-verified, and the institution can always read, export, and stop. These are properties you can check, not claims you have to take on trust.",
     doctrineLink: "Read the doctrine",
     recordH: "Record",
     recordLede: "We list only interactions that happened, with dates and the form they took. Nothing here is an endorsement unless it says so.",
@@ -23,13 +23,13 @@ const copy = {
   },
   fr: {
     title: "Infrastructure de gouvernance souveraine",
-    description: "SIGIL SARL conçoit depuis Buea, au Cameroun, une infrastructure de gouvernance souveraine : des systèmes où l’institution détient les clés, où les données ne sortent jamais, et où chaque action conséquente est autorisée, bornée et prouvée. Deux systèmes : VIGIL et RÉCOR.",
+    description: "SIGIL SARL conçoit depuis Buea, au Cameroun, une infrastructure de gouvernance souveraine : des systèmes où l’institution détient les clés, où les données ne sortent jamais, et où chaque action conséquente est autorisée, bornée et prouvée. Trois systèmes : VIGIL, RÉCOR et APEX.",
     thesisPre: "SIGIL conçoit des systèmes où l’institution détient les clés, où les données ne sortent jamais, et où chaque action conséquente est ",
     thesisEmph: "autorisée, bornée et prouvée.",
-    systemsH: "Deux systèmes",
+    systemsH: "Trois systèmes",
     systemsLede: "SIGIL conçoit un petit nombre de systèmes, en profondeur. Chacun est destiné à une institution publique, s’exécute sur l’infrastructure de l’institution, et est décrit ici exactement tel qu’il est aujourd’hui.",
     doctrineH: "Notre méthode",
-    doctrineLede: "Une même doctrine traverse les deux systèmes : une capacité technique n’est jamais une autorisation, aucun constat n’est retenu tant qu’il n’a pas été re-vérifié de façon indépendante, et l’institution peut toujours lire, exporter et arrêter. Ce sont des propriétés vérifiables, non des affirmations à croire sur parole.",
+    doctrineLede: "Une même doctrine traverse les trois systèmes : une capacité technique n’est jamais une autorisation, aucun constat n’est retenu tant qu’il n’a pas été re-vérifié de façon indépendante, et l’institution peut toujours lire, exporter et arrêter. Ce sont des propriétés vérifiables, non des affirmations à croire sur parole.",
     doctrineLink: "Lire la doctrine",
     recordH: "Références",
     recordLede: "Nous ne listons que des interactions qui ont eu lieu, avec leurs dates et leur forme. Rien ici ne constitue un soutien institutionnel, sauf mention expresse.",
@@ -59,6 +59,7 @@ export function home(lang) {
     statusTerms(facts),
     systemNode(facts, facts.systems[0], lang),
     systemNode(facts, facts.systems[1], lang),
+    systemNode(facts, facts.systems[2], lang),
     breadcrumb(facts, [{ name: "SIGIL", path: routes.home[lang] }])
   ]);
 
@@ -74,9 +75,10 @@ export function home(lang) {
 <section class="section wrap rule-top">
   ${h2(c.systemsH)}
   <p class="lead" style="margin-top:1rem;margin-bottom:2.5rem">${c.systemsLede}</p>
-  <div class="grid-2">
+  <div class="grid-3">
     ${systemCard(facts.systems[0], lang)}
     ${systemCard(facts.systems[1], lang)}
+    ${systemCard(facts.systems[2], lang)}
   </div>
   <div class="callout reveal" style="margin-top:2.5rem">
     <strong>Verifiable</strong>

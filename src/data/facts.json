@@ -27,12 +27,24 @@
       "en": {
         "tagline": "Governed cybersecurity and evidence platform",
         "answer": "VIGIL is a cybersecurity platform that helps duly authorized operators find, confirm, remediate, and document vulnerabilities — under one rule: a technical capability is never an authorization. No model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it.",
-        "standards": ["OWASP", "MITRE ATT&CK", "NIST 800-115", "PTES", "PASTA"]
+        "standards": [
+          "OWASP",
+          "MITRE ATT&CK",
+          "NIST 800-115",
+          "PTES",
+          "PASTA"
+        ]
       },
       "fr": {
         "tagline": "Plateforme de cybersécurité gouvernée et de preuve",
         "answer": "VIGIL est une plateforme de cybersécurité qui assiste des opérateurs dûment autorisés dans l’identification, la confirmation, la correction et la documentation de vulnérabilités — selon un principe unique : une capacité technique n’est jamais une autorisation. Aucun modèle ni agent ne s’auto-autorise, et aucun constat n’est retenu tant qu’une vérification indépendante et re-vérifiable ne l’a pas confirmé.",
-        "standards": ["OWASP", "MITRE ATT&CK", "NIST 800-115", "PTES", "PASTA"]
+        "standards": [
+          "OWASP",
+          "MITRE ATT&CK",
+          "NIST 800-115",
+          "PTES",
+          "PASTA"
+        ]
       }
     },
     {
@@ -44,12 +56,43 @@
       "en": {
         "tagline": "Sovereign beneficial-ownership registry",
         "answer": "RÉCOR is a sovereign beneficial-ownership registry designed for Cameroon, built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS v0.4). Its conformance was confirmed in a demonstration to Open Ownership on 1 July 2026.",
-        "standards": ["FATF R.24", "FATF R.25", "BODS v0.4"]
+        "standards": [
+          "FATF R.24",
+          "FATF R.25",
+          "BODS v0.4"
+        ]
       },
       "fr": {
         "tagline": "Registre souverain des bénéficiaires effectifs",
         "answer": "RÉCOR est un registre souverain des bénéficiaires effectifs conçu pour le Cameroun, bâti pour satisfaire les recommandations 24 et 25 du GAFI et exporter vers le standard de données sur les bénéficiaires effectifs (BODS v0.4). Sa conformité a été confirmée lors d’une démonstration à Open Ownership le 1 juillet 2026.",
-        "standards": ["GAFI R.24", "GAFI R.25", "BODS v0.4"]
+        "standards": [
+          "GAFI R.24",
+          "GAFI R.25",
+          "BODS v0.4"
+        ]
+      }
+    },
+    {
+      "slug": "apex",
+      "name": "APEX",
+      "status": "pre-deployment",
+      "category": "GovernmentApplication",
+      "code_visibility": "private",
+      "en": {
+        "tagline": "Anti-corruption intelligence for public procurement",
+        "answer": "APEX reads public data — procurement notices, sanctions lists, corporate registries, court records, and citizen tips — detects defined patterns of procurement fraud, and scores each finding with a calibrated certainty engine. No single person can escalate a case: a five-member council, each holding a hardware key, must reach quorum, and every finding is independently verifiable against a public ledger without trusting the platform. It compiles evidence and signals confidence; a human institution makes every consequential decision.",
+        "standards": [
+          "UNCAC",
+          "OCDS"
+        ]
+      },
+      "fr": {
+        "tagline": "Renseignement anti-corruption pour la commande publique",
+        "answer": "APEX lit des données publiques — avis de marchés, listes de sanctions, registres d’entreprises, décisions de justice et signalements citoyens — détecte des schémas définis de fraude aux marchés publics, et évalue chaque constat au moyen d’un moteur de certitude calibré. Aucune personne seule ne peut escalader une affaire : un conseil de cinq membres, chacun détenant une clé matérielle, doit atteindre le quorum, et chaque constat est vérifiable de façon indépendante sur un registre public sans faire confiance à la plateforme. Elle rassemble des preuves et signale un niveau de confiance ; une institution humaine prend chaque décision conséquente.",
+        "standards": [
+          "CNUCC",
+          "OCDS"
+        ]
       }
     }
   ],

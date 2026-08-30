@@ -8,12 +8,12 @@ import facts from "../data/facts.json" with { type: "json" };
 const copy = {
   en: {
     title: "Systems",
-    description: "SIGIL builds two systems: VIGIL, a governed cybersecurity and evidence platform, and RÉCOR, a sovereign beneficial-ownership registry. Both are described exactly as they stand today.",
+    description: "SIGIL builds three systems: VIGIL, a governed cybersecurity and evidence platform; RÉCOR, a sovereign beneficial-ownership registry; and APEX, an anti-corruption intelligence platform for public procurement. Each is described exactly as it stands today.",
     lede: "SIGIL builds a small number of systems, deeply. Each is designed for a public institution, runs on the institution's own infrastructure, and is described here exactly as it stands today — including its status."
   },
   fr: {
     title: "Systèmes",
-    description: "SIGIL conçoit deux systèmes : VIGIL, une plateforme de cybersécurité gouvernée et de preuve, et RÉCOR, un registre souverain des bénéficiaires effectifs. Les deux sont décrits exactement tels qu’ils sont aujourd’hui.",
+    description: "SIGIL conçoit trois systèmes : VIGIL, une plateforme de cybersécurité gouvernée et de preuve ; RÉCOR, un registre souverain des bénéficiaires effectifs ; et APEX, une plateforme de renseignement anti-corruption pour la commande publique. Chacun est décrit exactement tel qu’il est aujourd’hui.",
     lede: "SIGIL conçoit un petit nombre de systèmes, en profondeur. Chacun est destiné à une institution publique, s’exécute sur l’infrastructure de l’institution, et est décrit ici exactement tel qu’il est aujourd’hui — y compris son statut."
   }
 };
@@ -37,6 +37,7 @@ export function systemsIndex(lang) {
     statusTerms(facts),
     systemNode(facts, facts.systems[0], lang),
     systemNode(facts, facts.systems[1], lang),
+    systemNode(facts, facts.systems[2], lang),
     breadcrumb(facts, [
       { name: "SIGIL", path: routes.home[lang] },
       { name: c.title, path: routes.systems[lang] }
@@ -50,6 +51,7 @@ export function systemsIndex(lang) {
   <div class="grid-2" style="margin-top:3rem">
     ${bigCard(facts.systems[0], lang)}
     ${bigCard(facts.systems[1], lang)}
+    ${bigCard(facts.systems[2], lang)}
   </div>
 </section>`;
   return page({

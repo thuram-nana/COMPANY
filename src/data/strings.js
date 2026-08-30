@@ -77,6 +77,7 @@ export const routes = {
   vigilEvid: { en: "/systems/vigil/evidence/", fr: "/fr/systemes/vigil/preuve/" },
   vigilSov: { en: "/systems/vigil/sovereignty/", fr: "/fr/systemes/vigil/souverainete/" },
   recor: { en: "/systems/recor/", fr: "/fr/systemes/recor/" },
+  apex: { en: "/systems/apex/", fr: "/fr/systemes/apex/" },
   doctrine: { en: "/doctrine/", fr: "/fr/methode/" },
   record: { en: "/record/", fr: "/fr/references/" },
   trust: { en: "/trust/", fr: "/fr/confiance/" },
