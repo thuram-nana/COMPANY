@@ -33,8 +33,8 @@ const copy = {
       caption: "Nine verification stages stand between a declaration and publication."
     },
     standardsH: "Standards and conformance",
-    standardsP: "RÉCOR is built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS) v0.4. It was fully demonstrated to Open Ownership on 1 July 2026, confirming its conformance with BODS v0.4.",
-    proofCallout: ["Verifiable", "RÉCOR is built to the Beneficial Ownership Data Standard (BODS v0.4) and was fully demonstrated to Open Ownership on 1 July 2026, confirming its conformance. This is a technical demonstration and conformance confirmation, not an endorsement."],
+    standardsP: "RÉCOR is built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS) v0.4. It was fully demonstrated to Open Ownership on 1 July 2026, and Open Ownership acknowledged the demonstration.",
+    proofCallout: ["Verifiable", "RÉCOR is built to the Beneficial Ownership Data Standard (BODS v0.4) and was fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026. This is a technical demonstration, not an endorsement."],
     guarH: "Sovereignty guarantees",
     guarHead: ["Guarantee", "How RÉCOR delivers it"],
     guarRows: [
@@ -47,7 +47,7 @@ const copy = {
     ],
     faqH: "Questions institutions ask",
     faqs: [
-      { q: "Does RÉCOR meet FATF Recommendations 24 and 25?", a: "RÉCOR is designed to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard. It was fully demonstrated to Open Ownership on 1 July 2026, confirming its conformance with BODS v0.4." },
+      { q: "Does RÉCOR meet FATF Recommendations 24 and 25?", a: "RÉCOR is designed to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard. It was fully demonstrated to Open Ownership on 1 July 2026, and Open Ownership acknowledged the demonstration." },
       { q: "How are citizens' data-deletion rights handled?", a: "Through cryptographic shredding: when a record must be erased, the key that makes it readable is destroyed, rendering the data unrecoverable while the audit chain's integrity is preserved." },
       { q: "Is the ownership data portable?", a: "Yes. RÉCOR exports to the Beneficial Ownership Data Standard (BODS) v0.4, an open standard, so the data is not locked to a single vendor." },
       { q: "Is RÉCOR's source code available?", a: "No. All RÉCOR source code is kept strictly private. It is not published, mirrored, or distributed." }
@@ -77,8 +77,8 @@ const copy = {
       caption: "Neuf étapes de vérification séparent une déclaration de sa publication."
     },
     standardsH: "Standards et conformité",
-    standardsP: "RÉCOR est bâti pour satisfaire les recommandations 24 et 25 du GAFI et pour exporter vers le standard de données sur les bénéficiaires effectifs (BODS) v0.4. Il a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, confirmant sa conformité au BODS v0.4.",
-    proofCallout: ["Vérifiable", "RÉCOR est bâti selon le standard de données sur les bénéficiaires effectifs (BODS v0.4) et a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, confirmant sa conformité. Il s’agit d’une démonstration technique et d’une confirmation de conformité, non d’un soutien institutionnel."],
+    standardsP: "RÉCOR est bâti pour satisfaire les recommandations 24 et 25 du GAFI et pour exporter vers le standard de données sur les bénéficiaires effectifs (BODS) v0.4. Il a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, et Open Ownership en a pris acte.",
+    proofCallout: ["Vérifiable", "RÉCOR est bâti selon le standard de données sur les bénéficiaires effectifs (BODS v0.4) et a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, qui en a pris acte. Il s’agit d’une démonstration technique, non d’un soutien institutionnel."],
     guarH: "Garanties de souveraineté",
     guarHead: ["Garantie", "Comment RÉCOR l’assure"],
     guarRows: [
@@ -91,7 +91,7 @@ const copy = {
     ],
     faqH: "Questions posées par les institutions",
     faqs: [
-      { q: "RÉCOR satisfait-il les recommandations 24 et 25 du GAFI ?", a: "RÉCOR est conçu pour satisfaire les recommandations 24 et 25 du GAFI et exporter vers le standard de données sur les bénéficiaires effectifs. Il a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, confirmant sa conformité au BODS v0.4." },
+      { q: "RÉCOR satisfait-il les recommandations 24 et 25 du GAFI ?", a: "RÉCOR est conçu pour satisfaire les recommandations 24 et 25 du GAFI et exporter vers le standard de données sur les bénéficiaires effectifs. Il a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, et Open Ownership en a pris acte." },
       { q: "Comment le droit des citoyens à l’effacement est-il assuré ?", a: "Par broyage cryptographique : lorsqu’un enregistrement doit être effacé, la clé qui le rend lisible est détruite, rendant les données irrécupérables tout en préservant l’intégrité de la chaîne d’audit." },
       { q: "Les données de propriété sont-elles portables ?", a: "Oui. RÉCOR exporte vers le standard de données sur les bénéficiaires effectifs (BODS) v0.4, un standard ouvert ; les données ne sont pas verrouillées à un fournisseur unique." },
       { q: "Le code source de RÉCOR est-il disponible ?", a: "Non. L’intégralité du code source de RÉCOR est gardée strictement privée. Il n’est ni publié, ni miroité, ni distribué." }
