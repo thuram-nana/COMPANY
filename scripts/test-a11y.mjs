@@ -5,7 +5,7 @@ import { join } from "path";
 import { JSDOM, VirtualConsole } from "jsdom";
 
 const DIST = "dist";
-function walk(d) { let o = []; for (const n of readdirSync(d)) { const p = join(d, n); if (statSync(p).isDirectory()) o = o.concat(walk(p)); else if (p.endsWith(".html")) o.push(p); } return o; }
+function walk(d) { let o = []; for (const n of readdirSync(d)) { const p = join(d, n); if (statSync(p).isDirectory()) o = o.concat(walk(p)); else if (p.endsWith(".html") && !/google[0-9a-f]+\.html$/.test(p)) o.push(p); } return o; }
 const files = walk(DIST);
 const axeSrc = readFileSync("./node_modules/axe-core/axe.min.js", "utf8");
 const vc = new VirtualConsole();
