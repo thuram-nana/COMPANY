@@ -9,7 +9,7 @@ const copy = {
   en: {
     title: "Sovereign governance infrastructure",
     description: "SIGIL SARL builds sovereign governance infrastructure from Buea, Cameroon: VIGIL, RÉCOR, and APEX, systems where the institution holds the keys.",
-    thesisPre: "SIGIL builds systems where the institution holds the keys, the data never leaves, and every consequential action is ",
+    thesisPre: "SIGIL builds systems where the institution holds the keys, the data stays under the institution’s control, and every consequential action is ",
     thesisEmph: "authorized, bounded, and proven.",
     systemsH: "Three systems",
     systemsLede: "SIGIL builds a small number of systems, deeply. Each is designed for a public institution, runs on the institution's own infrastructure, and is described here exactly as it stands today.",
@@ -24,7 +24,7 @@ const copy = {
   fr: {
     title: "Infrastructure de gouvernance souveraine",
     description: "SIGIL SARL conçoit depuis Buea, au Cameroun, une infrastructure de gouvernance souveraine : VIGIL, RÉCOR et APEX, des systèmes où l’institution détient les clés.",
-    thesisPre: "SIGIL conçoit des systèmes où l’institution détient les clés, où les données ne sortent jamais, et où chaque action conséquente est ",
+    thesisPre: "SIGIL conçoit des systèmes où l’institution détient les clés, où les données restent sous le contrôle de l’institution, et où chaque action conséquente est ",
     thesisEmph: "autorisée, bornée et prouvée.",
     systemsH: "Trois systèmes",
     systemsLede: "SIGIL conçoit un petit nombre de systèmes, en profondeur. Chacun est destiné à une institution publique, s’exécute sur l’infrastructure de l’institution, et est décrit ici exactement tel qu’il est aujourd’hui.",

@@ -20,7 +20,7 @@ export const strings = {
     langBanner: { text: "This page is available in French.", view: "Voir en français", dismiss: "Stay in English" },
     briefing: "Request a briefing",
     footer: {
-      tagline: "Sovereign governance infrastructure. The institution holds the keys; the data never leaves; every consequential action is authorized, bounded, and proven.",
+      tagline: "Sovereign governance infrastructure. The institution holds the keys; the data stays under the institution’s control; every consequential action is authorized, bounded, and proven.",
       systems: "Systems",
       company: "Company",
       resources: "Resources",
@@ -52,7 +52,7 @@ export const strings = {
     langBanner: { text: "Cette page est disponible en anglais.", view: "View in English", dismiss: "Rester en français" },
     briefing: "Demander une présentation",
     footer: {
-      tagline: "Infrastructure de gouvernance souveraine. L’institution détient les clés ; les données ne sortent jamais ; chaque action conséquente est autorisée, bornée et prouvée.",
+      tagline: "Infrastructure de gouvernance souveraine. L’institution détient les clés ; les données restent sous le contrôle de l’institution ; chaque action conséquente est autorisée, bornée et prouvée.",
       systems: "Systèmes",
       company: "Entreprise",
       resources: "Ressources",

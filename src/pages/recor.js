@@ -15,7 +15,7 @@ const copy = {
     problemH: "The problem",
     problemP: "Opaque company ownership lets illicit finance move unseen and holds a jurisdiction back from meeting international standards. A beneficial-ownership registry makes real ownership legible — but only if the data is trustworthy, the audit trail is tamper-evident, and citizens' rights over their own data are respected.",
     doesH: "What RÉCOR does",
-    doesP: "A declaration of ownership passes a nine-stage verification pipeline before it is published and exported. Each stage either confirms, flags, or refers the declaration; nothing is published on trust alone.",
+    doesP: "A declaration of ownership passes a nine-stage verification pipeline before it is published and exported. Each stage either confirms, flags, or refers the declaration; nothing is published on trust alone. RÉCOR is designed to be governed by a consortium of Cameroonian institutions with international observers, and its declarant portal is trilingual: French, English, and Cameroonian Pidgin.",
     pipe: {
       start: "A beneficial-ownership declaration",
       steps: [
@@ -59,7 +59,7 @@ const copy = {
     problemH: "Le problème",
     problemP: "L’opacité de la propriété des entreprises laisse la finance illicite circuler sans être vue et empêche une juridiction de satisfaire les standards internationaux. Un registre des bénéficiaires effectifs rend la propriété réelle lisible — mais seulement si les données sont fiables, si la piste d’audit est infalsifiable, et si les droits des citoyens sur leurs propres données sont respectés.",
     doesH: "Ce que fait RÉCOR",
-    doesP: "Une déclaration de propriété traverse une chaîne de vérification en neuf étapes avant d’être publiée et exportée. Chaque étape confirme, signale ou renvoie la déclaration ; rien n’est publié sur la seule confiance.",
+    doesP: "Une déclaration de propriété traverse une chaîne de vérification en neuf étapes avant d’être publiée et exportée. Chaque étape confirme, signale ou renvoie la déclaration ; rien n’est publié sur la seule confiance. RÉCOR est conçu pour être gouverné par un consortium d’institutions camerounaises avec des observateurs internationaux, et son portail déclarant est trilingue : français, anglais et pidgin camerounais.",
     pipe: {
       start: "Une déclaration de bénéficiaire effectif",
       steps: [
