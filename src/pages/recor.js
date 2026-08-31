@@ -21,7 +21,7 @@ const copy = {
       steps: [
         "Schema parity and signed attestation",
         "Identity gates",
-        "Sanctions screening (UN / EU / OFAC)",
+        "Sanctions screening (UN / EU / OFAC, plus ICIJ offshore-leaks data)",
         "Politically-exposed-person screening",
         "Adverse-media review",
         "Graph and machine-learning pattern detection",
@@ -65,7 +65,7 @@ const copy = {
       steps: [
         "Parité de schéma et attestation signée",
         "Contrôles d’identité",
-        "Criblage des sanctions (ONU / UE / OFAC)",
+        "Criblage des sanctions (ONU / UE / OFAC, plus données ICIJ sur les sociétés offshore)",
         "Criblage des personnes politiquement exposées",
         "Revue de la presse défavorable",
         "Détection de motifs par graphe et apprentissage automatique",
