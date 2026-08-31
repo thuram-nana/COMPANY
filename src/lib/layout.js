@@ -63,6 +63,7 @@ export function page(p) {
 <link rel="alternate" hreflang="${p.altLang}" href="${altHref}">
 <link rel="alternate" hreflang="x-default" href="${xdefault}">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="google-site-verification" content="Tp9nF84LYGp33MraB2dh47VOFhXjckCLTp40n1EI7_A">
 <meta name="theme-color" content="#F7F5F0" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
