@@ -172,6 +172,29 @@ jobs:
             -d '{"redirect":"sigilsovereign.com","redirectStatusCode":308}' >/dev/null \
             && echo "www to apex redirect (308) enforced" \
             || echo "::warning::could not set the www redirect - set it in Vercel Settings / Domains"
+          # Firewall posture check (runbook §10): AI crawlers must never be
+          # challenged or blocked, or the site silently vanishes from AI answers.
+          # Read the project's firewall config through the API and warn on risk;
+          # the smoke test's crawler-UA checks verify the same thing empirically.
+          FW=$(curl -s "https://api.vercel.com/v1/security/firewall/config?projectId=$PRJ$( [ -n "$SCOPE" ] && printf '&teamId=%s' "$SCOPE" )" -H "Authorization: Bearer $VERCEL_TOKEN" || true)
+          PJ=$(curl -s "https://api.vercel.com/v9/projects/$PRJ$TQ" -H "Authorization: Bearer $VERCEL_TOKEN" || true)
+          export FW PJ
+          node -e '
+            const fw = JSON.parse(process.env.FW || "{}");
+            const pj = JSON.parse(process.env.PJ || "{}");
+            const warn = (m) => console.log("::warning::firewall posture: " + m);
+            const flat = JSON.stringify(fw).toLowerCase();
+            const attack = (pj.security && pj.security.attackModeEnabled) || fw.attackMode === true;
+            console.log("firewall: enabled=" + (fw.firewallEnabled ?? "n/a") + ", attackMode=" + (attack ?? "n/a"));
+            if (attack) warn("Attack Challenge Mode is ON - it challenges every visitor including verified crawlers. Turn it off unless under active attack.");
+            const rules = [].concat(fw.rules || [], fw.managedRules || [], (fw.crs && Object.values(fw.crs)) || []);
+            for (const r of rules) {
+              const s = JSON.stringify(r).toLowerCase();
+              const active = r.active !== false && r.active !== undefined ? r.active : /"active":true/.test(s);
+              if (active && /bot|crawler|ai[_-]?bots?/.test(s) && /deny|challenge|block/.test(s)) warn("an active firewall rule appears to target bots/crawlers: " + (r.name || r.id || "unnamed"));
+            }
+            if (!flat || flat === "{}") console.log("firewall: config not readable with this token scope - relying on the smoke test crawler checks");
+          ' 2>/dev/null || echo "firewall posture check skipped (parse error) - smoke test crawler checks still apply"
 
       - name: Smoke-test the live site (Vercel)
         if: env.HAS_VERCEL == 'true'
