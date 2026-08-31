@@ -10,8 +10,8 @@ const sys = facts.systems.find((s) => s.slug === "apex");
 
 const copy = {
   en: {
-    title: "APEX",
-    description: "APEX is an anti-corruption intelligence platform for public procurement, designed for national oversight institutions. It reads public data, detects defined patterns of procurement fraud, scores each finding with a calibrated certainty engine, and requires a multi-person council to escalate. Pre-deployment; source code kept strictly private.",
+    title: "APEX — Anti-corruption procurement intelligence",
+    description: "APEX is an anti-corruption intelligence platform for public procurement, designed for national oversight institutions. Pre-deployment; source code private.",
     problemH: "The problem",
     problemP: "Public money is most often lost where contracts are awarded. The institutions that exist to catch this are not short of mandate — they are short of evidence collected at scale. Cross-referencing dozens of public sources by hand, a small team can review only a handful of contracts a year. The mechanical work of finding what to look at is the bottleneck, not the judgement of whether to act.",
     doesH: "What APEX does",
@@ -62,8 +62,8 @@ const copy = {
     ]
   },
   fr: {
-    title: "APEX",
-    description: "APEX est une plateforme de renseignement anti-corruption pour la commande publique, conçue pour les institutions nationales de contrôle. Elle lit des données publiques, détecte des schémas définis de fraude aux marchés, évalue chaque constat au moyen d’un moteur de certitude calibré et exige un conseil pluripersonnel pour escalader. Pré-déploiement ; code source gardé strictement privé.",
+    title: "APEX — Renseignement anti-corruption des marchés publics",
+    description: "APEX est une plateforme de renseignement anti-corruption pour la commande publique, destinée aux institutions nationales de contrôle. Pré-déploiement ; code privé.",
     problemH: "Le problème",
     problemP: "L’argent public se perd le plus souvent là où les marchés sont attribués. Les institutions chargées de le détecter ne manquent pas de mandat — elles manquent de preuves collectées à grande échelle. En recoupant des dizaines de sources publiques à la main, une petite équipe n’examine qu’une poignée de marchés par an. Le goulot d’étranglement est le travail mécanique consistant à trouver quoi examiner, non le jugement d’agir ou non.",
     doesH: "Ce que fait APEX",

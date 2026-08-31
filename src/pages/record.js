@@ -7,14 +7,14 @@ import facts from "../data/facts.json" with { type: "json" };
 const copy = {
   en: {
     title: "Record",
-    description: "A record of documented interactions involving SIGIL, each with its date and the form it took. Nothing here is an endorsement unless stated. Includes the Open Ownership demonstration of RÉCOR on 1 July 2026.",
+    description: "A record of documented interactions involving SIGIL, each dated. Includes the RÉCOR demonstration to Open Ownership. Nothing is an endorsement unless stated.",
     lede: "We list only interactions that happened, with their dates and the form they took. A demonstration is a demonstration; a letter of appreciation is a letter of appreciation. Nothing here is an endorsement or a contract unless it says so.",
     dateH: "Date",
     fmt: (d) => d.length === 4 ? d : new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
   },
   fr: {
     title: "Références",
-    description: "Un relevé des interactions documentées impliquant SIGIL, chacune avec sa date et sa forme. Rien ici ne constitue un soutien institutionnel sauf mention. Inclut la démonstration de RÉCOR à Open Ownership le 1 juillet 2026.",
+    description: "Un relevé des interactions documentées impliquant SIGIL, chacune datée. Inclut la démonstration de RÉCOR à Open Ownership. Rien ne constitue un soutien sauf mention.",
     lede: "Nous ne listons que des interactions qui ont eu lieu, avec leurs dates et leur forme. Une démonstration est une démonstration ; une lettre d’appréciation est une lettre d’appréciation. Rien ici ne constitue un soutien ni un contrat, sauf mention expresse.",
     dateH: "Date",
     fmt: (d) => d.length === 4 ? d : new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })

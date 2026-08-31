@@ -8,7 +8,7 @@ import facts from "../data/facts.json" with { type: "json" };
 const copy = {
   en: {
     title: "How we build",
-    description: "SIGIL's doctrine: capability is never authorization, no finding is trusted until independently re-verified, the institution always holds the keys and can read, export, and stop, and open standards keep data portable. These are properties you can check.",
+    description: "SIGIL's doctrine: capability is never authorization, no finding is trusted until re-verified, and the institution holds the keys and can stop.",
     lede: "One doctrine runs through both systems. It is written as things you can verify, not things you have to believe. Each principle below is a claim an evaluator can test against the system in front of them.",
     principles: [
       ["Capability is never authorization", "Being able to do something is never permission to do it. Models, agents, plugins, imported results, and external tools never receive the power to declare their own permission or the truth of their own finding. Every consequential action passes a conjunctive, fail-closed chain of controls."],
@@ -23,7 +23,7 @@ const copy = {
   },
   fr: {
     title: "Notre méthode",
-    description: "La doctrine de SIGIL : une capacité n’est jamais une autorisation, aucun constat n’est retenu tant qu’il n’a pas été re-vérifié de façon indépendante, l’institution détient toujours les clés et peut lire, exporter et arrêter, et les standards ouverts gardent les données portables. Ce sont des propriétés vérifiables.",
+    description: "Doctrine de SIGIL : une capacité n’est jamais une autorisation, aucun constat n’est retenu sans re-vérification, et l’institution détient les clés et peut arrêter.",
     lede: "Une même doctrine traverse les deux systèmes. Elle est écrite comme des choses vérifiables, non comme des choses à croire. Chaque principe ci-dessous est une affirmation qu’un évaluateur peut tester sur le système qu’il a devant lui.",
     principles: [
       ["Une capacité n’est jamais une autorisation", "Pouvoir faire une chose ne vaut jamais permission de la faire. Modèles, agents, plugins, résultats importés et outils externes ne reçoivent jamais le pouvoir de déclarer leur propre permission ni la vérité de leur propre constat. Toute action conséquente traverse une chaîne de contrôles conjonctive et fail-closed."],

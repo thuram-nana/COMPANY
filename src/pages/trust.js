@@ -8,7 +8,7 @@ import facts from "../data/facts.json" with { type: "json" };
 const copy = {
   en: {
     title: "Trust",
-    description: "SIGIL's own security posture, stated as a verifiable list: TLS 1.3 and HSTS, DNSSEC and CAA, a strict content-security policy, DMARC at reject, a signed disclosure policy, a published bill of materials, and no cookies or third-party trackers.",
+    description: "SIGIL's own security posture, stated as a verifiable list: TLS 1.3, HSTS, DNSSEC, a strict CSP, DMARC at reject, a signed disclosure policy, no cookies or trackers.",
     lede: "A company that builds sovereign security infrastructure should hold its own site to the standard it asks of others. Everything below can be checked with public tools.",
     groups: [
       ["Transport", [
@@ -48,7 +48,7 @@ const copy = {
   },
   fr: {
     title: "Confiance",
-    description: "La posture de sécurité de SIGIL, présentée comme une liste vérifiable : TLS 1.3 et HSTS, DNSSEC et CAA, une politique de sécurité du contenu stricte, DMARC en rejet, une politique de divulgation signée, une nomenclature logicielle publiée, et aucun cookie ni traceur tiers.",
+    description: "La posture de sécurité de SIGIL, en liste vérifiable : TLS 1.3, HSTS, DNSSEC, CSP stricte, DMARC en rejet, politique de divulgation signée, aucun cookie ni traceur.",
     lede: "Une entreprise qui construit une infrastructure de sécurité souveraine devrait tenir son propre site au standard qu’elle demande aux autres. Tout ce qui suit peut être vérifié avec des outils publics.",
     groups: [
       ["Transport", [

@@ -10,8 +10,8 @@ const sys = facts.systems.find((s) => s.slug === "recor");
 
 const copy = {
   en: {
-    title: "RÉCOR",
-    description: "RÉCOR is a sovereign beneficial-ownership registry designed for Cameroon, built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS v0.4). It was fully demonstrated to Open Ownership on 1 July 2026, confirming conformance. Source code is kept strictly private.",
+    title: "RÉCOR — Sovereign beneficial-ownership registry",
+    description: "RÉCOR is SIGIL's sovereign beneficial-ownership registry designed for Cameroon, built to FATF Recommendations 24 and 25, exporting to BODS v0.4.",
     problemH: "The problem",
     problemP: "Opaque company ownership lets illicit finance move unseen and holds a jurisdiction back from meeting international standards. A beneficial-ownership registry makes real ownership legible — but only if the data is trustworthy, the audit trail is tamper-evident, and citizens' rights over their own data are respected.",
     doesH: "What RÉCOR does",
@@ -54,8 +54,8 @@ const copy = {
     ]
   },
   fr: {
-    title: "RÉCOR",
-    description: "RÉCOR est un registre souverain des bénéficiaires effectifs conçu pour le Cameroun, bâti pour satisfaire les recommandations 24 et 25 du GAFI et exporter vers le standard de données sur les bénéficiaires effectifs (BODS v0.4). Il a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, confirmant sa conformité. Le code source est gardé strictement privé.",
+    title: "RÉCOR — Registre souverain des bénéficiaires effectifs",
+    description: "RÉCOR est le registre souverain des bénéficiaires effectifs de SIGIL pour le Cameroun, bâti selon les recommandations 24 et 25 du GAFI, exportant vers BODS v0.4.",
     problemH: "Le problème",
     problemP: "L’opacité de la propriété des entreprises laisse la finance illicite circuler sans être vue et empêche une juridiction de satisfaire les standards internationaux. Un registre des bénéficiaires effectifs rend la propriété réelle lisible — mais seulement si les données sont fiables, si la piste d’audit est infalsifiable, et si les droits des citoyens sur leurs propres données sont respectés.",
     doesH: "Ce que fait RÉCOR",

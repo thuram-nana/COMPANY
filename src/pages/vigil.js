@@ -10,9 +10,9 @@ const sys = facts.systems.find((s) => s.slug === "vigil");
 
 const copy = {
   en: {
-    title: "VIGIL",
+    title: "VIGIL — Governed cybersecurity and evidence platform",
     tagline: sys.en.tagline,
-    description: "VIGIL is a governed cybersecurity and evidence platform. A technical capability is never an authorization: no model or agent authorizes itself, and no finding is trusted until an independent, re-verifiable check confirms it. Source code is kept strictly private.",
+    description: "VIGIL is a governed cybersecurity and evidence platform: a capability is never an authorization, and a finding requires independent re-verification.",
     answerH: "What VIGIL is",
     principleH: "Capability is not authorization",
     principleP: "VIGIL's organizing rule is that being able to do something is never permission to do it. Models and agents may observe and propose; they never declare their own authority, and they never declare a finding true. Every consequential action passes a single conjunctive, fail-closed chain before anything runs.",
@@ -61,9 +61,9 @@ const copy = {
     ]
   },
   fr: {
-    title: "VIGIL",
+    title: "VIGIL — Plateforme de cybersécurité gouvernée et de preuve",
     tagline: sys.fr.tagline,
-    description: "VIGIL est une plateforme de cybersécurité gouvernée et de preuve. Une capacité technique n’est jamais une autorisation : aucun modèle ni agent ne s’auto-autorise, et aucun constat n’est retenu tant qu’une vérification indépendante et re-vérifiable ne l’a pas confirmé. Le code source est gardé strictement privé.",
+    description: "VIGIL est une plateforme de cybersécurité gouvernée et de preuve : une capacité n’est jamais une autorisation ; un constat exige une re-vérification indépendante.",
     answerH: "Ce qu’est VIGIL",
     principleH: "Une capacité n’est pas une autorisation",
     principleP: "Le principe directeur de VIGIL est que pouvoir faire une chose ne vaut jamais permission de la faire. Les modèles et agents peuvent observer et proposer ; ils ne déclarent jamais leur propre autorité, ni la vérité de leur propre constat. Toute action conséquente traverse une chaîne unique, conjonctive et fail-closed, avant toute exécution.",
@@ -229,7 +229,7 @@ function subPage(lang, key, data) {
 const govCopy = {
   en: {
     crumb: "Governance", title: "The authorization chain",
-    description: "How VIGIL authorizes actions: cumulative RBAC, a signed usage right, a signed scope, WARDEN risk classification (A0–A3), human approval, and egress control — all conjunctive and fail-closed.",
+    description: "VIGIL's authorization chain is conjunctive and fail-closed: RBAC, signed usage right, signed scope, WARDEN class, human approval, and egress control.",
     lede: "Every consequential action in VIGIL passes the same chain of controls. They are conjunctive — all must pass — and fail-closed — the absence of a control is a denial, never a default allow.",
     body: `
 ${sectionH("Roles are cumulative, and owner is the trust root")}
@@ -252,7 +252,7 @@ ${sectionH("Emergency stop is always available")}
   },
   fr: {
     crumb: "Gouvernance", title: "La chaîne d’autorisation",
-    description: "Comment VIGIL autorise les actions : RBAC cumulatif, droit d’usage signé, portée signée, classification de risque WARDEN (A0–A3), approbation humaine et contrôle de sortie réseau — le tout conjonctif et fail-closed.",
+    description: "La chaîne d’autorisation de VIGIL est conjonctive et fail-closed : RBAC, droit d’usage signé, portée signée, classe WARDEN, approbation humaine, contrôle de sortie.",
     lede: "Toute action conséquente dans VIGIL traverse la même chaîne de contrôles. Ils sont conjonctifs — tous doivent passer — et fail-closed — l’absence d’un contrôle est un refus, jamais une autorisation par défaut.",
     body: `
 ${sectionH("Les rôles sont cumulatifs, et owner est la racine de confiance")}
@@ -278,7 +278,7 @@ ${sectionH("L’arrêt d’urgence est toujours disponible")}
 const evidCopy = {
   en: {
     crumb: "Evidence", title: "The Oracle model: lead versus fact",
-    description: "VIGIL turns an observation into a confirmed fact only when an independent, deterministic Oracle re-verifies it. Confirmed facts are signed and re-checkable offline; reports separate proof from observation.",
+    description: "VIGIL's Oracle model separates lead from fact: an observation becomes a confirmed fact only when an independent, deterministic Oracle re-verifies it.",
     lede: "VIGIL refuses to guess. An observation stays a lead until an independent authority re-verifies it into a confirmed fact — and if the check does not fire, the item is not quietly promoted.",
     body: `
 ${sectionH("What an Oracle is")}
@@ -298,7 +298,7 @@ ${sectionH("What the checks do and do not prove")}
   },
   fr: {
     crumb: "Preuve", title: "Le modèle des Oracles : piste ou fait",
-    description: "VIGIL transforme une observation en fait confirmé uniquement lorsqu’un Oracle indépendant et déterministe la re-vérifie. Les faits confirmés sont signés et re-vérifiables hors ligne ; les rapports séparent preuve et observation.",
+    description: "Le modèle des Oracles de VIGIL sépare piste et fait : une observation ne devient un fait confirmé que si un Oracle indépendant et déterministe la re-vérifie.",
     lede: "VIGIL refuse de deviner. Une observation reste une piste tant qu’une autorité indépendante ne l’a pas re-vérifiée en fait confirmé — et si la vérification ne se déclenche pas, l’élément n’est pas promu en silence.",
     body: `
 ${sectionH("Ce qu’est un Oracle")}
@@ -321,7 +321,7 @@ ${sectionH("Ce que les vérifications prouvent, et ne prouvent pas")}
 const sovCopy = {
   en: {
     crumb: "Sovereignty", title: "Deployment, keys, and revocation",
-    description: "A VIGIL installation runs on the institution's hardware with no default SIGIL access and no telemetry. Usage rights are a signed certificate verified locally; revocation blocks new sensitive actions but never data access.",
+    description: "A VIGIL installation runs on the institution's hardware: no default SIGIL access, no telemetry, and revocation never blocks the institution's data.",
     lede: "The sovereignty model is concrete. The institution controls the hardware, the keys, the targets, the logs, the evidence, and the reports. SIGIL's role stops at signing the software and issuing usage rights.",
     body: `
 ${sectionH("No backdoor, no telemetry, no hidden account")}
@@ -343,7 +343,7 @@ ${sectionH("Updates and support")}
   },
   fr: {
     crumb: "Souveraineté", title: "Déploiement, clés et révocation",
-    description: "Une installation VIGIL s’exécute sur le matériel de l’institution, sans accès SIGIL par défaut ni télémétrie. Les droits d’usage sont un certificat signé vérifié localement ; la révocation bloque les nouvelles actions sensibles mais jamais l’accès aux données.",
+    description: "Une installation VIGIL s’exécute sur le matériel de l’institution : aucun accès SIGIL par défaut, aucune télémétrie, et la révocation ne bloque jamais les données.",
     lede: "Le modèle de souveraineté est concret. L’institution contrôle le matériel, les clés, les cibles, les journaux, les preuves et les rapports. Le rôle de SIGIL s’arrête à la signature du logiciel et à l’émission des droits d’usage.",
     body: `
 ${sectionH("Aucune backdoor, aucune télémétrie, aucun compte caché")}

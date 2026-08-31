@@ -8,7 +8,7 @@ import facts from "../data/facts.json" with { type: "json" };
 const copy = {
   en: {
     title: "Company",
-    description: "SIGIL SARL — Sovereign Integrity Governance Infrastructure Labs — is a Cameroonian company based in Buea, building sovereign governance infrastructure. Founded and led by Junior Thuram Nana.",
+    description: "SIGIL SARL is a Cameroonian company based in Buea that builds sovereign governance infrastructure. Founded in 2023 and led by Junior Thuram Nana.",
     lede: "SIGIL SARL — Sovereign Integrity Governance Infrastructure Labs — is a Cameroonian company based in Buea, building sovereign governance infrastructure for public institutions.",
     whoH: "Who we are",
     whoP: `SIGIL SARL is registered in Cameroon and based in Buea. It designs and builds a small number of systems for public institutions — today, VIGIL and RÉCOR — each intended to run on the institution's own infrastructure, under the institution's own control.`,
@@ -36,7 +36,7 @@ const copy = {
   },
   fr: {
     title: "Entreprise",
-    description: "SIGIL SARL — Sovereign Integrity Governance Infrastructure Labs — est une entreprise camerounaise basée à Buea, qui construit une infrastructure de gouvernance souveraine. Fondée et dirigée par Junior Thuram Nana.",
+    description: "SIGIL SARL est une entreprise camerounaise basée à Buea qui construit une infrastructure de gouvernance souveraine. Fondée en 2023 et dirigée par Junior Thuram Nana.",
     lede: "SIGIL SARL — Sovereign Integrity Governance Infrastructure Labs — est une entreprise camerounaise basée à Buea, qui construit une infrastructure de gouvernance souveraine pour les institutions publiques.",
     whoH: "Qui nous sommes",
     whoP: `SIGIL SARL est immatriculée au Cameroun et basée à Buea. Elle conçoit et construit un petit nombre de systèmes pour les institutions publiques — aujourd’hui VIGIL et RÉCOR — chacun destiné à s’exécuter sur l’infrastructure de l’institution, sous son propre contrôle.`,

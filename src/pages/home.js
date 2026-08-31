@@ -8,7 +8,7 @@ import facts from "../data/facts.json" with { type: "json" };
 const copy = {
   en: {
     title: "Sovereign governance infrastructure",
-    description: "SIGIL SARL builds sovereign governance infrastructure from Buea, Cameroon: systems where the institution holds the keys, the data never leaves, and every consequential action is authorized, bounded, and proven. Three systems: VIGIL, RÉCOR, and APEX.",
+    description: "SIGIL SARL builds sovereign governance infrastructure from Buea, Cameroon: VIGIL, RÉCOR, and APEX, systems where the institution holds the keys.",
     thesisPre: "SIGIL builds systems where the institution holds the keys, the data never leaves, and every consequential action is ",
     thesisEmph: "authorized, bounded, and proven.",
     systemsH: "Three systems",
@@ -23,7 +23,7 @@ const copy = {
   },
   fr: {
     title: "Infrastructure de gouvernance souveraine",
-    description: "SIGIL SARL conçoit depuis Buea, au Cameroun, une infrastructure de gouvernance souveraine : des systèmes où l’institution détient les clés, où les données ne sortent jamais, et où chaque action conséquente est autorisée, bornée et prouvée. Trois systèmes : VIGIL, RÉCOR et APEX.",
+    description: "SIGIL SARL conçoit depuis Buea, au Cameroun, une infrastructure de gouvernance souveraine : VIGIL, RÉCOR et APEX, des systèmes où l’institution détient les clés.",
     thesisPre: "SIGIL conçoit des systèmes où l’institution détient les clés, où les données ne sortent jamais, et où chaque action conséquente est ",
     thesisEmph: "autorisée, bornée et prouvée.",
     systemsH: "Trois systèmes",

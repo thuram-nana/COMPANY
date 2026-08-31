@@ -26,7 +26,7 @@ ${sectionH("Changes")}
   },
   fr: {
     title: "Confidentialité",
-    description: "La politique de confidentialité de SIGIL : ce site ne pose aucun cookie, ne charge aucun script tiers et n’effectue aucun suivi côté client. Analyse de journaux côté serveur uniquement.",
+    description: "Politique de confidentialité de SIGIL : aucun cookie, aucun script tiers, aucun suivi côté client sur ce site. Analyse de journaux côté serveur uniquement.",
     updated: "Dernière mise à jour",
     body: `
 ${sectionH("En bref")}
