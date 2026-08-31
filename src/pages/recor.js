@@ -39,8 +39,8 @@ const copy = {
     guarHead: ["Guarantee", "How RÉCOR delivers it"],
     guarRows: [
       ["Data residency", "Designed to run on national infrastructure; the register and its evidence stay in-country."],
-      ["Key custody", "Declarations are cryptographically signed; the institution holds the keys."],
-      ["Citizen data rights", "Deletion rights are honoured by cryptographic shredding — destroying the key that makes a record readable."],
+      ["Key custody", "Each declaration is signed in the declarant’s own browser with a key only the declarant holds; platform and custody keys remain with the operating institution."],
+      ["Citizen data rights", "Deletion rights are designed to be honoured by cryptographic shredding — destroying the key that makes a record readable."],
       ["Audit chain", "A triple-witnessed, Merkle-anchored audit chain makes every change tamper-evident."],
       ["Open standard", "Exports to BODS v0.4, so the data is portable and not locked to one vendor."],
       ["Source code", "Kept strictly private; not published or distributed."]
@@ -48,7 +48,7 @@ const copy = {
     faqH: "Questions institutions ask",
     faqs: [
       { q: "Does RÉCOR meet FATF Recommendations 24 and 25?", a: "RÉCOR is designed to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard. It was fully demonstrated to Open Ownership on 1 July 2026, and Open Ownership acknowledged the demonstration." },
-      { q: "How are citizens' data-deletion rights handled?", a: "Through cryptographic shredding: when a record must be erased, the key that makes it readable is destroyed, rendering the data unrecoverable while the audit chain's integrity is preserved." },
+      { q: "How are citizens' data-deletion rights handled?", a: "Deletion rights are designed to be honoured through cryptographic shredding: when a record must be erased, the key that makes it readable is destroyed, rendering the data unrecoverable while the audit chain's integrity is preserved." },
       { q: "Is the ownership data portable?", a: "Yes. RÉCOR exports to the Beneficial Ownership Data Standard (BODS) v0.4, an open standard, so the data is not locked to a single vendor." },
       { q: "Is RÉCOR's source code available?", a: "No. All RÉCOR source code is kept strictly private. It is not published, mirrored, or distributed." }
     ]
@@ -83,8 +83,8 @@ const copy = {
     guarHead: ["Garantie", "Comment RÉCOR l’assure"],
     guarRows: [
       ["Résidence des données", "Conçu pour s’exécuter sur l’infrastructure nationale ; le registre et ses preuves restent dans le pays."],
-      ["Garde des clés", "Les déclarations sont signées cryptographiquement ; l’institution détient les clés."],
-      ["Droits des citoyens", "Le droit à l’effacement est honoré par broyage cryptographique — destruction de la clé qui rend un enregistrement lisible."],
+      ["Garde des clés", "Chaque déclaration est signée dans le navigateur du déclarant, avec une clé que seul le déclarant détient ; les clés de plateforme et de garde restent auprès de l’institution exploitante."],
+      ["Droits des citoyens", "Le droit à l’effacement est conçu pour être honoré par broyage cryptographique — destruction de la clé qui rend un enregistrement lisible."],
       ["Chaîne d’audit", "Une chaîne d’audit triple-témoin, ancrée par arbre de Merkle, rend chaque modification infalsifiable."],
       ["Standard ouvert", "Exporte vers BODS v0.4 ; les données sont portables et non verrouillées à un fournisseur."],
       ["Code source", "Gardé strictement privé ; ni publié ni distribué."]
@@ -92,7 +92,7 @@ const copy = {
     faqH: "Questions posées par les institutions",
     faqs: [
       { q: "RÉCOR satisfait-il les recommandations 24 et 25 du GAFI ?", a: "RÉCOR est conçu pour satisfaire les recommandations 24 et 25 du GAFI et exporter vers le standard de données sur les bénéficiaires effectifs. Il a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, et Open Ownership en a pris acte." },
-      { q: "Comment le droit des citoyens à l’effacement est-il assuré ?", a: "Par broyage cryptographique : lorsqu’un enregistrement doit être effacé, la clé qui le rend lisible est détruite, rendant les données irrécupérables tout en préservant l’intégrité de la chaîne d’audit." },
+      { q: "Comment le droit des citoyens à l’effacement est-il assuré ?", a: "Le droit à l’effacement est conçu pour être honoré par broyage cryptographique : lorsqu’un enregistrement doit être effacé, la clé qui le rend lisible est détruite, rendant les données irrécupérables tout en préservant l’intégrité de la chaîne d’audit." },
       { q: "Les données de propriété sont-elles portables ?", a: "Oui. RÉCOR exporte vers le standard de données sur les bénéficiaires effectifs (BODS) v0.4, un standard ouvert ; les données ne sont pas verrouillées à un fournisseur unique." },
       { q: "Le code source de RÉCOR est-il disponible ?", a: "Non. L’intégralité du code source de RÉCOR est gardée strictement privée. Il n’est ni publié, ni miroité, ni distribué." }
     ]
