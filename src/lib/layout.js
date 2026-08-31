@@ -1,6 +1,6 @@
 import { mark } from "../assets/mark.js";
 import { strings, routes } from "../data/strings.js";
-import { webPageNode } from "./jsonld.js";
+import { webPageNode, websiteNode } from "./jsonld.js";
 import facts from "../data/facts.json" with { type: "json" };
 
 const ORIGIN = "https://sigilsovereign.com";
@@ -43,7 +43,7 @@ export function page(p) {
     try {
       const g = JSON.parse(jsonldOut);
       const dm = p.dateModified || process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
-      g["@graph"] = (g["@graph"] || []).concat([webPageNode(facts, { path: p.path, title: p.title, description: p.description, lang: p.lang, datePublished: p.datePublished, dateModified: dm })]);
+      g["@graph"] = (g["@graph"] || []).concat([websiteNode(facts, p.lang), webPageNode(facts, { path: p.path, title: p.title, description: p.description, lang: p.lang, datePublished: p.datePublished, dateModified: dm })]);
       jsonldOut = JSON.stringify(g);
     } catch (e) { /* leave as-is */ }
   }

@@ -8,7 +8,20 @@ if (!KEY) { console.log("INDEXNOW_KEY not set; skipping"); process.exit(0); }
 
 const HOST = "sigilsovereign.com";
 const sitemap = readFileSync("dist/sitemap.xml", "utf8");
-const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+function entries(xml) {
+  return new Map([...xml.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod><\/url>/g)].map(m => [m[1], m[2]]));
+}
+const now = entries(sitemap);
+let urls = [...now.keys()];
+// Signal only what changed since the previous deploy (full list when no snapshot).
+try {
+  const prev = entries(readFileSync(process.env.PREV_SITEMAP || "/nonexistent", "utf8"));
+  if (prev.size > 0) {
+    urls = urls.filter(u => !prev.has(u) || prev.get(u) !== now.get(u));
+    console.log(`IndexNow: ${urls.length} changed of ${now.size} URLs (vs previous deploy)`);
+  }
+} catch { /* no snapshot: submit everything */ }
+if (urls.length === 0) { console.log("IndexNow: nothing changed; skipping"); process.exit(0); }
 
 const body = {
   host: HOST,

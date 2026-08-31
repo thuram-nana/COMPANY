@@ -104,6 +104,13 @@ jobs:
           name: dist
           path: dist
 
+      # Snapshot what the live site serves BEFORE this deploy, so the pings can
+      # announce only what actually changed (IndexNow guidance: signal changes).
+      - name: Capture pre-deploy sitemap and feed
+        run: |
+          curl -s -m 20 https://sigilsovereign.com/sitemap.xml -o /tmp/prev-sitemap.xml || true
+          curl -s -m 20 https://sigilsovereign.com/feed.xml -o /tmp/prev-feed.xml || true
+
       - name: Deploy target summary
         run: |
           echo "Vercel:             $HAS_VERCEL"
@@ -267,10 +274,13 @@ jobs:
         run: node scripts/indexnow.mjs
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          PREV_SITEMAP: /tmp/prev-sitemap.xml
 
       - name: WebSub publish ping (instant feed discovery)
         if: env.APEX_OK == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')
         run: node scripts/websub-ping.mjs
+        env:
+          PREV_FEED: /tmp/prev-feed.xml
 
       - name: Submit sitemap to Google Search Console
         if: env.APEX_OK == 'true' && env.HAS_GSC == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')

@@ -5,6 +5,20 @@
 
 ---
 
+## Corrections — 31 August 2026 (post-implementation study)
+
+A second research pass (7 agents, live web) confirmed this plan and corrected four points:
+
+1. **ChatGPT search runs on OpenAI's own index**, crawled by `OAI-SearchBot` — Bing feeds it only
+   in limited enterprise contexts. IndexNow therefore reaches Copilot/DuckDuckGo/Yandex, but never
+   OpenAI; the lever for ChatGPT is OAI-SearchBot crawlability (already allowed) and citable pages.
+2. **Brave Search is Claude's citation index** — check search.brave.com for branded queries as a
+   proxy for Claude answers.
+3. **Google removed FAQ rich results (May 2026)** — FAQPage markup stays (Bing and AI engines read
+   it; it must match visible content, which the site now renders), but no rich-result is expected.
+4. **Lighthouse 12.x flags the deliberate `Content-Signal:` robots line** as an unknown directive;
+   the audit is skipped in CI until LHCI bundles Lighthouse ≥ 13. The line itself is correct policy.
+
 ## 0. The honest objective
 
 **Goal as stated:** "when someone types SIGIL we should be the first to show in any browser or AI."

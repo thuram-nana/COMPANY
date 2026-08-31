@@ -9,6 +9,7 @@
     "email": "info@sigilsovereign.com",
     "domain": "sigilsovereign.com",
     "url": "https://sigilsovereign.com",
+    "sameAs": [],
     "founderName": "Junior Thuram Nana",
     "founderRole": "Founder & Managing Director",
     "founderId": "https://thuramnana.com/#person",
@@ -16,8 +17,8 @@
     "foundedYear": "2023",
     "definition": "SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) is a Cameroonian company, founded in 2023 and based in Buea, that builds sovereign governance infrastructure for public institutions: systems where the institution holds the keys, the data never leaves, and every consequential action is authorized, bounded, and proven.",
     "definitionFr": "SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) est une entreprise camerounaise, fondée en 2023 et basée à Buea, qui conçoit une infrastructure de gouvernance souveraine pour les institutions publiques : des systèmes où l’institution détient les clés, où les données ne sortent jamais, et où chaque action conséquente est autorisée, bornée et prouvée.",
-    "disambiguation": "SIGIL SARL is a governance-infrastructure company in Cameroon. It is not related to the Sigil ebook editor, the common noun sigil (a magical seal), or any other organisation named Sigil.",
-    "disambiguationFr": "SIGIL SARL est une entreprise d’infrastructure de gouvernance au Cameroun. Elle n’a aucun lien avec l’éditeur d’ebooks Sigil, le nom commun sigil (un sceau magique), ni aucune autre organisation nommée Sigil.",
+    "disambiguation": "SIGIL SARL is a governance-infrastructure company in Cameroon. It is not related to the Sigil ebook editor, the common noun sigil (a magical seal), the “Sovereign Sigil” item in the video game Elden Ring Nightreign, or any other organisation named Sigil.",
+    "disambiguationFr": "SIGIL SARL est une entreprise d’infrastructure de gouvernance au Cameroun. Elle n’a aucun lien avec l’éditeur d’ebooks Sigil, le nom commun sigil (un sceau magique), l’objet « Sovereign Sigil » du jeu vidéo Elden Ring Nightreign, ni aucune autre organisation nommée Sigil.",
     "sitePublished": "2026-08-30"
   },
   "systems": [

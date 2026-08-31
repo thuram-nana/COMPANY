@@ -4,7 +4,8 @@
 // Setup (once): create a Google Cloud service account, enable the Search Console
 // API, add the service account email as a full user of the sigilsovereign.com
 // property in Search Console, and store its JSON key as the GSC_SERVICE_ACCOUNT_JSON
-// secret. Property must be verified (DNS TXT — see deploy/README.md).
+// secret. Property must be a verified URL-prefix property for
+// https://sigilsovereign.com/ (HTML-file verification — see deploy/README.md §3).
 //
 // This uses only the built-in fetch + a JWT we sign with the service account key.
 import crypto from "crypto";

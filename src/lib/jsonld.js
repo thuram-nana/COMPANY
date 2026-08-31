@@ -25,6 +25,7 @@ export function orgNode(f) {
     foundingDate: f.org.foundedYear,
     foundingLocation: { "@type": "Place", name: "Buea, Cameroon", address: { "@type": "PostalAddress", addressLocality: "Buea", addressCountry: "CM" } },
     areaServed: { "@type": "Country", name: "Cameroon" },
+    ...(Array.isArray(f.org.sameAs) && f.org.sameAs.length ? { sameAs: f.org.sameAs } : {}),
     address: {
       "@type": "PostalAddress",
       addressLocality: "Buea",
@@ -39,7 +40,7 @@ export function orgNode(f) {
       worksFor: { "@id": f.org.url + "/#org" }
     },
     contactPoint: [
-      { "@type": "ContactPoint", contactType: "institutional", email: f.org.email, telephone: f.org.phone }
+      { "@type": "ContactPoint", contactType: "institutional", email: f.org.email, telephone: f.org.phone, availableLanguage: ["English", "French"] }
     ],
     knowsAbout: [
       "sovereign governance infrastructure",
@@ -155,8 +156,10 @@ export function articleNode(f, note, lang) {
     inLanguage: lang,
     datePublished: note.date,
     dateModified: note.modified || note.date,
-    author: { "@id": f.org.founderId, name: f.org.founderName },
-    publisher: { "@id": f.org.url + "/#org" }
+    author: { "@type": "Person", "@id": f.org.founderId, name: f.org.founderName, url: "https://thuramnana.com/" },
+    publisher: { "@id": f.org.url + "/#org" },
+    isPartOf: { "@id": f.org.url + "/#website" },
+    mainEntityOfPage: f.org.url + note.path
   };
 }
 

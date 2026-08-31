@@ -2,7 +2,7 @@ import { page } from "../lib/layout.js";
 import { strings, routes } from "../data/strings.js";
 import { h2, statusChip, cta, heroMark, entityFaq, entityBlock, faqBlock } from "../lib/ui.js";
 import { mark, seal } from "../assets/mark.js";
-import { orgNode, websiteNode, systemNode, statusTerms, breadcrumb, faqNode, graph } from "../lib/jsonld.js";
+import { orgNode, systemNode, statusTerms, breadcrumb, faqNode, graph } from "../lib/jsonld.js";
 import facts from "../data/facts.json" with { type: "json" };
 
 const copy = {
@@ -55,7 +55,6 @@ export function home(lang) {
 
   const jsonld = graph([
     orgNode(facts),
-    websiteNode(facts, lang),
     statusTerms(facts),
     systemNode(facts, facts.systems[0], lang),
     systemNode(facts, facts.systems[1], lang),

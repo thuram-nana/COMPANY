@@ -7,6 +7,17 @@
       "source": "/:path((?!api/)(?:[^/]+/)*[^/.]+)",
       "destination": "/:path/",
       "permanent": true
+    },
+    {
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "sigilsovereign.vercel.app"
+        }
+      ],
+      "destination": "https://sigilsovereign.com/:path",
+      "permanent": true
     }
   ],
   "headers": [

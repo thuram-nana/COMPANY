@@ -10,7 +10,9 @@ const DIST = join(ROOT, "dist");
 const ORIGIN = "https://sigilsovereign.com";
 
 const BUILD_DATE = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
-const SHARED = ["src/data/facts.json", "src/data/strings.js", "src/lib/layout.js", "src/lib/ui.js", "src/lib/jsonld.js", "src/styles/app.css"];
+// Only content inputs move a page's lastmod — chrome/style churn must not
+// re-date every URL (engines learn to distrust uniform lastmod).
+const SHARED = ["src/data/facts.json"];
 function gitDate(files) {
   // Most recent commit date across the given files; null if git/ history unavailable.
   try {
@@ -21,6 +23,17 @@ function gitDate(files) {
 function pageLastmod(sourceFiles) {
   const d = gitDate(sourceFiles.concat(SHARED));
   return d || BUILD_DATE;
+}
+const firstSeen = {};
+function pageFirstPublished(src) {
+  // First commit that added the page's source — the honest datePublished.
+  if (!(src in firstSeen)) {
+    try {
+      const outp = execSync(`git log --diff-filter=A --format=%cs -- ${JSON.stringify(src)}`, { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim().split("\n").filter(Boolean);
+      firstSeen[src] = outp[outp.length - 1] || null;
+    } catch { firstSeen[src] = null; }
+  }
+  return firstSeen[src];
 }
 
 function out(routePath, html) {
@@ -97,6 +110,34 @@ async function run() {
   // app.js sits at root
   copyFileSync(join(ROOT, "src", "assets", "app.js"), join(DIST, "app.js"));
   copyFileSync(join(ROOT, "src", "assets", "briefing.js"), join(DIST, "briefing.js"));
+
+  // ---- per-page dates: thread the git dates into the rendered pages -------
+  // (WebPage datePublished/dateModified + the visible footer date; the shell
+  //  stamps sitePublished/BUILD_DATE, which we replace with per-route truth.)
+  const SITE_PUB = (await import("../src/data/facts.json", { with: { type: "json" } })).default.org.sitePublished;
+  for (const p of built) {
+    const routePath = p.endsWith("index.html") ? p.slice(0, -"index.html".length) : p;
+    const src = srcOf[routePath];
+    if (!src) continue;
+    const file = join(DIST, p);
+    let html = readFileSync(file, "utf8");
+    const pub = pageFirstPublished(src) || SITE_PUB;
+    const mod = pageLastmod([src]);
+    html = html.replaceAll(`"datePublished":"${SITE_PUB}"`, `"datePublished":"${pub}"`);
+    html = html.replaceAll(`"dateModified":"${BUILD_DATE}"`, `"dateModified":"${mod}"`);
+    html = html.replaceAll(`<time datetime="${BUILD_DATE}">`, `<time datetime="${mod}">`);
+    html = html.replaceAll(`Last updated ${BUILD_DATE}`, `Last updated ${mod}`);
+    html = html.replaceAll(`Mis à jour le ${BUILD_DATE}`, `Mis à jour le ${mod}`);
+    writeFileSync(file, html);
+  }
+
+  // ---- minify the delivered CSS/JS (sources stay readable) ---------------
+  const esbuild = await import("esbuild");
+  for (const [f, loader] of [["styles/app.css", "css"], ["app.js", "js"], ["briefing.js", "js"]]) {
+    const full = join(DIST, f);
+    const min = await esbuild.transform(readFileSync(full, "utf8"), { loader, minify: true });
+    writeFileSync(full, min.code);
+  }
 
   // ---- sitemap (per-URL lastmod from git history; accurate freshness) ----
   const urlEntries = built.map((p) => {
