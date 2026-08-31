@@ -58,7 +58,7 @@
       "code_visibility": "private",
       "en": {
         "tagline": "Sovereign beneficial-ownership registry",
-        "answer": "RÉCOR is a sovereign beneficial-ownership registry designed for Cameroon, built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS v0.4). Its conformance was confirmed in a demonstration to Open Ownership on 1 July 2026.",
+        "answer": "RÉCOR is a sovereign beneficial-ownership registry designed for Cameroon, built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS v0.4). It was fully demonstrated to Open Ownership on 1 July 2026, confirming its conformance.",
         "standards": [
           "FATF R.24",
           "FATF R.25",
@@ -67,7 +67,7 @@
       },
       "fr": {
         "tagline": "Registre souverain des bénéficiaires effectifs",
-        "answer": "RÉCOR est un registre souverain des bénéficiaires effectifs conçu pour le Cameroun, bâti pour satisfaire les recommandations 24 et 25 du GAFI et exporter vers le standard de données sur les bénéficiaires effectifs (BODS v0.4). Sa conformité a été confirmée lors d’une démonstration à Open Ownership le 1 juillet 2026.",
+        "answer": "RÉCOR est un registre souverain des bénéficiaires effectifs conçu pour le Cameroun, bâti pour satisfaire les recommandations 24 et 25 du GAFI et exporter vers le standard de données sur les bénéficiaires effectifs (BODS v0.4). Il a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, confirmant sa conformité.",
         "standards": [
           "GAFI R.24",
           "GAFI R.25",
@@ -105,12 +105,12 @@
       "en": {
         "title": "Open Ownership demonstration of RÉCOR",
         "artifact": "Technical demonstration; BODS v0.4 conformance confirmed",
-        "detail": "RÉCOR was demonstrated to Open Ownership, confirming conformance with the Beneficial Ownership Data Standard v0.4. This is a technical demonstration and conformance confirmation, not an endorsement."
+        "detail": "RÉCOR, built to the Beneficial Ownership Data Standard (BODS v0.4), was fully demonstrated to Open Ownership, confirming its conformance. This is a technical demonstration and conformance confirmation, not an endorsement."
       },
       "fr": {
         "title": "Démonstration de RÉCOR à Open Ownership",
         "artifact": "Démonstration technique ; conformité BODS v0.4 confirmée",
-        "detail": "RÉCOR a été présenté à Open Ownership, confirmant la conformité au standard de données sur les bénéficiaires effectifs (BODS v0.4). Il s’agit d’une démonstration technique et d’une confirmation de conformité, non d’un soutien institutionnel."
+        "detail": "RÉCOR, bâti selon le standard de données sur les bénéficiaires effectifs (BODS v0.4), a fait l’objet d’une démonstration complète auprès d’Open Ownership, confirmant sa conformité. Il s’agit d’une démonstration technique et d’une confirmation de conformité, non d’un soutien institutionnel."
       }
     },
     {

@@ -45,7 +45,7 @@ Standards: OWASP, MITRE ATT&CK, NIST 800-115, PTES, PASTA. Status: pre-deploymen
 
 ### RÉCOR
 
-RÉCOR is a sovereign beneficial-ownership registry designed for Cameroon, built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS v0.4). Its conformance was confirmed in a demonstration to Open Ownership on 1 July 2026.
+RÉCOR is a sovereign beneficial-ownership registry designed for Cameroon, built to satisfy FATF Recommendations 24 and 25 and to export to the Beneficial Ownership Data Standard (BODS v0.4). It was fully demonstrated to Open Ownership on 1 July 2026, confirming its conformance.
 
 Standards: FATF R.24, FATF R.25, BODS v0.4. Status: pre-deployment. Source code: kept strictly private.
 
@@ -57,7 +57,7 @@ Standards: UNCAC, OCDS. Status: pre-deployment. Source code: kept strictly priva
 
 ## Record
 
-- 2026-07-01 — Open Ownership demonstration of RÉCOR (Technical demonstration; BODS v0.4 conformance confirmed). RÉCOR was demonstrated to Open Ownership, confirming conformance with the Beneficial Ownership Data Standard v0.4. This is a technical demonstration and conformance confirmation, not an endorsement.
+- 2026-07-01 — Open Ownership demonstration of RÉCOR (Technical demonstration; BODS v0.4 conformance confirmed). RÉCOR, built to the Beneficial Ownership Data Standard (BODS v0.4), was fully demonstrated to Open Ownership, confirming its conformance. This is a technical demonstration and conformance confirmation, not an endorsement.
 - 2026 — Letter of appreciation, UNDP Cameroon (Letter of appreciation). UNDP Cameroon issued a letter of appreciation. A letter of appreciation is not an endorsement or a contract.
 - 2026 — Invitation to present, APME (Invitation to present). APME (Small and Medium Enterprises Promotion Agency) invited SIGIL to present to its digitalization unit.
 

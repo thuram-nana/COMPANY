@@ -19,7 +19,7 @@ const copy = {
     recordH: "Record",
     recordLede: "We list only interactions that happened, with dates and the form they took. Nothing here is an endorsement unless it says so.",
     recordLink: "See the record",
-    proof: "RÉCOR's conformance with the Beneficial Ownership Data Standard (BODS v0.4) was confirmed in a demonstration to Open Ownership on 1 July 2026."
+    proof: "RÉCOR is built to the Beneficial Ownership Data Standard (BODS v0.4) and was fully demonstrated to Open Ownership on 1 July 2026, confirming its conformance."
   },
   fr: {
     title: "Infrastructure de gouvernance souveraine",
@@ -34,7 +34,7 @@ const copy = {
     recordH: "Références",
     recordLede: "Nous ne listons que des interactions qui ont eu lieu, avec leurs dates et leur forme. Rien ici ne constitue un soutien institutionnel, sauf mention expresse.",
     recordLink: "Voir les références",
-    proof: "La conformité de RÉCOR au standard de données sur les bénéficiaires effectifs (BODS v0.4) a été confirmée lors d’une démonstration à Open Ownership le 1 juillet 2026."
+    proof: "RÉCOR est bâti selon le standard de données sur les bénéficiaires effectifs (BODS v0.4) et a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, confirmant sa conformité."
   }
 };
 
