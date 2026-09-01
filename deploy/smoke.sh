@@ -51,7 +51,9 @@ redir "$r" && [ "${r#* }" = "https://www.$HOST/" ] && ok "http www → https www
 [ "$(code "$BASE/fr/")" = "200" ]            && ok "french mirror /fr/"          || bad "french mirror" "/fr/ not 200"
 r="$(curl -s -o /dev/null -m 25 -w '%{http_code}' "$BASE/this-page-does-not-exist/")"
 [ "$r" = "404" ] && ok "unknown route → 404" || bad "404 status" "got: $r"
-curl -s -m 25 "$BASE/this-page-does-not-exist/" | grep -q "SIGIL SARL" && ok "404 page is the built 404.html" || bad "404 body" "custom 404 page not served"
+# (retry once: freshly switched deployments can serve the platform 404 for a beat)
+if curl -s -m 25 "$BASE/this-page-does-not-exist/" | grep -q "SIGIL SARL"; then ok "404 page is the built 404.html"
+else sleep 10; curl -s -m 25 "$BASE/this-page-does-not-exist/" | grep -q "SIGIL SARL" && ok "404 page is the built 404.html (after retry)" || bad "404 body" "custom 404 page not served"; fi
 frc="$(code "$BASE/fr/page-inexistante/")"; frb="$(curl -s -m 25 "$BASE/fr/page-inexistante/")"
 if [ "$frc" = "404" ] && grep -q '<html lang="fr"' <<<"$frb"; then ok "French 404 page under /fr/"
 elif [ "$frc" = "404" ] && grep -q "SIGIL SARL" <<<"$frb"; then ok "404 under /fr/ serves the built page (English — this host has no scoped 404s)"
