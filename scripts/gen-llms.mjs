@@ -14,7 +14,7 @@ function short() {
   ).join("\n");
   return `# SIGIL SARL
 
-> ${O.fullName} (SIGIL SARL) is a Cameroonian company based in ${O.location}, building sovereign governance infrastructure for public institutions: systems where the institution holds the keys, the data never leaves, and every consequential action is authorized, bounded, and proven. Founded and led by ${O.founderName}.
+> ${O.fullName} (SIGIL SARL) is a Cameroonian company based in ${O.location}, building sovereign governance infrastructure for public institutions: systems where the institution holds the keys, the data stays under the institution’s control, and every consequential action is authorized, bounded, and proven. Founded and led by ${O.founderName}.
 
 ## Systems
 

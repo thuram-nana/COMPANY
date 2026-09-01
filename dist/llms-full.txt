@@ -1,6 +1,6 @@
 # SIGIL SARL
 
-> Sovereign Integrity Governance Infrastructure Labs (SIGIL SARL) is a Cameroonian company based in Buea, Cameroon, building sovereign governance infrastructure for public institutions: systems where the institution holds the keys, the data never leaves, and every consequential action is authorized, bounded, and proven. Founded and led by Junior Thuram Nana.
+> Sovereign Integrity Governance Infrastructure Labs (SIGIL SARL) is a Cameroonian company based in Buea, Cameroon, building sovereign governance infrastructure for public institutions: systems where the institution holds the keys, the data stays under the institution’s control, and every consequential action is authorized, bounded, and proven. Founded and led by Junior Thuram Nana.
 
 ## Systems
 
