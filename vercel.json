@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "git": { "deploymentEnabled": false },
   "buildCommand": "node scripts/gen-llms.mjs && node scripts/build.mjs && rm -f dist/_headers dist/.htaccess dist/fr/.htaccess dist/api/briefing.php",
   "outputDirectory": "dist",
   "redirects": [

@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      indexnow_full:
+        description: "Submit ALL sitemap URLs to IndexNow (not just changed) — e.g. after a key rotation or a missed ping"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -104,12 +109,17 @@ jobs:
           name: dist
           path: dist
 
-      # Snapshot what the live site serves BEFORE this deploy, so the pings can
-      # announce only what actually changed (IndexNow guidance: signal changes).
+      # Snapshot the PREVIOUS deploy's sitemap/feed so the pings announce only
+      # what actually changed (IndexNow guidance: signal changes). Read them
+      # from git history, not the live site: anything that deploys the pushed
+      # commit before this step runs (e.g. a Vercel Git integration) would make
+      # the live capture see the NEW sitemap and silently skip every ping.
       - name: Capture pre-deploy sitemap and feed
         run: |
-          curl -s -m 20 https://sigilsovereign.com/sitemap.xml -o /tmp/prev-sitemap.xml || true
-          curl -s -m 20 https://sigilsovereign.com/feed.xml -o /tmp/prev-feed.xml || true
+          git show HEAD^:dist/sitemap.xml > /tmp/prev-sitemap.xml 2>/dev/null \
+            || curl -s -m 20 https://sigilsovereign.com/sitemap.xml -o /tmp/prev-sitemap.xml || true
+          git show HEAD^:dist/feed.xml > /tmp/prev-feed.xml 2>/dev/null \
+            || curl -s -m 20 https://sigilsovereign.com/feed.xml -o /tmp/prev-feed.xml || true
 
       - name: Deploy target summary
         run: |
@@ -275,6 +285,7 @@ jobs:
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
           PREV_SITEMAP: /tmp/prev-sitemap.xml
+          INDEXNOW_FORCE_ALL: ${{ github.event.inputs.indexnow_full == 'true' && '1' || '' }}
 
       - name: WebSub publish ping (instant feed discovery)
         if: env.APEX_OK == 'true' && (env.HAS_VERCEL == 'true' || env.HAS_NAMECHEAP == 'true' || env.HAS_CLOUDFLARE == 'true')

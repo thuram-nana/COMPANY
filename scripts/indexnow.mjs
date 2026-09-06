@@ -13,14 +13,19 @@ function entries(xml) {
 }
 const now = entries(sitemap);
 let urls = [...now.keys()];
-// Signal only what changed since the previous deploy (full list when no snapshot).
-try {
-  const prev = entries(readFileSync(process.env.PREV_SITEMAP || "/nonexistent", "utf8"));
-  if (prev.size > 0) {
-    urls = urls.filter(u => !prev.has(u) || prev.get(u) !== now.get(u));
-    console.log(`IndexNow: ${urls.length} changed of ${now.size} URLs (vs previous deploy)`);
-  }
-} catch { /* no snapshot: submit everything */ }
+// Signal only what changed since the previous deploy (full list when no
+// snapshot, or when INDEXNOW_FORCE_ALL=1 — the workflow_dispatch re-announce lever).
+if (process.env.INDEXNOW_FORCE_ALL === "1") {
+  console.log(`IndexNow: FORCE_ALL — submitting all ${now.size} URLs`);
+} else {
+  try {
+    const prev = entries(readFileSync(process.env.PREV_SITEMAP || "/nonexistent", "utf8"));
+    if (prev.size > 0) {
+      urls = urls.filter(u => !prev.has(u) || prev.get(u) !== now.get(u));
+      console.log(`IndexNow: ${urls.length} changed of ${now.size} URLs (vs previous deploy)`);
+    }
+  } catch { /* no snapshot: submit everything */ }
+}
 if (urls.length === 0) { console.log("IndexNow: nothing changed; skipping"); process.exit(0); }
 
 const body = {
