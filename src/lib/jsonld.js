@@ -25,6 +25,7 @@ export function orgNode(f) {
     foundingDate: f.org.foundedYear,
     foundingLocation: { "@type": "Place", name: "Buea, Cameroon", address: { "@type": "PostalAddress", addressLocality: "Buea", addressCountry: "CM" } },
     areaServed: { "@type": "Country", name: "Cameroon" },
+    ...(f.org.rccm ? { identifier: { "@type": "PropertyValue", propertyID: "RCCM", name: "Registre du Commerce et du Crédit Mobilier", value: f.org.rccm } } : {}),
     ...(Array.isArray(f.org.sameAs) && f.org.sameAs.length ? { sameAs: f.org.sameAs } : {}),
     address: {
       "@type": "PostalAddress",
@@ -44,6 +45,9 @@ export function orgNode(f) {
     ],
     knowsAbout: [
       "sovereign governance infrastructure",
+      "GovTech (government technology)",
+      "RegTech (regulatory technology)",
+      "digital sovereignty",
       "beneficial ownership registries",
       "FATF Recommendation 24",
       "FATF Recommendation 25",

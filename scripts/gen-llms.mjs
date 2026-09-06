@@ -24,6 +24,8 @@ ${sys}
 
 - Legal name: ${O.legalName}
 - Full name: ${O.fullName}
+- Trade register (RCCM): ${O.rccm}
+- Category: GovTech / RegTech — technology for public institutions
 - Location: ${O.location}
 - Founder & Managing Director: ${O.founderName}
 - Contact: ${O.email}

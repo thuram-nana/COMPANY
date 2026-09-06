@@ -49,12 +49,13 @@ const mentionsCopy = {
     body: `
 ${sectionH("Publisher")}
 <p>This site is published by SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs), a company based in Buea, Cameroon.</p>
+<p>Trade register (RCCM): ${facts.org.rccm}.</p>
 <p>Contact: <a href="mailto:${facts.org.email}">${facts.org.email}</a> · ${phoneDisplay(facts.org.phone)}</p>
 <p>Managing Director: ${facts.org.founderName}.</p>
 ${sectionH("Content")}
 <p>The content of this site is provided for information. It describes SIGIL's systems as they stand at the date of publication and does not constitute a warranty, an offer, or a contractual commitment. Statements about system status reflect a defined vocabulary set out on the site.</p>
 ${sectionH("Intellectual property")}
-<p>The SIGIL name, the SIGIL mark, the names VIGIL and RÉCOR, and the text and design of this site are the property of SIGIL SARL unless otherwise stated. They may not be reproduced without permission.</p>
+<p>The SIGIL name, the SIGIL mark, the names VIGIL, RÉCOR, and APEX, and the text and design of this site are the property of SIGIL SARL unless otherwise stated. They may not be reproduced without permission.</p>
 ${sectionH("Hosting")}
 <p>Hosting provider details are available on request from the contact address above.</p>`
   },
@@ -64,12 +65,13 @@ ${sectionH("Hosting")}
     body: `
 ${sectionH("Éditeur")}
 <p>Ce site est publié par SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs), entreprise basée à Buea, au Cameroun.</p>
+<p>RCCM : ${facts.org.rccm}.</p>
 <p>Contact : <a href="mailto:${facts.org.email}">${facts.org.email}</a> · ${phoneDisplay(facts.org.phone)}</p>
 <p>Directeur de la publication : ${facts.org.founderName}.</p>
 ${sectionH("Contenu")}
 <p>Le contenu de ce site est fourni à titre d’information. Il décrit les systèmes de SIGIL tels qu’ils sont à la date de publication et ne constitue ni une garantie, ni une offre, ni un engagement contractuel. Les mentions relatives au statut des systèmes renvoient à un vocabulaire défini présenté sur le site.</p>
 ${sectionH("Propriété intellectuelle")}
-<p>Le nom SIGIL, la marque SIGIL, les noms VIGIL et RÉCOR, ainsi que les textes et le design de ce site sont la propriété de SIGIL SARL sauf mention contraire. Ils ne peuvent être reproduits sans autorisation.</p>
+<p>Le nom SIGIL, la marque SIGIL, les noms VIGIL, RÉCOR et APEX, ainsi que les textes et le design de ce site sont la propriété de SIGIL SARL sauf mention contraire. Ils ne peuvent être reproduits sans autorisation.</p>
 ${sectionH("Hébergement")}
 <p>Les informations sur l’hébergeur sont disponibles sur demande à l’adresse de contact ci-dessus.</p>`
   }

@@ -12,6 +12,8 @@
 
 - Legal name: SIGIL SARL
 - Full name: Sovereign Integrity Governance Infrastructure Labs
+- Trade register (RCCM): RC.BUA.2026.B.0190
+- Category: GovTech / RegTech — technology for public institutions
 - Location: Buea, Cameroon
 - Founder & Managing Director: Junior Thuram Nana
 - Contact: info@sigilsovereign.com

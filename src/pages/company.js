@@ -8,10 +8,10 @@ import facts from "../data/facts.json" with { type: "json" };
 const copy = {
   en: {
     title: "Company",
-    description: "SIGIL SARL is a Cameroonian company based in Buea that builds sovereign governance infrastructure. Founded in 2023 and led by Junior Thuram Nana.",
+    description: "SIGIL SARL is a Cameroonian GovTech company based in Buea that builds sovereign governance infrastructure. Founded in 2023 and led by Junior Thuram Nana.",
     lede: "SIGIL SARL — Sovereign Integrity Governance Infrastructure Labs — is a Cameroonian company based in Buea, building sovereign governance infrastructure for public institutions.",
     whoH: "Who we are",
-    whoP: `SIGIL SARL is registered in Cameroon and based in Buea. It designs and builds a small number of systems for public institutions — today, VIGIL and RÉCOR — each intended to run on the institution's own infrastructure, under the institution's own control.`,
+    whoP: `SIGIL SARL is registered in Cameroon (RCCM ${facts.org.rccm}) and based in Buea. It designs and builds a small number of systems for public institutions — today, VIGIL, RÉCOR, and APEX — each intended to run on the institution's own infrastructure, under the institution's own control.`,
     founderH: "Leadership",
     founderP: `${facts.org.founderName} is the Founder &amp; Managing Director of SIGIL SARL. Other members of the team are not named publicly.`,
     methodH: "How the work holds together",
@@ -29,6 +29,7 @@ const copy = {
     factsRows: [
       ["Legal name", "SIGIL SARL"],
       ["Full name", "Sovereign Integrity Governance Infrastructure Labs"],
+      ["Trade register (RCCM)", facts.org.rccm],
       ["Location", "Buea, Cameroon"],
       ["Founder &amp; Managing Director", facts.org.founderName],
       ["Contact", facts.org.email]
@@ -36,10 +37,10 @@ const copy = {
   },
   fr: {
     title: "Entreprise",
-    description: "SIGIL SARL est une entreprise camerounaise basée à Buea qui construit une infrastructure de gouvernance souveraine. Fondée en 2023 et dirigée par Junior Thuram Nana.",
+    description: "SIGIL SARL, entreprise GovTech camerounaise basée à Buea : infrastructure de gouvernance souveraine. Fondée en 2023, dirigée par Junior Thuram Nana.",
     lede: "SIGIL SARL — Sovereign Integrity Governance Infrastructure Labs — est une entreprise camerounaise basée à Buea, qui construit une infrastructure de gouvernance souveraine pour les institutions publiques.",
     whoH: "Qui nous sommes",
-    whoP: `SIGIL SARL est immatriculée au Cameroun et basée à Buea. Elle conçoit et construit un petit nombre de systèmes pour les institutions publiques — aujourd’hui VIGIL et RÉCOR — chacun destiné à s’exécuter sur l’infrastructure de l’institution, sous son propre contrôle.`,
+    whoP: `SIGIL SARL est immatriculée au Cameroun (RCCM ${facts.org.rccm}) et basée à Buea. Elle conçoit et construit un petit nombre de systèmes pour les institutions publiques — aujourd’hui VIGIL, RÉCOR et APEX — chacun destiné à s’exécuter sur l’infrastructure de l’institution, sous son propre contrôle.`,
     founderH: "Direction",
     founderP: `${facts.org.founderName} est le Fondateur et Directeur Général de SIGIL SARL. Les autres membres de l’équipe ne sont pas nommés publiquement.`,
     methodH: "Ce qui rend le travail fiable",
@@ -57,6 +58,7 @@ const copy = {
     factsRows: [
       ["Raison sociale", "SIGIL SARL"],
       ["Nom complet", "Sovereign Integrity Governance Infrastructure Labs"],
+      ["RCCM", facts.org.rccm],
       ["Localisation", "Buea, Cameroun"],
       ["Fondateur et Directeur Général", facts.org.founderName],
       ["Contact", facts.org.email]
