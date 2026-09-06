@@ -99,8 +99,8 @@ export function notesIndex(lang) {
   const alt = lang === "en" ? "fr" : "en";
   const title = lang === "fr" ? "Notes" : "Notes";
   const description = lang === "fr"
-    ? "Notes d’ingénierie et de doctrine de SIGIL : capacité et autorisation, piste contre fait, et licences souveraines sans backdoor."
-    : "Engineering and doctrine notes from SIGIL: capability versus authorization, lead versus fact, and sovereign licensing without a backdoor.";
+    ? "Notes d’ingénierie et de doctrine de SIGIL SARL (Buea, Cameroun) : capacité et autorisation, piste contre fait, et licences souveraines sans backdoor."
+    : "Engineering and doctrine notes from SIGIL SARL, Buea, Cameroon: capability versus authorization, lead versus fact, and sovereign licensing without a backdoor.";
   const lede = lang === "fr"
     ? "Notes brèves sur la façon dont nous construisons et pourquoi. Chacune répond à une question que les institutions posent."
     : "Short notes on how we build and why. Each answers one question institutions ask.";

@@ -8,12 +8,12 @@ import facts from "../data/facts.json" with { type: "json" };
 const copy = {
   en: {
     title: "Systems",
-    description: "SIGIL builds three systems: VIGIL, governed cybersecurity and evidence; RÉCOR, beneficial-ownership registry; APEX, public procurement integrity.",
+    description: "From Buea, Cameroon, SIGIL SARL builds VIGIL (governed cybersecurity and evidence), RÉCOR (beneficial-ownership registry), and APEX (procurement integrity).",
     lede: "SIGIL builds a small number of systems, deeply. Each is designed for a public institution, runs on the institution's own infrastructure, and is described here exactly as it stands today — including its status."
   },
   fr: {
     title: "Systèmes",
-    description: "SIGIL conçoit trois systèmes : VIGIL, cybersécurité gouvernée et preuve ; RÉCOR, registre des bénéficiaires effectifs ; APEX, intégrité de la commande publique.",
+    description: "SIGIL SARL (Buea, Cameroun) conçoit VIGIL (cybersécurité gouvernée et preuve), RÉCOR (bénéficiaires effectifs) et APEX (intégrité de la commande publique).",
     lede: "SIGIL conçoit un petit nombre de systèmes, en profondeur. Chacun est destiné à une institution publique, s’exécute sur l’infrastructure de l’institution, et est décrit ici exactement tel qu’il est aujourd’hui — y compris son statut."
   }
 };

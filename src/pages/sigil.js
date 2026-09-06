@@ -1,0 +1,59 @@
+import { page } from "../lib/layout.js";
+import { strings, routes } from "../data/strings.js";
+import { h2 } from "../lib/ui.js";
+import { seal } from "../assets/mark.js";
+import { orgNode, faqNode, breadcrumb, graph } from "../lib/jsonld.js";
+import facts from "../data/facts.json" with { type: "json" };
+
+const copy = {"en": {"title": "Sigil — which one do you mean?", "description": "The meanings of the word sigil, from magical seal to ebook editor — and which one is SIGIL SARL, the governance-infrastructure company in Buea, Cameroon.", "introPara": "The word <em>sigil</em> is old — from the Latin <em>sigillum</em>, a small seal — and it has never stopped working. Today it names a magical symbol, an ebook editor, a programming convention, a city in a role-playing setting, a video-game currency, and more than one software project. This page lists the current meanings we know of, points each to its own reference, and states plainly which one this site is: SIGIL SARL, a governance-infrastructure company in Buea, Cameroon.", "senses": [{"name": "Sigil (common noun)", "desc": "A seal, sign, or symbol held to carry power — from the Latin <em>sigillum</em>, “small seal”. In modern chaos magic, a sigil is a symbol a practitioner designs to represent an intent.", "href": "https://en.wikipedia.org/wiki/Sigil"}, {"name": "Sigil (ebook editor)", "desc": "A free, open-source editor for EPUB ebooks, available for Windows, macOS, and Linux, and widely used in ebook production. No relation to this site.", "href": "https://sigil-ebook.com/"}, {"name": "Sigil (computer programming)", "desc": "A symbol attached to a variable name to indicate its type or scope — the $ and @ of Perl, or the $ of PHP and shell scripts.", "href": "https://en.wikipedia.org/wiki/Sigil_(computer_programming)"}, {"name": "Sigil (Planescape, Dungeons &amp; Dragons)", "desc": "The City of Doors at the centre of the Planescape campaign setting for Dungeons &amp; Dragons — a torus-shaped city whose portals open onto every plane of existence.", "href": "https://en.wikipedia.org/wiki/Sigil_(Dungeons_%26_Dragons)"}, {"name": "Sovereign Sigil (Elden Ring Nightreign)", "desc": "A currency item in the 2025 video game Elden Ring Nightreign (FromSoftware), earned through play and exchanged for in-game items. It shares the word “sovereign” with this site’s domain, and nothing else.", "href": "https://eldenring.fandom.com/wiki/Sovereign_Sigil"}, {"name": "SIGIL (Sovereign Identity-Gated Interaction Layer)", "desc": "An open-source software project published on GitHub as SIGIL, short for “Sovereign Identity-Gated Interaction Layer”. A separate project by separate authors, with no connection to SIGIL SARL.", "href": "https://github.com/sigil-eu/sigil"}, {"name": "SIGIL SARL (this site)", "desc": "Sovereign Integrity Governance Infrastructure Labs — a Cameroonian company founded in 2023, based in Buea, building sovereign governance infrastructure for public institutions. The rest of this page is about us.", "href": "/"}], "usBlock": {"h": "The SIGIL on this site", "paras": ["SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) is a Cameroonian company, founded in 2023 and based in Buea, that builds sovereign governance infrastructure for public institutions: systems where the institution holds the keys, the data stays under the institution’s control, and every consequential action is authorized, bounded, and proven.", "The company builds three systems: VIGIL, a governed cybersecurity and evidence platform; RÉCOR, a sovereign beneficial-ownership registry designed for Cameroon; and APEX, an anti-corruption intelligence platform for public procurement. All three are pre-deployment, and each is described on the <a href=\"/systems/\">systems pages</a> exactly as it stands today.", "SIGIL SARL was founded by Junior Thuram Nana, its Founder and Managing Director. More about the company and its record is on the <a href=\"/company/\">company page</a>. The only contact address we use is info@sigilsovereign.com."]}, "faqs": [{"q": "Is SIGIL SARL related to the Sigil ebook editor?", "a": "No. SIGIL SARL is a governance-infrastructure company in Cameroon. It is not related to the Sigil ebook editor, the common noun sigil (a magical seal), the “Sovereign Sigil” item in the video game Elden Ring Nightreign, or any other organisation named Sigil."}, {"q": "What does SIGIL stand for?", "a": "SIGIL stands for Sovereign Integrity Governance Infrastructure Labs. The name carries the company’s thesis: the institution holds the keys; the data stays under the institution’s control; every consequential action is authorized, bounded, and proven."}, {"q": "Which SIGIL is the company in Buea, Cameroon?", "a": "This one. SIGIL SARL — Sovereign Integrity Governance Infrastructure Labs — founded in 2023 and based in Buea, Cameroon, is the company behind sigilsovereign.com. It builds three systems, VIGIL, RÉCOR, and APEX, all pre-deployment, and its only contact address is info@sigilsovereign.com."}]}, "fr": {"title": "Sigil — lequel cherchez-vous ?", "description": "Les sens du mot sigil, du sceau magique à l’éditeur d’ebooks — et lequel est SIGIL SARL, entreprise d’infrastructure de gouvernance à Buea, au Cameroun.", "introPara": "Le mot <em>sigil</em> est ancien — du latin <em>sigillum</em>, petit sceau — et il n’a jamais cessé de servir. Il désigne aujourd’hui un symbole magique, un éditeur d’ebooks, une convention de programmation, une ville d’un univers de jeu de rôle, une monnaie de jeu vidéo, et plus d’un projet logiciel. Cette page recense les sens actuels que nous connaissons, renvoie chacun vers sa propre référence, et dit clairement lequel est ce site : SIGIL SARL, entreprise d’infrastructure de gouvernance basée à Buea, au Cameroun.", "senses": [{"name": "Sigil (nom commun)", "desc": "Un sceau, un signe ou un symbole auquel on prête un pouvoir — du latin <em>sigillum</em>, « petit sceau ». Dans la magie du chaos contemporaine, un sigil est un symbole conçu par un praticien pour représenter une intention.", "href": "https://en.wikipedia.org/wiki/Sigil"}, {"name": "Sigil (éditeur d’ebooks)", "desc": "Un éditeur libre et open source pour les livres numériques au format EPUB, disponible sous Windows, macOS et Linux, largement utilisé dans la production d’ebooks. Aucun lien avec ce site.", "href": "https://sigil-ebook.com/"}, {"name": "Sigil (programmation informatique)", "desc": "Un symbole accolé au nom d’une variable pour indiquer son type ou sa portée — le $ et le @ de Perl, ou le $ de PHP et des scripts shell.", "href": "https://en.wikipedia.org/wiki/Sigil_(computer_programming)"}, {"name": "Sigil (Planescape, Dungeons &amp; Dragons)", "desc": "La Cité des Portes, au centre du cadre de campagne Planescape de Dungeons &amp; Dragons — une ville en forme de tore dont les portails ouvrent sur tous les plans d’existence.", "href": "https://en.wikipedia.org/wiki/Sigil_(Dungeons_%26_Dragons)"}, {"name": "Sovereign Sigil (Elden Ring Nightreign)", "desc": "Un objet-monnaie du jeu vidéo Elden Ring Nightreign (FromSoftware, 2025), gagné en jouant et échangé contre des objets dans le jeu. Il ne partage avec le domaine de ce site que le mot « sovereign ».", "href": "https://eldenring.fandom.com/wiki/Sovereign_Sigil"}, {"name": "SIGIL (Sovereign Identity-Gated Interaction Layer)", "desc": "Un projet logiciel open source publié sur GitHub sous l’acronyme SIGIL, pour « Sovereign Identity-Gated Interaction Layer ». Un projet distinct, d’auteurs distincts, sans aucun lien avec SIGIL SARL.", "href": "https://github.com/sigil-eu/sigil"}, {"name": "SIGIL SARL (ce site)", "desc": "Sovereign Integrity Governance Infrastructure Labs — une entreprise camerounaise fondée en 2023, basée à Buea, qui conçoit une infrastructure de gouvernance souveraine pour les institutions publiques. Le reste de cette page nous concerne.", "href": "/fr/"}], "usBlock": {"h": "Le SIGIL de ce site", "paras": ["SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) est une entreprise camerounaise, fondée en 2023 et basée à Buea, qui conçoit une infrastructure de gouvernance souveraine pour les institutions publiques : des systèmes où l’institution détient les clés, où les données restent sous le contrôle de l’institution, et où chaque action conséquente est autorisée, bornée et prouvée.", "L’entreprise conçoit trois systèmes : VIGIL, une plateforme de cybersécurité gouvernée et de preuve ; RÉCOR, un registre souverain des bénéficiaires effectifs conçu pour le Cameroun ; et APEX, une plateforme de renseignement anti-corruption pour la commande publique. Les trois sont en pré-déploiement, et chacun est décrit sur les <a href=\"/fr/systemes/\">pages systèmes</a> exactement tel qu’il est aujourd’hui.", "SIGIL SARL a été fondée par Junior Thuram Nana, son fondateur et directeur général. Pour en savoir plus sur l’entreprise et ses références, voir la <a href=\"/fr/entreprise/\">page entreprise</a>. La seule adresse de contact que nous utilisons est info@sigilsovereign.com."]}, "faqs": [{"q": "SIGIL SARL a-t-elle un lien avec l’éditeur d’ebooks Sigil ?", "a": "Non. SIGIL SARL est une entreprise d’infrastructure de gouvernance au Cameroun. Elle n’a aucun lien avec l’éditeur d’ebooks Sigil, le nom commun sigil (un sceau magique), l’objet « Sovereign Sigil » du jeu vidéo Elden Ring Nightreign, ni aucune autre organisation nommée Sigil."}, {"q": "Que signifie SIGIL ?", "a": "SIGIL signifie Sovereign Integrity Governance Infrastructure Labs. Le nom porte la thèse de l’entreprise : l’institution détient les clés ; les données restent sous le contrôle de l’institution ; chaque action conséquente est autorisée, bornée et prouvée."}, {"q": "Quel SIGIL est l’entreprise de Buea, au Cameroun ?", "a": "Celui-ci. SIGIL SARL — Sovereign Integrity Governance Infrastructure Labs — fondée en 2023 et basée à Buea, au Cameroun, est l’entreprise derrière sigilsovereign.com. Elle conçoit trois systèmes, VIGIL, RÉCOR et APEX, tous en pré-déploiement, et sa seule adresse de contact est info@sigilsovereign.com."}]}};
+const stripA = (t) => String(t).replace(/<a [^>]*>/g, "").replace(/<\/a>/g, "");
+
+export function sigil(lang) {
+  const c = copy[lang];
+  const alt = lang === "en" ? "fr" : "en";
+  const jsonld = graph([
+    orgNode(facts),
+    faqNode(c.faqs.map(f => ({ q: f.q, a: stripA(f.a) }))),
+    breadcrumb(facts, [
+      { name: "SIGIL", path: routes.home[lang] },
+      { name: c.title, path: routes.sigil[lang] }
+    ])
+  ]);
+
+  const senses = c.senses.map((x) => {
+    const ext = x.href.startsWith("http");
+    return `<div class="card reveal">
+      <p class="mono" style="font-weight:600"><a href="${x.href}"${ext ? ' rel="noopener"' : ""}>${x.name}</a></p>
+      <p class="muted" style="margin-top:.6rem">${x.desc}</p>
+    </div>`;
+  }).join("");
+
+  const body = `
+<section class="section wrap">
+  <p class="eyebrow">${seal({ size: 20 })} SIGIL SARL</p>
+  <h1>${c.title}</h1>
+  <p class="lead" style="margin-top:1.5rem;max-width:62ch">${c.introPara}</p>
+</section>
+
+<section class="section wrap rule-top">
+  <div class="stack" style="margin-top:.5rem">${senses}</div>
+</section>
+
+<section class="section wrap rule-top">
+  ${h2(c.usBlock.h, "this-sigil")}
+  ${c.usBlock.paras.map((p2) => `<p style="margin-top:1rem;max-width:62ch">${p2}</p>`).join("")}
+</section>
+
+<section class="section wrap rule-top">
+  ${h2(lang === "fr" ? "Questions fréquentes" : "Frequently asked", "faq")}
+  <div class="stack" style="margin-top:1.5rem">
+    ${c.faqs.map(f => `<details class="card"><summary class="mono" style="cursor:pointer;font-weight:600">${f.q}</summary><p style="margin-top:.8rem">${f.a}</p></details>`).join("")}
+  </div>
+</section>`;
+
+  return page({
+    lang, current: "sigil", title: c.title, description: c.description,
+    path: routes.sigil[lang], altPath: routes.sigil[alt], altLang: alt,
+    ogType: "website", jsonld, body
+  });
+}

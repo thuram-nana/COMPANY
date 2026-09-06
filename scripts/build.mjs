@@ -76,6 +76,8 @@ async function run() {
   const { contact } = await import("../src/pages/contact.js");
   const { notesIndex, notePages } = await import("../src/pages/notes.js");
   const { privacy, mentions } = await import("../src/pages/legal.js");
+  const { sigil } = await import("../src/pages/sigil.js");
+  const { bodsProfile } = await import("../src/pages/bods-profile.js");
   const { routes } = await import("../src/data/strings.js");
 
   const langs = ["en", "fr"];
@@ -96,6 +98,8 @@ async function run() {
     built.push(out(routes.notes[lang], notesIndex(lang))); srcOf[routes.notes[lang]] = "src/pages/notes.js";
     built.push(out(routes.privacy[lang], privacy(lang))); srcOf[routes.privacy[lang]] = "src/pages/legal.js";
     built.push(out(routes.mentions[lang], mentions(lang))); srcOf[routes.mentions[lang]] = "src/pages/legal.js";
+    built.push(out(routes.sigil[lang], sigil(lang))); srcOf[routes.sigil[lang]] = "src/pages/sigil.js";
+    built.push(out(routes.bodsProfile[lang], bodsProfile(lang))); srcOf[routes.bodsProfile[lang]] = "src/pages/bods-profile.js";
     for (const np of notePages(lang)) { built.push(out(np.path, np.html)); srcOf[np.path] = "src/pages/notes.js"; }
   }
 

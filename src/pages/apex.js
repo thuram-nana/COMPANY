@@ -11,7 +11,7 @@ const sys = facts.systems.find((s) => s.slug === "apex");
 const copy = {
   en: {
     title: "APEX — Anti-corruption procurement intelligence",
-    description: "APEX is an anti-corruption intelligence platform for public procurement, designed for national oversight institutions. Pre-deployment; source code private.",
+    description: "APEX is SIGIL SARL's anti-corruption intelligence platform for public procurement, built in Buea, Cameroon, for oversight institutions. Pre-deployment.",
     problemH: "The problem",
     problemP: "Public money is most often lost where contracts are awarded. The institutions that exist to catch this are not short of mandate — they are short of evidence collected at scale. Cross-referencing dozens of public sources by hand, a small team can review only a handful of contracts a year. The mechanical work of finding what to look at is the bottleneck, not the judgement of whether to act.",
     doesH: "What APEX does",
@@ -62,8 +62,8 @@ const copy = {
     ]
   },
   fr: {
-    title: "APEX — Renseignement anti-corruption des marchés publics",
-    description: "APEX est une plateforme de renseignement anti-corruption pour la commande publique, destinée aux institutions nationales de contrôle. Pré-déploiement ; code privé.",
+    title: "APEX — Renseignement anti-corruption",
+    description: "APEX est la plateforme de renseignement anti-corruption de SIGIL SARL (Buea, Cameroun) pour la commande publique. Pré-déploiement ; code privé.",
     problemH: "Le problème",
     problemP: "L’argent public se perd le plus souvent là où les marchés sont attribués. Les institutions chargées de le détecter ne manquent pas de mandat — elles manquent de preuves collectées à grande échelle. En recoupant des dizaines de sources publiques à la main, une petite équipe n’examine qu’une poignée de marchés par an. Le goulot d’étranglement est le travail mécanique consistant à trouver quoi examiner, non le jugement d’agir ou non.",
     doesH: "Ce que fait APEX",
@@ -115,15 +115,19 @@ const copy = {
   }
 };
 
+const deep = {"en": {"spec": {"h": "At a glance", "rows": [["System name", "APEX"], ["Category", "Anti-corruption intelligence for public procurement"], ["Status", "Pre-deployment"], ["Designed for", "Public institutions — national oversight institutions with an investigative mandate"], ["Standards", "Built against the principles of <a href=\"https://www.unodc.org/unodc/en/corruption/uncac.html\">UNCAC</a> and the <a href=\"https://standard.open-contracting.org/\">Open Contracting Data Standard (OCDS)</a>"], ["Authorization model", "Five-member council quorum, each member authenticating with their own hardware key; no lone escalation"], ["Source code", "Kept strictly private; not published, mirrored, or distributed"]]}, "section": {"h": "From public data to defensible findings", "paras": ["A finding that cannot survive scrutiny is worse than no finding at all, so APEX treats defensibility as a property of the pipeline, not a quality of the report. It begins with what is read: public sources only — procurement notices, sanctions lists, corporate registries, court records, and citizen tips submitted to the platform. Against this material it applies defined patterns of procurement fraud — 43 patterns in 8 categories — rather than open-ended suspicion, so every match traces back to a stated, reviewable rule.", "Each match is then scored by a calibrated certainty engine, challenged in an adversarial counter-evidence review, and corroborated across independent sources; nothing escalates on a single source or a single person's say-so. What survives corroboration goes before the five-member council; only on quorum is a signed, bilingual, deterministic dossier produced and delivered to the mandated institution — a dossier a third party can re-render and compare. What APEX hands investigators is a calibrated signal, never a verdict. A mandated human institution decides whether to investigate, and it alone makes every consequential decision."]}, "faqs": [{"q": "How can a third party verify a finding?", "a": "Without trusting the platform. Every finding can be checked against a public ledger, and signed dossiers are deterministic: a journalist, a citizen, or a foreign auditor can re-render a dossier and compare the result with what was signed. Verification rests on the public record and the signature, not on APEX's word."}, {"q": "What happens when the evidence cuts both ways?", "a": "It is weighed, not ignored. Every finding passes an adversarial counter-evidence review — a stage whose purpose is to challenge the finding, not to confirm it — and must then be corroborated across independent sources. A pattern only counts when independent sources agree, and a finding only escalates with several independent signals at high confidence; no single feed, and no single person, can move a case on its own. A finding that does not survive this scrutiny is not escalated."}]}, "fr": {"spec": {"h": "En bref", "rows": [["Nom du système", "APEX"], ["Catégorie", "Renseignement anti-corruption pour la commande publique"], ["Statut", "Pré-déploiement"], ["Conçu pour", "Les institutions publiques — les institutions nationales de contrôle dotées d’un mandat d’enquête"], ["Standards", "Bâti selon les principes de la <a href=\"https://www.unodc.org/unodc/en/corruption/uncac.html\">CNUCC</a> et de l’<a href=\"https://standard.open-contracting.org/\">OCDS</a> (Open Contracting Data Standard)"], ["Modèle d’autorisation", "Quorum d’un conseil de cinq membres, chacun s’authentifiant avec sa propre clé matérielle ; aucune escalade individuelle"], ["Code source", "Gardé strictement privé ; ni publié, ni miroité, ni distribué"]]}, "section": {"h": "Des données publiques aux constats défendables", "paras": ["Un constat qui ne résiste pas à l’examen vaut moins que pas de constat du tout ; APEX fait donc de la solidité d’un constat une propriété de la chaîne, non une qualité du rapport. Tout commence par ce qui est lu : des sources publiques uniquement — avis de marchés, listes de sanctions, registres d’entreprises, décisions de justice et signalements citoyens soumis à la plateforme. Sur cette matière, il applique des schémas définis de fraude aux marchés publics — 43 schémas en 8 catégories — et non une suspicion ouverte : chaque correspondance renvoie à une règle énoncée et révisable.", "Chaque correspondance est ensuite évaluée par un moteur de certitude calibré, contestée lors d’une revue adversariale des contre-preuves, puis corroborée par des sources indépendantes ; rien n’est escaladé sur une seule source ni sur la parole d’une seule personne. Ce qui résiste à la corroboration est soumis au conseil de cinq membres ; ce n’est qu’au quorum qu’un dossier bilingue signé et déterministe est produit et remis à l’institution compétente — un dossier qu’un tiers peut regénérer et comparer. Ce qu’APEX remet aux enquêteurs est un signal calibré, jamais un verdict. Une institution humaine compétente décide d’enquêter ou non, et elle seule prend chaque décision conséquente."]}, "faqs": [{"q": "Comment un tiers peut-il vérifier un constat ?", "a": "Sans faire confiance à la plateforme. Chaque constat peut être vérifié sur un registre public, et les dossiers signés sont déterministes : un journaliste, un citoyen ou un auditeur étranger peut regénérer un dossier et comparer le résultat avec ce qui a été signé. La vérification repose sur le registre public et la signature, non sur la parole d’APEX."}, {"q": "Que se passe-t-il lorsque les preuves se contredisent ?", "a": "Elles sont pesées, non ignorées. Chaque constat traverse une revue adversariale des contre-preuves — une étape dont le rôle est de contester le constat, non de le confirmer — puis doit être corroboré par des sources indépendantes. Un schéma ne compte que lorsque des sources indépendantes concordent, et un constat n’est escaladé qu’avec plusieurs signaux indépendants à forte confiance ; aucun flux seul, et aucune personne seule, ne peut faire avancer un dossier. Un constat qui ne résiste pas à cet examen n’est pas escaladé."}]}};
+const stripA = (t) => String(t).replace(/<a [^>]*>/g, "").replace(/<\/a>/g, "");
+
 export function apex(lang) {
   const c = copy[lang];
   const alt = lang === "en" ? "fr" : "en";
   const L = sys[lang];
+  const d = deep[lang];
   const jsonld = graph([
     orgNode(facts),
     systemNode(facts, sys, lang),
     statusTerms(facts),
-    faqNode(c.faqs.map(f => ({ q: f.q, a: f.a }))),
+    faqNode([...c.faqs, ...d.faqs].map(f => ({ q: f.q, a: stripA(f.a) }))),
     breadcrumb(facts, [
       { name: "SIGIL", path: routes.home[lang] },
       { name: strings[lang].nav.systems, path: routes.systems[lang] },
@@ -139,6 +143,13 @@ export function apex(lang) {
   <p class="lead" style="margin-top:1.5rem;max-width:64ch">${L.answer}</p>
   <div style="margin-top:1.5rem">${callout(c.statusCallout[0], c.statusCallout[1])}</div>
   <p style="margin-top:2rem">${cta(lang)}</p>
+</section>
+
+<section class="section wrap rule-top">
+  ${h2(d.spec.h, "at-a-glance")}
+  <div class="table-wrap" style="margin-top:1.5rem"><table><tbody>
+    ${d.spec.rows.map(([k2, v2]) => `<tr><th scope="row">${k2}</th><td>${v2}</td></tr>`).join("")}
+  </tbody></table></div>
 </section>
 
 <section class="section wrap rule-top">
@@ -164,6 +175,11 @@ export function apex(lang) {
 </section>
 
 <section class="section wrap rule-top">
+  ${h2(d.section.h, "public-data-to-findings")}
+  ${d.section.paras.map((p2) => `<p style="margin-top:1rem;max-width:64ch">${p2}</p>`).join("")}
+</section>
+
+<section class="section wrap rule-top">
   ${h2(c.standardsH)}
   <p style="margin-top:1rem;max-width:64ch">${c.standardsP}</p>
 </section>
@@ -176,7 +192,7 @@ export function apex(lang) {
 <section class="section wrap rule-top">
   ${h2(c.faqH)}
   <div class="stack" style="margin-top:1.5rem">
-    ${c.faqs.map(f => `<details class="card"><summary class="mono" style="cursor:pointer;font-weight:600">${f.q}</summary><p style="margin-top:.8rem">${f.a}</p></details>`).join("")}
+    ${[...c.faqs, ...d.faqs].map(f => `<details class="card"><summary class="mono" style="cursor:pointer;font-weight:600">${f.q}</summary><p style="margin-top:.8rem">${f.a}</p></details>`).join("")}
   </div>
   <p style="margin-top:2.5rem">${cta(lang)}</p>
 </section>`;

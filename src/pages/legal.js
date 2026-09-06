@@ -10,7 +10,7 @@ function sectionH(t) { return `<h2 class="h-seal">${seal({ size: 20 })}<span>${t
 const privacyCopy = {
   en: {
     title: "Privacy",
-    description: "SIGIL's privacy policy: this site sets no cookies, loads no third-party scripts, and performs no client-side tracking. Server-side log analysis only.",
+    description: "SIGIL SARL's privacy policy: this site sets no cookies, loads no third-party scripts, and performs no client-side tracking. Server-side log analysis only.",
     updated: "Last updated",
     body: `
 ${sectionH("The short version")}
@@ -26,7 +26,7 @@ ${sectionH("Changes")}
   },
   fr: {
     title: "Confidentialité",
-    description: "Politique de confidentialité de SIGIL : aucun cookie, aucun script tiers, aucun suivi côté client sur ce site. Analyse de journaux côté serveur uniquement.",
+    description: "Politique de confidentialité de SIGIL SARL : aucun cookie, aucun script tiers, aucun suivi côté client. Analyse de journaux côté serveur uniquement.",
     updated: "Dernière mise à jour",
     body: `
 ${sectionH("En bref")}

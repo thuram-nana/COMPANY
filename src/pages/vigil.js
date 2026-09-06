@@ -12,7 +12,7 @@ const copy = {
   en: {
     title: "VIGIL — Governed cybersecurity and evidence platform",
     tagline: sys.en.tagline,
-    description: "VIGIL is a governed cybersecurity and evidence platform: a capability is never an authorization, and a finding requires independent re-verification.",
+    description: "VIGIL is SIGIL SARL's governed cybersecurity and evidence platform, built in Buea, Cameroon: capability is never authorization; findings are re-verified.",
     answerH: "What VIGIL is",
     principleH: "Capability is not authorization",
     principleP: "VIGIL's organizing rule is that being able to do something is never permission to do it. Models and agents may observe and propose; they never declare their own authority, and they never declare a finding true. Every consequential action passes a single conjunctive, fail-closed chain before anything runs.",
@@ -63,7 +63,7 @@ const copy = {
   fr: {
     title: "VIGIL — Plateforme de cybersécurité gouvernée et de preuve",
     tagline: sys.fr.tagline,
-    description: "VIGIL est une plateforme de cybersécurité gouvernée et de preuve : une capacité n’est jamais une autorisation ; un constat exige une re-vérification indépendante.",
+    description: "VIGIL est la plateforme de cybersécurité gouvernée et de preuve de SIGIL SARL, à Buea, au Cameroun : une capacité n’est jamais une autorisation.",
     answerH: "Ce qu’est VIGIL",
     principleH: "Une capacité n’est pas une autorisation",
     principleP: "Le principe directeur de VIGIL est que pouvoir faire une chose ne vaut jamais permission de la faire. Les modèles et agents peuvent observer et proposer ; ils ne déclarent jamais leur propre autorité, ni la vérité de leur propre constat. Toute action conséquente traverse une chaîne unique, conjonctive et fail-closed, avant toute exécution.",
@@ -113,15 +113,19 @@ const copy = {
   }
 };
 
+const deep = {"en": {"spec": {"h": "At a glance", "rows": [["System name", "VIGIL"], ["Category", "Governed cybersecurity and evidence platform"], ["Status", "Pre-deployment"], ["Designed for", "Public institutions, running on their own infrastructure"], ["Standards", "Built against <a href=\"https://owasp.org/\">OWASP</a>, <a href=\"https://attack.mitre.org/\">MITRE ATT&amp;CK</a>, <a href=\"https://csrc.nist.gov/pubs/sp/800/115/final\">NIST SP 800-115</a>, PTES, and PASTA"], ["Authorization model", "A technical capability is never an authorization; every consequential action passes a conjunctive, fail-closed authorization chain"], ["Source code", "Kept strictly private; not published or distributed"]]}, "section": {"h": "What “governed” means in practice", "paras": ["“Governed” is not an adjective of reassurance here; it names three properties, each of which can be checked. The first is authorization. Every consequential action passes one conjunctive, fail-closed chain — a valid local principal, the exact permission, a signed usage right, an authorized scope, a WARDEN risk class, human approval, and egress control — and the absence of any control is a denial, never a default allow. <a href=\"/systems/vigil/governance/\">How the authorization chain works</a> walks through every step, including the multi-party quorum a destructive action requires.", "The second is evidence. Models and agents may observe and propose, but an observation remains a lead until an independent, deterministic Oracle re-verifies it into a signed fact that can be re-checked offline. <a href=\"/systems/vigil/evidence/\">The Oracle model — lead versus fact</a> explains what these checks prove and, just as deliberately, what they do not.", "The third is ownership. The installation runs on the institution's hardware; keys, evidence, and reports stay under its control; SIGIL receives no operational telemetry; and revocation blocks new sensitive actions without ever touching the institution's access to its own data. <a href=\"/systems/vigil/sovereignty/\">Deployment, keys, and revocation</a> sets out the full model."]}, "faqs": [{"q": "Which standards is VIGIL built against?", "a": "VIGIL is built against established, public methodologies: OWASP testing guidance, the MITRE ATT&amp;CK knowledge base of adversary techniques, NIST SP 800-115 — the technical guide to information security testing and assessment — the Penetration Testing Execution Standard (PTES), and the PASTA threat-modelling methodology. These frame how engagements are scoped, conducted, and documented. This is design alignment, stated as such: no third party has certified conformance, and this page does not claim otherwise."}, {"q": "Can VIGIL run in a disconnected or air-gapped environment?", "a": "It is designed to. Usage rights are verified locally against a signed certificate, so the system does not need to reach SIGIL — or any outside network — to operate. Updates are signed, ship with a build manifest and a software bill of materials, and can be imported offline. No telemetry is sent by default, so a disconnected installation gives up nothing except optional version reporting, which in any case sends only a version and channel identifier."}]}, "fr": {"spec": {"h": "En bref", "rows": [["Nom du système", "VIGIL"], ["Catégorie", "Plateforme de cybersécurité gouvernée et de preuve"], ["Statut", "Pré-déploiement"], ["Conçu pour", "Les institutions publiques, sur leur propre infrastructure"], ["Standards", "Bâti selon <a href=\"https://owasp.org/\">OWASP</a>, <a href=\"https://attack.mitre.org/\">MITRE ATT&amp;CK</a>, <a href=\"https://csrc.nist.gov/pubs/sp/800/115/final\">NIST SP 800-115</a>, PTES et PASTA"], ["Modèle d’autorisation", "Une capacité technique n’est jamais une autorisation ; chaque action conséquente traverse une chaîne d’autorisation conjonctive et fail-closed"], ["Code source", "Gardé strictement privé ; ni publié ni distribué"]]}, "section": {"h": "Ce que « gouverné » signifie en pratique", "paras": ["« Gouverné » n’est pas ici un adjectif de réassurance ; il désigne trois propriétés, chacune vérifiable. La première est l’autorisation. Chaque action conséquente traverse une chaîne unique, conjonctive et fail-closed — un principal local valide, la permission exacte, un droit d’usage signé, une portée autorisée, une classe de risque WARDEN, une approbation humaine et le contrôle de sortie réseau — et l’absence d’un contrôle est un refus, jamais une autorisation par défaut. <a href=\"/fr/systemes/vigil/gouvernance/\">La chaîne d’autorisation, étape par étape</a> détaille chaque contrôle, y compris le quorum multipartite qu’exige une action destructive.", "La deuxième est la preuve. Les modèles et agents peuvent observer et proposer, mais une observation reste une piste tant qu’un Oracle indépendant et déterministe ne l’a pas re-vérifiée en fait signé, re-vérifiable hors ligne. <a href=\"/fr/systemes/vigil/preuve/\">Le modèle des Oracles — piste ou fait</a> explique ce que ces vérifications prouvent et, tout aussi délibérément, ce qu’elles ne prouvent pas.", "La troisième est la propriété. L’installation s’exécute sur le matériel de l’institution ; clés, preuves et rapports restent sous son contrôle ; SIGIL ne reçoit aucune télémétrie opérationnelle ; et la révocation bloque les nouvelles actions sensibles sans jamais toucher à l’accès de l’institution à ses propres données. <a href=\"/fr/systemes/vigil/souverainete/\">Déploiement, clés et révocation</a> expose le modèle complet."]}, "faqs": [{"q": "Selon quels standards VIGIL est-il bâti ?", "a": "VIGIL est bâti selon des méthodologies publiques et établies : les référentiels de test OWASP, la base de connaissances MITRE ATT&amp;CK sur les techniques adverses, le guide NIST SP 800-115 sur les tests et évaluations de sécurité de l’information, le Penetration Testing Execution Standard (PTES) et la méthodologie de modélisation des menaces PASTA. Ces référentiels cadrent la manière dont les évaluations sont délimitées, conduites et documentées. Il s’agit d’un alignement de conception, déclaré comme tel : aucun tiers n’a certifié de conformité, et cette page ne prétend pas le contraire."}, {"q": "VIGIL peut-il fonctionner dans un environnement déconnecté ou isolé du réseau ?", "a": "Il est conçu pour cela. Les droits d’usage sont vérifiés localement au moyen d’un certificat signé : le système n’a besoin d’atteindre ni SIGIL ni aucun réseau extérieur pour fonctionner. Les mises à jour sont signées, accompagnées d’un manifeste de build et d’une nomenclature logicielle, et peuvent être importées hors ligne. Aucune télémétrie n’est envoyée par défaut : une installation déconnectée ne renonce qu’au rapport de version facultatif, qui de toute façon n’envoie qu’un identifiant de version et de canal."}]}};
+const stripA = (t) => String(t).replace(/<a [^>]*>/g, "").replace(/<\/a>/g, "");
+
 export function vigil(lang) {
   const c = copy[lang];
   const alt = lang === "en" ? "fr" : "en";
   const L = sys[lang];
+  const d = deep[lang];
   const jsonld = graph([
     orgNode(facts),
     systemNode(facts, sys, lang),
     statusTerms(facts),
-    faqNode(c.faqs.map(f => ({ q: f.q, a: f.a }))),
+    faqNode([...c.faqs, ...d.faqs].map(f => ({ q: f.q, a: stripA(f.a) }))),
     breadcrumb(facts, [
       { name: "SIGIL", path: routes.home[lang] },
       { name: strings[lang].nav.systems, path: routes.systems[lang] },
@@ -136,6 +140,13 @@ export function vigil(lang) {
   <p style="margin-top:.5rem">${statusChip(sys.status, lang)}</p>
   <p class="lead" style="margin-top:1.5rem;max-width:62ch">${L.answer}</p>
   <p style="margin-top:2rem">${cta(lang)}</p>
+</section>
+
+<section class="section wrap rule-top">
+  ${h2(d.spec.h, "at-a-glance")}
+  <div class="table-wrap" style="margin-top:1.5rem"><table><tbody>
+    ${d.spec.rows.map(([k2, v2]) => `<tr><th scope="row">${k2}</th><td>${v2}</td></tr>`).join("")}
+  </tbody></table></div>
 </section>
 
 <section class="section wrap rule-top">
@@ -168,6 +179,11 @@ export function vigil(lang) {
 </section>
 
 <section class="section wrap rule-top">
+  ${h2(d.section.h, "governed-in-practice")}
+  ${d.section.paras.map((p2) => `<p style="margin-top:1rem;max-width:62ch">${p2}</p>`).join("")}
+</section>
+
+<section class="section wrap rule-top">
   ${h2(c.guarH)}
   <div style="margin-top:1.5rem">${guaranteeTable(c.guarHead, c.guarRows)}</div>
 </section>
@@ -181,7 +197,7 @@ export function vigil(lang) {
 <section class="section wrap rule-top">
   ${h2(c.faqH)}
   <div class="stack" style="margin-top:1.5rem">
-    ${c.faqs.map(f => `<details class="card"><summary class="mono" style="cursor:pointer;font-weight:600">${f.q}</summary><p style="margin-top:.8rem">${f.a}</p></details>`).join("")}
+    ${[...c.faqs, ...d.faqs].map(f => `<details class="card"><summary class="mono" style="cursor:pointer;font-weight:600">${f.q}</summary><p style="margin-top:.8rem">${f.a}</p></details>`).join("")}
   </div>
   <p style="margin-top:2.5rem">${cta(lang)}</p>
 </section>`;

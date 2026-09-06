@@ -3,8 +3,8 @@ import { mark, seal } from "../assets/mark.js";
 import { strings, routes, statusLabel } from "../data/strings.js";
 import { escapeHtml } from "./layout.js";
 
-export function h2(text) {
-  return `<h2 class="h-seal">${seal({ size: 22 })}<span>${escapeHtml(text)}</span></h2>`;
+export function h2(text, id) {
+  return `<h2 class="h-seal"${id ? ` id="${id}"` : ""}>${seal({ size: 22 })}<span>${escapeHtml(text)}</span></h2>`;
 }
 
 export function eyebrow(text) {

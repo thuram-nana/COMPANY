@@ -1,0 +1,70 @@
+{
+ "name": "RÉCOR BODS v0.4 export profile",
+ "version": "1.0",
+ "date": "2026-09-06",
+ "publisher": "SIGIL SARL",
+ "publisherLocation": "Buea, Cameroon",
+ "contact": "info@sigilsovereign.com",
+ "licence": "CC-BY-4.0",
+ "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+ "standard": {
+  "name": "Beneficial Ownership Data Standard",
+  "version": "0.4",
+  "url": "https://standard.openownership.org/en/0.4.0/",
+  "maintainer": "https://www.openownership.org/"
+ },
+ "selfDeclared": true,
+ "certification": "None. This profile is self-declared by SIGIL SARL and has not been certified or validated by any third party.",
+ "systemStatus": "pre-deployment",
+ "exportFormat": {
+  "serialization": "JSON Lines (one BODS statement per line)",
+  "integrityEnvelope": "Designed to ship as a bundle: the statement stream, a manifest carrying a BLAKE3 digest of the stream, and an Ed25519 signature over the manifest."
+ },
+ "statementMapping": [
+  {
+   "bodsRecordType": "entity",
+   "recorSource": "The company named in an accepted declaration: legal name, jurisdiction, registrar identifier, founding date.",
+   "cardinality": "one per declared company",
+   "notes": "The profile currently targets registered entities (registeredEntity)."
+  },
+  {
+   "bodsRecordType": "person",
+   "recorSource": "Each natural person identified as a beneficial owner: name and, where recorded, nationality.",
+   "cardinality": "one per beneficial owner",
+   "notes": "Public-tier exports are designed to omit date of birth, place of birth, tax residencies, and national identity-document identifiers."
+  },
+  {
+   "bodsRecordType": "relationship",
+   "recorSource": "The declared ownership-or-control interest linking person to company: interest type, share as a percentage range, start date.",
+   "cardinality": "one per beneficial owner per company",
+   "notes": "Interest types are drawn from the BODS v0.4 interest-type codelist; full alignment of the vocabulary is a design target of this profile."
+  }
+ ],
+ "identifiers": "Statement identifiers are minted deterministically from the underlying record and declaration identifiers; re-exporting the same declaration is designed to yield identical identifiers so consumers can deduplicate.",
+ "disclosureTiers": [
+  "public",
+  "obliged-entity",
+  "competent-authority"
+ ],
+ "inclusionRule": "Only declarations that have completed RÉCOR's nine-stage verification pipeline and been accepted are designed to be included; a rejected declaration is designed never to appear in a public export.",
+ "extensions": {
+  "namespace": "recor:",
+  "status": "reserved (design intent)",
+  "description": "Namespaced fields designed to carry a pointer into RÉCOR's triple-witnessed, Merkle-anchored audit chain, the source-declaration reference, and the disclosure tier, so a consumer holding only a statement can trace it back to its audit record."
+ },
+ "fatfAlignment": {
+  "language": "designed to satisfy",
+  "recommendations": [
+   "R.24",
+   "R.25"
+  ],
+  "url": "https://www.fatf-gafi.org/"
+ },
+ "notes": [
+  "This is a self-declared conformance profile describing intended mappings. It is not a third-party certification.",
+  "RÉCOR is pre-deployment; no live deployment has produced the exports this profile describes.",
+  "RÉCOR was fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026. This is a technical demonstration, not an endorsement.",
+  "Where the standard and the implementation could diverge, the standard wins and the profile is corrected.",
+  "Versions are append-only: a correction or a future BODS release is published as a new, dated profile version alongside this one."
+ ]
+}

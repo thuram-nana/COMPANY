@@ -1,0 +1,144 @@
+{
+ "_notice": "SYNTHETIC EXAMPLE — illustrative only; not real data; not produced by a live deployment.",
+ "profile": "RÉCOR BODS v0.4 export profile, version 1.0 (self-declared), 2026-09-06",
+ "bodsVersion": "0.4",
+ "statements": [
+  {
+   "statementId": "SYNTH-STMT-ENTITY-00000000000000000001",
+   "statementDate": "2026-09-06",
+   "recordId": "SYNTH-RECORD-ENTITY-0001",
+   "recordType": "entity",
+   "recordStatus": "new",
+   "declarationSubject": "SYNTH-RECORD-ENTITY-0001",
+   "recordDetails": {
+    "isComponent": false,
+    "entityType": {
+     "type": "registeredEntity"
+    },
+    "name": "Exemple Holdings SARL",
+    "jurisdiction": {
+     "name": "Cameroon",
+     "code": "CM"
+    },
+    "identifiers": [
+     {
+      "id": "SYNTH-REG-0001",
+      "scheme": "SYNTH-SCHEME",
+      "schemeName": "Synthetic example register (not a real scheme)"
+     }
+    ],
+    "foundingDate": "2020-01-01"
+   },
+   "publicationDetails": {
+    "publicationDate": "2026-09-06",
+    "bodsVersion": "0.4",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "publisher": {
+     "name": "SIGIL SARL — synthetic example, not a live deployment"
+    }
+   },
+   "annotations": [
+    {
+     "statementPointerTarget": "/",
+     "motivation": "commenting",
+     "description": "Synthetic statement — illustrative only."
+    }
+   ]
+  },
+  {
+   "statementId": "SYNTH-STMT-PERSON-00000000000000000001",
+   "statementDate": "2026-09-06",
+   "recordId": "SYNTH-RECORD-PERSON-0001",
+   "recordType": "person",
+   "recordStatus": "new",
+   "declarationSubject": "SYNTH-RECORD-ENTITY-0001",
+   "recordDetails": {
+    "isComponent": false,
+    "personType": "knownPerson",
+    "names": [
+     {
+      "type": "individual",
+      "fullName": "Personne Exemple"
+     }
+    ],
+    "nationalities": [
+     {
+      "name": "Cameroon",
+      "code": "CM"
+     }
+    ]
+   },
+   "publicationDetails": {
+    "publicationDate": "2026-09-06",
+    "bodsVersion": "0.4",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "publisher": {
+     "name": "SIGIL SARL — synthetic example, not a live deployment"
+    }
+   },
+   "annotations": [
+    {
+     "statementPointerTarget": "/",
+     "motivation": "commenting",
+     "description": "Synthetic statement — illustrative only. Public-tier exports are designed to omit birth data and national identity numbers."
+    }
+   ]
+  },
+  {
+   "statementId": "SYNTH-STMT-RELATIONSHIP-000000000001",
+   "statementDate": "2026-09-06",
+   "recordId": "SYNTH-RECORD-RELATIONSHIP-0001",
+   "recordType": "relationship",
+   "recordStatus": "new",
+   "declarationSubject": "SYNTH-RECORD-ENTITY-0001",
+   "recordDetails": {
+    "isComponent": false,
+    "subject": "SYNTH-RECORD-ENTITY-0001",
+    "interestedParty": "SYNTH-RECORD-PERSON-0001",
+    "interests": [
+     {
+      "type": "shareholding",
+      "directOrIndirect": "direct",
+      "beneficialOwnershipOrControl": true,
+      "share": {
+       "minimum": 55.0,
+       "maximum": 55.0
+      },
+      "startDate": "2024-03-01"
+     },
+     {
+      "type": "votingRights",
+      "directOrIndirect": "direct",
+      "beneficialOwnershipOrControl": true,
+      "share": {
+       "minimum": 50.0,
+       "maximum": 60.0
+      },
+      "startDate": "2024-03-01"
+     }
+    ]
+   },
+   "source": {
+    "type": [
+     "selfDeclaration"
+    ],
+    "description": "Synthetic example — no real declarant, no real declaration."
+   },
+   "publicationDetails": {
+    "publicationDate": "2026-09-06",
+    "bodsVersion": "0.4",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "publisher": {
+     "name": "SIGIL SARL — synthetic example, not a live deployment"
+    }
+   },
+   "annotations": [
+    {
+     "statementPointerTarget": "/",
+     "motivation": "commenting",
+     "description": "Synthetic statement — illustrative only."
+    }
+   ]
+  }
+ ]
+}

@@ -28,7 +28,8 @@ export const strings = {
       privacy: "Privacy",
       mentions: "Legal notice",
       rights: "All rights reserved.",
-      controlled: "Sovereign infrastructure · Buea, Cameroon"
+      controlled: "Sovereign infrastructure · Buea, Cameroon",
+      whichSigil: "Which Sigil?"
     },
     on_this: "On this page",
     status_label: "Status",
@@ -60,7 +61,8 @@ export const strings = {
       privacy: "Confidentialité",
       mentions: "Mentions légales",
       rights: "Tous droits réservés.",
-      controlled: "Infrastructure souveraine · Buea, Cameroun"
+      controlled: "Infrastructure souveraine · Buea, Cameroun",
+      whichSigil: "Quel Sigil ?"
     },
     on_this: "Sur cette page",
     status_label: "Statut",
@@ -85,7 +87,9 @@ export const routes = {
   notes: { en: "/notes/", fr: "/fr/notes/" },
   contact: { en: "/contact/", fr: "/fr/contact/" },
   privacy: { en: "/legal/privacy/", fr: "/fr/legal/confidentialite/" },
-  mentions: { en: "/legal/mentions-legales/", fr: "/fr/legal/mentions-legales/" }
+  mentions: { en: "/legal/mentions-legales/", fr: "/fr/legal/mentions-legales/" },
+  sigil: { en: "/sigil/", fr: "/fr/sigil/" },
+  bodsProfile: { en: "/record/2026-09-06-bods-v04-export-profile/", fr: "/fr/references/2026-09-06-profil-export-bods-v04/" }
 };
 
 export function statusLabel(status, lang) {
