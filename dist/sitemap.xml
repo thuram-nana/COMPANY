@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sigilsovereign.com/</loc><lastmod>2026-08-31</lastmod></url>
+  <url><loc>https://sigilsovereign.com/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/systems/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/systems/vigil/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/systems/vigil/governance/</loc><lastmod>2026-09-06</lastmod></url>
@@ -11,17 +11,22 @@
   <url><loc>https://sigilsovereign.com/doctrine/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/record/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/trust/</loc><lastmod>2026-09-06</lastmod></url>
-  <url><loc>https://sigilsovereign.com/company/</loc><lastmod>2026-08-31</lastmod></url>
-  <url><loc>https://sigilsovereign.com/contact/</loc><lastmod>2026-08-31</lastmod></url>
+  <url><loc>https://sigilsovereign.com/company/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/contact/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/notes/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/legal/privacy/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/legal/mentions-legales/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/sigil/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/record/2026-09-06-bods-v04-export-profile/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/govtech-cameroon/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/regtech-cameroon/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/sovereign-governance-infrastructure/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/governed-cybersecurity/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/cybersecurity-buea/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/notes/capability-is-not-authorization/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/notes/lead-versus-fact/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/notes/a-key-that-is-not-a-kill-switch/</loc><lastmod>2026-09-06</lastmod></url>
-  <url><loc>https://sigilsovereign.com/fr/</loc><lastmod>2026-08-31</lastmod></url>
+  <url><loc>https://sigilsovereign.com/fr/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/systemes/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/systemes/vigil/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/systemes/vigil/gouvernance/</loc><lastmod>2026-09-06</lastmod></url>
@@ -32,13 +37,18 @@
   <url><loc>https://sigilsovereign.com/fr/methode/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/references/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/confiance/</loc><lastmod>2026-09-06</lastmod></url>
-  <url><loc>https://sigilsovereign.com/fr/entreprise/</loc><lastmod>2026-08-31</lastmod></url>
-  <url><loc>https://sigilsovereign.com/fr/contact/</loc><lastmod>2026-08-31</lastmod></url>
+  <url><loc>https://sigilsovereign.com/fr/entreprise/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/fr/contact/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/notes/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/legal/confidentialite/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/legal/mentions-legales/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/sigil/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/references/2026-09-06-profil-export-bods-v04/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/fr/govtech-cameroun/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/fr/regtech-cameroun/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/fr/infrastructure-de-gouvernance-souveraine/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/fr/cybersecurite-gouvernee/</loc><lastmod>2026-09-06</lastmod></url>
+  <url><loc>https://sigilsovereign.com/fr/cybersecurite-buea/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/notes/capacite-nest-pas-autorisation/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/notes/piste-contre-fait/</loc><lastmod>2026-09-06</lastmod></url>
   <url><loc>https://sigilsovereign.com/fr/notes/une-cle-qui-nest-pas-un-kill-switch/</loc><lastmod>2026-09-06</lastmod></url>

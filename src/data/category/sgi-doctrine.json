@@ -1,0 +1,127 @@
+{
+ "en": {
+  "title": "Sovereign governance infrastructure",
+  "description": "Sovereign governance infrastructure, defined: systems an institution governs rather than rents — keys, data control, and provable action.",
+  "sections": [
+   {
+    "h": "A definition",
+    "paras": [
+     "Sovereign governance infrastructure is technology that an institution governs rather than rents. It is defined by three commitments held at once: the institution — not its vendor — holds the cryptographic keys; the institution’s data stays under its control; and every consequential action the system takes is authorized in advance, bounded in scope, and proven after the fact. A system that keeps all three commitments is sovereign in the sense that matters to a public institution: no outside party can operate it, read from it, or rewrite what it remembers.",
+     "SIGIL SARL uses the term to name what its systems have in common. “Sovereign” here describes a relationship of authority between an institution and its infrastructure — not a flag on a data centre, and not a line in a hosting contract."
+    ]
+   },
+   {
+    "h": "Governed, not rented",
+    "paras": [
+     "An institution’s most consequential functions — security operations, official registries, oversight of public spending — run on some infrastructure, and the question the term forces is who governs it. Renting computing is unremarkable, and for commodity work it is often the right trade. It becomes a governance question when the rented system holds the institution’s evidence, its citizens’ data, or its power to act: in the ordinary rental arrangement, the vendor holds the administrative accounts, telemetry flows outward by default, deletion happens at the vendor’s discretion, and the audit trail is, in the end, the vendor’s word about itself.",
+     "Authority follows the keys. Whoever can authorize actions, read the data, and edit the record governs the system in fact, whatever the contract says. SIGIL’s standing rule states the alternative plainly: the institution holds the keys; the data stays under the institution’s control; every consequential action is authorized, bounded, and proven. Everything SIGIL builds for <a href=\"/govtech-cameroon/\">public-sector technology</a> and <a href=\"/regtech-cameroon/\">regulatory technology</a> in Cameroon is an application of that rule."
+    ]
+   },
+   {
+    "h": "The three properties",
+    "paras": [
+     "The last clause of the rule carries the definition’s weight. Each of its three words names a property an evaluator can test against the system in front of them."
+    ],
+    "list": [
+     "<strong>Authorized.</strong> No consequential action happens merely because the system was able to take it. Capability is never authorization: every action passes a conjunctive, fail-closed chain of controls, and permission comes from named institutional roles — human decisions, hardware keys, and quorums where the stakes warrant them. Where authorization cannot be established, the system refuses; the absence of a control is a denial, not a default allow.",
+     "<strong>Bounded.</strong> Every authorization carries explicit limits — on scope, on duration, on the data it may touch — and the system enforces those limits itself rather than leaving them to operator memory. Expiry or revocation blocks new sensitive actions, and only those: the institution can always read and export its own data, and always trip a safe stop.",
+     "<strong>Proven.</strong> After the fact, the institution can demonstrate what happened — to its own leadership, to an auditor, to a regulator. Every consequential action is attributable in a tamper-evident audit trail, and a confirmed finding is signed and re-checkable offline. The point is that no one has to take the vendor’s word: the record can be checked."
+    ]
+   },
+   {
+    "h": "Three systems, one property",
+    "paras": [
+     "<a href=\"/systems/vigil/\">VIGIL</a>, SIGIL’s <a href=\"/governed-cybersecurity/\">governed cybersecurity</a> and evidence platform, applies the property to security operations. It is built so that a technical capability is never an authorization: no model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it. What VIGIL produces is evidence an institution can stand behind, not output it has to believe.",
+     "<a href=\"/systems/recor/\">RÉCOR</a> is a sovereign beneficial-ownership registry designed for Cameroon. Each declaration is signed in the declarant’s own browser with a key only the declarant holds; a triple-witnessed, Merkle-anchored audit chain makes every change tamper-evident; and the register exports to an open standard, so the operating institution can take its data elsewhere at any time.",
+     "<a href=\"/systems/apex/\">APEX</a> is designed as anti-corruption intelligence for public procurement. It reads public data and detects defined patterns of procurement fraud, but no single person can escalate a case: a five-member council, each member holding a hardware key, must reach quorum, and every finding is independently verifiable against a public ledger without trusting the platform. A human institution makes every consequential decision.",
+     "All three systems are pre-deployment, and this site describes them accordingly — built to, designed to — because a governance company should be governed by its own standard of proof. SIGIL is a young company, founded in 2023 in Buea; what it claims about itself is kept as plainly checkable as what its systems are designed to record. <a href=\"/company/\">The company page</a> holds the particulars."
+    ]
+   },
+   {
+    "h": "What sovereign governance infrastructure is not",
+    "paras": [
+     "It is not sovereign-cloud marketing. Locating servers inside national borders is residency, and residency can matter — RÉCOR, for instance, is designed to run on national infrastructure. But a data centre on national soil whose administrative keys sit with a foreign vendor is local hosting under foreign governance. The geography changed; the authority did not.",
+     "Nor is it a hosting arrangement of any kind. The term names a governance property, so the test is about authority, not location: who can authorize a consequential action, who can read and export the data, who can stop the system, and whose audit trail settles a dispute. When every answer is the institution, the property holds — wherever the system runs. When any answer is the vendor, no amount of residency restores it.",
+     "The term is doing deliberate work: it separates a claim institutions can verify from a label anyone can print. The name <a href=\"/sigil/\">SIGIL — Sovereign Integrity Governance Infrastructure Labs</a> — commits the company to that distinction."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is sovereign governance infrastructure?",
+    "a": "Sovereign governance infrastructure is technology an institution governs rather than rents: the institution holds the cryptographic keys, its data stays under its control, and every consequential action the system takes is authorized, bounded, and proven. It is a governance property — defined by who holds authority over a system, not by where the system runs."
+   },
+   {
+    "q": "Is sovereign governance infrastructure the same as sovereign cloud?",
+    "a": "No. Sovereign cloud generally refers to where data is stored and under which jurisdiction — a hosting and residency arrangement. Sovereign governance infrastructure is a property of authority: the institution holds the keys, controls the data, and can prove every consequential action. A system can be hosted in-country and still fail the test if a vendor holds the administrative keys."
+   },
+   {
+    "q": "Who holds the keys in sovereign governance infrastructure?",
+    "a": "The operating institution. In SIGIL's designs the vendor has no default access, receives no operational telemetry, and holds no hidden administrative account; where a usage right is revocable, revocation is a signed certificate verified locally — never a remote channel into the deployment."
+   }
+  ]
+ },
+ "fr": {
+  "title": "Infrastructure de gouvernance souveraine",
+  "description": "Infrastructure de gouvernance souveraine : des systèmes que l’institution gouverne au lieu de les louer — clés, contrôle des données, actions prouvées.",
+  "sections": [
+   {
+    "h": "Une définition",
+    "paras": [
+     "L’infrastructure de gouvernance souveraine est la technologie qu’une institution gouverne au lieu de la louer. Elle se définit par trois engagements tenus ensemble : l’institution — et non son fournisseur — détient les clés cryptographiques ; les données de l’institution restent sous son contrôle ; et chaque action conséquente du système est autorisée en amont, bornée dans sa portée et prouvée après coup. Un système qui tient ces trois engagements est souverain au sens qui compte pour une institution publique : aucun tiers ne peut l’exploiter, y lire, ni réécrire ce qu’il retient.",
+     "SIGIL SARL emploie ce terme pour nommer ce que ses systèmes ont en commun. « Souveraine » désigne ici une relation d’autorité entre une institution et son infrastructure — non un drapeau sur un centre de données, ni une clause d’un contrat d’hébergement."
+    ]
+   },
+   {
+    "h": "Gouvernée, pas louée",
+    "paras": [
+     "Les fonctions les plus conséquentes d’une institution — opérations de sécurité, registres officiels, surveillance de la dépense publique — s’exécutent sur une infrastructure, et le terme force une question : qui la gouverne ? Louer son informatique n’a rien de remarquable, et pour les charges de commodité c’est souvent le bon arbitrage. Cela devient une question de gouvernance lorsque le système loué détient les preuves de l’institution, les données de ses citoyens ou son pouvoir d’agir : dans l’arrangement locatif ordinaire, le fournisseur détient les comptes d’administration, la télémétrie s’écoule vers l’extérieur par défaut, l’effacement dépend de la discrétion du fournisseur, et la piste d’audit est, en fin de compte, la parole du fournisseur sur lui-même.",
+     "L’autorité suit les clés. Qui peut autoriser les actions, lire les données et modifier l’enregistrement gouverne le système en fait, quoi qu’en dise le contrat. La règle constante de SIGIL énonce l’alternative sans détour : l’institution détient les clés ; les données restent sous le contrôle de l’institution ; chaque action conséquente est autorisée, bornée et prouvée. Tout ce que SIGIL conçoit pour la <a href=\"/fr/govtech-cameroun/\">technologie du secteur public</a> et la <a href=\"/fr/regtech-cameroun/\">technologie réglementaire</a> au Cameroun est une application de cette règle."
+    ]
+   },
+   {
+    "h": "Les trois propriétés",
+    "paras": [
+     "La dernière proposition de la règle porte le poids de la définition. Chacun de ses trois mots nomme une propriété qu’un évaluateur peut tester sur le système qu’il a devant lui."
+    ],
+    "list": [
+     "<strong>Autorisée.</strong> Aucune action conséquente n’a lieu simplement parce que le système était capable de la prendre. Une capacité n’est jamais une autorisation : chaque action traverse une chaîne de contrôles conjonctive et fail-closed, et la permission émane de rôles institutionnels nommés — décisions humaines, clés matérielles, quorums lorsque l’enjeu le justifie. Lorsque l’autorisation ne peut être établie, le système refuse ; l’absence d’un contrôle est un refus, non une autorisation par défaut.",
+     "<strong>Bornée.</strong> Chaque autorisation porte des limites explicites — sur la portée, sur la durée, sur les données qu’elle peut toucher — et le système applique lui-même ces limites au lieu de les confier à la mémoire des opérateurs. L’expiration ou la révocation bloque les nouvelles actions sensibles, et elles seules : l’institution peut toujours lire et exporter ses propres données, et toujours déclencher un arrêt sûr.",
+     "<strong>Prouvée.</strong> Après coup, l’institution peut démontrer ce qui s’est passé — à sa propre direction, à un auditeur, à un régulateur. Chaque action conséquente est attribuable dans une piste d’audit infalsifiable, et un constat confirmé est signé et re-vérifiable hors ligne. L’essentiel est que personne n’ait à croire le fournisseur sur parole : la trace peut être vérifiée."
+    ]
+   },
+   {
+    "h": "Trois systèmes, une même propriété",
+    "paras": [
+     "<a href=\"/fr/systemes/vigil/\">VIGIL</a>, la plateforme de <a href=\"/fr/cybersecurite-gouvernee/\">cybersécurité gouvernée</a> et de preuve de SIGIL, applique la propriété aux opérations de sécurité. Elle est bâtie pour qu’une capacité technique ne soit jamais une autorisation : aucun modèle ni agent ne s’auto-autorise, et aucun constat n’est retenu tant qu’une vérification indépendante et re-vérifiable ne l’a pas confirmé. Ce que VIGIL produit est une preuve que l’institution peut défendre, non un résultat qu’elle doit croire.",
+     "<a href=\"/fr/systemes/recor/\">RÉCOR</a> est un registre souverain des bénéficiaires effectifs conçu pour le Cameroun. Chaque déclaration est signée dans le navigateur du déclarant, avec une clé que seul le déclarant détient ; une chaîne d’audit triple-témoin, ancrée par arbre de Merkle, rend chaque modification infalsifiable ; et le registre exporte vers un standard ouvert, si bien que l’institution exploitante peut emporter ses données ailleurs à tout moment.",
+     "<a href=\"/fr/systemes/apex/\">APEX</a> est conçu comme un renseignement anti-corruption pour la commande publique. Il lit des données publiques et détecte des schémas définis de fraude aux marchés publics, mais aucune personne seule ne peut escalader une affaire : un conseil de cinq membres, chacun détenant une clé matérielle, doit atteindre le quorum, et chaque constat est vérifiable de façon indépendante sur un registre public sans faire confiance à la plateforme. Une institution humaine prend chaque décision conséquente.",
+     "Les trois systèmes sont en pré-déploiement, et ce site les décrit en conséquence — bâti pour, conçu pour — parce qu’une entreprise de gouvernance doit être gouvernée par sa propre exigence de preuve. SIGIL est une jeune entreprise, fondée en 2023 à Buea ; ce qu’elle affirme d’elle-même reste aussi simplement vérifiable que ce que ses systèmes sont conçus pour consigner. <a href=\"/fr/entreprise/\">La page entreprise</a> en tient le détail."
+    ]
+   },
+   {
+    "h": "Ce que l’infrastructure de gouvernance souveraine n’est pas",
+    "paras": [
+     "Ce n’est pas un argument marketing de « cloud souverain ». Installer des serveurs à l’intérieur des frontières nationales relève de la résidence des données, et la résidence peut compter — RÉCOR, par exemple, est conçu pour s’exécuter sur l’infrastructure nationale. Mais un centre de données sur le sol national dont les clés d’administration restent chez un fournisseur étranger est un hébergement local sous gouvernance étrangère. La géographie a changé ; l’autorité, non.",
+     "Ce n’est pas davantage un mode d’hébergement. Le terme nomme une propriété de gouvernance ; le test porte donc sur l’autorité, non sur l’emplacement : qui peut autoriser une action conséquente ? qui peut lire et exporter les données ? qui peut arrêter le système ? quelle piste d’audit tranche un différend ? Quand chaque réponse est « l’institution », la propriété tient — où que le système s’exécute. Quand une seule réponse est « le fournisseur », aucune résidence ne la restaure.",
+     "Le terme fait un travail délibéré : il sépare une affirmation que les institutions peuvent vérifier d’une étiquette que chacun peut imprimer. Le nom même de <a href=\"/fr/sigil/\">SIGIL — Sovereign Integrity Governance Infrastructure Labs</a> — engage l’entreprise à cette distinction."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Qu’est-ce que l’infrastructure de gouvernance souveraine ?",
+    "a": "L’infrastructure de gouvernance souveraine est la technologie qu’une institution gouverne au lieu de la louer : l’institution détient les clés cryptographiques, ses données restent sous son contrôle, et chaque action conséquente du système est autorisée, bornée et prouvée. C’est une propriété de gouvernance — définie par qui détient l’autorité sur un système, non par l’endroit où il s’exécute."
+   },
+   {
+    "q": "L’infrastructure de gouvernance souveraine est-elle la même chose que le cloud souverain ?",
+    "a": "Non. Le cloud souverain désigne en général l’endroit où les données sont stockées et la juridiction dont elles relèvent — un arrangement d’hébergement et de résidence. L’infrastructure de gouvernance souveraine est une propriété d’autorité : l’institution détient les clés, contrôle les données et peut prouver chaque action conséquente. Un système peut être hébergé dans le pays et échouer au test si un fournisseur détient les clés d’administration."
+   },
+   {
+    "q": "Qui détient les clés dans une infrastructure de gouvernance souveraine ?",
+    "a": "L’institution exploitante. Dans les conceptions de SIGIL, le fournisseur ne dispose d’aucun accès par défaut, ne reçoit aucune télémétrie opérationnelle et ne détient aucun compte d’administration caché ; lorsqu’un droit d’usage est révocable, la révocation est un certificat signé vérifié localement — jamais un canal distant vers le déploiement."
+   }
+  ]
+ },
+ "notes": "Integrator notes. SOURCES: doctrine-only page — zero external claims, zero external links, so nothing required live verification. Every assertion traces to /home/kali/COMPANY/src/data/facts.json (org definition, system answers, pre-deployment status, founded 2023 Buea), /home/kali/COMPANY/src/pages/doctrine.js (no default access / no telemetry / no hidden admin account; read-export-stop; fail-closed; signed re-checkable findings; local revocation certificate), and /home/kali/COMPANY/src/pages/recor.js (browser-held declarant key, triple-witnessed Merkle-anchored audit chain, open-standard export, national-infrastructure residency design). DROPPED: nothing — no landscape facts were attempted. Open Ownership/UNDP/APME deliberately omitted to keep this page pure doctrine and avoid duplicating the record page. CHARTER CHECKS: thesis verbatim exactly once per language (section 2, EN with typographic apostrophe in \"institution’s\" matching facts.json; FR with spaces before semicolons); RÉCOR described only at the approved ceiling (\"a sovereign beneficial-ownership registry designed for Cameroon\" / \"un registre souverain des bénéficiaires effectifs conçu pour le Cameroun\") plus site-published design mechanics; no mention of any existing register, no RCBE/DGI/bef.harmony2.cm, no FATF/BODS/GAFI named anywhere on this page (\"open standard\" kept generic); all systems in designed-to/built-to language; young-company honesty in section 4 last para. SEO: primary query in title (EN 35 / FR 40 chars, under the 55-char cap before \" — SIGIL SARL\"), as the opening words of the first paragraph, in exactly one H2 (\"What sovereign governance infrastructure is not\" / \"Ce que l’infrastructure de gouvernance souveraine n’est pas\"), and in FAQ questions — nowhere else in body copy. Meta descriptions 137 (EN) / ~150 (FR) chars, each containing the exact query. CANNIBALIZATION GUARDS: \"governed cybersecurity\" / \"cybersécurité gouvernée\" appears exactly once, as anchor text pointing to /governed-cybersecurity/ and /fr/cybersecurite-gouvernee/, so this page cannot compete on that sibling coined term; no beneficial-ownership/FATF keyword mass that could compete with /systems/recor/ or the regtech hub; doctrine-links-up-to-hubs satisfied via /govtech-cameroon/ + /regtech-cameroon/ (and FR equivalents) in section 2; system links to all three /systems/ pages; /company/ and /sigil/ linked once each; /cybersecurity-buea/ intentionally unused (irrelevant to this page's topic). FAQ answers are plain text (no HTML) per schema. Internal hrefs use only the exact paths from the approved list."
+}

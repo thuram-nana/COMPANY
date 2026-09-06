@@ -78,6 +78,7 @@ async function run() {
   const { privacy, mentions } = await import("../src/pages/legal.js");
   const { sigil } = await import("../src/pages/sigil.js");
   const { bodsProfile } = await import("../src/pages/bods-profile.js");
+  const { govtechCameroon, regtechCameroon, sovereignGovernanceInfrastructure, governedCybersecurity, cybersecurityBuea } = await import("../src/pages/category.js");
   const { routes } = await import("../src/data/strings.js");
 
   const langs = ["en", "fr"];
@@ -100,6 +101,11 @@ async function run() {
     built.push(out(routes.mentions[lang], mentions(lang))); srcOf[routes.mentions[lang]] = "src/pages/legal.js";
     built.push(out(routes.sigil[lang], sigil(lang))); srcOf[routes.sigil[lang]] = "src/pages/sigil.js";
     built.push(out(routes.bodsProfile[lang], bodsProfile(lang))); srcOf[routes.bodsProfile[lang]] = "src/pages/bods-profile.js";
+    built.push(out(routes.govtechHub[lang], govtechCameroon(lang))); srcOf[routes.govtechHub[lang]] = "src/data/category/govtech-hub.json";
+    built.push(out(routes.regtechHub[lang], regtechCameroon(lang))); srcOf[routes.regtechHub[lang]] = "src/data/category/regtech-hub.json";
+    built.push(out(routes.sgi[lang], sovereignGovernanceInfrastructure(lang))); srcOf[routes.sgi[lang]] = "src/data/category/sgi-doctrine.json";
+    built.push(out(routes.governedCyber[lang], governedCybersecurity(lang))); srcOf[routes.governedCyber[lang]] = "src/data/category/governed-cyber.json";
+    built.push(out(routes.cyberBuea[lang], cybersecurityBuea(lang))); srcOf[routes.cyberBuea[lang]] = "src/data/category/cyber-buea.json";
     for (const np of notePages(lang)) { built.push(out(np.path, np.html)); srcOf[np.path] = "src/pages/notes.js"; }
   }
 

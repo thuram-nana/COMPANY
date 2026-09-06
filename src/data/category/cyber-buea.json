@@ -1,0 +1,181 @@
+{
+ "en": {
+  "title": "Cybersecurity in Buea",
+  "description": "Cybersecurity in Buea: the Silicon Mountain talent pipeline, the governance gap, and what SIGIL SARL builds from Buea for public institutions.",
+  "sections": [
+   {
+    "h": "The honest answer, in two parts",
+    "paras": [
+     "Ask about cybersecurity in Buea and you will mostly hear about training — and the training is real. The town on the slopes of Mount Cameroon hosts a university that teaches cryptosystems to master's level, an active <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">OWASP chapter</a>, and the developer community that calls itself Silicon Mountain. That is the first part of the answer, and Buea has earned it.",
+     "The second part is a gap. A region that produces security talent in numbers still has very little commercial practice built to the standard public institutions actually need: engagements that are authorized before they are technical, findings that are re-verified before they are reported, and evidence that survives an auditor. This page lays out both parts, and states plainly what <a href=\"/company/\">SIGIL SARL</a>, a company registered in Buea (RCCM RC.BUA.2026.B.0190), is building to close the second."
+    ]
+   },
+   {
+    "h": "The talent pipeline on the mountain",
+    "paras": [
+     "The <a href=\"https://www.ubuea.cm/index.php/faculties-schools/faculty-of-engineering-and-technology-fet/computer-engineering-cen/\" rel=\"noopener\">Department of Computer Engineering</a> at the University of Buea's Faculty of Engineering and Technology runs the region's most formal security pipeline: a B.Eng in Computer Engineering, an M.Eng in Cryptosystems and Cyber Security, and a Ph.D programme in Network Security and Distributed Systems. Security is not incidental coverage there; it is taught as a named discipline, from undergraduate network engineering through doctoral research.",
+     "Alongside the university sits the <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">OWASP Buea chapter</a>, established in 2024 under the OWASP Foundation to promote secure software development in the local tech community. The chapter runs workshops, meetups, and hackathons open to anyone, and collaborates with the University of Buea Cybersecurity Club on events that mix OWASP Top 10 demonstrations with capture-the-flag competitions and penetration-testing challenges.",
+     "Both draw on the broader ecosystem known as <a href=\"https://en.wikipedia.org/wiki/Silicon_Mountain\" rel=\"noopener\">Silicon Mountain</a> — the community of startups, developers, and hubs that has grown in Buea since the early 2010s. <a href=\"https://techcabal.com/2018/08/10/cameroons-silicon-mountain-its-history-resilience-and-future/\" rel=\"noopener\">ActivSpaces</a>, launched in 2009, is among the country's earliest tech hubs; Google Developer Group Buea has helped grow the ecosystem since 2013; and the community kept building through the internet shutdowns that disrupted Cameroon's anglophone regions in 2017. Talent, in short, is not Buea's problem."
+    ]
+   },
+   {
+    "h": "Cybersecurity in Buea: the gap the pipeline does not fill",
+    "paras": [
+     "Here is what the training pipeline does not produce on its own: governance-grade practice. A graduate of the mountain can find a vulnerability. An institution — a ministry, a regulator, a university administration, a public agency — needs something harder: the vulnerability found under written authorization, confirmed by an independent check, remediated, and documented in evidence that will still stand when an auditor reads it a year later. Those are different trades, and the second is scarce in Buea, as it is in most of the region.",
+     "The obligations, meanwhile, already exist. Cameroon's <a href=\"https://www.minpostel.gov.cm/index.php/en/les-textes/telecoms-tic/lois-telecoms-tic/179-law-no-2010-012-of-21-december-2010-on-cybersecurity-and-cybercrime-in-cameroon\" rel=\"noopener\">Law No. 2010/012 of 21 December 2010</a> governs the security of electronic communication networks and information systems and defines the offences committed against them, and <a href=\"https://www.antic.cm/index.php/en/mssions/computer-security-audit.html\" rel=\"noopener\">ANTIC</a>, the National Agency for Information and Communication Technologies, is mandated under Article 7 of that law to carry out technology watch and issue alerts and recommendations on network security, and operates a national Computer Incident Response Team. An institution engaging any security partner in Buea is operating inside that framework, and should choose a partner that treats it as a floor rather than a ceiling.",
+     "Naming this gap is not a criticism of the training ecosystem — the pipeline is the precondition for everything else. It is a statement about what remains to be built on top of it."
+    ]
+   },
+   {
+    "h": "What SIGIL builds from Buea",
+    "paras": [
+     "SIGIL SARL was founded in 2023 in Buea by Junior Thuram Nana and builds sovereign governance infrastructure for public institutions. Three systems are in development: <a href=\"/systems/vigil/\">VIGIL</a>, a governed cybersecurity and evidence platform; <a href=\"/systems/recor/\">RÉCOR</a>, a sovereign beneficial-ownership registry designed for Cameroon; and <a href=\"/systems/apex/\">APEX</a>, anti-corruption intelligence for public procurement. All three are pre-deployment, and all source code is kept strictly private.",
+     "VIGIL is the system this page concerns. It is designed to help duly authorized operators find, confirm, remediate, and document vulnerabilities under one rule: a technical capability is never an authorization. No model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it. The full argument for why security tooling should be governed this way is set out on our <a href=\"/governed-cybersecurity/\">governed cybersecurity</a> page; the doctrine beneath it fits in one sentence: the institution holds the keys; the data stays under the institution's control; every consequential action is authorized, bounded, and proven.",
+     "And the honesty owed to the reader: we are a young company. SIGIL has no customers, no deployments, no pilots, and no revenue to point to. What we offer instead is precision about what we are building and how it can be verified — every claim on this site is written so an evaluator can test it against the system in front of them. Our wider position in Cameroon's public-sector technology landscape is set out on the <a href=\"/govtech-cameroon/\">govtech hub</a>."
+    ]
+   },
+   {
+    "h": "What to demand of any security partner",
+    "paras": [
+     "These six criteria are derived from our doctrine, but they are not about us: they are what any institution in the region should put in writing before engaging any security partner — SIGIL included. An evaluator should hold VIGIL to every line of this table."
+    ],
+    "table": {
+     "head": [
+      "Demand",
+      "Why it matters"
+     ],
+     "rows": [
+      [
+       "Written, bounded authorization before any test",
+       "A capability is never an authorization. The scope of an engagement should be fixed in writing before a single packet is sent — and anything outside it refused by the partner's own tooling, not merely by their good manners."
+      ],
+      [
+       "Independent re-verification of every finding",
+       "A scanner's output is a lead, not a fact. Reports should separate what an independent, deterministic check has confirmed from what was merely observed — and never present the absence of a signal as proof of absence."
+      ],
+      [
+       "Key and data custody with your institution",
+       "No vendor default access, no hidden administrative account, no operational telemetry leaving your infrastructure. If custody sits with the partner, so does the power."
+      ],
+      [
+       "The standing right to read, export, and stop",
+       "Whatever the state of the contract or licence, your institution should always be able to read and export its own data and trip a safe stop. A partner who cannot grant this in writing is asking for trust instead of offering proof."
+      ],
+      [
+       "Tamper-evident evidence and signed reports",
+       "Every consequential action of an engagement should be attributable in an audit trail that cannot be quietly rewritten, and final reports should be signed and re-checkable offline."
+      ],
+      [
+       "A written legal basis under Cameroonian law",
+       "Security testing in Cameroon operates inside the framework of Law No. 2010/012 of 21 December 2010. A serious partner states the legal basis of each engagement in writing, alongside the authorization."
+      ]
+     ]
+    }
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Are there cybersecurity companies in Buea?",
+    "a": "Buea's security reputation rests mostly on training and community: the University of Buea teaches cybersecurity to master's and doctoral level, and an OWASP chapter has run workshops and capture-the-flag events since 2024. Commercial security firms are far scarcer. SIGIL SARL, registered in Buea under RCCM RC.BUA.2026.B.0190, is one: it is building VIGIL, a governed cybersecurity and evidence platform. VIGIL is pre-deployment, and SIGIL currently has no customers or deployments — a fact we state plainly rather than around."
+   },
+   {
+    "q": "Can SIGIL run a security engagement for my institution today?",
+    "a": "Not today. VIGIL is pre-deployment: SIGIL has no customers, deployments, or pilots, and we do not sell what we cannot yet govern to our own standard. What an institution can do now is examine the doctrine VIGIL is built to, test the claims on this site, and hold us — and every other prospective partner — to the six criteria on this page. Questions reach us at info@sigilsovereign.com."
+   },
+   {
+    "q": "Where can I learn cybersecurity in Buea?",
+    "a": "The University of Buea's Faculty of Engineering and Technology offers a B.Eng in Computer Engineering, an M.Eng in Cryptosystems and Cyber Security, and a Ph.D in Network Security and Distributed Systems. Outside the university, the OWASP Buea chapter runs free workshops, meetups, and hackathons, and Silicon Mountain community hubs such as ActivSpaces have hosted developer training in Buea for over a decade."
+   }
+  ]
+ },
+ "fr": {
+  "title": "La cybersécurité à Buea",
+  "description": "La cybersécurité à Buea : le vivier de Silicon Mountain, le déficit de pratique de niveau gouvernance, et ce que SIGIL SARL construit depuis Buea.",
+  "sections": [
+   {
+    "h": "La réponse honnête, en deux temps",
+    "paras": [
+     "Interrogez qui vous voudrez sur la cybersécurité à Buea : on vous parlera d’abord de formation — et cette formation est réelle. La ville, sur les pentes du mont Cameroun, abrite une université qui enseigne les cryptosystèmes jusqu’au niveau master, un <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">chapitre OWASP</a> actif, et la communauté de développeurs qui se donne le nom de Silicon Mountain. C’est la première partie de la réponse, et Buea l’a méritée.",
+     "La seconde partie est un déficit. Une région qui forme des talents en sécurité en nombre dispose encore de très peu de pratique commerciale au niveau qu’exigent réellement les institutions publiques : des interventions autorisées avant d’être techniques, des constats re-vérifiés avant d’être rapportés, des preuves qui résistent à un auditeur. Cette page expose les deux parties, et dit sans détour ce que <a href=\"/fr/entreprise/\">SIGIL SARL</a>, société immatriculée à Buea (RCCM RC.BUA.2026.B.0190), construit pour combler la seconde."
+    ]
+   },
+   {
+    "h": "La filière des talents sur la montagne",
+    "paras": [
+     "Le <a href=\"https://www.ubuea.cm/index.php/faculties-schools/faculty-of-engineering-and-technology-fet/computer-engineering-cen/\" rel=\"noopener\">département de génie informatique</a> de la Faculté d’ingénierie et de technologie de l’Université de Buea porte la filière de sécurité la plus formelle de la région : un B.Eng en génie informatique, un M.Eng en cryptosystèmes et cybersécurité, et un doctorat en sécurité des réseaux et systèmes distribués. La sécurité n’y est pas un chapitre accessoire ; elle s’enseigne comme une discipline nommée, du génie des réseaux en licence jusqu’à la recherche doctorale.",
+     "À côté de l’université se tient le <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">chapitre OWASP de Buea</a>, établi en 2024 au sein de la Fondation OWASP pour promouvoir le développement logiciel sécurisé dans la communauté technologique locale. Le chapitre organise des ateliers, des rencontres et des hackathons ouverts à tous, et collabore avec le club de cybersécurité de l’Université de Buea sur des événements mêlant démonstrations du Top 10 OWASP, compétitions de capture du drapeau et défis de tests d’intrusion.",
+     "L’un et l’autre s’appuient sur l’écosystème plus large connu sous le nom de <a href=\"https://en.wikipedia.org/wiki/Silicon_Mountain\" rel=\"noopener\">Silicon Mountain</a> — la communauté de startups, de développeurs et de hubs qui grandit à Buea depuis le début des années 2010. <a href=\"https://techcabal.com/2018/08/10/cameroons-silicon-mountain-its-history-resilience-and-future/\" rel=\"noopener\">ActivSpaces</a>, lancé en 2009, compte parmi les premiers hubs technologiques du pays ; le Google Developer Group de Buea contribue à faire grandir l’écosystème depuis 2013 ; et la communauté a continué de bâtir à travers les coupures d’internet qui ont frappé les régions anglophones du Cameroun en 2017. Le talent, en somme, n’est pas le problème de Buea."
+    ]
+   },
+   {
+    "h": "La cybersécurité à Buea : le déficit que la filière ne comble pas",
+    "paras": [
+     "Voici ce que la filière de formation ne produit pas d’elle-même : une pratique de niveau gouvernance. Un diplômé de la montagne sait trouver une vulnérabilité. Une institution — un ministère, un régulateur, une administration universitaire, un organisme public — a besoin de plus difficile : la vulnérabilité trouvée sous autorisation écrite, confirmée par une vérification indépendante, corrigée, et documentée dans des preuves qui tiendront encore lorsqu’un auditeur les lira un an plus tard. Ce sont deux métiers différents, et le second est rare à Buea, comme dans la plus grande partie de la région.",
+     "Les obligations, elles, existent déjà. La <a href=\"https://www.minpostel.gov.cm/index.php/en/les-textes/telecoms-tic/lois-telecoms-tic/179-law-no-2010-012-of-21-december-2010-on-cybersecurity-and-cybercrime-in-cameroon\" rel=\"noopener\">loi n° 2010/012 du 21 décembre 2010</a> régit la sécurité des réseaux de communications électroniques et des systèmes d’information et définit les infractions commises à leur encontre, et l’<a href=\"https://www.antic.cm/index.php/en/mssions/computer-security-audit.html\" rel=\"noopener\">ANTIC</a>, l’Agence nationale des technologies de l’information et de la communication, est chargée par l’article 7 de cette loi d’assurer la veille technologique et d’émettre alertes et recommandations sur la sécurité des réseaux ; elle opère l’équipe nationale de réponse aux incidents informatiques. Une institution qui engage un partenaire de sécurité à Buea agit à l’intérieur de ce cadre, et devrait choisir un partenaire qui le traite comme un plancher, non comme un plafond.",
+     "Nommer ce déficit n’est pas une critique de l’écosystème de formation — la filière est la condition de tout le reste. C’est un constat sur ce qui reste à bâtir au-dessus d’elle."
+    ]
+   },
+   {
+    "h": "Ce que SIGIL construit depuis Buea",
+    "paras": [
+     "SIGIL SARL a été fondée en 2023 à Buea par Junior Thuram Nana et conçoit une infrastructure de gouvernance souveraine pour les institutions publiques. Trois systèmes sont en développement : <a href=\"/fr/systemes/vigil/\">VIGIL</a>, plateforme de cybersécurité gouvernée et de preuve ; <a href=\"/fr/systemes/recor/\">RÉCOR</a>, un registre souverain des bénéficiaires effectifs conçu pour le Cameroun ; et <a href=\"/fr/systemes/apex/\">APEX</a>, renseignement anti-corruption pour la commande publique. Les trois sont en pré-déploiement, et l’intégralité du code source est gardée strictement privée.",
+     "VIGIL est le système qui concerne cette page. Il est conçu pour assister des opérateurs dûment autorisés dans l’identification, la confirmation, la correction et la documentation de vulnérabilités, selon un principe unique : une capacité technique n’est jamais une autorisation. Aucun modèle ni agent ne s’auto-autorise, et aucun constat n’est retenu tant qu’une vérification indépendante et re-vérifiable ne l’a pas confirmé. L’argument complet est exposé sur notre page <a href=\"/fr/cybersecurite-gouvernee/\">cybersécurité gouvernée</a> ; la doctrine qui le porte tient en une phrase : l’institution détient les clés ; les données restent sous le contrôle de l’institution ; chaque action conséquente est autorisée, bornée et prouvée.",
+     "Et l’honnêteté due au lecteur : nous sommes une jeune entreprise. SIGIL n’a ni clients, ni déploiements, ni pilotes, ni chiffre d’affaires à faire valoir. Ce que nous offrons à la place, c’est la précision sur ce que nous construisons et sur la manière de le vérifier — chaque affirmation de ce site est écrite pour qu’un évaluateur puisse la tester sur le système qu’il a devant lui. Le reste de notre position dans le paysage technologique public du Cameroun est exposé sur le <a href=\"/fr/govtech-cameroun/\">hub govtech</a>."
+    ]
+   },
+   {
+    "h": "Ce qu’il faut exiger de tout partenaire de sécurité",
+    "paras": [
+     "Ces six critères dérivent de notre doctrine, mais ils ne parlent pas de nous : ils sont ce que toute institution de la région devrait mettre par écrit avant d’engager un partenaire de sécurité, quel qu’il soit — SIGIL compris. Un évaluateur devrait tenir VIGIL à chaque ligne de ce tableau."
+    ],
+    "table": {
+     "head": [
+      "Exigence",
+      "Pourquoi elle compte"
+     ],
+     "rows": [
+      [
+       "Une autorisation écrite et bornée avant tout test",
+       "Une capacité n’est jamais une autorisation. Le périmètre d’une intervention doit être fixé par écrit avant l’envoi du moindre paquet — et tout ce qui en sort doit être refusé par l’outillage même du partenaire, non par sa seule bonne volonté."
+      ],
+      [
+       "La re-vérification indépendante de chaque constat",
+       "La sortie d’un scanner est une piste, non un fait. Les rapports doivent séparer ce qu’une vérification indépendante et déterministe a confirmé de ce qui a été seulement observé — et ne jamais présenter l’absence de signal comme une preuve d’absence."
+      ],
+      [
+       "La garde des clés et des données par votre institution",
+       "Aucun accès fournisseur par défaut, aucun compte d’administration caché, aucune télémétrie opérationnelle quittant votre infrastructure. Si la garde revient au partenaire, le pouvoir aussi."
+      ],
+      [
+       "Le droit permanent de lire, d’exporter et d’arrêter",
+       "Quel que soit l’état du contrat ou de la licence, votre institution doit toujours pouvoir lire et exporter ses propres données et déclencher un arrêt sûr. Un partenaire qui ne peut pas l’accorder par écrit demande de la confiance au lieu d’offrir une preuve."
+      ],
+      [
+       "Des preuves infalsifiables et des rapports signés",
+       "Chaque action conséquente d’une intervention doit être attribuable dans une piste d’audit qui ne peut être réécrite en silence, et les rapports finaux doivent être signés et re-vérifiables hors ligne."
+      ],
+      [
+       "Un fondement juridique écrit en droit camerounais",
+       "Les tests de sécurité au Cameroun s’inscrivent dans le cadre de la loi n° 2010/012 du 21 décembre 2010. Un partenaire sérieux énonce par écrit le fondement juridique de chaque intervention, aux côtés de l’autorisation."
+      ]
+     ]
+    }
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Existe-t-il des entreprises de cybersécurité à Buea ?",
+    "a": "La réputation de Buea en sécurité repose surtout sur la formation et la communauté : l’Université de Buea enseigne la cybersécurité jusqu’au master et au doctorat, et un chapitre OWASP y organise ateliers et compétitions de capture du drapeau depuis 2024. Les entreprises commerciales de sécurité sont bien plus rares. SIGIL SARL, immatriculée à Buea sous le RCCM RC.BUA.2026.B.0190, en est une : elle construit VIGIL, plateforme de cybersécurité gouvernée et de preuve. VIGIL est en pré-déploiement, et SIGIL n’a aujourd’hui ni clients ni déploiements — un fait que nous énonçons sans détour."
+   },
+   {
+    "q": "SIGIL peut-il mener une intervention de sécurité pour mon institution aujourd’hui ?",
+    "a": "Pas aujourd’hui. VIGIL est en pré-déploiement : SIGIL n’a ni clients, ni déploiements, ni pilotes, et nous ne vendons pas ce que nous ne pouvons pas encore gouverner selon notre propre standard. Ce qu’une institution peut faire dès maintenant : examiner la doctrine selon laquelle VIGIL est bâti, tester les affirmations de ce site, et nous tenir — comme tout autre partenaire pressenti — aux six critères de cette page. Nos réponses passent par info@sigilsovereign.com."
+   },
+   {
+    "q": "Où apprendre la cybersécurité à Buea ?",
+    "a": "La Faculté d’ingénierie et de technologie de l’Université de Buea offre un B.Eng en génie informatique, un M.Eng en cryptosystèmes et cybersécurité et un doctorat en sécurité des réseaux et systèmes distribués. Hors de l’université, le chapitre OWASP de Buea organise gratuitement ateliers, rencontres et hackathons, et les hubs communautaires de Silicon Mountain, comme ActivSpaces, accueillent des formations de développeurs à Buea depuis plus d’une décennie."
+   }
+  ]
+ },
+ "notes": "VERIFIED SOURCES (all fetched live 2026-09-06): (1) University of Buea, Dept. of Computer Engineering, FET — exact program names confirmed on ubuea.cm: B.Eng Computer Engineering, M.Eng Cryptosystems and Cyber Security, Ph.D Network Security and Distributed Systems — https://www.ubuea.cm/index.php/faculties-schools/faculty-of-engineering-and-technology-fet/computer-engineering-cen/ ; (2) OWASP Buea chapter — confirmed on owasp.org: established 2024, workshops/meetups/hackathons, collaboration with University of Buea Cybersecurity Club (OWASP Top 10 demos, CTF, pentest challenges) — https://owasp.org/www-chapter-buea/ ; (3) Silicon Mountain ecosystem, 2017 anglophone internet shutdowns — https://en.wikipedia.org/wiki/Silicon_Mountain ; (4) ActivSpaces launched 2009, among earliest hubs; GDG Buea since 2013 — https://techcabal.com/2018/08/10/cameroons-silicon-mountain-its-history-resilience-and-future/ (ActivSpaces' own site activspaces.com is currently an under-construction page, so TechCabal is the citation of record); (5) Law No. 2010/012 of 21 Dec 2010 — https://www.minpostel.gov.cm/index.php/en/les-textes/telecoms-tic/lois-telecoms-tic/179-law-no-2010-012-of-21-december-2010-on-cybersecurity-and-cybercrime-in-cameroon ; (6) ANTIC Article-7 mandate (technology watch, alerts/recommendations, national CIRT) — https://www.antic.cm/index.php/en/mssions/computer-security-audit.html . DROPPED AS UNVERIFIABLE/WEAKLY SOURCED: ActivSpaces \\\"60+ startups incubated\\\" stat (Medium/blog only); Rebecca Enonchong BarCamp-2013 naming anecdote (kept implicit via Wikipedia link); any graduate-count or market-size numbers; UB-CSC described only as far as the OWASP page attests. CHARTER CHECKS: zero register-tripwire content — page contains no FATF/BODS/beneficial-ownership-register material at all; RÉCOR appears once, EN and FR, at exactly the approved ceiling phrasing. Pre-deployment honesty explicit in body and both commercial-intent FAQs; all system behavior in \\\"designed to\\\" language; thesis sentence verbatim EN/FR; only contact is info@sigilsovereign.com; no social links. CANNIBALIZATION GUARDS: this page targets only \\\"cybersecurity buea\\\" (query in title, first para, one H2, meta description — not repeated elsewhere); \\\"governed cybersecurity\\\"/\\\"cybersécurité gouvernée\\\" appears only as anchor text linking to /governed-cybersecurity/ and /fr/cybersecurite-gouvernee/, never as a heading; no targeting of \\\"cybersecurity Cameroon\\\" (left to the govtech/regtech hubs, which this page links up to per hub discipline); VIGIL specifics deferred to /systems/vigil/. Title lengths: EN 21 chars, FR 23 chars (≤55 before \\\" — SIGIL SARL\\\"). Meta descriptions: EN 141 chars, FR 146 chars (≤158), each containing the primary query naturally. Internal links use exact charter paths only: EN /company/ /systems/vigil/ /systems/recor/ /systems/apex/ /governed-cybersecurity/ /govtech-cameroon/ ; FR /fr/entreprise/ /fr/systemes/vigil/ /fr/systemes/recor/ /fr/systemes/apex/ /fr/cybersecurite-gouvernee/ /fr/govtech-cameroun/ . FR uses site conventions: typographic apostrophes, space before ; : ? !, professional register. Body ~1,450 words EN excluding FAQs; FR parity."
+}

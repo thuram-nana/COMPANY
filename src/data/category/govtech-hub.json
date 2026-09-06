@@ -1,0 +1,255 @@
+{
+ "en": {
+  "title": "GovTech in Cameroon: institutions, systems, road ahead",
+  "description": "A maintained map of govtech in Cameroon: ANTIC, MINPOSTEL, PATNuC, COLEPS, the interoperability agenda, and where SIGIL SARL sits in the landscape.",
+  "sections": [
+   {
+    "h": "What GovTech means",
+    "paras": [
+     "A state runs on systems: civil registries, payroll, procurement, identity, tax. GovTech is the discipline of rebuilding those systems as digital public infrastructure — and govtech in Cameroon has moved, within a decade, from isolated portals to a funded national program, a working e-procurement platform, and a draft legal corpus for digital government. This page maps that landscape: the institutions that steer it, the programs that finance it, the systems already in service, and what remains to be built. It is written as a maintained reference, not a news item; every claim below was re-verified against the cited sources in September 2026.",
+     "The most widely used definition comes from the <a href=\"https://www.worldbank.org/en/programs/govtech/priority-themes\" rel=\"noopener\">World Bank's Global Program on GovTech</a>: a whole-of-government approach to public-sector modernization, resting on three principles — universally accessible, user-centric public services; modernization of the whole of government rather than isolated showcase projects; and simple, efficient, transparent government systems. The emphasis matters. GovTech is not a ministry buying computers, and it is not a mobile app placed in front of an unchanged administration. It is the state treating its core systems — the ones that keep the civil record, pay salaries, and award contracts — as infrastructure: built to standards, auditable, and answerable to the citizens they serve.",
+     "The word carries a second meaning: a govtech company is a private firm that designs and builds such systems for public institutions. Cameroon has both meanings in play — a public digital-transformation agenda, and a small but real ecosystem of companies building for it. This page covers the first at length and situates one company, SIGIL SARL, precisely within it; the neighbouring <a href=\"/regtech-cameroon/\">regtech landscape</a> — regulators and compliance frameworks — has its own page."
+    ]
+   },
+   {
+    "h": "Govtech in Cameroon: who does what",
+    "paras": [
+     "Policy sits with the <a href=\"https://www.minpostel.gov.cm/index.php/en/\" rel=\"noopener\">Ministry of Posts and Telecommunications (MINPOSTEL)</a>, which develops and implements government policy for posts, telecommunications, and information and communication technologies, and has carried the digital-economy strategy for the past decade. When Cameroon negotiates digital-transformation financing or puts draft digital laws to public consultation, MINPOSTEL is the ministry doing it.",
+     "Technical authority sits largely with <a href=\"https://www.antic.cm/index.php/en/the-agency/organic-missions.html\" rel=\"noopener\">ANTIC</a>, the National Agency for Information and Communication Technologies, created by <a href=\"https://www.antic.cm/index.php/fr/l-agence/presentation.html\" rel=\"noopener\">presidential decree in 2002</a>. Its statutory missions run in two directions: promoting and monitoring public ICT policy — including the national ICT development strategy, the coordination of government websites, and the harmonization of technical standards across administrations — and regulating, controlling, and monitoring the security of electronic communication networks and information systems, together with electronic certification. ANTIC also manages the .cm country domain. In practice, it is at once the state's e-government coordinator and its cybersecurity and certification regulator.",
+     "Public procurement — the part of the digital state where money changes hands — has its own institutional pair: the Ministry of Public Contracts (MINMAP), which conducts and oversees contract award and operates the national e-procurement platform, and the <a href=\"https://armp.cm/\" rel=\"noopener\">Public Procurement Regulatory Agency (ARMP)</a>, which regulates the procurement system, handles disputes, conducts audits, and publishes the public-procurement journal.",
+     "The table below is a compact orientation; the sections that follow treat the two flagship undertakings — PATNuC and COLEPS — in more depth."
+    ],
+    "table": {
+     "head": [
+      "Institution or program",
+      "Role in Cameroon's digital state"
+     ],
+     "rows": [
+      [
+       "MINPOSTEL",
+       "Ministry of Posts and Telecommunications: develops and implements posts, telecoms, and ICT policy; leads the digital-economy strategy; hosts the PATNuC program."
+      ],
+      [
+       "ANTIC",
+       "National ICT agency (created 2002): promotes and monitors public ICT policy, coordinates e-government and technical standards, regulates cybersecurity and electronic certification, manages the .cm domain."
+      ],
+      [
+       "MINMAP",
+       "Ministry of Public Contracts: conducts and oversees public contract award; operates COLEPS, the national e-procurement platform."
+      ],
+      [
+       "ARMP",
+       "Public Procurement Regulatory Agency: regulates the procurement system, settles disputes, audits procedures, publishes the procurement journal."
+      ],
+      [
+       "PATNuC",
+       "World-Bank-financed Digital Transformation Acceleration Project (approved 2021): US$100 million for sector reform, connectivity, and digital agriculture."
+      ],
+      [
+       "COLEPS",
+       "Cameroon Online E-Procurement System: the national platform for publishing, bidding on, evaluating, and awarding public contracts, built with Korean cooperation."
+      ]
+     ]
+    }
+   },
+   {
+    "h": "PATNuC: the financed backbone of the agenda",
+    "paras": [
+     "On 28 September 2021, the World Bank approved a US$100 million International Development Association credit for the <a href=\"https://projects.worldbank.org/en/projects-operations/project-detail/P173240\" rel=\"noopener\">Acceleration of the Digital Transformation of Cameroon Project</a> — PATNuC, in its French acronym. The <a href=\"https://www.worldbank.org/en/news/press-release/2021/09/28/world-bank-provides-100-million-to-accelerate-digital-transformation-and-smart-agriculture-in-cameroon\" rel=\"noopener\">Bank's stated objective</a> is threefold: improve the strategic, policy, and regulatory environment for a safe and inclusive digital economy; reduce the geographic and social digital divides, which fall hardest on rural areas; and support data-driven solutions in agriculture.",
+     "The project was <a href=\"https://www.ecofinagency.com/telecom/2508-44801-cameroon-launches-world-bank-supported-digital-transformation-project-patnuc\" rel=\"noopener\">formally launched in August 2023</a> under MINPOSTEL's leadership, and the same launch coverage ties it to the National Development Strategy (SND30) and Vision 2035, the country's long-horizon planning frameworks. For govtech purposes, the component to watch is the first: institutional, legal, and regulatory frameworks for the digital sector. It is within the PATNuC framework that Cameroon has drafted and put to public consultation the corpus of digital texts described below — the part of the program that will outlast any single platform."
+    ]
+   },
+   {
+    "h": "COLEPS: procurement moves online",
+    "paras": [
+     "The <a href=\"https://www.minmap.cm/index.php?option=com_content&amp;view=article&amp;id=83%3Aprojet-coleps-2&amp;catid=10&amp;lang=en&amp;Itemid=101\" rel=\"noopener\">Cameroon Online E-Procurement System (COLEPS)</a> is the state's platform for public procurement, operated by MINMAP and built through cooperation with the Korea International Cooperation Agency (KOICA). It covers the procedure from planning through publication of tenders, bidding, evaluation, and award, including the filing of appeals — a one-stop application for the contracting cycle.",
+     "On 30 June 2025, the government unveiled a <a href=\"https://www.biometricupdate.com/202506/cameroon-unveils-upgraded-digital-procurement-system-with-12m-korean-grant\" rel=\"noopener\">substantially upgraded version</a>, financed by a US$12.5 million KOICA grant: online contract signing and real-time monitoring became possible, with integration to banks and financial institutions for automated verification of bid securities and performance guarantees. A <a href=\"https://www.businessincameroon.com/cooperation/0505-16125-cameroon-south-korea-review-cfa93-billion-development-partnership\" rel=\"noopener\">further grant of the same size</a> was announced for 2026 to make COLEPS interoperable with the information systems of the other actors in the public-contracts sector, and the government's stated target is a fully online procurement cycle by 2028.",
+     "The stakes are not abstract. COLEPS was <a href=\"https://www.biometricupdate.com/202506/cameroon-unveils-upgraded-digital-procurement-system-with-12m-korean-grant\" rel=\"noopener\">launched in 2018</a> after CONAC, the National Anti-Corruption Commission, had identified procurement among the sectors most exposed to corruption — which is precisely why the sequencing matters. Digitizing a procedure makes it faster; making it observable and auditable is what makes it cleaner. That distinction — between a system that processes transactions and a system that can prove what happened — is the axis on which the next decade of Cameroonian govtech will be judged."
+    ]
+   },
+   {
+    "h": "From isolated platforms to an interoperable state",
+    "paras": [
+     "The current frontier is interoperability. In August 2026, MINPOSTEL and the sector's institutions publicly framed the next step as moving <a href=\"https://www.biometricupdate.com/202608/cameroon-eyes-national-interoperability-infrastructure-to-drive-digital-govt\" rel=\"noopener\">beyond a juxtaposition of isolated platforms toward a genuine national digital ecosystem</a>: a legal framework for digital government, common standards and shared reference frameworks so that systems can exchange data, governance rules that treat data as a strategic resource, and strengthened cybersecurity and trust infrastructure.",
+     "The legal corpus is further along than is often assumed. A personal-data-protection law was <a href=\"https://www.biometricupdate.com/202608/cameroon-eyes-national-interoperability-infrastructure-to-drive-digital-govt\" rel=\"noopener\">enacted in December 2024</a>. And within the PATNuC framework, MINPOSTEL has put a broad set of draft texts to public consultation — <a href=\"https://www.droitmediasfinance.com/index.php/531-cameroun-le-public-consulte-sur-14-projets-de-texte-sur-le-numerique-donnees-personnelles-transactions-electroniques-et-govtech\" rel=\"noopener\">fourteen bills and decrees</a> covering electronic communications, cybersecurity, e-commerce and electronic transactions, e-government, the right of access to public information, personal-data protection, electronic exchanges between administrations and citizens, and an open portal for government data. A draft is not a law; but drafts show the direction of travel, and they are the texts against which the next generation of public systems will be evaluated."
+    ]
+   },
+   {
+    "h": "A state agency named \"Govtech\" — and a necessary disambiguation",
+    "paras": [
+     "Among the drafts put to consultation is one that deserves careful reading: a <a href=\"https://4mlegaltax.com/cameroons-digital-transformation/\" rel=\"noopener\">draft decree on the organization and functioning of a national e-government agency</a>, to be known as \"Govtech\" — <a href=\"https://www.droitmediasfinance.com/index.php/531-cameroun-le-public-consulte-sur-14-projets-de-texte-sur-le-numerique-donnees-personnelles-transactions-electroniques-et-govtech\" rel=\"noopener\">« l'agence nationale de l'e-gov “govtech” »</a> in the French of the draft. If adopted, it would give Cameroon a dedicated public agency for digital government. At our last review, in September 2026, it remained what it is: a draft that has been through public consultation. We have found no published decree bringing the agency into existence, and this page will be revised if that changes.",
+     "Because the word is about to do triple duty, precision helps. GovTech, the sector: the field this page describes — the modernization of public systems, in Cameroon as elsewhere. \"Govtech\", the proposed state agency: a public body that would exist by decree, if and when a decree is signed. And SIGIL SARL: a private Cameroonian company working in the govtech sector, founded in 2023 and based in Buea, with no institutional relationship to the proposed agency. This page is published by SIGIL and covers the sector; the company itself is described on <a href=\"/company/\">its own page</a>, and the name SIGIL is disambiguated <a href=\"/sigil/\">separately</a>. A future state agency called \"Govtech\" would be a separate thing entirely, and this page would say so."
+    ]
+   },
+   {
+    "h": "What a govtech company is — and where SIGIL sits",
+    "paras": [
+     "A govtech company is a private firm that designs and builds systems for public institutions — which makes its obligations different from those of an ordinary software vendor. Its systems decide things that matter: what a record says, who may act, and what can be proven afterwards. The measure of such a company is not the size of its demo but the verifiability of its claims.",
+     "SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) is a Cameroonian govtech company, founded in 2023 by Junior Thuram Nana, based in Buea, and registered under RCCM RC.BUA.2026.B.0190. It designs <a href=\"/sovereign-governance-infrastructure/\">sovereign governance infrastructure</a> for public institutions, under one standing rule: the institution holds the keys; the data stays under the institution's control; every consequential action is authorized, bounded, and proven.",
+     "Three systems carry that rule into the domains this page has mapped. <a href=\"/systems/vigil/\">VIGIL</a> is a <a href=\"/governed-cybersecurity/\">governed cybersecurity</a> and evidence platform, designed for the defensive work that ANTIC's mandate makes a national priority. <a href=\"/systems/recor/\">RÉCOR</a> is a sovereign beneficial-ownership registry designed for Cameroon. <a href=\"/systems/apex/\">APEX</a> is an anti-corruption intelligence system for public procurement, designed to read public data and detect defined patterns of procurement fraud while a human institution takes every consequential decision — the same terrain whose stakes the history of COLEPS makes plain.",
+     "The status of all three is stated plainly, because a govtech landscape page that inflated its own publisher would fail its own test. VIGIL, RÉCOR, and APEX are pre-deployment: SIGIL has no customers, no deployments, no pilots, and no revenue to date, and all source code is kept strictly private. What exists on the record is specific and small: RÉCOR was fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026. This is a technical demonstration, not an endorsement. UNDP Cameroon issued a letter of appreciation in 2026; and APME, the Small and Medium Enterprises Promotion Agency, invited SIGIL to present to its digitalization unit in 2026. Nothing more is claimed, and nothing less."
+    ]
+   },
+   {
+    "h": "The road ahead: what institutions should demand",
+    "paras": [
+     "Cameroon's govtech trajectory — a financed program, a working procurement platform, a legal corpus in draft, an interoperability agenda — now runs into the questions that decide whether digital government earns trust. They are procurement questions, and any institution evaluating a system, from any vendor, can write them into the tender:",
+     "These are the questions SIGIL builds against — the argument is set out in full in the <a href=\"/sovereign-governance-infrastructure/\">sovereign governance infrastructure</a> doctrine — but their value does not depend on SIGIL. A ministry that writes them into its next call for tenders raises the floor for every bidder.",
+     "This page is a maintained landscape. It was last reviewed in September 2026 against the sources cited above; when institutions change, programs close, or the draft decree creating the \"Govtech\" agency is adopted, it will be revised. Corrections are welcome at info@sigilsovereign.com."
+    ],
+    "list": [
+     "Sovereignty: does the system run on infrastructure the institution controls, and does the institution — not the vendor — hold the keys to its own data?",
+     "Auditability: is every consequential action recorded in a tamper-evident trail, so that what the system did can be proven rather than asserted?",
+     "Open standards: does the data export to open formats, so that it outlives the vendor and no future migration is held hostage?",
+     "Fail-closed control: when a control is absent or a check fails, does the system stop — or does it quietly proceed?",
+     "Honest status: does the vendor state plainly what is deployed, what is demonstrated, and what is merely designed?"
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is GovTech?",
+    "a": "GovTech is a whole-of-government approach to modernizing the public sector with digital systems, resting on three principles: universally accessible, citizen-centric public services; modernization across government rather than isolated projects; and simple, efficient, transparent government systems. The term also describes the companies that build such systems for public institutions."
+   },
+   {
+    "q": "Is SIGIL a GovTech company?",
+    "a": "Yes, in the sector sense of the word: SIGIL SARL is a Cameroonian company, founded in 2023 and based in Buea, that builds sovereign governance infrastructure for public institutions — systems where the institution holds the keys, the data stays under the institution's control, and every consequential action is authorized, bounded, and proven. Its three systems — VIGIL, RÉCOR, and APEX — are pre-deployment: SIGIL has no customers or deployments to date, and says so plainly."
+   },
+   {
+    "q": "Is SIGIL SARL the same as the proposed state agency \"Govtech\"?",
+    "a": "No. A draft decree circulated for public consultation in Cameroon would create a national e-government agency to be known as \"Govtech\". That would be a public body established by decree. SIGIL SARL is a private Cameroonian company working in the govtech sector, with no relationship to the proposed agency. As of the last review of this page, no published decree creating the agency has been found."
+   },
+   {
+    "q": "What are PATNuC and COLEPS?",
+    "a": "PATNuC is Cameroon's Digital Transformation Acceleration Project, backed by a US$100 million World Bank credit approved in 2021; it finances sector reform, connectivity, and digital agriculture. COLEPS is the Cameroon Online E-Procurement System, operated by the Ministry of Public Contracts and built with Korean cooperation; an upgrade unveiled in 2025 added online contract signing and real-time monitoring."
+   }
+  ]
+ },
+ "fr": {
+  "title": "La GovTech au Cameroun : institutions et systèmes",
+  "description": "Panorama entretenu de la govtech au Cameroun : ANTIC, MINPOSTEL, PATNuC, COLEPS, l'agenda d'interopérabilité, et la place de SIGIL SARL dans ce paysage.",
+  "sections": [
+   {
+    "h": "Ce que « GovTech » veut dire",
+    "paras": [
+     "Un État repose sur des systèmes : état civil, solde, commande publique, identité, impôt. La govtech est la discipline qui reconstruit ces systèmes en infrastructure publique numérique — et la govtech au Cameroun est passée, en une décennie, de portails isolés à un programme national financé, à une plateforme de passation électronique des marchés en service et à un corpus juridique du numérique en projet. Cette page cartographie ce paysage : les institutions qui le pilotent, les programmes qui le financent, les systèmes déjà en service et ce qui reste à bâtir. Elle est écrite comme une référence entretenue, non comme un article d'actualité ; chaque affirmation ci-dessous a été revérifiée auprès des sources citées en septembre 2026.",
+     "La définition la plus utilisée vient du <a href=\"https://www.worldbank.org/en/programs/govtech/priority-themes\" rel=\"noopener\">programme mondial GovTech de la Banque mondiale</a> : une approche de modernisation du secteur public à l'échelle de l'État tout entier, fondée sur trois principes — des services publics universellement accessibles et centrés sur l'usager ; une modernisation d'ensemble plutôt que des projets vitrines isolés ; des systèmes publics simples, efficaces et transparents. L'accent compte. La govtech n'est pas un ministère qui achète des ordinateurs, ni une application mobile posée devant une administration inchangée. C'est l'État qui traite ses systèmes essentiels — ceux qui tiennent l'état civil, versent les soldes et attribuent les marchés — comme une infrastructure : bâtie selon des standards, auditable, et redevable envers les citoyens qu'elle sert.",
+     "Le mot porte un second sens : une entreprise govtech est une société privée qui conçoit et construit de tels systèmes pour les institutions publiques. Le Cameroun connaît les deux sens à la fois — un agenda public de transformation numérique, et un écosystème modeste mais réel d'entreprises qui construisent pour lui. Cette page traite longuement du premier et situe précisément une entreprise, SIGIL SARL, dans ce paysage ; le paysage <a href=\"/fr/regtech-cameroun/\">regtech voisin</a> — régulateurs et cadres de conformité — a sa propre page."
+    ]
+   },
+   {
+    "h": "La govtech au Cameroun : qui fait quoi",
+    "paras": [
+     "La politique publique relève du <a href=\"https://www.minpostel.gov.cm/index.php/fr/le-ministere/missions-du-minpostel\" rel=\"noopener\">Ministère des Postes et Télécommunications (MINPOSTEL)</a>, chargé de l'élaboration et de la mise en œuvre de la politique du Gouvernement en matière de postes, de télécommunications et de technologies de l'information et de la communication, et qui porte depuis une décennie la stratégie d'économie numérique. Quand le Cameroun négocie un financement de transformation numérique ou soumet des projets de textes du numérique à consultation publique, c'est le MINPOSTEL qui agit.",
+     "L'autorité technique revient pour l'essentiel à l'<a href=\"https://www.antic.cm/\" rel=\"noopener\">ANTIC</a>, l'Agence Nationale des Technologies de l'Information et de la Communication, créée par <a href=\"https://www.antic.cm/index.php/fr/l-agence/presentation.html\" rel=\"noopener\">décret présidentiel en 2002</a>. Ses missions statutaires vont dans deux directions : promouvoir et suivre la politique publique des TIC — y compris la stratégie nationale de développement des TIC, la coordination des sites web de l'État et l'harmonisation des standards techniques entre administrations — et réguler, contrôler et suivre les activités liées à la sécurité des réseaux de communications électroniques et des systèmes d'information, ainsi que la certification électronique. L'ANTIC gère aussi le domaine national .cm. En pratique, elle est à la fois le coordinateur de l'e-gouvernement et le régulateur de la cybersécurité et de la certification.",
+     "La commande publique — la partie de l'État numérique où l'argent change de mains — a son propre couple institutionnel : le Ministère des Marchés Publics (MINMAP), qui conduit et supervise l'attribution des marchés et exploite la plateforme nationale de passation électronique, et l'<a href=\"https://armp.cm/\" rel=\"noopener\">Agence de Régulation des Marchés Publics (ARMP)</a>, qui régule le système des marchés, connaît des litiges, conduit des audits et publie le journal des marchés publics.",
+     "Le tableau ci-dessous sert d'orientation rapide ; les sections suivantes traitent plus en profondeur les deux chantiers phares — le PATNuC et COLEPS."
+    ],
+    "table": {
+     "head": [
+      "Institution ou programme",
+      "Rôle dans l'État numérique camerounais"
+     ],
+     "rows": [
+      [
+       "MINPOSTEL",
+       "Ministère des Postes et Télécommunications : élabore et met en œuvre la politique des postes, des télécommunications et des TIC ; porte la stratégie d'économie numérique ; héberge le programme PATNuC."
+      ],
+      [
+       "ANTIC",
+       "Agence nationale des TIC (créée en 2002) : promeut et suit la politique publique des TIC, coordonne l'e-gouvernement et les standards techniques, régule la cybersécurité et la certification électronique, gère le domaine .cm."
+      ],
+      [
+       "MINMAP",
+       "Ministère des Marchés Publics : conduit et supervise l'attribution des marchés publics ; exploite COLEPS, la plateforme nationale de passation électronique."
+      ],
+      [
+       "ARMP",
+       "Agence de Régulation des Marchés Publics : régule le système des marchés, connaît des litiges, audite les procédures, publie le journal des marchés publics."
+      ],
+      [
+       "PATNuC",
+       "Projet d'Accélération de la Transformation Numérique du Cameroun, financé par la Banque mondiale (approuvé en 2021) : 100 millions de dollars US pour la réforme du secteur, la connectivité et l'agriculture numérique."
+      ],
+      [
+       "COLEPS",
+       "Cameroon Online E-Procurement System : la plateforme nationale de publication, de soumission, d'évaluation et d'attribution des marchés publics, bâtie avec la coopération coréenne."
+      ]
+     ]
+    }
+   },
+   {
+    "h": "Le PATNuC : l'ossature financée de l'agenda",
+    "paras": [
+     "Le 28 septembre 2021, la Banque mondiale a approuvé un crédit de l'Association internationale de développement de 100 millions de dollars US pour le <a href=\"https://projects.worldbank.org/en/projects-operations/project-detail/P173240\" rel=\"noopener\">Projet d'Accélération de la Transformation Numérique du Cameroun (PATNuC)</a>. <a href=\"https://www.worldbank.org/en/news/press-release/2021/09/28/world-bank-provides-100-million-to-accelerate-digital-transformation-and-smart-agriculture-in-cameroon\" rel=\"noopener\">L'objectif affiché</a> est triple : améliorer l'environnement stratégique, politique et réglementaire d'une économie numérique sûre et inclusive ; réduire les fractures numériques géographiques et sociales, qui pèsent d'abord sur les zones rurales ; et soutenir des solutions fondées sur les données dans l'agriculture.",
+     "Le projet a été <a href=\"https://www.ecofinagency.com/telecom/2508-44801-cameroon-launches-world-bank-supported-digital-transformation-project-patnuc\" rel=\"noopener\">officiellement lancé en août 2023</a> sous la conduite du MINPOSTEL, et la même couverture du lancement le rattache à la Stratégie Nationale de Développement (SND30) et à la Vision 2035, les cadres de planification de long terme du pays. Pour la govtech, la composante à suivre est la première : les cadres institutionnels, juridiques et réglementaires du secteur numérique. C'est dans le cadre du PATNuC que le Cameroun a élaboré et soumis à consultation publique le corpus de textes du numérique décrit plus bas — la partie du programme qui survivra à toute plateforme prise isolément."
+    ]
+   },
+   {
+    "h": "COLEPS : la commande publique passe en ligne",
+    "paras": [
+     "Le <a href=\"https://www.minmap.cm/index.php?option=com_content&amp;view=article&amp;id=83%3Aprojet-coleps-2&amp;catid=10&amp;lang=en&amp;Itemid=101\" rel=\"noopener\">Cameroon Online E-Procurement System (COLEPS)</a> est la plateforme de l'État pour la passation des marchés publics, exploitée par le MINMAP et bâtie en coopération avec l'agence coréenne de coopération internationale (KOICA). Elle couvre la procédure de la planification à l'attribution — publication des avis, soumission, évaluation, sélection — jusqu'au dépôt des recours : un guichet unique du cycle contractuel.",
+     "Le 30 juin 2025, le gouvernement a dévoilé une <a href=\"https://www.biometricupdate.com/202506/cameroon-unveils-upgraded-digital-procurement-system-with-12m-korean-grant\" rel=\"noopener\">version substantiellement améliorée</a>, financée par un don KOICA de 12,5 millions de dollars US : la signature des contrats en ligne et le suivi en temps réel deviennent possibles, avec une intégration aux banques et institutions financières pour la vérification automatisée des cautions de soumission et des garanties de bonne exécution. Un <a href=\"https://www.businessincameroon.com/cooperation/0505-16125-cameroon-south-korea-review-cfa93-billion-development-partnership\" rel=\"noopener\">don supplémentaire du même montant</a> a été annoncé pour 2026 afin de rendre COLEPS interopérable avec les systèmes d'information des autres acteurs du secteur des marchés publics, l'objectif affiché étant un cycle de passation entièrement en ligne à l'horizon 2028.",
+     "L'enjeu n'a rien d'abstrait. COLEPS a été <a href=\"https://www.biometricupdate.com/202506/cameroon-unveils-upgraded-digital-procurement-system-with-12m-korean-grant\" rel=\"noopener\">lancé en 2018</a> après que la CONAC, la Commission Nationale Anti-Corruption, eut identifié la commande publique parmi les secteurs les plus exposés à la corruption — et c'est précisément pourquoi l'ordre des priorités compte. Numériser une procédure la rend plus rapide ; la rendre observable et auditable, voilà ce qui la rend plus propre. Cette distinction — entre un système qui traite des transactions et un système qui peut prouver ce qui s'est passé — est l'axe sur lequel la prochaine décennie de la govtech camerounaise sera jugée."
+    ]
+   },
+   {
+    "h": "Des plateformes isolées à l'État interopérable",
+    "paras": [
+     "La frontière actuelle est l'interopérabilité. En août 2026, le MINPOSTEL et les institutions du secteur ont publiquement défini l'étape suivante : dépasser <a href=\"https://www.biometricupdate.com/202608/cameroon-eyes-national-interoperability-infrastructure-to-drive-digital-govt\" rel=\"noopener\">la juxtaposition de plateformes isolées pour bâtir un véritable écosystème numérique national</a> — un cadre juridique de l'e-gouvernement, des standards communs et des référentiels partagés pour que les systèmes échangent leurs données, des règles de gouvernance qui traitent la donnée comme une ressource stratégique, et une infrastructure de cybersécurité et de confiance renforcée.",
+     "Le corpus juridique est plus avancé qu'on ne le croit souvent. Une loi sur la protection des données personnelles a été <a href=\"https://www.biometricupdate.com/202608/cameroon-eyes-national-interoperability-infrastructure-to-drive-digital-govt\" rel=\"noopener\">promulguée en décembre 2024</a>. Et dans le cadre du PATNuC, le MINPOSTEL a soumis à consultation publique un ensemble de <a href=\"https://www.droitmediasfinance.com/index.php/531-cameroun-le-public-consulte-sur-14-projets-de-texte-sur-le-numerique-donnees-personnelles-transactions-electroniques-et-govtech\" rel=\"noopener\">quatorze projets de lois et de décrets</a> couvrant les communications électroniques, la cybersécurité, le commerce et les transactions électroniques, l'e-gouvernement, le droit d'accès à l'information publique, la protection des données personnelles, les échanges électroniques entre administrations et usagers, et un portail de données publiques. Un projet de texte n'est pas une loi ; mais il montre la direction, et c'est à l'aune de ces textes que la prochaine génération de systèmes publics sera évaluée."
+    ]
+   },
+   {
+    "h": "Une agence d'État nommée « Govtech » — et une désambiguïsation nécessaire",
+    "paras": [
+     "Parmi les projets soumis à consultation figure un texte qui mérite une lecture attentive : le <a href=\"https://www.droitmediasfinance.com/index.php/531-cameroun-le-public-consulte-sur-14-projets-de-texte-sur-le-numerique-donnees-personnelles-transactions-electroniques-et-govtech\" rel=\"noopener\">projet de décret portant organisation et fonctionnement de l'agence nationale de l'e-gov, dénommée « Govtech »</a> — également relevé par des <a href=\"https://4mlegaltax.com/cameroons-digital-transformation/\" rel=\"noopener\">analyses juridiques en anglais</a>. S'il est adopté, il doterait le Cameroun d'une agence publique dédiée à l'e-gouvernement. À notre dernière revue, en septembre 2026, il demeurait ce qu'il est : un projet passé par la consultation publique. Nous n'avons trouvé aucun décret publié créant l'agence, et cette page sera révisée si cela change.",
+     "Parce que le mot est appelé à un triple emploi, la précision s'impose. La govtech, comme secteur : le champ que décrit cette page — la modernisation des systèmes publics, au Cameroun comme ailleurs. « Govtech », l'agence d'État en projet : un organisme public qui existerait par décret, si et quand un décret est signé. Et SIGIL SARL : une entreprise camerounaise privée du secteur govtech, fondée en 2023 et basée à Buea, sans aucun lien institutionnel avec l'agence en projet. Cette page est publiée par SIGIL et couvre le secteur ; l'entreprise elle-même est décrite sur <a href=\"/fr/entreprise/\">sa propre page</a>, et le nom SIGIL est désambiguïsé <a href=\"/fr/sigil/\">séparément</a>. Une future agence d'État nommée « Govtech » serait une chose entièrement distincte, et cette page le dirait."
+    ]
+   },
+   {
+    "h": "Ce qu'est une entreprise govtech — et la place de SIGIL",
+    "paras": [
+     "Une entreprise govtech est une société privée qui conçoit et construit des systèmes pour les institutions publiques — ce qui lui impose des obligations différentes de celles d'un éditeur ordinaire. Ses systèmes décident de choses qui comptent : ce que dit un enregistrement, qui peut agir, ce qui peut être prouvé après coup. La mesure d'une telle entreprise n'est pas la taille de sa démonstration, mais la vérifiabilité de ses affirmations.",
+     "SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) est une entreprise govtech camerounaise, fondée en 2023 par Junior Thuram Nana, basée à Buea et immatriculée sous le RCCM RC.BUA.2026.B.0190. Elle conçoit une <a href=\"/fr/infrastructure-de-gouvernance-souveraine/\">infrastructure de gouvernance souveraine</a> pour les institutions publiques, selon une règle constante : l'institution détient les clés ; les données restent sous le contrôle de l'institution ; chaque action conséquente est autorisée, bornée et prouvée.",
+     "Trois systèmes portent cette règle dans les domaines que cette page vient de cartographier. <a href=\"/fr/systemes/vigil/\">VIGIL</a> est une plateforme de <a href=\"/fr/cybersecurite-gouvernee/\">cybersécurité gouvernée</a> et de preuve, conçue pour le travail défensif que le mandat de l'ANTIC érige en priorité nationale. <a href=\"/fr/systemes/recor/\">RÉCOR</a> est un registre souverain des bénéficiaires effectifs conçu pour le Cameroun. <a href=\"/fr/systemes/apex/\">APEX</a> est un système de renseignement anti-corruption pour la commande publique, conçu pour lire des données publiques et détecter des schémas définis de fraude aux marchés, une institution humaine prenant chaque décision conséquente — le terrain même dont l'histoire de COLEPS montre les enjeux.",
+     "Le statut des trois systèmes est dit sans détour, car une page de paysage govtech qui enflerait son propre éditeur échouerait à son propre test. VIGIL, RÉCOR et APEX sont en pré-déploiement : SIGIL n'a à ce jour ni client, ni déploiement, ni pilote, ni chiffre d'affaires, et l'intégralité du code source est gardée strictement privée. Ce qui existe au dossier est précis et modeste : RÉCOR a fait l'objet d'une démonstration complète auprès d'Open Ownership le 1 juillet 2026, et Open Ownership en a pris acte. Il s'agit d'une démonstration technique, non d'un soutien institutionnel. Le PNUD Cameroun a émis une lettre d'appréciation en 2026 ; et l'APME, l'Agence de Promotion des Petites et Moyennes Entreprises, a invité SIGIL à présenter devant son unité de digitalisation en 2026. Rien de plus n'est revendiqué, rien de moins."
+    ]
+   },
+   {
+    "h": "La route à suivre : ce que les institutions devraient exiger",
+    "paras": [
+     "La trajectoire govtech du Cameroun — un programme financé, une plateforme de passation en service, un corpus juridique en projet, un agenda d'interopérabilité — débouche désormais sur les questions qui décident si le gouvernement numérique mérite la confiance. Ce sont des questions de commande publique, et toute institution qui évalue un système, quel qu'en soit le fournisseur, peut les inscrire dans son cahier des charges :",
+     "Ce sont les questions contre lesquelles SIGIL construit — l'argument est développé dans la doctrine d'<a href=\"/fr/infrastructure-de-gouvernance-souveraine/\">infrastructure de gouvernance souveraine</a> — mais leur valeur ne dépend pas de SIGIL. Un ministère qui les inscrit dans son prochain appel d'offres relève le niveau pour tous les soumissionnaires.",
+     "Cette page est un paysage entretenu. Elle a été revue pour la dernière fois en septembre 2026 auprès des sources citées ci-dessus ; quand les institutions changeront, quand des programmes s'achèveront, ou si le projet de décret créant l'agence « Govtech » est adopté, elle sera révisée. Les corrections sont bienvenues à info@sigilsovereign.com."
+    ],
+    "list": [
+     "Souveraineté : le système s'exécute-t-il sur une infrastructure que l'institution contrôle, et l'institution — non le fournisseur — détient-elle les clés de ses propres données ?",
+     "Auditabilité : chaque action conséquente est-elle consignée dans une piste infalsifiable, de sorte que ce que le système a fait puisse être prouvé plutôt qu'affirmé ?",
+     "Standards ouverts : les données s'exportent-elles vers des formats ouverts, pour survivre au fournisseur et qu'aucune migration future ne soit prise en otage ?",
+     "Contrôles fail-closed : quand un contrôle est absent ou qu'une vérification échoue, le système s'arrête-t-il — ou continue-t-il en silence ?",
+     "Statut honnête : le fournisseur dit-il clairement ce qui est déployé, ce qui est démontré, et ce qui n'est encore que conçu ?"
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Qu'est-ce que la GovTech ?",
+    "a": "La GovTech est une approche de modernisation du secteur public par les systèmes numériques, à l'échelle de l'État tout entier, fondée sur trois principes : des services publics universellement accessibles et centrés sur le citoyen ; une modernisation d'ensemble plutôt que des projets isolés ; des systèmes publics simples, efficaces et transparents. Le terme désigne aussi les entreprises qui construisent de tels systèmes pour les institutions publiques."
+   },
+   {
+    "q": "SIGIL est-elle une entreprise GovTech ?",
+    "a": "Oui, au sens sectoriel du terme : SIGIL SARL est une entreprise camerounaise, fondée en 2023 et basée à Buea, qui conçoit une infrastructure de gouvernance souveraine pour les institutions publiques — des systèmes où l'institution détient les clés, où les données restent sous le contrôle de l'institution, et où chaque action conséquente est autorisée, bornée et prouvée. Ses trois systèmes — VIGIL, RÉCOR et APEX — sont en pré-déploiement : SIGIL n'a à ce jour ni client ni déploiement, et le dit sans détour."
+   },
+   {
+    "q": "SIGIL SARL est-elle l'agence d'État « Govtech » en projet ?",
+    "a": "Non. Un projet de décret soumis à consultation publique au Cameroun créerait une agence nationale de l'e-gouvernement dénommée « Govtech ». Ce serait un organisme public institué par décret. SIGIL SARL est une entreprise camerounaise privée du secteur govtech, sans lien avec l'agence en projet. À la dernière revue de cette page, aucun décret publié créant cette agence n'a été trouvé."
+   },
+   {
+    "q": "Que sont le PATNuC et COLEPS ?",
+    "a": "Le PATNuC est le Projet d'Accélération de la Transformation Numérique du Cameroun, soutenu par un crédit de 100 millions de dollars US de la Banque mondiale approuvé en 2021 ; il finance la réforme du secteur, la connectivité et l'agriculture numérique. COLEPS est le Cameroon Online E-Procurement System, exploité par le Ministère des Marchés Publics et bâti avec la coopération coréenne ; une version améliorée dévoilée en 2025 a ajouté la signature des contrats en ligne et le suivi en temps réel."
+   }
+  ]
+ },
+ "notes": "INTEGRATOR NOTES — GovTech hub (EN /govtech-cameroon/, FR /fr/govtech-cameroun/), drafted 2026-09-06; repaired 2026-09-06 (OO wording made standalone-canonical EN+FR, US$30M agriculture figure dropped, SND30/Vision 2035 re-anchored, ANTIC 2002 citation substantiated).\n\nVERIFIED SOURCES (all fetched or search-confirmed live this session):\n- World Bank GovTech definition: worldbank.org/en/programs/govtech/priority-themes (3 principles, whole-of-government).\n- MINPOSTEL mandate: minpostel.gov.cm EN home + FR missions page (policy for posts/telecoms/ICT; digital-economy strategy).\n- ANTIC missions: antic.cm/index.php/en/the-agency/organic-missions.html (ICT-policy promotion; cybersecurity + e-certification regulation; .cm registry; standards harmonization; e-gov coordination; the decree that page cites is No. 2012/180 of 10 Apr 2012, its organic text). ANTIC 2002 creation: now cited on-page in BOTH languages to antic.cm/index.php/fr/l-agence/presentation.html, fetched live this session — exact wording « crée, par décret n°2002/092 du 08 avril 2002, l'Agence Nationale des Technologies de l'Information et de la Communication (ANTIC) ». The EN presentation page does NOT state the date and prc.cm's ANTIC page is \"on construction\", so the FR agency page is the citation for both languages.\n- PATNuC: World Bank press release 2021-09-28 (US$100M IDA credit approved 28 Sep 2021; three objectives — its only dollar figure is $100M) + projects.worldbank.org P173240 + ecofinagency.com launch article (formal launch Aug 2023 under MINPOSTEL; states the project \"should contribute to the realization of the National Development Strategy SND30 and 'Vision 2035'\" — this article now carries the SND30/Vision 2035 claim in both languages, attributed as \"the same launch coverage\" / « la même couverture du lancement »). patnuc.cm/what-is-patnuc and minpostel.gov.cm/fr/actualites/370 citations REMOVED — verified live that neither page states the SND30/Vision 2035 tie.\n- COLEPS: minmap.cm COLEPS project page (MINMAP-operated, KOICA cooperation, planning-to-award + appeals scope); biometricupdate.com/202506 (upgrade unveiled 30 Jun 2025, US$12.5M KOICA grant, online contract signing, real-time monitoring, bank integration, launched 2018, CONAC corruption context, 2028 full-online target); businessincameroon.com/cooperation/0505-16125 (additional US$12.5M for 2026 COLEPS interoperability).\n- Interoperability agenda: biometricupdate.com/202608 (Aug 2026 national-ecosystem framing; data-protection law enacted Dec 2024; NDS30 alignment).\n- Draft \"Govtech\" agency decree: VERIFIED via two independent sources — droitmediasfinance.com/531 (FR: « projet de décret portant organisation et fonctionnement de l'agence nationale de l'e-gov \"govtech\" », among 14 draft texts consulted under PATNuC) and 4mlegaltax.com/cameroons-digital-transformation (\"Draft decree on the Organization and Functioning of the National E-Gov Agency 'Govtech'\"). Included per brief WITH disambiguation section + dedicated FAQ. No signed/published decree creating the agency found; page states exactly that (\"we have found no published decree\") — revise this section first on future reviews.\n\nDROPPED (unverifiable or single weak source): US$30M agriculture allocation within the PATNuC credit — NOT in the 2021 press release and not confirmed on P173240 summaries or the June 2026 World Bank agritech feature; reinstate only from a World Bank document (e.g. the PAD component cost table) fetched, verified, and cited directly; COLEPS 2026 \"zero-tolerance\"/exclusive-gateway mandate (only tendersgo.com); PATNuC end date 2027 (secondary only); minister names (durability — personnel change); farmer-count statistics (off-topic).\n\nCHARTER AUDIT: No mention anywhere of any Cameroonian beneficial-ownership register, RCBE, DGI, or bef.harmony2.cm; FATF/GAFI and BODS deliberately not mentioned at all on this page; RÉCOR appears exactly once per language at the approved ceiling wording. Open Ownership record now canonical in BOTH languages: EN carries the verbatim \"fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026\" followed by the standalone sentence \"This is a technical demonstration, not an endorsement.\"; FR carries the standalone « Il s'agit d'une démonstration technique, non d'un soutien institutionnel. » — matching recor.js proofCallout in both languages. UNDP + APME phrased per facts.json. Thesis verbatim in both languages. Pre-deployment stated explicitly (no customers/deployments/pilots/revenue; source code private). Only contact: info@sigilsovereign.com.\n\nSEO / CANNIBALIZATION GUARDS: EN title 54 chars, FR title 49 chars (before \" — SIGIL SARL\"); descriptions 147/152 chars with primary query. Primary query in title, first paragraph, and one H2 (\"Govtech in Cameroon: who does what\" / \"La govtech au Cameroun : qui fait quoi\"). COBAC/BEAC/GABAC/OHADA and compliance frameworks deliberately EXCLUDED — they belong to /regtech-cameroon/, which is linked once from section 1. \"Sovereign governance infrastructure\" and \"governed cybersecurity\" appear only as anchor text to their doctrine pages, never as headings. Internal links used — EN: /systems/vigil/, /systems/recor/, /systems/apex/, /company/, /sigil/, /regtech-cameroon/, /sovereign-governance-infrastructure/ (x2), /governed-cybersecurity/; FR mirrors with exact charter paths. /cybersecurity-buea/ (and FR twin) intentionally not linked — no natural anchor on this page. MINMAP COLEPS URL contains &amp;-escaped ampersands (HTML-fragment-safe). Word counts approx. 2,430 (EN) / 2,480 (FR) including table and FAQs."
+}

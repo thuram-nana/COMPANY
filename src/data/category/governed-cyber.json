@@ -1,0 +1,117 @@
+{
+ "en": {
+  "title": "Governed cybersecurity",
+  "description": "Governed cybersecurity defined: capability is never authorization, findings are independently re-verified, every action is attributable to the institution.",
+  "sections": [
+   {
+    "h": "What governed cybersecurity means",
+    "paras": [
+     "Governed cybersecurity is a property of a security system, not a policy about one. A cybersecurity platform is governed when three rules are enforced by the system itself: a technical capability is never an authorization; no finding is trusted until it has been independently re-verified; and the institution that operates the system can always read its own data, export it, and stop the machine. The term is ours — SIGIL SARL, a Cameroonian company building sovereign governance infrastructure from Buea — and this page defines it precisely, because a coined term that stays vague is just marketing.",
+     "The three rules are not aspirations written into a manual. They are constraints designed into the software: checks that refuse an action when authorization is incomplete, verification machinery that will not promote an observation into a fact, and an ownership model in which the operating institution — not the vendor — holds the keys. Each rule can be tested by an evaluator against the system in front of them, and each fails closed: where a control is absent, the answer is no."
+    ]
+   },
+   {
+    "h": "Distinct from governance frameworks",
+    "paras": [
+     "Cybersecurity governance is an established management discipline, and this page is not an attempt to rename it. Governance frameworks direct how an organization manages cyber risk — the Govern function of the <a href=\"https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final\" rel=\"noopener\">NIST Cybersecurity Framework 2.0</a> (2024), for example, covers an organization’s “risk management strategy, expectations, and policy”. That work is necessary. It is also, by nature, work on paper: strategies, roles, policies, and oversight, addressed to people.",
+     "Governed cybersecurity names a different, complementary property: what the running system itself enforces. A policy can require that no engineer probes a network without authorization; a governed platform is built so that the probe does not run without it. Where governance manages risk through documents and oversight, a governed system refuses, verifies, and records by construction. An institution needs both — and only one of the two can be audited by putting the machine in front of an evaluator."
+    ]
+   },
+   {
+    "h": "The three rules, plainly",
+    "paras": [
+     "None of the three rules requires a security background to evaluate. Each is a plain commitment about what the system will refuse to do, and each is written so that an institutional reader — a permanent secretary, an auditor, a director of information systems — can hold the platform to it.",
+     "<strong>A technical capability is never an authorization.</strong> In most software, whatever a tool can do, it is trusted to do. A governed system rejects that default. Being able to scan a network, test a password, or change a configuration confers no right to do so: every consequential action must pass a chain of independent checks — the identity of the person asking, the exact permission they hold, a signed usage right, the authorized scope of the engagement, and human approval where the risk demands it. No model, agent, or plugin can grant itself permission. If any link in the chain is missing, the action is refused: the system fails closed rather than assuming consent.",
+     "<strong>No finding is trusted until it is independently re-verified.</strong> Security tools produce observations, and observations are sometimes wrong. In a governed platform an observation is treated as a lead, not a fact: before it enters a report as proven, an independent, deterministic check must reproduce it, and the confirmed fact is signed so it can be re-checked later — including offline, without trusting the platform that produced it. Reports separate what is proven from what is merely observed, and the absence of a signal is never presented as proof of absence. An institution acting on such a report knows exactly which claims carry evidence.",
+     "<strong>The institution can always read, export, and stop.</strong> Whatever the commercial state of the system — a licence expired, a usage right revoked, a dispute with the vendor — the operating institution can always read its own data, export it in full, and bring the system to a safe stop. Revocation blocks new sensitive actions; it never locks the institution out of its own evidence, and it never removes the stop. There is no hidden administrative account and no remote channel through which the vendor can reach into the deployment. In one sentence, the standing rule: the institution holds the keys; the data stays under the institution’s control; every consequential action is authorized, bounded, and proven."
+    ]
+   },
+   {
+    "h": "Why this matters for public institutions",
+    "paras": [
+     "A public institution cannot outsource its accountability. When a ministry, a regulator, or a public agency operates a security capability, it answers for every action that capability takes — to auditors, to courts, and ultimately to citizens. A powerful tool whose actions cannot be attributed, bounded, or stopped is not an asset for such an institution; it is a standing liability.",
+     "The three rules answer the questions institutions are actually asked after the fact. Who authorized this action, and can you prove it? Attribution, in a tamper-evident audit trail. How do you know this finding is true? Independent re-verification, signed and re-checkable. What happens if the vendor disappears, or the relationship sours? The institution reads, exports, and stops — on its own authority. This is what SIGIL means by <a href=\"/sovereign-governance-infrastructure/\">sovereign governance infrastructure</a>: technology a public institution can adopt without surrendering control to the people who built it."
+    ]
+   },
+   {
+    "h": "VIGIL, where the rules are built in",
+    "paras": [
+     "VIGIL is SIGIL’s instantiation of governed cybersecurity: a platform designed to help duly authorized operators find, confirm, remediate, and document vulnerabilities under the three rules above. It is built against established public methodologies — OWASP, MITRE ATT&CK, NIST SP 800-115, PTES, and PASTA — and it is pre-deployment: SIGIL is a young company, founded in 2023, and VIGIL is described on this site exactly as it stands, with no customers implied. The system is presented in full on the <a href=\"/systems/vigil/\">VIGIL page</a>.",
+     "Three companion pages walk through the rules as engineering rather than principle: <a href=\"/systems/vigil/governance/\">the authorization chain</a> shows, step by step, how capability is separated from authorization; <a href=\"/systems/vigil/evidence/\">the Oracle model</a> shows how a lead becomes a signed, re-checkable fact; and <a href=\"/systems/vigil/sovereignty/\">deployment, keys, and revocation</a> shows how the institution keeps reading, exporting, and stopping whatever happens commercially. The same doctrine runs through <a href=\"/systems/recor/\">RÉCOR</a> and <a href=\"/systems/apex/\">APEX</a>. VIGIL is built in Buea — see <a href=\"/cybersecurity-buea/\">cybersecurity in Buea</a> for the local context, and the <a href=\"/govtech-cameroon/\">GovTech in Cameroon</a> hub for where governed systems sit in the wider public-technology landscape."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is governed cybersecurity?",
+    "a": "Governed cybersecurity is SIGIL SARL's term for a security system in which control is a property of the system itself, not a policy around it. Three rules are enforced by construction: a technical capability is never an authorization; no finding is trusted until it has been independently re-verified; and the operating institution can always read its own data, export it, and stop the system. Each rule fails closed, and each can be tested by an evaluator against the system in front of them."
+   },
+   {
+    "q": "How is governed cybersecurity different from cybersecurity governance?",
+    "a": "Cybersecurity governance is the management discipline that sets an organization's risk strategy, roles, and policies — the Govern function of the NIST Cybersecurity Framework 2.0, for example, is one expression of it. Governed cybersecurity is a complementary property of the running system: the software itself refuses unauthorized actions, re-verifies findings before reporting them as facts, and leaves the institution in control of its data and its stop. Governance directs people; a governed system constrains the machine."
+   },
+   {
+    "q": "Is governed cybersecurity deployed anywhere today?",
+    "a": "Not yet by SIGIL. VIGIL, the platform that instantiates these rules, is pre-deployment: SIGIL SARL, founded in 2023 in Buea, Cameroon, currently has no customers or live deployments, and this site describes its systems exactly as they stand. Institutions that want to evaluate the approach can write to info@sigilsovereign.com."
+   }
+  ]
+ },
+ "fr": {
+  "title": "La cybersécurité gouvernée",
+  "description": "La cybersécurité gouvernée : une capacité n’est jamais une autorisation, les constats sont re-vérifiés, l’institution garde lecture, export et arrêt.",
+  "sections": [
+   {
+    "h": "Ce que signifie la cybersécurité gouvernée",
+    "paras": [
+     "La cybersécurité gouvernée est une propriété d’un système de sécurité, non une politique à son sujet. Une plateforme de cybersécurité est gouvernée lorsque trois règles sont appliquées par le système lui-même : une capacité technique n’est jamais une autorisation ; aucun constat n’est retenu tant qu’il n’a pas été re-vérifié de façon indépendante ; et l’institution qui exploite le système peut toujours lire ses propres données, les exporter et arrêter la machine. Le terme est le nôtre — SIGIL SARL, entreprise camerounaise qui conçoit une infrastructure de gouvernance souveraine depuis Buea — et cette page le définit précisément, car un terme forgé qui reste vague n’est que du marketing.",
+     "Ces trois règles ne sont pas des aspirations consignées dans un manuel. Ce sont des contraintes inscrites dans le logiciel : des contrôles qui refusent une action quand l’autorisation est incomplète, une mécanique de vérification qui ne promeut pas une observation en fait, et un modèle de propriété dans lequel l’institution exploitante — et non le fournisseur — détient les clés. Chaque règle peut être testée par un évaluateur sur le système qu’il a devant lui, et chacune échoue en position fermée : en l’absence d’un contrôle, la réponse est non."
+    ]
+   },
+   {
+    "h": "À distinguer des référentiels de gouvernance",
+    "paras": [
+     "La gouvernance de la cybersécurité est une discipline de gestion établie, et cette page n’entend pas la renommer. Les référentiels de gouvernance dirigent la manière dont une organisation gère le risque cyber — la fonction « Govern » du <a href=\"https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final\" rel=\"noopener\">Cadre de cybersécurité du NIST (CSF 2.0, 2024)</a>, par exemple, couvre la stratégie, les attentes et la politique de gestion du risque de l’organisation. Ce travail est nécessaire. C’est aussi, par nature, un travail sur le papier : des stratégies, des rôles, des politiques et une supervision, adressés à des personnes.",
+     "La cybersécurité gouvernée nomme une propriété différente et complémentaire : ce que le système en fonctionnement applique lui-même. Une politique peut exiger qu’aucun ingénieur ne sonde un réseau sans autorisation ; une plateforme gouvernée est construite pour que la sonde ne s’exécute pas sans elle. Là où la gouvernance gère le risque par des documents et de la supervision, un système gouverné refuse, vérifie et consigne par construction. Une institution a besoin des deux — et un seul des deux peut être audité en mettant la machine devant un évaluateur."
+    ]
+   },
+   {
+    "h": "Les trois règles, simplement",
+    "paras": [
+     "Aucune des trois règles n’exige une formation en sécurité pour être évaluée. Chacune est un engagement clair sur ce que le système refusera de faire, et chacune est écrite pour qu’un lecteur institutionnel — un secrétaire général, un auditeur, un directeur des systèmes d’information — puisse en demander compte à la plateforme.",
+     "<strong>Une capacité technique n’est jamais une autorisation.</strong> Dans la plupart des logiciels, tout ce qu’un outil peut faire, on lui fait confiance pour le faire. Un système gouverné rejette ce défaut. Pouvoir balayer un réseau, tester un mot de passe ou modifier une configuration ne confère aucun droit de le faire : chaque action conséquente doit traverser une chaîne de contrôles indépendants — l’identité du demandeur, la permission exacte qu’il détient, un droit d’usage signé, la portée autorisée de l’intervention, et une approbation humaine lorsque le risque l’exige. Aucun modèle, agent ou plugin ne peut s’accorder sa propre permission. S’il manque un maillon, l’action est refusée : le système échoue en position fermée plutôt que de présumer le consentement.",
+     "<strong>Aucun constat n’est retenu tant qu’il n’a pas été re-vérifié de façon indépendante.</strong> Les outils de sécurité produisent des observations, et les observations sont parfois fausses. Dans une plateforme gouvernée, une observation est traitée comme une piste, non comme un fait : avant d’entrer dans un rapport comme élément prouvé, une vérification indépendante et déterministe doit la reproduire, et le fait confirmé est signé pour pouvoir être re-vérifié plus tard — y compris hors ligne, sans faire confiance à la plateforme qui l’a produit. Les rapports séparent ce qui est prouvé de ce qui est seulement observé, et l’absence de signal n’est jamais présentée comme une preuve d’absence. L’institution qui agit sur un tel rapport sait exactement quelles affirmations portent une preuve.",
+     "<strong>L’institution peut toujours lire, exporter et arrêter.</strong> Quel que soit l’état commercial du système — licence expirée, droit d’usage révoqué, différend avec le fournisseur — l’institution exploitante peut toujours lire ses propres données, les exporter intégralement et amener le système à un arrêt sûr. La révocation bloque les nouvelles actions sensibles ; elle n’enferme jamais l’institution hors de ses propres preuves, et elle ne supprime jamais l’arrêt. Il n’existe ni compte d’administration caché, ni canal distant par lequel le fournisseur pourrait atteindre le déploiement. En une phrase, la règle constante : l’institution détient les clés ; les données restent sous le contrôle de l’institution ; chaque action conséquente est autorisée, bornée et prouvée."
+    ]
+   },
+   {
+    "h": "Pourquoi cela compte pour les institutions publiques",
+    "paras": [
+     "Une institution publique ne peut pas externaliser sa responsabilité. Quand un ministère, un régulateur ou une agence publique exploite une capacité de sécurité, il répond de chaque action de cette capacité — devant les auditeurs, devant les tribunaux et, en dernier ressort, devant les citoyens. Un outil puissant dont les actions ne peuvent être ni attribuées, ni bornées, ni arrêtées n’est pas un actif pour une telle institution ; c’est un passif permanent.",
+     "Les trois règles répondent aux questions que l’on pose réellement aux institutions après coup. Qui a autorisé cette action, et pouvez-vous le prouver ? L’attribution, dans une piste d’audit infalsifiable. Comment savez-vous que ce constat est vrai ? La re-vérification indépendante, signée et re-contrôlable. Que se passe-t-il si le fournisseur disparaît, ou si la relation se dégrade ? L’institution lit, exporte et arrête — de sa propre autorité. C’est ce que SIGIL entend par <a href=\"/fr/infrastructure-de-gouvernance-souveraine/\">infrastructure de gouvernance souveraine</a> : une technologie qu’une institution publique peut adopter sans céder le contrôle à ceux qui l’ont construite."
+    ]
+   },
+   {
+    "h": "VIGIL, où les règles sont inscrites dans le système",
+    "paras": [
+     "VIGIL est l’instanciation par SIGIL de la cybersécurité gouvernée : une plateforme conçue pour aider des opérateurs dûment autorisés à identifier, confirmer, corriger et documenter des vulnérabilités sous les trois règles ci-dessus. La plateforme est bâtie selon des méthodologies publiques établies — OWASP, MITRE ATT&CK, NIST SP 800-115, PTES et PASTA — et elle est en pré-déploiement : SIGIL est une jeune entreprise, fondée en 2023, et VIGIL est décrit sur ce site exactement tel qu’il est, sans clientèle sous-entendue. Le système est présenté en détail sur la <a href=\"/fr/systemes/vigil/\">page VIGIL</a>.",
+     "Trois pages compagnes présentent les règles comme de l’ingénierie plutôt que comme des principes : <a href=\"/fr/systemes/vigil/gouvernance/\">la chaîne d’autorisation</a> montre, étape par étape, comment la capacité est séparée de l’autorisation ; <a href=\"/fr/systemes/vigil/preuve/\">le modèle des Oracles</a> montre comment une piste devient un fait signé et re-vérifiable ; et <a href=\"/fr/systemes/vigil/souverainete/\">déploiement, clés et révocation</a> montre comment l’institution conserve lecture, export et arrêt, quoi qu’il arrive commercialement. La même doctrine traverse <a href=\"/fr/systemes/recor/\">RÉCOR</a> et <a href=\"/fr/systemes/apex/\">APEX</a>. VIGIL est construit à Buea — voir <a href=\"/fr/cybersecurite-buea/\">la cybersécurité à Buea</a> pour le contexte local, et le hub <a href=\"/fr/govtech-cameroun/\">GovTech au Cameroun</a> pour la place des systèmes gouvernés dans le paysage technologique public."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Qu’est-ce que la cybersécurité gouvernée ?",
+    "a": "La cybersécurité gouvernée est le terme de SIGIL SARL pour un système de sécurité dont le contrôle est une propriété du système lui-même, non une politique qui l’entoure. Trois règles sont appliquées par construction : une capacité technique n’est jamais une autorisation ; aucun constat n’est retenu tant qu’il n’a pas été re-vérifié de façon indépendante ; et l’institution exploitante peut toujours lire ses propres données, les exporter et arrêter le système. Chaque règle échoue en position fermée, et chacune peut être testée par un évaluateur sur le système qu’il a devant lui."
+   },
+   {
+    "q": "Quelle est la différence entre cybersécurité gouvernée et gouvernance de la cybersécurité ?",
+    "a": "La gouvernance de la cybersécurité est la discipline de gestion qui fixe la stratégie de risque, les rôles et les politiques d’une organisation — la fonction Govern du Cadre de cybersécurité du NIST (CSF 2.0) en est, par exemple, une expression. La cybersécurité gouvernée est une propriété complémentaire du système en fonctionnement : le logiciel lui-même refuse les actions non autorisées, re-vérifie les constats avant de les rapporter comme des faits, et laisse à l’institution le contrôle de ses données et de l’arrêt. La gouvernance dirige des personnes ; un système gouverné contraint la machine."
+   },
+   {
+    "q": "La cybersécurité gouvernée est-elle déployée quelque part aujourd’hui ?",
+    "a": "Pas encore par SIGIL. VIGIL, la plateforme qui instancie ces règles, est en pré-déploiement : SIGIL SARL, fondée en 2023 à Buea, au Cameroun, n’a à ce jour ni clients ni déploiements en production, et ce site décrit ses systèmes exactement tels qu’ils sont. Les institutions qui souhaitent évaluer l’approche peuvent écrire à info@sigilsovereign.com."
+   }
+  ]
+ },
+ "notes": "VERIFIED SOURCES (live, 2026-09-06): the page asserts exactly one outside-world fact — that the NIST Cybersecurity Framework 2.0 (2024) includes a Govern function covering an organization's \"risk management strategy, expectations, and policy\". Verified against the official NIST CSWP 29 PDF (https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf — GOVERN confirmed as one of the six functions) and corroborated by the CSRC landing page (https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final, used as the outbound citation in both languages) plus secondary sources quoting the official Govern definition verbatim. The quoted trio \"risk management strategy, expectations, and policy\" is the officially confirmed wording; the FR version paraphrases without quotation marks to avoid quoting a translation. Everything else on the page is SIGIL-internal doctrine drawn from doctrine.js, vigil.js, and facts.json (three rules, thesis verbatim EN/FR, OWASP/MITRE ATT&CK/NIST SP 800-115/PTES/PASTA design-alignment list, founded 2023, pre-deployment, info@sigilsovereign.com). DROPPED AS UNNEEDED/UNVERIFIED: ISO/IEC 27001 as a second governance example; any ANTIC/Cameroon regulator mapping (out of scope for a doctrine page and keeps the page far from the register tripwire — no BO-register content anywhere). PRE-DEPLOYMENT HONESTY: stated twice (VIGIL section and FAQ 3) with designed-to language throughout; no third-party events referenced. CANNIBALIZATION GUARDS: (1) \"cybersecurity governance\"/\"gouvernance de la cybersécurité\" deliberately kept OUT of all H2s; the generic term appears only in one body paragraph and one FAQ question, framed as a term we are NOT claiming — do not add it to title, description, or headings at integration. (2) Primary phrase discipline: exact phrase in title, first paragraph, and exactly one H2 per language; ~4 natural body occurrences — do not add more. (3) This page is the concept page: product detail stays on /systems/vigil/ and its three sub-pages; local-intent queries stay with /cybersecurity-buea/; doctrine hub-linking satisfied via /sovereign-governance-infrastructure/ and /govtech-cameroon/ (+ FR equivalents). (4) Titles: EN 22 chars, FR 26 chars (≤55 before auto-append); meta descriptions 155 (EN) and ~150 (FR) chars, each containing the primary phrase once. FAQ answers are plain text (no HTML) per schema. FR uses site conventions: space before ; : ? !, « » quotes, typographic apostrophes, \"échoue en position fermée\" for fail-closed. REPAIR (2026-09-06): both flagged violations addressed — the superlative fame-ranking in FAQ 2 (\"is its best-known expression\" / \"en est l'expression la plus connue\") was removed in both languages and replaced with plain example framing carrying no prominence or popularity claim (EN: \"the Govern function of the NIST Cybersecurity Framework 2.0, for example, is one expression of it\"; FR: \"la fonction Govern du Cadre de cybersécurité du NIST (CSF 2.0) en est, par exemple, une expression\"), matching the compliant example framing already used in the body. No other content, links, headings, titles, or descriptions were changed."
+}
