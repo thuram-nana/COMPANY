@@ -1,0 +1,223 @@
+{
+ "en": {
+  "title": "Cybersecurity in Cameroon: law and institutions",
+  "description": "Cybersecurity in Cameroon, mapped: Law No. 2010/012, the 2024 data-protection law, ANTIC and its CIRT, and what the framework asks of institutions.",
+  "sections": [
+   {
+    "h": "The shape of the landscape",
+    "paras": [
+     "Cybersecurity in Cameroon is governed by a legal framework that is older than the country's digital economy and enforced by an institutional framework that is unusually concentrated. The foundational text — <a href=\"https://www.antic.cm/images/stories/laws/Law%20relating%20to%20cybersecurity%20and%20cybercriminality%20in%20Cameroon.pdf\" rel=\"noopener\">Law No. 2010/012 of 21 December 2010 relating to cybersecurity and cybercriminality</a> — has been in force for fifteen years; the agency it empowers, ANTIC, holds the security-regulation mandate, the national incident-response team, and the root of the country's electronic-certification hierarchy at once; and since December 2024, a general personal-data-protection law has been layered on top. This page maps that landscape: the laws as they are written, the institutions as they are empowered, and the threat picture as far as it can honestly be cited.",
+     "One rule governs the page. Every external fact — a law's number and date, an institution's mandate, a statistic — is carried with a citation to a primary or authoritative source, and claims that could not be verified against such a source were dropped rather than hedged. Where the record is thin, the page says so."
+    ]
+   },
+   {
+    "h": "The legal framework",
+    "paras": [
+     "The cornerstone is Law No. 2010/012 of 21 December 2010. Its first section states its scope plainly: the law \"governs the security framework of electronic communication networks and information systems, defines and punishes offences related to the use of information and communication technologies in Cameroon\". Its stated aims are to build trust in networks and information systems; to establish the legal regime of digital evidence, security, cryptography, and electronic certification; and to protect the rights to human dignity, honour, and privacy, along with the legitimate interests of corporate bodies. One boundary is drawn at the outset: the law does not cover applications specific to national defence and security, which remain governed by their own texts.",
+     "The security half of the law is institutional. Section 7 places the regulation, control, and monitoring of activities related to the security of electronic communication networks, information systems, and electronic certification — \"on behalf of the State\" — in the hands of the National Agency for Information and Communication Technologies (ANTIC), acting in collaboration with the Telecommunications Regulatory Board. Section 8 makes ANTIC the Root Certification Authority and the certification authority of the public administration. And Section 32 subjects networks and information systems to \"compulsory and periodic auditing of their security systems\" by the agency — each year, or as circumstances require — with audit reports kept confidential and addressed to the minister in charge of telecommunications.",
+     "The criminal half is substantive and procedural at once. Part III opens with procedural provisions: criminal investigation officers with general jurisdiction and sworn, authorized ANTIC officials conduct the investigations. The offence catalogue then attaches real penalties to defined conduct — fraudulent access to a network or information system that disrupts its functioning, for example, carries five to ten years' imprisonment, a fine of ten to fifty million CFA francs, or both, with the penalties doubled where data is deleted or altered (Section 68). Part IV, Sections 90 to 94, turns to international cooperation and mutual judicial assistance in cybercrime matters, with a safeguard where enforcement could breach public order or the essential interests of the Nation; only transitional and final provisions follow.",
+     "The cybersecurity law does not stand alone. It was enacted the same day as <a href=\"https://www.minpostel.gov.cm/index.php/en/les-textes/telecoms-tic/lois-telecoms-tic/229-law-no-2010-013-of-21-december-2010-governing-electronic-communications-in-cameroon\" rel=\"noopener\">Law No. 2010/013 of 21 December 2010 governing electronic communications</a> — the companion text that organizes the sector itself, and the law under which ANTIC is instituted, as Law No. 2010/012 itself records. Sector regulation belongs to the <a href=\"https://www.art.cm/en\" rel=\"noopener\">Telecommunications Regulatory Board (ART)</a>, which oversees operators, spectrum, universal service, and quality of service. The two mandates are designed to interlock: ART regulates the networks, ANTIC their security.",
+     "The newest layer is <a href=\"https://prc.cm/en/multimedia/documents/10271-law-n-2024-017-of-23-12-2024-web\" rel=\"noopener\">Law No. 2024/017 of 23 December 2024 relating to personal data protection</a> — Cameroon's first general data-protection law. It applies to the personal data of persons established, residing, or in transit in Cameroon, and it provides for a Data Protection Authority through which processing on Cameroonian territory and transfers abroad require prior authorization; the texts organizing that authority are still awaited. Legal analysis of the law <a href=\"https://lexafrica.com/2025/10/cameroon-data-protection-law-compliance/\" rel=\"noopener\">reported a compliance deadline of 23 June 2026</a> for organizations to align their data-processing practices with its requirements — a window that closed before this page was published."
+    ]
+   },
+   {
+    "h": "The institutional map",
+    "paras": [
+     "Read together, the three laws distribute cybersecurity authority across a small number of institutions. The map is compact enough to hold in one table — and worth holding, because in practice the question \"who do we answer to?\" has a different answer for a network operator, a data controller, and a crime victim.",
+     "One row deserves expansion. ANTIC discharges its security-intelligence mission through a national Computer Incident Response Team, whose functions the agency itself <a href=\"https://www.antic.cm/index.php/en/mssions/computer-security-audit.html\" rel=\"noopener\">lists</a>: real-time surveillance of sensitive national cyberspace infrastructure, security alerts and bulletins, public awareness, assistance to individuals and businesses, development of security standards, and technical support to law-enforcement investigations. The same page records a duty many organizations discover late: under Article 7 of Decree No. 2012/1643/PM, as ANTIC states it, any private or public agency is required to notify ANTIC of any computer-security incident affecting its network."
+    ],
+    "table": {
+     "head": [
+      "Institution",
+      "Legal anchor",
+      "Role in the landscape"
+     ],
+     "rows": [
+      [
+       "Ministry in charge of posts and telecommunications (MINPOSTEL)",
+       "Law No. 2010/012; Law No. 2010/013",
+       "General powers over telecommunications and ICT; signs the specifications of certification authorities; receives the confidential security-audit reports."
+      ],
+      [
+       "ANTIC",
+       "Law No. 2010/012, Sections 7–8",
+       "Regulation, control, and monitoring of network and information-system security and of electronic certification on behalf of the State; Root Certification Authority; runs the compulsory security-audit regime."
+      ],
+      [
+       "National CIRT (within ANTIC)",
+       "ANTIC's security-intelligence mission",
+       "Surveillance of critical national cyberspace infrastructure, security alerts and bulletins, incident response and assistance, technical support to cybercrime investigations."
+      ],
+      [
+       "Telecommunications Regulatory Board (ART)",
+       "Law No. 2010/013",
+       "Regulation of electronic communications — operators, spectrum, quality of service; collaborates with ANTIC on the regulation of electronic-security activities."
+      ],
+      [
+       "Data Protection Authority",
+       "Law No. 2024/017",
+       "Provided for by the 2024 law: prior authorization of processing and of cross-border transfers; its organizing texts are still awaited."
+      ],
+      [
+       "Criminal investigation officers and the courts",
+       "Law No. 2010/012, Part III",
+       "Investigation and prosecution of cyberoffences; sworn ANTIC officials take part in investigations, with digital-evidence expertise from the CIRT."
+      ]
+     ]
+    }
+   },
+   {
+    "h": "The threat picture, in citable figures",
+    "paras": [
+     "Threat statistics for Cameroon are scarce, and much of what circulates cannot be traced to a source. What can be cited comes principally from ANTIC's own published figures, relayed by the business press; they are presented here as what they are — the enforcement agency's numbers, not independently audited measurements.",
+     "For 2021, ANTIC put Cameroon's cybercrime losses at XAF 12.2 billion — nearly double the 2019 figure — of which XAF 2.5 billion was attributed to intrusions into public and private IT systems, XAF 6 billion to scamming and phishing, and XAF 3.7 billion to skimming, the copying of bank-card data at ATMs, according to figures <a href=\"https://www.businessincameroon.com/public-management/0703-12393-cameroon-lost-xaf12-2-bln-to-cybercrime-in-2021-antic\" rel=\"noopener\">relayed by Business in Cameroon</a>. The same report records that close to XAF 6 billion was lost to bank fraud in 2019, with business-email compromise the dominant method, and that an ANTIC audit detected 27,052 vulnerabilities in the IT systems of public and private administrations in 2021.",
+     "The response is institutionalizing. On 20 January 2026 in Yaoundé, the national CIRT received equipment — servers, investigation platforms, vulnerability-scanning and penetration-testing tools — valued at over XAF 735 million, acquired under PATNUC, the World Bank-supported project for the acceleration of Cameroon's digital transformation, as reported by <a href=\"https://techafricanews.com/2026/01/21/cameroon-strengthens-cybersecurity-with-advanced-systems-at-national-cirt/\" rel=\"noopener\">TechAfrica News</a>. The same report carries the agency's activity figures: 32,500 legal requisitions processed in 2025, a 30 per cent increase over 2024; around 200 gigabytes of data analysed per day; and 8,502 vulnerabilities identified since January 2024 through audits and scans of public and private entities.",
+     "The gaps matter as much as the figures. There is no published national incident-notification dataset, the loss figures are not independently verified, and no standalone national cybersecurity strategy could be verified in primary sources at the time of writing — so this page cites none. What the verifiable record shows is a pressure curve bending upward and a response that is organizing itself, which is exactly why the obligations in the next section are worth taking literally."
+    ]
+   },
+   {
+    "h": "What cybersecurity in Cameroon asks of an institution",
+    "paras": [
+     "Distilled, the landscape asks four things of an institution operating in Cameroon. First, expect the audit: Section 32 of Law No. 2010/012 makes security auditing compulsory and periodic, not optional and exceptional. Second, report the incident: ANTIC states that Article 7 of Decree No. 2012/1643/PM obliges every public or private agency to notify it of computer-security incidents affecting its network. Third, mind the clock that has already struck: legal analyses reported a compliance deadline of 23 June 2026 for organizations to align their processing — that window has now closed, and processing that is not yet aligned is already exposed. Fourth, treat evidence as a first-class object — the 2010 law made digital evidence a legal regime, and an institution that cannot produce trustworthy records is exposed in both directions, as a victim and as a defendant.",
+     "This page is deliberately a map, not a playbook. What these obligations mean operationally — scoping an audit, choosing controls, addressing the now-expired data-protection compliance deadline — is the subject of our practical guide to <a href=\"/cybersecurity-for-organizations-cameroon/\">cybersecurity for organizations in Cameroon</a>. The discipline that runs beneath it — authorization before capability, and evidence for every consequential action — is set out on <a href=\"/governed-cybersecurity/\">governed cybersecurity</a>. And for institutions in the Southwest, <a href=\"/cybersecurity-buea/\">cybersecurity in Buea</a> grounds the same questions locally.",
+     "Terms used on this page — from certification authority to incident response — are defined in plain language in the <a href=\"/glossary/\">glossary</a>."
+    ]
+   },
+   {
+    "h": "Where SIGIL sits",
+    "paras": [
+     "SIGIL SARL is a Cameroonian company, founded in 2023 and based in Buea (RCCM RC.BUA.2026.B.0190), that builds governance infrastructure for public institutions. In this landscape its relevant system is <a href=\"/systems/vigil/\">VIGIL</a>, a governed cybersecurity and evidence platform for duly authorized operators, built to OWASP, MITRE ATT&CK, and NIST 800-115 discipline, in which a technical capability is never an authorization and no finding is trusted until an independent, re-verifiable check confirms it. VIGIL is pre-deployment: SIGIL has no customers, deployments, pilots, or partnerships to cite, and this page cites none. Its source code is kept strictly private. The engineering method behind it is documented in <a href=\"/doctrine/\">the doctrine</a>, and the wider compliance landscape it serves is mapped on <a href=\"/regtech-cameroon/\">regtech in Cameroon</a>. Institutions that wish to examine the architecture can write to info@sigilsovereign.com."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What law governs cybersecurity in Cameroon?",
+    "a": "Law No. 2010/012 of 21 December 2010 relating to cybersecurity and cybercriminality is the foundational text: it governs the security framework of electronic communication networks and information systems and defines and punishes offences related to the use of information and communication technologies. It works alongside Law No. 2010/013 of the same date, which governs electronic communications, and Law No. 2024/017 of 23 December 2024, which covers personal-data protection."
+   },
+   {
+    "q": "What is ANTIC and what does it do?",
+    "a": "ANTIC, the National Agency for Information and Communication Technologies, is instituted by Cameroon's electronic-communications law and empowered by Law No. 2010/012. It regulates, controls, and monitors the security of electronic communication networks and information systems and electronic certification on behalf of the State, serves as Root Certification Authority, runs the compulsory security-audit regime, and operates the national Computer Incident Response Team (CIRT)."
+   },
+   {
+    "q": "Does Cameroon have a data-protection law?",
+    "a": "Yes. Law No. 2024/017 of 23 December 2024 is Cameroon's first general personal-data-protection law. It applies to data subjects established, residing, or in transit in Cameroon and provides for a Data Protection Authority, whose organizing texts are still awaited. Legal analyses reported a compliance deadline of 23 June 2026 for organizations to align their data processing with the law; that date has passed."
+   },
+   {
+    "q": "Do organizations have to report security incidents in Cameroon?",
+    "a": "According to ANTIC, Article 7 of Decree No. 2012/1643/PM requires any private or public agency to notify ANTIC of any computer-security incident affecting its network. Independently of incidents, Section 32 of Law No. 2010/012 subjects electronic communication networks and information systems to compulsory and periodic security audits by the agency."
+   }
+  ]
+ },
+ "fr": {
+  "title": "La cybersécurité au Cameroun : lois et institutions",
+  "description": "La cybersécurité au Cameroun : loi n° 2010/012, loi de 2024 sur les données personnelles, ANTIC et son CIRT — ce que le cadre exige des institutions.",
+  "sections": [
+   {
+    "h": "La forme du paysage",
+    "paras": [
+     "La cybersécurité au Cameroun repose sur un cadre juridique plus ancien que l'économie numérique du pays et sur un dispositif institutionnel singulièrement concentré. Le texte fondateur — la <a href=\"https://www.art.cm/sites/default/files/documents/loi_2010-012_cybersecurite_cybercriminalite.pdf\" rel=\"noopener\">loi n° 2010/012 du 21 décembre 2010 relative à la cybersécurité et à la cybercriminalité</a> — est en vigueur depuis quinze ans ; l'agence qu'elle investit, l'ANTIC, cumule le mandat de régulation de la sécurité, l'équipe nationale de réponse aux incidents et la racine de la hiérarchie nationale de certification électronique ; et depuis décembre 2024, une loi générale de protection des données personnelles s'y superpose. Cette page cartographie ce paysage : les lois telles qu'elles sont écrites, les institutions telles qu'elles sont investies, et la menace pour autant qu'elle puisse honnêtement être citée.",
+     "Une règle gouverne la page. Chaque fait externe — le numéro et la date d'une loi, le mandat d'une institution, une statistique — est porté par une citation vers une source primaire ou faisant autorité, et les affirmations qui n'ont pas pu être vérifiées ont été écartées plutôt qu'atténuées. Là où le dossier est mince, la page le dit."
+    ]
+   },
+   {
+    "h": "Le cadre juridique",
+    "paras": [
+     "La pierre angulaire est la loi n° 2010/012 du 21 décembre 2010. Son article premier en fixe la portée : la loi régit le cadre de sécurité des réseaux de communications électroniques et des systèmes d'information, et définit et réprime les infractions liées à l'utilisation des technologies de l'information et de la communication au Cameroun. Ses finalités déclarées : instaurer la confiance dans les réseaux et les systèmes d'information ; fixer le régime juridique de la preuve numérique, de la sécurité, de la cryptographie et de la certification électronique ; protéger la dignité humaine, l'honneur et la vie privée, ainsi que les intérêts légitimes des personnes morales. Une frontière est posée d'emblée : les applications propres à la défense et à la sécurité nationales échappent à la loi et relèvent de leurs propres textes.",
+     "Le versant sécurité de la loi est institutionnel. L'article 7 confie la régulation, le contrôle et le suivi des activités de sécurité des réseaux de communications électroniques, des systèmes d'information et de la certification électronique — pour le compte de l'État — à l'Agence nationale des technologies de l'information et de la communication (ANTIC), en collaboration avec l'Agence de régulation des télécommunications. L'article 8 fait de l'ANTIC l'autorité de certification racine et l'autorité de certification de l'administration publique. Et l'article 32 soumet réseaux et systèmes d'information à un régime d'audit de sécurité obligatoire et périodique conduit par l'agence — chaque année, ou selon les circonstances — les rapports d'audit demeurant confidentiels et adressés au ministre en charge des télécommunications.",
+     "Le versant pénal est à la fois substantiel et procédural. La troisième partie s'ouvre sur des dispositions de procédure : les officiers de police judiciaire à compétence générale et les agents assermentés et habilités de l'ANTIC mènent les enquêtes. Le catalogue des infractions attache ensuite des peines réelles à des comportements définis — l'accès frauduleux à un réseau ou à un système d'information avec perturbation de son fonctionnement est puni, par exemple, de cinq à dix ans d'emprisonnement et d'une amende de dix à cinquante millions de francs CFA, ou de l'une de ces deux peines seulement, le tout doublé lorsque des données sont supprimées ou modifiées (article 68). Les articles 90 à 94 forment la partie consacrée à la coopération internationale et à l'entraide judiciaire en matière de cybercriminalité, avec une réserve lorsque l'exécution d'une demande porterait atteinte à l'ordre public ou aux intérêts essentiels de la Nation ; ne suivent que des dispositions transitoires et finales.",
+     "La loi sur la cybersécurité n'est pas seule. Elle a été promulguée le même jour que la <a href=\"https://www.minpostel.gov.cm/index.php/en/les-textes/telecoms-tic/lois-telecoms-tic/229-law-no-2010-013-of-21-december-2010-governing-electronic-communications-in-cameroon\" rel=\"noopener\">loi n° 2010/013 du 21 décembre 2010 régissant les communications électroniques</a> — le texte compagnon qui organise le secteur lui-même, et celui au titre duquel l'ANTIC est instituée, comme la loi n° 2010/012 le rappelle elle-même. La régulation sectorielle revient à l'<a href=\"https://www.art.cm/en\" rel=\"noopener\">Agence de régulation des télécommunications (ART)</a>, qui surveille opérateurs, spectre, service universel et qualité de service. Les deux mandats s'emboîtent : l'ART régule les réseaux, l'ANTIC leur sécurité.",
+     "La strate la plus récente est la <a href=\"https://prc.cm/en/multimedia/documents/10271-law-n-2024-017-of-23-12-2024-web\" rel=\"noopener\">loi n° 2024/017 du 23 décembre 2024 relative à la protection des données personnelles</a> — la première loi générale du Cameroun en la matière. Elle s'applique aux données personnelles des personnes établies, résidant ou en transit au Cameroun, et prévoit une autorité de protection des données par laquelle le traitement sur le territoire camerounais et les transferts à l'étranger requièrent une autorisation préalable ; les textes organisant cette autorité sont encore attendus. L'analyse juridique de la loi <a href=\"https://lexafrica.com/2025/10/cameroon-data-protection-law-compliance/\" rel=\"noopener\">faisait état d'une échéance de mise en conformité au 23 juin 2026</a> pour les organisations — une fenêtre close avant la publication de cette page."
+    ]
+   },
+   {
+    "h": "La carte institutionnelle",
+    "paras": [
+     "Lues ensemble, les trois lois répartissent l'autorité en matière de cybersécurité entre un petit nombre d'institutions. La carte tient dans un tableau — et mérite d'être retenue, car en pratique la question « à qui répondons-nous ? » n'a pas la même réponse pour un opérateur de réseau, un responsable de traitement et une victime d'infraction.",
+     "Une ligne mérite d'être développée. L'ANTIC exerce sa mission de veille sécuritaire à travers un Computer Incident Response Team national, dont l'agence <a href=\"https://www.antic.cm/index.php/en/mssions/computer-security-audit.html\" rel=\"noopener\">énumère elle-même les fonctions</a> : surveillance en temps réel des infrastructures sensibles du cyberespace national, alertes et bulletins de sécurité, sensibilisation du public, assistance aux particuliers et aux entreprises, élaboration de référentiels de sécurité, et appui technique aux enquêtes judiciaires. La même page consigne un devoir que beaucoup d'organisations découvrent tard : selon l'ANTIC, l'article 7 du décret n° 2012/1643/PM impose à tout organisme public ou privé de lui notifier tout incident de sécurité informatique affectant son réseau."
+    ],
+    "table": {
+     "head": [
+      "Institution",
+      "Ancrage juridique",
+      "Rôle dans le paysage"
+     ],
+     "rows": [
+      [
+       "Ministère en charge des postes et télécommunications (MINPOSTEL)",
+       "Loi n° 2010/012 ; loi n° 2010/013",
+       "Pouvoirs généraux sur les télécommunications et les TIC ; signe les cahiers des charges des autorités de certification ; destinataire des rapports d'audit confidentiels."
+      ],
+      [
+       "ANTIC",
+       "Loi n° 2010/012, articles 7–8",
+       "Régulation, contrôle et suivi de la sécurité des réseaux et des systèmes d'information et de la certification électronique pour le compte de l'État ; autorité de certification racine ; conduit le régime d'audit de sécurité obligatoire."
+      ],
+      [
+       "CIRT national (au sein de l'ANTIC)",
+       "Mission de veille sécuritaire de l'ANTIC",
+       "Surveillance des infrastructures sensibles du cyberespace national, alertes et bulletins de sécurité, réponse aux incidents et assistance, appui technique aux enquêtes en matière de cybercriminalité."
+      ],
+      [
+       "Agence de régulation des télécommunications (ART)",
+       "Loi n° 2010/013",
+       "Régulation des communications électroniques — opérateurs, spectre, qualité de service ; collabore avec l'ANTIC pour la régulation des activités de sécurité électronique."
+      ],
+      [
+       "Autorité de protection des données",
+       "Loi n° 2024/017",
+       "Prévue par la loi de 2024 : autorisation préalable des traitements et des transferts transfrontières ; ses textes d'organisation sont encore attendus."
+      ],
+      [
+       "Officiers de police judiciaire et juridictions",
+       "Loi n° 2010/012, partie III",
+       "Enquête et poursuite des cyberinfractions ; les agents assermentés de l'ANTIC participent aux enquêtes, avec l'expertise du CIRT en preuve numérique."
+      ]
+     ]
+    }
+   },
+   {
+    "h": "La menace, en chiffres citables",
+    "paras": [
+     "Les statistiques de menace sont rares au Cameroun, et l'essentiel de ce qui circule ne peut être rattaché à une source. Ce qui peut être cité provient pour l'essentiel des chiffres publiés par l'ANTIC elle-même et relayés par la presse économique ; ils sont présentés ici pour ce qu'ils sont — les chiffres de l'autorité chargée de la répression, non des mesures indépendamment auditées.",
+     "Pour 2021, l'ANTIC a chiffré à 12,2 milliards de FCFA les pertes du Cameroun dues à la cybercriminalité — près du double du chiffre de 2019 —, dont 2,5 milliards imputables aux intrusions dans les systèmes informatiques publics et privés, 6 milliards au scamming et au phishing, et 3,7 milliards au skimming, la copie de données de cartes bancaires sur les distributeurs, selon les données <a href=\"https://www.businessincameroon.com/public-management/0703-12393-cameroon-lost-xaf12-2-bln-to-cybercrime-in-2021-antic\" rel=\"noopener\">relayées par Business in Cameroon</a>. Le même compte rendu retient qu'en 2019, près de 6 milliards de FCFA avaient été perdus en fraude bancaire, la méthode dominante étant la fraude aux ordres de virement (FOVI, ou BEC), et qu'un audit de l'ANTIC avait détecté 27 052 vulnérabilités dans les systèmes des administrations publiques et privées en 2021.",
+     "La réponse s'institutionnalise. Le 20 janvier 2026 à Yaoundé, le CIRT national a reçu des équipements — serveurs, plateformes d'investigation, outils de balayage de vulnérabilités et de tests d'intrusion — d'une valeur de plus de 735 millions de FCFA, acquis dans le cadre du PATNUC, le projet d'accélération de la transformation numérique du Cameroun soutenu par la Banque mondiale, selon <a href=\"https://techafricanews.com/2026/01/21/cameroon-strengthens-cybersecurity-with-advanced-systems-at-national-cirt/\" rel=\"noopener\">TechAfrica News</a>. Le même compte rendu cite les chiffres d'activité de l'agence : 32 500 réquisitions judiciaires traitées en 2025, en hausse de 30 % sur 2024 ; environ 200 Go de données analysées par jour ; et 8 502 vulnérabilités identifiées depuis janvier 2024 par audits et balayages d'entités publiques et privées.",
+     "Les lacunes comptent autant que les chiffres. Il n'existe pas de série publique de notifications d'incidents, les chiffres de pertes ne sont pas indépendamment vérifiés, et aucune stratégie nationale de cybersécurité autonome n'a pu être vérifiée dans des sources primaires au moment de la rédaction — cette page n'en cite donc aucune. Ce que le dossier vérifiable montre, c'est une pression qui monte et une réponse qui s'organise ; raison de plus pour prendre au pied de la lettre les obligations de la section suivante."
+    ]
+   },
+   {
+    "h": "Ce que la cybersécurité au Cameroun exige d'une institution",
+    "paras": [
+     "Distillé, le paysage exige quatre choses d'une institution opérant au Cameroun. D'abord, attendre l'audit : l'article 32 de la loi n° 2010/012 rend l'audit de sécurité obligatoire et périodique, non facultatif et exceptionnel. Ensuite, notifier l'incident : l'ANTIC indique que l'article 7 du décret n° 2012/1643/PM impose à tout organisme public ou privé de lui signaler les incidents de sécurité affectant son réseau. Puis, prendre acte d’une horloge déjà échue : les analyses juridiques faisaient état d’un délai de mise en conformité au 23 juin 2026 — une fenêtre désormais close, et les traitements non conformes sont déjà exposés. Enfin, traiter la preuve comme un objet de premier rang — la loi de 2010 a fait de la preuve numérique un régime juridique, et une institution incapable de produire des enregistrements fiables est exposée dans les deux sens, comme victime et comme mise en cause.",
+     "Cette page est délibérément une carte, non un manuel. Ce que ces obligations signifient opérationnellement — cadrer un audit, choisir des contrôles, traiter l'échéance de protection des données, désormais échue, — est l'objet de notre guide pratique de la <a href=\"/fr/cybersecurite-entreprises-cameroun/\">cybersécurité pour les organisations au Cameroun</a>. La discipline qui court en dessous — l'autorisation avant la capacité, et la preuve pour chaque action conséquente — est exposée sur <a href=\"/fr/cybersecurite-gouvernee/\">la cybersécurité gouvernée</a>. Et pour les institutions du Sud-Ouest, <a href=\"/fr/cybersecurite-buea/\">la cybersécurité à Buea</a> ancre localement les mêmes questions.",
+     "Les termes employés sur cette page — de l'autorité de certification à la réponse aux incidents — sont définis en langage clair dans le <a href=\"/fr/glossaire/\">glossaire</a>."
+    ]
+   },
+   {
+    "h": "La place de SIGIL",
+    "paras": [
+     "SIGIL SARL est une entreprise camerounaise, fondée en 2023 et basée à Buea (RCCM RC.BUA.2026.B.0190), qui conçoit une infrastructure de gouvernance pour les institutions publiques. Dans ce paysage, son système pertinent est <a href=\"/fr/systemes/vigil/\">VIGIL</a>, une plateforme de cybersécurité gouvernée et de preuve pour des opérateurs dûment autorisés, bâtie selon les disciplines OWASP, MITRE ATT&CK et NIST 800-115, où une capacité technique n'est jamais une autorisation et où aucun constat n'est retenu tant qu'une vérification indépendante et re-vérifiable ne l'a pas confirmé. VIGIL est en pré-déploiement : SIGIL n'a ni clients, ni déploiements, ni pilotes, ni partenariats à citer, et cette page n'en cite aucun. Son code source est gardé strictement privé. La méthode d'ingénierie est documentée dans <a href=\"/fr/methode/\">la méthode</a>, et le paysage de conformité qu'elle sert est cartographié sur <a href=\"/fr/regtech-cameroun/\">la regtech au Cameroun</a>. Les institutions qui souhaitent examiner l'architecture peuvent écrire à info@sigilsovereign.com."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Quelle loi régit la cybersécurité au Cameroun ?",
+    "a": "La loi n° 2010/012 du 21 décembre 2010 relative à la cybersécurité et à la cybercriminalité est le texte fondateur : elle régit le cadre de sécurité des réseaux de communications électroniques et des systèmes d'information et définit et réprime les infractions liées à l'utilisation des technologies de l'information et de la communication. Elle s'articule avec la loi n° 2010/013 du même jour, qui régit les communications électroniques, et avec la loi n° 2024/017 du 23 décembre 2024, qui couvre la protection des données personnelles."
+   },
+   {
+    "q": "Qu'est-ce que l'ANTIC et que fait-elle ?",
+    "a": "L'ANTIC, Agence nationale des technologies de l'information et de la communication, est instituée par la loi sur les communications électroniques et investie par la loi n° 2010/012. Elle régule, contrôle et suit la sécurité des réseaux de communications électroniques et des systèmes d'information et la certification électronique pour le compte de l'État, sert d'autorité de certification racine, conduit le régime d'audit de sécurité obligatoire et opère le CIRT national, l'équipe de réponse aux incidents informatiques."
+   },
+   {
+    "q": "Le Cameroun a-t-il une loi de protection des données personnelles ?",
+    "a": "Oui. La loi n° 2024/017 du 23 décembre 2024 est la première loi générale du Cameroun en la matière. Elle s'applique aux personnes établies, résidant ou en transit au Cameroun et prévoit une autorité de protection des données, dont les textes d'organisation sont encore attendus. Les analyses juridiques faisaient état d'une échéance de mise en conformité au 23 juin 2026 pour les organisations ; cette date est désormais passée."
+   },
+   {
+    "q": "Les organisations doivent-elles signaler les incidents de sécurité au Cameroun ?",
+    "a": "Selon l'ANTIC, l'article 7 du décret n° 2012/1643/PM impose à tout organisme public ou privé de lui notifier tout incident de sécurité informatique affectant son réseau. Indépendamment des incidents, l'article 32 de la loi n° 2010/012 soumet réseaux de communications électroniques et systèmes d'information à des audits de sécurité obligatoires et périodiques conduits par l'agence."
+   }
+  ]
+ },
+ "notes": "DRAFT: /cybersecurity-cameroon/ + /fr/cybersecurite-cameroun/ (2026-09-06). All external facts verified LIVE this session.\n\nREPAIR PASS (2026-09-06): applied the single required fix — EN \"The legal framework\" para 3 and FR mirror no longer assert that Sections 90-94 close the law. Re-verified against the extracted primary text (/tmp/claude-1000/-home-kali/d31df8e1-11c1-409f-94d1-ef2c49ed46ad/scratchpad/law2010012_en.txt): Part IV (ss. 90-94) is \"International Cooperation and Mutual Judicial Assistance\" (s.90 = CA conventions, not judicial assistance), followed by Part V \"Transitional and Final Provisions\" (ss. 95-97; s.97 registration/publication is the final section). New wording: EN \"Part IV, Sections 90 to 94, turns to international cooperation and mutual judicial assistance in cybercrime matters, with a safeguard where enforcement could breach public order or the essential interests of the Nation; only transitional and final provisions follow.\" FR \"Les articles 90 à 94 forment la partie consacrée à la coopération internationale et à l'entraide judiciaire en matière de cybercriminalité, avec une réserve lorsque l'exécution d'une demande porterait atteinte à l'ordre public ou aux intérêts essentiels de la Nation ; ne suivent que des dispositions transitoires et finales.\" Nothing else changed. (Earlier note's gloss \"Sections 90-94 (mutual judicial assistance...)\" is superseded on this point by this repair note.)\n\nVERIFIED SOURCES (method in parentheses):\n- Law No. 2010/012 of 21 Dec 2010 — PRIMARY TEXT: official English PDF hosted by ANTIC, downloaded and text-extracted with pypdf this session: https://www.antic.cm/images/stories/laws/Law%20relating%20to%20cybersecurity%20and%20cybercriminality%20in%20Cameroon.pdf. Verbatim-verified: Section 1 scope quote (\"governs the security framework of electronic communication networks and information systems, defines and punishes offences...\"); Section 2 defence/security exclusion; Section 7 (ANTIC regulation/control/monitoring \"on behalf of the State\", in collaboration with the Telecommunications Regulatory Board; instituted by the electronic-communications law; Minister signs CA specifications); Section 8 (Root CA + public-administration CA); Section 32 (\"compulsory and periodic auditing\", annual, confidential reports to minister in charge of telecommunications); Section 52 (CIOs + sworn authorized ANTIC officials); Section 68 penalties (5-10 years and/or 10-50M CFAF, doubled on data deletion/alteration); Part IV ss. 90-94 (international cooperation and mutual judicial assistance; s.90 CA conventions; s.94 public-order/essential-interests safeguard) followed by Part V ss. 95-97 transitional and final provisions. FR page cites the French official PDF hosted by ART, liveness confirmed via HTTP HEAD 200 application/pdf this session: https://www.art.cm/sites/default/files/documents/loi_2010-012_cybersecurite_cybercriminalite.pdf\n- Law No. 2010/013 of 21 Dec 2010 governing electronic communications — title/date verified on MINPOSTEL page (WebFetch): https://www.minpostel.gov.cm/index.php/en/les-textes/telecoms-tic/lois-telecoms-tic/229-law-no-2010-013-of-21-december-2010-governing-electronic-communications-in-cameroon ; ANTIC's institution under it cross-confirmed by Law 2010/012 s.7 primary text.\n- Law No. 2024/017 of 23 Dec 2024 (personal data protection) — title/date verified at prc.cm (WebFetch): https://prc.cm/en/multimedia/documents/10271-law-n-2024-017-of-23-12-2024-web ; cover of official PDF also downloaded (dataprotection.africa copy, scanned — body not text-extractable). Substance (scope: established/residing/in transit; Data Protection Authority with prior authorization of processing and transfers, organizing texts forthcoming; 23 June 2026 compliance deadline) verified via LexAfrica analysis (WebFetch, Oct 2025): https://lexafrica.com/2025/10/cameroon-data-protection-law-compliance/ — deadline phrased as \"is reported to\"/\"fait état d'une échéance\" and attributed to legal analysis, since the scanned primary text could not be machine-read.\n- ANTIC + CIRT — ANTIC's own Security Intelligence page (curl-fetched, full text read): https://www.antic.cm/index.php/en/mssions/computer-security-audit.html — CIRT functions (critical-infrastructure surveillance, alerts/bulletins, awareness, assistance, standards, investigation support) and the Decree No. 2012/1643/PM Art. 7 incident-notification duty, which the draft attributes with \"as ANTIC states it / selon l'ANTIC\" because the decree itself was not fetched.\n- ART — https://www.art.cm/en (WebFetch): identity + regulatory areas (operators, spectrum, universal service, QoS). FR cites the same verified EN-language URL (FR page not verified live), consistent with regtech-hub precedent.\n- Threat figures 2021/2019 — Business in Cameroon article of 7 Mar 2022 (curl-fetched, full text read): https://www.businessincameroon.com/public-management/0703-12393-cameroon-lost-xaf12-2-bln-to-cybercrime-in-2021-antic — XAF 12.2bn 2021 (≈2x 2019); 2.5bn intrusions / 6bn scam+phishing / 3.7bn skimming; ~6bn bank fraud 2019, BEC/FOVI dominant; 27,052 vulnerabilities detected 2021. All framed as ANTIC's published figures relayed by press, explicitly flagged as not independently audited.\n- CIRT modernization — TechAfrica News 21 Jan 2026 (WebFetch): https://techafricanews.com/2026/01/21/cameroon-strengthens-cybersecurity-with-advanced-systems-at-national-cirt/ — 20 Jan 2026 handover, >FCFA 735M equipment, World Bank-supported PATNUC, 32,500 requisitions 2025 (+30% vs 2024), ~200GB/day, 8,502 vulnerabilities since Jan 2024.\n\nDROPPED AS UNVERIFIABLE (do not re-add without fresh verification): any national cybersecurity strategy (none verifiable in primary sources — page says so explicitly and cites none); ITU Global Cybersecurity Index 2024 tier for Cameroon (itu.int per-country tier not fetchable; statbase returned HTTP 520); \"38th African country to adopt a data-protection law\"; \"up to 20 years imprisonment\" generic penalty claim (replaced with primary-verified s.68 range); Law 2015/006 amendment to 2010/013 (not independently verified, omitted); data-protection sanction typology \"administrative/civil/criminal\" (regtech hub carries it, but not re-verifiable this session from the scanned text — this page says only that analysis reports significant sanctions via the authority/prior-authorization framing); CIRT \"established in 2012\" founding year (only in search snippets, not on the fetched ANTIC page — CIRT described without a founding date); Decree 2012/1643/PM's own title/date (only Art. 7 duty, attributed to ANTIC's statement); CoE Octopus profile (coe.int unreachable — DNS timeout both via WebFetch and curl).\n\nCHARTER GUARDS: Tripwire §1 — zero mention of beneficial ownership, registries, RCBE, FATF/GAFI, grey list, RÉCOR, BODS, Open Ownership, or the export-profile record page; SIGIL section covers VIGIL only, per brief; \"RCCM\" appears solely as SIGIL's own registration number (charter-fixed fact, same usage as regtech hub). §3 — no conformance claims beyond the site's standing \"built to ... discipline\" formula for VIGIL (mirrors regtech-hub copy verbatim in register). §4 — explicit pre-deployment sentence with \"no customers, deployments, pilots, or partnerships ... cites none\" in both languages; only info@sigilsovereign.com; no social links. §5 — FR composed natively; spaces before ; : ? ! ; French number formatting (12,2 milliards; 27 052; 30 %). §6 SEO — EN primary \"cybersecurity cameroon\": title (47 chars), first words of first paragraph, exactly one H2 (\"What cybersecurity in Cameroon asks of an institution\"); FR primary \"cybersécurité cameroun\": title (51 chars), first words of first paragraph, exactly one H2 (\"Ce que la cybersécurité au Cameroun exige d'une institution\"); descriptions 147/149 chars. Internal links exactly from the charter set: EN /cybersecurity-for-organizations-cameroon/, /governed-cybersecurity/, /cybersecurity-buea/, /glossary/, /systems/vigil/, /doctrine/, /regtech-cameroon/; FR mirrors (/fr/cybersecurite-entreprises-cameroun/, /fr/cybersecurite-gouvernee/, /fr/cybersecurite-buea/, /fr/glossaire/, /fr/systemes/vigil/, /fr/methode/, /fr/regtech-cameroun/). §7 cannibalization — page stays informational (laws, institutions, cited figures); operational \"what to do\" content deferred to the commercial guide, the governed-cybersecurity doctrine page, and the Buea local page via single links; no repetition of their material. Word count ≈2,400/language including table and FAQs; 4 FAQs per language, plain-text answers. Local artifacts for the integrator: extracted law text at /home/kali/.claude/projects/-home-kali/d31df8e1-11c1-409f-94d1-ef2c49ed46ad/tool-results/law2010012.txt; official 2024 law PDF at /tmp/claude-1000/-home-kali/d31df8e1-11c1-409f-94d1-ef2c49ed46ad/scratchpad/cam-dpa.pdf."
+}

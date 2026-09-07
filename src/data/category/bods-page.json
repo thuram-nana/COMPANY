@@ -1,0 +1,187 @@
+{
+ "en": {
+  "title": "BODS: the Beneficial Ownership Data Standard",
+  "description": "What the Beneficial Ownership Data Standard (BODS v0.4) requires of registry software, and how RÉCOR is built to export to it — self-declared and verifiable.",
+  "sections": [
+   {
+    "h": "What the Beneficial Ownership Data Standard is",
+    "paras": [
+     "Registry software comes and goes; the ownership data it holds has to outlive it. The <a href=\"https://standard.openownership.org/\" rel=\"noopener\">Beneficial Ownership Data Standard (BODS)</a> is, in its maintainers' words, an open standard \"providing guidance for collecting, sharing and using high-quality beneficial ownership data\". For anyone weighing beneficial ownership data standard software — a registrar, a ministry, a development partner — the standard is the fixed point in the evaluation: if a system can export its register faithfully to BODS, the data has a life independent of the software that produced it.",
+     "The standard is developed and maintained by <a href=\"https://www.openownership.org/\" rel=\"noopener\">Open Ownership</a>, a non-profit organisation dedicated to beneficial-ownership transparency, working with Open Data Services. Its current documented version is 0.4, and its schema is defined in JSON Schema 2020-12. That last detail matters more than it may appear to: because the schema is published and machine-checkable, whether a data file conforms to BODS is not a matter of opinion or marketing — the file validates against the schema, or it does not.",
+     "It helps to be precise about what BODS is not. It is not a law: legal frameworks decide who must declare, what must be verified, and what may be published. It is not software: no product ships with the standard built in by decree. It is a shared language for the results — a way of recording who owns and controls legal entities such that the record can be read, checked, combined, and questioned by people and systems far beyond the registry that produced it."
+    ]
+   },
+   {
+    "h": "A model built from statements",
+    "paras": [
+     "A BODS dataset is built from <em>statements</em>, and the design decision that gives the model its character is that statements are claims, not facts. In the standard's words, each statement \"represents a claim made by a source at a particular point in time\", and every statement carries its source, its date, and its context. When the underlying facts change — a shareholder sells, a trustee is replaced — the register does not edit the old statement: it publishes a new one carrying the same stable record identifier, amending or confirming what was said before. The result, as the standard puts it, is a write-only ledger; the history of what was claimed, by whom, and when, remains readable in full.",
+     "Ownership and control are carried by relationship statements as <em>typed interests</em>. The standard recognises that an interest may be rooted in legal ownership, come from controlling the entity, or come from using its assets, and its published <a href=\"https://github.com/openownership/data-standard/blob/0.4.0/schema/codelists/interestType.csv\" rel=\"noopener\">interest-type codelist</a> names the forms this takes: shareholding, voting rights, appointment of the board, rights granted by contract, senior managing official, nominee arrangements, and others. Relationships may be direct or run indirectly through intermediary entities — which is precisely where concealment tends to live, and why a structured, typed record matters more than a free-text one.",
+     "The statements themselves are of three kinds, described in the standard's <a href=\"https://standard.openownership.org/en/0.4.0/standard/concepts.html\" rel=\"noopener\">key concepts</a>:"
+    ],
+    "table": {
+     "head": [
+      "Statement type",
+      "What it records"
+     ],
+     "rows": [
+      [
+       "Entity statement",
+       "A claim about a company, trust, or other legal arrangement — the vehicle whose ownership is being described."
+      ],
+      [
+       "Person statement",
+       "A claim about a natural person who owns, controls, or benefits from an entity."
+      ],
+      [
+       "Relationship statement",
+       "A claim about the interests that connect an interested party to an entity — the ownership or control itself."
+      ]
+     ]
+    }
+   },
+   {
+    "h": "Why an open standard matters for a registry",
+    "paras": [
+     "The first argument is portability. A register is a public institution's memory of who ultimately owns and controls the legal entities on its territory (the <a href=\"/glossary/\">glossary</a> holds the working vocabulary), and that memory should not be hostage to a procurement decision. Data held only in a vendor's private schema is, in practice, the vendor's data: leaving means reverse-engineering your own register. Data exported to BODS can be carried to a successor system — or simply held, readable, against the day the software changes.",
+     "The second argument is analysis. Standardised statements can be read by tools the register's operator never built: cross-jurisdiction comparison, network analysis, screening by procurement authorities and financial institutions, investigative journalism. Because each statement carries its source and date, an analyst can weigh evidence rather than merely accept totals. None of that tooling has to be commissioned by the registry; an open standard lets an ecosystem do the work.",
+     "The third argument is scrutiny — of the software itself. When the export format is open and the schema machine-checkable, a registry operator can test a vendor's central claim instead of trusting it. That inverts the usual relationship between an institution and its supplier, and it is the healthiest inversion in public technology: the standard, not the sales material, defines what counts as working."
+    ]
+   },
+   {
+    "h": "What BODS asks of registry software",
+    "paras": [
+     "Conformance in BODS 0.4 has a precise floor: the standard's <a href=\"https://standard.openownership.org/en/0.4.0/standard/system/conformance.html\" rel=\"noopener\">conformance section</a> requires that an implementation serialising to JSON \"MUST validate against the standard's JSON schema\", use the schema's terms consistently with their definitions, and reach outside them only where they are insufficient. But schema validity is the easy part. Exporting well is a property of the whole registry system, and it asks for four disciplines:"
+    ],
+    "list": [
+     "<strong>Stable identifiers.</strong> Every entity, person, and relationship needs a record identifier that survives updates, corrections, and migrations. Without stable identifiers, new statements cannot amend or confirm earlier ones, and the register's history collapses into disconnected snapshots.",
+     "<strong>Completeness.</strong> Typed interests only mean something if the register captures interests in their variety — percentages held, voting rights, control by contract, nominee arrangements — rather than flattening them into a single free-text field that no tool can interrogate.",
+     "<strong>Update discipline.</strong> BODS models change as new statements, never as silent edits. A registry system should treat its own records the same way: append events, preserve history, and let the export reflect what was claimed at each point in time.",
+     "<strong>Machine-readable export as a first-class function.</strong> An export assembled occasionally and by hand drifts out of conformance the first time the data model moves. The export must be a maintained, tested output of the system, produced the same way every time."
+    ]
+   },
+   {
+    "h": "How RÉCOR aligns",
+    "paras": [
+     "One consequence of the open schema deserves emphasis: verification does not require trust. Open Ownership's <a href=\"https://datareview.openownership.org/\" rel=\"noopener\">Data Review Tool</a> validates a data file's conformance to the JSON schema and to further requirements that can be checked programmatically. Anyone — an operator, an auditor, a journalist — can run a registry's export through it. A vendor's claim to export BODS is therefore a claim the vendor does not get to referee.",
+     "<a href=\"/systems/recor/\">RÉCOR</a> is a sovereign beneficial-ownership registry designed for Cameroon, and it is built to export to BODS v0.4. The alignment is structural rather than cosmetic. RÉCOR's records are designed to map onto the standard's three statement kinds — persons, entities, and the ownership-or-control relationships between them, with typed interests such as shareholding and voting rights. Its declaration log is append-only by design, which answers the standard's write-only ledger of claims; its records carry stable identifiers, which is what lets an exported statement amend or confirm an earlier one; and verification precedes publication, so what is exported is what survived scrutiny.",
+     "The machine-readable detail of that mapping is published as a <a href=\"/record/2026-09-06-bods-v04-export-profile/\">self-declared BODS v0.4 export profile</a> — the canonical statement of how RÉCOR's records map to the standard. It exists so that the sentence \"exports to BODS\" can be examined field by field rather than taken on faith. The profile is declared by SIGIL; it has not been certified by any third party.",
+     "RÉCOR was fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026. This is a technical demonstration, not an endorsement. We record it because it is the kind of claim this page argues for: specific, dated, and bounded — a demonstration of an export working, not a badge."
+    ]
+   },
+   {
+    "h": "What we do not claim",
+    "paras": [
+     "The limits of this page are as deliberate as its claims. There is no certification programme for BODS conformance — no body issues a \"BODS-certified\" badge — so RÉCOR's alignment is self-declared, as every vendor's must honestly be. What can be offered instead is examinable: a published export profile, an open schema to validate against, and a dated demonstration. RÉCOR is pre-deployment; it has no customers, deployments, or pilots to report, and this page reports none.",
+     "That restraint is not modesty; it is method. A company proposing to operate an institution's memory should be legible in the same way it asks ownership to be. How SIGIL makes and bounds its claims is set out in the <a href=\"/doctrine/\">doctrine</a>, and the wider context of this work sits with the rest of our <a href=\"/regtech-cameroon/\">governance-infrastructure practice</a>."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is BODS?",
+    "a": "The Beneficial Ownership Data Standard (BODS) is an open standard for collecting, sharing, and using beneficial-ownership data, developed and maintained by Open Ownership. Its current version, 0.4, models ownership as statements — about persons, entities, and the relationships between them, with typed interests such as shareholding and voting rights — defined in a JSON schema that data files can be validated against."
+   },
+   {
+    "q": "Is RÉCOR BODS-certified?",
+    "a": "No — and neither is any other system, because no certification programme for BODS conformance exists. RÉCOR's alignment is self-declared: it is built to export to BODS v0.4, and SIGIL publishes the export profile that specifies the mapping so it can be examined. RÉCOR was fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026. This is a technical demonstration, not an endorsement."
+   },
+   {
+    "q": "Why does portability matter?",
+    "a": "Because a register outlives any single piece of software. Ownership data exported to an open standard can be read by tools the register's operator did not build, compared across jurisdictions, and carried to a successor system without loss. Data held only in a vendor's private format is, in practice, the vendor's data."
+   }
+  ]
+ },
+ "fr": {
+  "title": "La norme BODS (Beneficial Ownership Data Standard)",
+  "description": "Ce que la norme BODS exige d’un logiciel de registre des bénéficiaires effectifs, et comment RÉCOR est bâti pour y exporter — auto-déclaré, vérifiable.",
+  "sections": [
+   {
+    "h": "Ce qu’est la norme BODS",
+    "paras": [
+     "Les logiciels de registre passent ; les données de propriété qu’ils détiennent doivent leur survivre. Le <a href=\"https://standard.openownership.org/\" rel=\"noopener\">Beneficial Ownership Data Standard (BODS)</a> — le standard de données sur les bénéficiaires effectifs — est un standard ouvert qui encadre la collecte, le partage et l’usage de données de qualité sur les bénéficiaires effectifs. Pour quiconque évalue un logiciel de registre des bénéficiaires effectifs — un registre public, un ministère, un partenaire au développement —, la norme BODS est le point fixe de l’évaluation : si un système sait exporter fidèlement son registre vers la norme, les données ont une vie indépendante du logiciel qui les a produites.",
+     "La norme est développée et maintenue par <a href=\"https://www.openownership.org/\" rel=\"noopener\">Open Ownership</a>, organisation à but non lucratif dédiée à la transparence des bénéficiaires effectifs, en collaboration avec Open Data Services. Sa version documentée actuelle est la 0.4, et son schéma est défini en JSON Schema 2020-12. Ce dernier détail compte plus qu’il n’y paraît : le schéma étant publié et vérifiable par machine, la conformité d’un fichier de données à BODS n’est ni une affaire d’opinion ni un argument commercial — le fichier valide contre le schéma, ou il ne valide pas.",
+     "Il faut être précis sur ce que BODS n’est pas. Ce n’est pas une loi : le cadre juridique décide qui doit déclarer, ce qui doit être vérifié et ce qui peut être publié. Ce n’est pas un logiciel : aucun produit n’embarque la norme d’office. C’est une langue commune pour les résultats — une manière de consigner qui possède et contrôle les entités juridiques, telle que l’enregistrement puisse être lu, vérifié, combiné et questionné bien au-delà du registre qui l’a produit."
+    ]
+   },
+   {
+    "h": "Un modèle fondé sur des énoncés",
+    "paras": [
+     "Un jeu de données BODS se compose d’<em>énoncés</em>, et le choix de conception qui donne au modèle son caractère est celui-ci : les énoncés sont des affirmations, non des faits. Chaque énoncé représente, selon la norme, une affirmation faite par une source à un moment donné, et porte sa source, sa date et son contexte. Quand la réalité change — un actionnaire cède ses parts, un trustee est remplacé —, le registre ne retouche pas l’ancien énoncé : il en publie un nouveau, portant le même identifiant stable d’enregistrement, qui amende ou confirme ce qui avait été affirmé. Le résultat, selon les termes de la norme, est un journal en écriture seule ; l’histoire de ce qui a été affirmé, par qui et quand, reste lisible en entier.",
+     "La propriété et le contrôle sont portés par les énoncés de relation sous forme d’<em>intérêts typés</em>. La norme reconnaît qu’un intérêt peut tenir à la propriété juridique, au contrôle de l’entité ou à l’usage de ses actifs, et sa <a href=\"https://github.com/openownership/data-standard/blob/0.4.0/schema/codelists/interestType.csv\" rel=\"noopener\">liste de codes des types d’intérêts</a> en nomme les formes : participation au capital, droits de vote, nomination du conseil, droits accordés par contrat, dirigeant principal, montages de prête-noms, entre autres. Les relations peuvent être directes ou passer indirectement par des entités intermédiaires — là précisément où la dissimulation aime se loger, et la raison pour laquelle un enregistrement structuré et typé vaut mieux qu’un champ libre.",
+     "Les énoncés eux-mêmes sont de trois natures, décrits dans les <a href=\"https://standard.openownership.org/en/0.4.0/standard/concepts.html\" rel=\"noopener\">concepts clés</a> de la norme :"
+    ],
+    "table": {
+     "head": [
+      "Type d’énoncé",
+      "Ce qu’il consigne"
+     ],
+     "rows": [
+      [
+       "Énoncé d’entité",
+       "Une affirmation au sujet d’une société, d’un trust ou d’une autre construction juridique — le véhicule dont la propriété est décrite."
+      ],
+      [
+       "Énoncé de personne",
+       "Une affirmation au sujet d’une personne physique qui possède ou contrôle une entité, ou en tire bénéfice."
+      ],
+      [
+       "Énoncé de relation",
+       "Une affirmation au sujet des intérêts qui relient une partie intéressée à une entité — la propriété ou le contrôle proprement dits."
+      ]
+     ]
+    }
+   },
+   {
+    "h": "Pourquoi un standard ouvert compte pour un registre",
+    "paras": [
+     "Le premier argument est la portabilité. Un registre est la mémoire d’une institution publique sur qui possède et contrôle en dernier ressort les entités juridiques de son territoire (le <a href=\"/fr/glossaire/\">glossaire</a> fixe le vocabulaire), et cette mémoire ne doit pas être l’otage d’une décision d’achat. Des données détenues dans le seul schéma privé d’un fournisseur sont, en pratique, les données du fournisseur : en partir revient à rétro-concevoir son propre registre. Des données exportées vers BODS peuvent être portées vers un système successeur — ou simplement conservées, lisibles, en prévision du jour où le logiciel changera.",
+     "Le deuxième argument est l’analyse. Des énoncés normalisés se laissent lire par des outils que l’exploitant du registre n’a jamais construits : comparaison entre juridictions, analyse de réseaux, criblage par les autorités de la commande publique et les institutions financières, journalisme d’investigation. Chaque énoncé portant sa source et sa date, l’analyste peut peser la preuve au lieu d’accepter des totaux. Rien de cet outillage n’a besoin d’être commandé par le registre : un standard ouvert laisse l’écosystème faire le travail.",
+     "Le troisième argument est le contrôle — du logiciel lui-même. Quand le format d’export est ouvert et le schéma vérifiable par machine, l’exploitant d’un registre peut tester la promesse centrale d’un fournisseur au lieu de la croire. C’est l’inversion la plus saine qui soit dans la technologie publique : c’est la norme, non l’argumentaire commercial, qui définit ce que « fonctionner » veut dire."
+    ]
+   },
+   {
+    "h": "Ce que BODS exige d’un logiciel de registre",
+    "paras": [
+     "La conformité à BODS 0.4 a un plancher précis : la <a href=\"https://standard.openownership.org/en/0.4.0/standard/system/conformance.html\" rel=\"noopener\">section conformité</a> de la norme impose qu’une implémentation sérialisant en JSON valide contre le schéma JSON de la norme, emploie les termes du schéma conformément à leurs définitions, et n’en sorte que là où ils sont insuffisants. Mais la validité de schéma est la partie facile. Bien exporter est une propriété du système de registre tout entier, et cela demande quatre disciplines :"
+    ],
+    "list": [
+     "<strong>Des identifiants stables.</strong> Chaque entité, personne et relation a besoin d’un identifiant d’enregistrement qui survive aux mises à jour, aux corrections et aux migrations. Sans identifiants stables, les nouveaux énoncés ne peuvent ni amender ni confirmer les précédents, et l’histoire du registre se défait en instantanés sans lien.",
+     "<strong>La complétude.</strong> Les intérêts typés n’ont de sens que si le registre saisit les intérêts dans leur variété — pourcentages détenus, droits de vote, contrôle par contrat, prête-noms — au lieu de les aplatir dans un champ libre qu’aucun outil ne peut interroger.",
+     "<strong>La discipline de mise à jour.</strong> BODS modélise le changement par de nouveaux énoncés, jamais par des retouches silencieuses. Un système de registre doit traiter ses propres enregistrements de la même façon : ajouter des événements, préserver l’histoire, et laisser l’export refléter ce qui a été affirmé à chaque moment.",
+     "<strong>L’export machine comme fonction de premier rang.</strong> Un export assemblé de temps à autre, à la main, sort de conformité à la première évolution du modèle de données. L’export doit être une sortie maintenue et testée du système, produite de la même manière à chaque fois."
+    ]
+   },
+   {
+    "h": "L’alignement de RÉCOR",
+    "paras": [
+     "Une conséquence du schéma ouvert mérite d’être soulignée : la vérification n’exige pas la confiance. Le <a href=\"https://datareview.openownership.org/\" rel=\"noopener\">Data Review Tool</a> d’Open Ownership valide la conformité d’un fichier au schéma JSON et à des exigences supplémentaires contrôlables par programme. Chacun — exploitant, auditeur, journaliste — peut y soumettre l’export d’un registre. La prétention d’un fournisseur à exporter vers BODS est donc une prétention que le fournisseur n’arbitre pas lui-même.",
+     "<a href=\"/fr/systemes/recor/\">RÉCOR</a> est un registre souverain des bénéficiaires effectifs conçu pour le Cameroun, bâti pour exporter vers BODS v0.4. L’alignement est structurel, non cosmétique. Les enregistrements de RÉCOR sont conçus pour se projeter sur les trois natures d’énoncés de la norme — personnes, entités et relations de propriété ou de contrôle, avec des intérêts typés tels que la participation au capital et les droits de vote. Son journal de déclarations est en ajout seul par conception, ce qui répond au journal en écriture seule des énoncés ; ses enregistrements portent des identifiants stables, ce qui permet à un énoncé exporté d’amender ou de confirmer un énoncé antérieur ; et la vérification précède la publication, de sorte que ce qui est exporté est ce qui a résisté à l’examen.",
+     "Le détail machine de cette correspondance est publié sous la forme d’un <a href=\"/fr/references/2026-09-06-profil-export-bods-v04/\">profil d’export BODS v0.4 auto-déclaré</a> — l’énoncé canonique de la manière dont les enregistrements de RÉCOR se projettent sur la norme. Il existe pour que la phrase « exporte vers BODS » puisse être examinée champ par champ plutôt que crue sur parole. Le profil est déclaré par SIGIL ; il n’est certifié par aucun tiers.",
+     "RÉCOR a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, et Open Ownership en a pris acte. Il s’agit d’une démonstration technique, non d’un soutien institutionnel. Nous la consignons parce qu’elle est le genre d’affirmation que cette page défend : précise, datée, bornée — la démonstration d’un export qui fonctionne, non un label."
+    ]
+   },
+   {
+    "h": "Ce que nous ne prétendons pas",
+    "paras": [
+     "Les limites de cette page sont aussi délibérées que ses affirmations. Il n’existe pas de programme de certification de la conformité à BODS — aucun organisme ne délivre de label « certifié BODS » —, si bien que l’alignement de RÉCOR est auto-déclaré, comme doit honnêtement l’être celui de tout fournisseur. Ce qui peut être offert à la place est examinable : un profil d’export publié, un schéma ouvert contre lequel valider, une démonstration datée. RÉCOR est en pré-déploiement ; il n’a ni clients, ni déploiements, ni pilotes à rapporter, et cette page n’en rapporte aucun.",
+     "Cette retenue n’est pas de la modestie ; c’est une méthode. Une entreprise qui propose d’opérer la mémoire d’une institution doit être lisible de la même manière qu’elle demande à la propriété de l’être. La façon dont SIGIL formule et borne ses affirmations est exposée dans la <a href=\"/fr/methode/\">méthode</a>, et le contexte plus large de ce travail se trouve dans notre <a href=\"/fr/regtech-cameroun/\">pratique d’infrastructure de gouvernance</a>."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Qu’est-ce que la norme BODS ?",
+    "a": "Le Beneficial Ownership Data Standard (BODS) est un standard ouvert pour la collecte, le partage et l’usage des données sur les bénéficiaires effectifs, développé et maintenu par Open Ownership. Sa version actuelle, la 0.4, modélise la propriété par des énoncés — sur les personnes, les entités et les relations qui les lient, avec des intérêts typés tels que la participation au capital et les droits de vote — définis dans un schéma JSON contre lequel les fichiers de données peuvent être validés."
+   },
+   {
+    "q": "RÉCOR est-il certifié BODS ?",
+    "a": "Non — et aucun autre système ne l’est, car il n’existe pas de programme de certification de la conformité à BODS. L’alignement de RÉCOR est auto-déclaré : il est bâti pour exporter vers BODS v0.4, et SIGIL publie le profil d’export qui précise la correspondance afin qu’elle puisse être examinée. RÉCOR a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, et Open Ownership en a pris acte. Il s’agit d’une démonstration technique, non d’un soutien institutionnel."
+   },
+   {
+    "q": "Pourquoi la portabilité des données importe-t-elle ?",
+    "a": "Parce qu’un registre survit à n’importe quel logiciel. Des données de propriété exportées vers un standard ouvert peuvent être lues par des outils que l’exploitant du registre n’a pas construits, comparées entre juridictions et portées vers un système successeur sans perte. Des données détenues dans le seul format privé d’un fournisseur sont, en pratique, les données du fournisseur."
+   }
+  ]
+ },
+ "notes": "VERIFIED SOURCES (all fetched live 2026-09-06): (1) https://standard.openownership.org/ — BODS definition quote \"an open standard providing guidance for collecting, sharing and using high-quality beneficial ownership data\"; maintained by Open Ownership with Open Data Services; current documented version 0.4. (2) https://standard.openownership.org/en/0.4.0/standard/concepts.html — three statement types (entity, person, relationship); \"Each Statement represents a claim made by a source at a particular point in time\"; stable recordId; new statements amend/confirm older ones; \"write-only ledger\"; interests rooted in legal ownership, control, or use of assets; direct/indirect relationships. (3) https://standard.openownership.org/en/0.4.0/standard/system/conformance.html — \"MUST validate against the standard's JSON schema\"; MAY use subset; MUST use terms consistently; no certification programme mentioned anywhere (supports FAQ answer). (4) https://raw.githubusercontent.com/openownership/data-standard/0.4.0/schema/codelists/interestType.csv (linked as the blob URL) — verified interest-type codes: shareholding, votingRights, appointmentOfBoard, rightsGrantedByContract, seniorManagingOfficial, nominee/nominator, etc. (5) https://datareview.openownership.org/ + conformance page — Data Review Tool \"validates conformance to the JSON schema and to additional requirements that can be validated programmatically\". (6) Schema in JSON Schema 2020-12 — 0.4 docs. DROPPED (unverifiable live, omitted rather than hedged): BODS 0.4 release date; count of jurisdictions publishing BODS data; any Open Ownership organisational history. GUARDS: jurisdiction-generic end to end — zero mention of any existing Cameroonian BO apparatus; RÉCOR described only with the ceiling phrase \"a sovereign beneficial-ownership registry designed for Cameroon\" / \"registre souverain des bénéficiaires effectifs conçu pour le Cameroun\"; demonstration sentence used verbatim (\"fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026\" + \"This is a technical demonstration, not an endorsement.\"; FR matches recor.js phrasing exactly); all RÉCOR claims are \"built to / designed to / self-declared\"; export profile linked as canonical at /record/2026-09-06-bods-v04-export-profile/ and /fr/references/2026-09-06-profil-export-bods-v04/ and described generically so it cannot be contradicted; pre-deployment stated, no customers/pilots; no FATF/GAFI content (left to the R.24 page — cannibalization guard); internal links only from the approved lists (/systems/recor/, /record/..., /glossary/, /doctrine/, /regtech-cameroon/ and FR equivalents); titles 44/50 chars (≤55 before \" — SIGIL SARL\"); descriptions 157/151 chars (≤158); primary query family in EN title, first paragraph (\"beneficial ownership data standard software\"), and H2s (\"What the Beneficial Ownership Data Standard is\", \"What BODS asks of registry software\"); FR uses \"norme BODS\" in title/first para/H2 with space before : ; « » quotes. FAQ answers are plain text. Word counts approx. 1,650 (EN) and 1,680 (FR). STRUCTURE FIXES APPLIED (repair pass 2026-09-06, matching renderSection's paras-then-table/list order in src/pages/category.js): (a) \"A model built from statements\" / \"Un modèle fondé sur des énoncés\" reordered — claims-not-facts para first (opening adjusted to introduce statements: \"A BODS dataset is built from statements, and the design decision…\" / \"Un jeu de données BODS se compose d'énoncés, et le choix de conception…\"), typed-interests para second, and the colon-bearing enumeration para (\"The statements themselves are of three kinds…\" / \"Les énoncés eux-mêmes sont de trois natures…\") now last, immediately preceding the table; (b) the Data Review Tool paragraph moved verbatim from \"What BODS asks of registry software\" / \"Ce que BODS exige d'un logiciel de registre\" to open \"How RÉCOR aligns\" / \"L'alignement de RÉCOR\", so the \"four disciplines:\" / \"quatre disciplines :\" paragraph now immediately precedes the list, and the verification paragraph now renders before RÉCOR's self-declared claim it frames. Applied identically in EN and FR; no other content, links, or claims changed."
+}

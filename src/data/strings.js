@@ -104,7 +104,10 @@ export const routes = {
   glossary: { en: "/glossary/", fr: "/fr/glossaire/" },
   cyberOrgs: { en: "/cybersecurity-for-organizations-cameroon/", fr: "/fr/cybersecurite-entreprises-cameroun/" },
   procurementHub: { en: "/procurement-integrity-cameroon/", fr: "/fr/integrite-marches-publics-cameroun/" },
-  siliconMountain: { en: "/silicon-mountain/", fr: "/fr/silicon-mountain/" }
+  siliconMountain: { en: "/silicon-mountain/", fr: "/fr/silicon-mountain/" },
+  bodsStandard: { en: "/beneficial-ownership-data-standard/", fr: "/fr/norme-bods/" },
+  fatfR24: { en: "/fatf-recommendation-24/", fr: "/fr/recommandation-24-gafi/" },
+  cyberCameroon: { en: "/cybersecurity-cameroon/", fr: "/fr/cybersecurite-cameroun/" }
 };
 
 export function statusLabel(status, lang) {

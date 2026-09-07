@@ -1,0 +1,235 @@
+{
+ "en": {
+  "title": "FATF Recommendation 24: what registries must deliver",
+  "description": "What FATF Recommendation 24 requires of beneficial-ownership registry systems: adequate data, verified accuracy, up-to-date records, auditable access.",
+  "sections": [
+   {
+    "h": "What FATF Recommendation 24 is",
+    "paras": [
+     "FATF Recommendation 24 is the international standard on the transparency and beneficial ownership of legal persons. It is one of the forty Recommendations maintained by the <a href=\"https://www.fatf-gafi.org/en/topics/fatf-recommendations.html\" rel=\"noopener\">Financial Action Task Force (FATF)</a>, the intergovernmental body that sets the global standards against money laundering and terrorist financing. Its purpose is to make one question answerable everywhere: which natural persons ultimately own or control a legal person — the <a href=\"/glossary/\">beneficial owners</a> — and can the authorities find out quickly enough for the answer to matter.",
+     "The Recommendation’s core sentence has a precise shape. Countries should ensure that <em>adequate, accurate and up-to-date</em> information on the beneficial ownership and control of legal persons <em>can be obtained or accessed rapidly and efficiently by competent authorities</em> — the wording of the <a href=\"https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html\" rel=\"noopener\">revised Recommendation itself</a>. Since March 2022, each of those adjectives carries a definition a system can be measured against.",
+     "Recommendation 24 is addressed to countries, not to software. But a country discharges it through machinery: the register that holds declarations, the pipeline that verifies them, the channels through which authorities query them. This page reads the Recommendation as a set of system requirements — jurisdiction-generic, because they are derived from the standard itself rather than from any one country’s transposition of it."
+    ]
+   },
+   {
+    "h": "The March 2022 strengthening",
+    "paras": [
+     "At its Plenary of 2–4 March 2022, the FATF <a href=\"https://www.fatf-gafi.org/en/publications/Fatfgeneral/Outcomes-fatf-plenary-march-2022.html\" rel=\"noopener\">adopted amendments to Recommendation 24 and its Interpretive Note</a>, significantly tightening the beneficial-ownership standard. The direction of the change is unmistakable: away from principle, toward mechanism.",
+     "The centrepiece is the <strong>multi-pronged approach</strong> to collecting beneficial-ownership information. Companies must obtain and hold their own beneficial-ownership information; the information must also be held by a public authority or body functioning as a beneficial-ownership registry, or through an alternative mechanism that likewise enables rapid and efficient access; and countries combine these with other existing sources of information. The FATF’s own evaluations supplied the reasoning: countries drawing on several sources proved more effective at preventing the misuse of legal persons than countries relying on any single one.",
+     "The information standard itself was sharpened. Where the earlier text asked for information that was adequate, accurate and <em>timely</em>, the revised standard asks for information that is adequate, accurate and <em>up to date</em> — and relocates timeliness into the access requirement: obtained or accessed <em>rapidly and efficiently</em>. The same amendments prohibited the issuance of new bearer shares and bearer-share warrants and required existing ones to be converted or immobilised, strengthened the transparency obligations around nominee shareholders and directors, and required public authorities to have access to beneficial-ownership information in the course of public procurement.",
+     "In March 2023 the FATF published its updated <a href=\"https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Guidance-Beneficial-Ownership-Legal-Persons.html\" rel=\"noopener\">Guidance on Beneficial Ownership of Legal Persons</a> to help countries implement the revised Recommendation. The definitions below are drawn from it."
+    ]
+   },
+   {
+    "h": "From legal text to system requirements",
+    "paras": [
+     "None of this is self-executing. Each obligation in the Recommendation resolves, in practice, into a property a registry system either has or lacks. The table below states that mapping in jurisdiction-generic terms — it holds for a beneficial-ownership register anywhere, because it follows from the standard rather than from any local statute."
+    ],
+    "table": {
+     "head": [
+      "Recommendation 24 asks for",
+      "The system must provide"
+     ],
+     "rows": [
+      [
+       "Adequate information",
+       "A data model that resolves to natural persons and captures the means and mechanisms of ownership and control — not only names and percentages"
+      ],
+      [
+       "Accurate information",
+       "Verification machinery that checks declarations against reliable, independently sourced data, and records its evidence"
+      ],
+      [
+       "Up-to-date information",
+       "Update obligations enforced in software: change-triggered filings, periodic confirmation, and re-screening against sources that move"
+      ],
+      [
+       "Rapid and efficient access",
+       "Structured, queryable records reachable by competent authorities through defined channels — with every access itself logged"
+      ],
+      [
+       "A registry or alternative mechanism",
+       "An operating institution, an availability discipline, and an open export format that keeps the data portable"
+      ]
+     ]
+    }
+   },
+   {
+    "h": "“Adequate”: what it demands of a data model",
+    "paras": [
+     "The FATF’s 2023 guidance defines adequate information as information <em>sufficient to identify the natural persons who are the beneficial owners, and the means and mechanisms through which they exercise ownership or control</em>. Both halves bind. A register that stores names but not mechanisms fails the second half: a percentage alone does not explain a company controlled through a shareholders’ agreement, a family arrangement, or a chain of intermediate entities.",
+     "For a data model, this means every record must resolve through any chain of entities to natural persons; interests must be typed — equity, voting rights, appointment powers, contractual control, nominee arrangements with the person behind the nominee identified; the legal basis of control must be recordable where ownership alone does not explain it; and numeric precision must keep thresholds meaningful, because a register that cannot distinguish 24.9 from 25.0 per cent cannot apply a 25 per cent rule. Adequacy is decided at schema-design time. No later verification stage can recover a fact the schema never asked for."
+    ]
+   },
+   {
+    "h": "“Accurate”: what it demands of verification machinery",
+    "paras": [
+     "Accurate information, in the guidance’s terms, is information verified against reliable, independently sourced documents, data or information — with the degree of verification allowed to follow risk. The operative word is <em>independently</em>: a register that only stores what declarants assert is a filing cabinet, not a source of accurate information.",
+     "That implies machinery. Identity checks against authoritative civil sources, so a declaration cannot rest on an invented person. Screening against sanctions and politically-exposed-person lists, with match quality quantified rather than asserted. Cross-source comparison, so that two official sources disagreeing about one entity raises a flag by itself. And — the discipline that separates serious systems from hopeful ones — an explicit representation of uncertainty. A pipeline that cannot say “insufficient evidence” will convert silence into a clean result, and the register will look most accurate precisely where it knows least.",
+     "Accuracy must also survive review. Every verification outcome needs recorded evidence — which source, which match, what confidence — so that a human reviewer, a supervisor, or an assessor can reconstruct why the register believed what it published."
+    ]
+   },
+   {
+    "h": "“Up to date”: update obligations and refresh discipline",
+    "paras": [
+     "Up-to-date information, per the guidance, is information that is current and updated within a reasonable period after any change — the FATF offers one month as an example of such a period. This is a requirement about obligations and about clocks: someone must be obliged to report the change, and the system must make that obligation cheap to honour and visible to ignore.",
+     "In system terms: change-triggered filings with the reporting clock exposed to the declarant and the operator alike; periodic confirmation, so that an entity whose ownership never changes still re-affirms it on schedule; and staleness made legible — a record not confirmed within its period should say so on its face, not present itself as current.",
+     "There is a second clock the standard implies rather than states. The sources a register verifies against — sanctions designations, politically-exposed-person status, adverse findings — move on their own. A declaration verified in January can be contradicted by a designation in March. Up to date therefore also means re-screening published records against refreshed sources on a defined cycle, and refusing to conclude from list data the system knows to be stale."
+    ]
+   },
+   {
+    "h": "Access for competent authorities — and the audit trail",
+    "paras": [
+     "The revised Recommendation requires that competent authorities obtain or access the information <em>rapidly and efficiently</em>. Rapid access is a property of structure: records queryable by entity, by person, and by relationship — not documents that must be read one by one. This is where open data standards earn their place. A register that exports to the <a href=\"/glossary/\">Beneficial Ownership Data Standard</a> holds its data in a shape that any authority’s tooling, present or future, can consume.",
+     "Access is also a risk. A beneficial-ownership register holds exactly the information a corrupt insider would want to alter and an attacker would want to exfiltrate. The access requirement therefore carries a shadow requirement: every consequential action — a query by an authority, an edit, an erasure — must leave a tamper-evident trace. An append-only, cryptographically anchored audit trail is what lets a register prove, years later, that the answer it gave an authority was the answer its records held at the time, and that nothing was silently rewritten in between."
+    ]
+   },
+   {
+    "h": "How RÉCOR is designed against these requirements",
+    "paras": [
+     "<a href=\"/systems/recor/\">RÉCOR</a>, a sovereign beneficial-ownership registry designed for Cameroon, is SIGIL’s answer to this reading of the standard, and it is designed to satisfy Recommendation 24 — a deliberate phrase, explained in the limits below. <em>Adequate</em>: its data model resolves every record to natural persons, types each interest — including nominee arrangements with the nominator identified — records the legal basis of control, and stores shares as integer basis points so that thresholds stay arithmetically exact. <em>Accurate</em>: nine verification stages stand between a declaration and publication — identity gates, sanctions and politically-exposed-person screening, adverse-media review, graph-pattern detection, and a fusion stage designed to say “we do not know” rather than force a verdict.",
+     "<em>Up to date</em>: each declaration is signed by the declarant together with a formal claim that it is adequate, accurate and up to date — the Recommendation’s own vocabulary, carried into the data — and the register is designed to re-screen published records as its sources refresh. <em>Access and audit</em>: records export to BODS v0.4 under a <a href=\"/record/2026-09-06-bods-v04-export-profile/\">self-declared export profile</a>, so the data stays structured and portable, and a triple-witnessed, Merkle-anchored audit chain makes every change tamper-evident, over a declaration log that is append-only at the database level.",
+     "RÉCOR was fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026. This is a technical demonstration, not an endorsement."
+    ]
+   },
+   {
+    "h": "The honest limits",
+    "paras": [
+     "Two limits deserve plain statement. First, Recommendation 24 is assessed at the level of jurisdictions, not software. The FATF and its regional bodies evaluate countries through mutual evaluations; no software product is, or can be, certified as “Recommendation 24 compliant”. A registry system is assessed <em>against</em> the Recommendation, in the context of a country’s laws, obligations, enforcement, and institutions — none of which a vendor supplies. Good machinery can make a country’s compliance achievable; it cannot make it automatic.",
+     "Second, RÉCOR is pre-deployment. “Designed to satisfy” is a claim about engineering — the strongest claim we make, and the way we make claims generally is set out in <a href=\"/doctrine/\">our doctrine</a>. What a deployed register achieves is decided by the institution that operates it and the jurisdiction that governs it, which is exactly where the Recommendation places the responsibility."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What does FATF Recommendation 24 require?",
+    "a": "Recommendation 24 requires countries to ensure that adequate, accurate and up-to-date information on the beneficial ownership and control of legal persons can be obtained or accessed rapidly and efficiently by competent authorities. Since the March 2022 revision it prescribes a multi-pronged approach: companies hold their own beneficial-ownership information, the information is also held by a public authority or body functioning as a beneficial-ownership registry or through an equally efficient alternative mechanism, and other existing sources supplement both."
+   },
+   {
+    "q": "What changed in Recommendation 24 in March 2022?",
+    "a": "At its March 2022 Plenary the FATF adopted amendments that made the multi-pronged approach to collecting beneficial-ownership information explicit, raised the information standard to adequate, accurate and up-to-date with rapid and efficient access for competent authorities, prohibited new bearer shares and required existing ones to be converted or immobilised, strengthened transparency obligations on nominee arrangements, and required authorities to reach beneficial-ownership information during public procurement. Implementation guidance followed in March 2023."
+   },
+   {
+    "q": "Can software be certified as compliant with Recommendation 24?",
+    "a": "No. The FATF assesses jurisdictions, not products, through mutual evaluations. A registry system is assessed against the Recommendation's requirements in the context of a country's laws and institutions; it cannot be certified by the FATF. RÉCOR is therefore described as designed to satisfy Recommendation 24 — an engineering claim, not a certification."
+   }
+  ]
+ },
+ "fr": {
+  "title": "Recommandation 24 GAFI : exigences pour les registres",
+  "description": "Ce que la recommandation 24 du GAFI exige des registres de bénéficiaires effectifs : données adéquates, exactitude vérifiée, mise à jour, accès auditable.",
+  "sections": [
+   {
+    "h": "Ce qu’est la recommandation 24 du GAFI",
+    "paras": [
+     "La recommandation 24 du GAFI est la norme internationale sur la transparence et les bénéficiaires effectifs des personnes morales. Elle compte parmi les quarante recommandations du <a href=\"https://www.fatf-gafi.org/en/topics/fatf-recommendations.html\" rel=\"noopener\">Groupe d’action financière (GAFI)</a>, l’organisme intergouvernemental qui fixe les normes mondiales contre le blanchiment de capitaux et le financement du terrorisme. Son objet est de rendre une question partout soluble : quelles personnes physiques possèdent ou contrôlent en dernier ressort une personne morale — les <a href=\"/fr/glossaire/\">bénéficiaires effectifs</a> — et les autorités peuvent-elles l’apprendre assez vite pour que la réponse compte.",
+     "La phrase centrale de la recommandation a une forme précise. Les pays doivent garantir que des informations <em>adéquates, exactes et à jour</em> sur les bénéficiaires effectifs et le contrôle des personnes morales <em>peuvent être obtenues ou consultées rapidement et efficacement par les autorités compétentes</em> — la formulation de la <a href=\"https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html\" rel=\"noopener\">recommandation révisée elle-même</a>. Depuis mars 2022, chacun de ces adjectifs porte une définition contre laquelle un système peut être mesuré.",
+     "La recommandation 24 s’adresse aux pays, non aux logiciels. Mais un pays s’en acquitte au moyen d’une machinerie : le registre qui détient les déclarations, la chaîne qui les vérifie, les canaux par lesquels les autorités les interrogent. Cette page lit la recommandation comme un cahier d’exigences système — générique quant à la juridiction, parce que ces exigences dérivent de la norme elle-même et non de la transposition d’un pays particulier."
+    ]
+   },
+   {
+    "h": "Le renforcement de mars 2022",
+    "paras": [
+     "Lors de sa plénière des 2–4 mars 2022, le GAFI a <a href=\"https://www.fatf-gafi.org/en/publications/Fatfgeneral/Outcomes-fatf-plenary-march-2022.html\" rel=\"noopener\">adopté des amendements à la recommandation 24 et à sa note interprétative</a>, durcissant sensiblement la norme sur les bénéficiaires effectifs. Le sens du changement est sans ambiguïté : du principe vers le mécanisme.",
+     "La pièce maîtresse est l’approche dite <strong>à plusieurs volets</strong> (« multi-pronged approach ») de la collecte des informations sur les bénéficiaires effectifs. Les sociétés doivent obtenir et détenir leurs propres informations ; ces informations doivent aussi être détenues par une autorité ou un organisme public faisant fonction de registre des bénéficiaires effectifs, ou par un mécanisme alternatif garantissant un accès tout aussi rapide et efficace ; et les pays combinent le tout avec d’autres sources d’information existantes. Les évaluations du GAFI ont fourni le raisonnement : les pays combinant plusieurs sources se sont montrés plus efficaces pour prévenir l’usage abusif des personnes morales que ceux qui n’en mobilisaient qu’une seule.",
+     "La norme d’information elle-même a été affûtée. Là où le texte antérieur demandait des informations adéquates, exactes et <em>opportunes</em>, la norme révisée exige des informations adéquates, exactes et <em>à jour</em> — et déplace l’exigence de délai vers l’accès lui-même : obtenues ou consultées <em>rapidement et efficacement</em>. Les mêmes amendements ont interdit l’émission de nouvelles actions au porteur et de nouveaux bons de souscription au porteur et imposé la conversion ou l’immobilisation des titres existants, renforcé les obligations de transparence autour des actionnaires et administrateurs prête-noms, et exigé que les autorités publiques aient accès aux informations sur les bénéficiaires effectifs dans le cadre de la commande publique.",
+     "En mars 2023, le GAFI a publié ses <a href=\"https://www.fatf-gafi.org/fr/publications/Recommandationsgafi/Guidance-Beneficial-Ownership-Legal-Persons.html\" rel=\"noopener\">lignes directrices actualisées sur les bénéficiaires effectifs des personnes morales</a> pour aider les pays à mettre en œuvre la recommandation révisée. Les définitions ci-dessous en sont tirées."
+    ]
+   },
+   {
+    "h": "Du texte juridique aux exigences système",
+    "paras": [
+     "Rien de tout cela ne s’exécute de soi-même. Chaque obligation de la recommandation se résout, en pratique, en une propriété qu’un système de registre possède ou ne possède pas. Le tableau ci-dessous énonce cette correspondance en termes génériques : elle vaut pour un registre des bénéficiaires effectifs où qu’il soit, parce qu’elle découle de la norme et non d’une loi locale."
+    ],
+    "table": {
+     "head": [
+      "La recommandation 24 demande",
+      "Le système doit fournir"
+     ],
+     "rows": [
+      [
+       "Des informations adéquates",
+       "Un modèle de données qui remonte aux personnes physiques et saisit les moyens et mécanismes de propriété et de contrôle — pas seulement des noms et des pourcentages"
+      ],
+      [
+       "Des informations exactes",
+       "Une machinerie de vérification qui confronte les déclarations à des données fiables et de source indépendante, et qui consigne ses preuves"
+      ],
+      [
+       "Des informations à jour",
+       "Des obligations de mise à jour portées par le logiciel : déclarations déclenchées par le changement, confirmation périodique, re-criblage contre des sources mouvantes"
+      ],
+      [
+       "Un accès rapide et efficace",
+       "Des enregistrements structurés et interrogeables, accessibles aux autorités compétentes par des canaux définis — chaque accès étant lui-même journalisé"
+      ],
+      [
+       "Un registre ou un mécanisme alternatif",
+       "Une institution exploitante, une discipline de disponibilité, et un format d’export ouvert qui garde les données portables"
+      ]
+     ]
+    }
+   },
+   {
+    "h": "« Adéquates » : ce que cela exige du modèle de données",
+    "paras": [
+     "Les lignes directrices de 2023 du GAFI définissent les informations adéquates comme des informations <em>suffisantes pour identifier les personnes physiques qui sont les bénéficiaires effectifs, ainsi que les moyens et mécanismes par lesquels elles exercent la propriété ou le contrôle</em>. Les deux moitiés obligent. Un registre qui stocke des noms mais pas des mécanismes échoue sur la seconde : un pourcentage seul n’explique pas une société contrôlée par un pacte d’actionnaires, un arrangement familial ou une chaîne d’entités intermédiaires.",
+     "Pour un modèle de données, cela signifie : chaque enregistrement doit remonter, à travers toute chaîne d’entités, jusqu’à des personnes physiques ; les intérêts doivent être typés — capital, droits de vote, pouvoirs de nomination, contrôle contractuel, montages de prête-noms avec identification de la personne derrière le prête-nom ; le fondement juridique du contrôle doit pouvoir être consigné lorsque la propriété seule ne l’explique pas ; et la précision numérique doit garder les seuils opérants, car un registre incapable de distinguer 24,9 % de 25,0 % ne peut pas appliquer une règle à 25 %. L’adéquation se décide au moment de la conception du schéma. Aucune étape de vérification ultérieure ne peut retrouver un fait que le schéma n’a jamais demandé."
+    ]
+   },
+   {
+    "h": "« Exactes » : ce que cela exige de la machinerie de vérification",
+    "paras": [
+     "Des informations exactes, au sens des lignes directrices, sont des informations vérifiées contre des documents, données ou renseignements fiables et de source indépendante — le degré de vérification pouvant suivre le risque. Le mot opérant est <em>indépendante</em> : un registre qui ne fait que stocker ce que les déclarants affirment est un classeur, non une source d’informations exactes.",
+     "Cela implique une machinerie. Des contrôles d’identité contre des sources civiles faisant autorité, afin qu’une déclaration ne puisse reposer sur une personne inventée. Un criblage contre les listes de sanctions et de personnes politiquement exposées, avec une qualité de correspondance quantifiée plutôt qu’affirmée. Une comparaison entre sources, de sorte que deux sources officielles se contredisant sur une même entité lèvent un signalement à elles seules. Et surtout, une représentation explicite de l’incertitude. Une chaîne incapable de dire « preuve insuffisante » convertira le silence en résultat favorable, et le registre paraîtra le plus exact précisément là où il sait le moins.",
+     "L’exactitude doit aussi survivre à la revue. Chaque verdict de vérification exige des preuves consignées — quelle source, quelle correspondance, quelle confiance — pour qu’un examinateur humain, un superviseur ou un évaluateur puisse reconstituer pourquoi le registre a cru ce qu’il a publié."
+    ]
+   },
+   {
+    "h": "« À jour » : obligations de mise à jour et discipline de rafraîchissement",
+    "paras": [
+     "Des informations à jour, selon les lignes directrices, sont des informations actuelles, mises à jour dans un délai raisonnable après tout changement — le GAFI cite un mois comme exemple d’un tel délai. C’est une exigence d’obligations et d’horloges : quelqu’un doit être tenu de déclarer le changement, et le système doit rendre cette obligation peu coûteuse à honorer et visible à ignorer.",
+     "En termes système : des déclarations déclenchées par le changement, avec l’horloge de déclaration exposée au déclarant comme à l’exploitant ; une confirmation périodique, pour qu’une entité dont la propriété ne change jamais la ré-affirme malgré tout à échéance ; et une péremption rendue lisible — un enregistrement non confirmé dans son délai doit le dire de lui-même, non se présenter comme actuel.",
+     "Il existe une seconde horloge, que la norme implique plus qu’elle ne l’énonce. Les sources contre lesquelles un registre vérifie — désignations de sanctions, statut de personne politiquement exposée, constats défavorables — bougent d’elles-mêmes. Une déclaration vérifiée en janvier peut être contredite par une désignation en mars. À jour signifie donc aussi : re-cribler les enregistrements publiés contre des sources rafraîchies selon un cycle défini, et refuser de conclure sur des listes que le système sait périmées."
+    ]
+   },
+   {
+    "h": "L’accès des autorités compétentes — et la piste d’audit",
+    "paras": [
+     "La recommandation révisée exige que les autorités compétentes obtiennent ou consultent l’information <em>rapidement et efficacement</em>. L’accès rapide est une propriété de structure : des enregistrements interrogeables par entité, par personne et par relation — non des documents à lire un à un. C’est ici que les standards de données ouverts gagnent leur place. Un registre qui exporte vers la <a href=\"/fr/glossaire/\">norme de données sur les bénéficiaires effectifs</a> tient ses données dans une forme que l’outillage de toute autorité, présent ou futur, peut consommer.",
+     "L’accès est aussi un risque. Un registre des bénéficiaires effectifs détient exactement l’information qu’un initié corrompu voudrait altérer et qu’un attaquant voudrait exfiltrer. L’exigence d’accès porte donc une exigence en creux : chaque action conséquente — une requête d’autorité, une modification, un effacement — doit laisser une trace infalsifiable. Une piste d’audit en ajout seul, ancrée cryptographiquement, est ce qui permet à un registre de prouver, des années plus tard, que la réponse donnée à une autorité était bien celle que ses enregistrements portaient à ce moment-là, et que rien n’a été réécrit en silence entre-temps."
+    ]
+   },
+   {
+    "h": "Comment RÉCOR est conçu face à ces exigences",
+    "paras": [
+     "<a href=\"/fr/systemes/recor/\">RÉCOR</a>, registre souverain des bénéficiaires effectifs conçu pour le Cameroun, est la réponse de SIGIL à cette lecture de la norme, et il est conçu pour satisfaire la recommandation 24 — une formule délibérée, expliquée dans les limites ci-dessous. <em>Adéquates</em> : son modèle de données remonte chaque enregistrement jusqu’à des personnes physiques, type chaque intérêt — y compris les montages de prête-noms avec identification du mandant —, consigne le fondement juridique du contrôle, et stocke les parts en points de base entiers pour que les seuils restent arithmétiquement exacts. <em>Exactes</em> : neuf étapes de vérification séparent une déclaration de sa publication — contrôles d’identité, criblage des sanctions et des personnes politiquement exposées, revue de la presse défavorable, détection de motifs par graphe, et une étape de fusion conçue pour dire « nous ne savons pas » plutôt que de forcer un verdict.",
+     "<em>À jour</em> : chaque déclaration est signée par le déclarant avec l’affirmation formelle qu’elle est adéquate, exacte et à jour — le vocabulaire même de la recommandation, porté dans les données — et le registre est conçu pour re-cribler les enregistrements publiés à mesure que ses sources se rafraîchissent. <em>Accès et audit</em> : les enregistrements exportent vers BODS v0.4 selon un <a href=\"/fr/references/2026-09-06-profil-export-bods-v04/\">profil d’export auto-déclaré</a>, de sorte que les données restent structurées et portables, et une chaîne d’audit triple-témoin, ancrée par arbre de Merkle, rend chaque modification infalsifiable, au-dessus d’un journal des déclarations en ajout seul au niveau même de la base de données.",
+     "RÉCOR a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, et Open Ownership en a pris acte. Il s’agit d’une démonstration technique, non d’un soutien institutionnel."
+    ]
+   },
+   {
+    "h": "Les limites, dites honnêtement",
+    "paras": [
+     "Deux limites méritent d’être énoncées sans détour. D’abord, la recommandation 24 s’évalue à l’échelle des juridictions, non des logiciels. Le GAFI et ses organismes régionaux évaluent les pays par des évaluations mutuelles ; aucun logiciel n’est, ni ne peut être, certifié « conforme à la recommandation 24 ». Un système de registre est évalué <em>contre</em> la recommandation, dans le contexte des lois, des obligations, de l’application et des institutions d’un pays — rien de tout cela n’étant fourni par un éditeur. Une bonne machinerie peut rendre la conformité d’un pays atteignable ; elle ne peut pas la rendre automatique.",
+     "Ensuite, RÉCOR est en pré-déploiement. « Conçu pour satisfaire » est une affirmation d’ingénierie — la plus forte que nous formulions, et notre manière de formuler des affirmations est exposée dans <a href=\"/fr/methode/\">notre méthode</a>. Ce qu’un registre déployé accomplit se décide par l’institution qui l’exploite et la juridiction qui le gouverne — exactement là où la recommandation place la responsabilité."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Qu’exige la recommandation 24 du GAFI ?",
+    "a": "La recommandation 24 exige des pays qu’ils garantissent que des informations adéquates, exactes et à jour sur les bénéficiaires effectifs et le contrôle des personnes morales peuvent être obtenues ou consultées rapidement et efficacement par les autorités compétentes. Depuis la révision de mars 2022, elle prescrit une approche à plusieurs volets : les sociétés détiennent leurs propres informations, celles-ci sont aussi détenues par une autorité ou un organisme public faisant fonction de registre des bénéficiaires effectifs ou par un mécanisme alternatif aussi efficace, et d’autres sources existantes complètent l’ensemble."
+   },
+   {
+    "q": "Qu’est-ce qui a changé dans la recommandation 24 en mars 2022 ?",
+    "a": "Lors de sa plénière de mars 2022, le GAFI a adopté des amendements qui rendent explicite l’approche à plusieurs volets de la collecte des informations sur les bénéficiaires effectifs, portent la norme d’information à « adéquates, exactes et à jour » avec un accès rapide et efficace pour les autorités compétentes, interdisent les nouvelles actions au porteur et imposent la conversion ou l’immobilisation des titres existants, renforcent la transparence des montages de prête-noms, et exigent l’accès des autorités aux informations sur les bénéficiaires effectifs dans la commande publique. Des lignes directrices de mise en œuvre ont suivi en mars 2023."
+   },
+   {
+    "q": "Un logiciel peut-il être certifié conforme à la recommandation 24 ?",
+    "a": "Non. Le GAFI évalue des juridictions, non des produits, au moyen d’évaluations mutuelles. Un système de registre est évalué contre les exigences de la recommandation dans le contexte des lois et des institutions d’un pays ; il ne peut pas être certifié par le GAFI. RÉCOR est donc décrit comme conçu pour satisfaire la recommandation 24 — une affirmation d’ingénierie, non une certification."
+   }
+  ]
+ },
+ "notes": "REPAIR APPLIED (charter Rule 6, option (a) of the required fix — option (b) needs the orchestrator, unavailable to this subagent): the two internal links to unapproved, non-existent URLs were rerouted with link text unchanged. EN \"Access for competent authorities\" para 1: href /beneficial-ownership-data-standard/ → /glossary/ (the glossary carries the Beneficial Ownership Data Standard entry, making it the natural definitional target; the export-profile record is already linked once in the RÉCOR section, so routing there would duplicate that link). FR \"L'accès des autorités compétentes\" para 1: href /fr/norme-bods/ → /fr/glossaire/, same reasoning. No other content changed. CORRECTED INTERNAL-LINK INVENTORY (all now on the charter's approved list): EN /systems/recor/ /glossary/ (x2) /doctrine/ /record/2026-09-06-bods-v04-export-profile/ ; FR /fr/systemes/recor/ /fr/glossaire/ (x2) /fr/methode/ /fr/references/2026-09-06-profil-export-bods-v04/ . If the sibling BODS standards page later ships and the orchestrator amends the charter's link list, the glossary link in this paragraph is the one to retarget to that page's canonical slug. ORIGINAL VERIFICATION RECORD (unchanged, still valid — no facts were added or removed by this repair): fatf-gafi.org is behind a Cloudflare challenge, so every claim was verified via exact-phrase web searches resolving to FATF's own pages: (1) R.24 core requirement and revised wording \"adequate, accurate and up-to-date information on the beneficial ownership and control of legal persons that can be obtained or accessed rapidly and efficiently by competent authorities\" — https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R24-statement-march-2022.html ; (2) amendments adopted at the 2–4 March 2022 Plenary, incl. multi-pronged approach (company-held info + public authority/body functioning as a BO registry or an alternative mechanism + other existing sources), prohibition of new bearer shares/bearer-share warrants with conversion or immobilisation of existing ones, strengthened nominee transparency, and authorities' access to BO info in public procurement — https://www.fatf-gafi.org/en/publications/Fatfgeneral/Outcomes-fatf-plenary-march-2022.html and the R24 statement page (cross-checked against cfatf-gafic.org summary dated 4 March 2022) ; (3) March 2023 Guidance on Beneficial Ownership of Legal Persons definitions — adequate = sufficient to identify the natural person(s) who are the beneficial owner(s) and the means/mechanisms of ownership or control; accurate = verified using reliable, independently sourced documents/data/information, degree of verification may be risk-based; up-to-date = current, updated within a reasonable period after any change (one month given as example) — https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Guidance-Beneficial-Ownership-Legal-Persons.html (FR side cites https://www.fatf-gafi.org/fr/publications/Recommandationsgafi/Guidance-Beneficial-Ownership-Legal-Persons.html) ; (4) multi-pronged effectiveness rationale from FATF mutual-evaluation findings — same guidance page. DROPPED CLAIMS: supplementary-measures prong not enumerated (only \"among others\" verifiable) — rendered as \"other existing sources of information\"; official GAFI French wording of R.24 not asserted (FR uses \"adéquates, exactes et à jour\" consistent with site French); \"multi-pronged approach\" glossed in FR with the English term in quotes; no superlatives about the amendment's significance. GUARDS: jurisdiction-generic end to end, zero Cameroonian beneficial-ownership apparatus, no Cameroon-set worked examples; RÉCOR described only with the ceiling phrasing \"a sovereign beneficial-ownership registry designed for Cameroon\"; \"designed to satisfy\"/\"conçu pour satisfaire\" only, never compliance/certification; Open Ownership referenced with the exact required verbatim sentences (EN, and the site's canonical FR rendering); export profile linked as the canonical self-declared document, not contradicted; honest-limits section states jurisdictions-not-software assessment and pre-deployment status. SEO: EN title 52 chars, FR 53 (≤55 before auto-append); descriptions 150/154 chars (≤158); one primary query per language in title, first paragraph, and one H2. Word counts: EN ~1,970, FR ~2,310."
+}
