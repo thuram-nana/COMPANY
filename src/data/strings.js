@@ -31,7 +31,8 @@ export const strings = {
       controlled: "Sovereign infrastructure · Buea, Cameroon",
       whichSigil: "Which Sigil?",
       govtechHub: "GovTech in Cameroon",
-      regtechHub: "RegTech in Cameroon"
+      regtechHub: "RegTech in Cameroon",
+      glossary: "Glossary"
     },
     on_this: "On this page",
     status_label: "Status",
@@ -66,7 +67,8 @@ export const strings = {
       controlled: "Infrastructure souveraine · Buea, Cameroun",
       whichSigil: "Quel Sigil ?",
       govtechHub: "GovTech au Cameroun",
-      regtechHub: "RegTech au Cameroun"
+      regtechHub: "RegTech au Cameroun",
+      glossary: "Glossaire"
     },
     on_this: "Sur cette page",
     status_label: "Statut",
@@ -98,7 +100,11 @@ export const routes = {
   regtechHub: { en: "/regtech-cameroon/", fr: "/fr/regtech-cameroun/" },
   sgi: { en: "/sovereign-governance-infrastructure/", fr: "/fr/infrastructure-de-gouvernance-souveraine/" },
   governedCyber: { en: "/governed-cybersecurity/", fr: "/fr/cybersecurite-gouvernee/" },
-  cyberBuea: { en: "/cybersecurity-buea/", fr: "/fr/cybersecurite-buea/" }
+  cyberBuea: { en: "/cybersecurity-buea/", fr: "/fr/cybersecurite-buea/" },
+  glossary: { en: "/glossary/", fr: "/fr/glossaire/" },
+  cyberOrgs: { en: "/cybersecurity-for-organizations-cameroon/", fr: "/fr/cybersecurite-entreprises-cameroun/" },
+  procurementHub: { en: "/procurement-integrity-cameroon/", fr: "/fr/integrite-marches-publics-cameroun/" },
+  siliconMountain: { en: "/silicon-mountain/", fr: "/fr/silicon-mountain/" }
 };
 
 export function statusLabel(status, lang) {

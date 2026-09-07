@@ -78,7 +78,7 @@ async function run() {
   const { privacy, mentions } = await import("../src/pages/legal.js");
   const { sigil } = await import("../src/pages/sigil.js");
   const { bodsProfile } = await import("../src/pages/bods-profile.js");
-  const { govtechCameroon, regtechCameroon, sovereignGovernanceInfrastructure, governedCybersecurity, cybersecurityBuea } = await import("../src/pages/category.js");
+  const { govtechCameroon, regtechCameroon, sovereignGovernanceInfrastructure, governedCybersecurity, cybersecurityBuea, cybersecurityOrganizations, procurementIntegrity, siliconMountainPage, glossary } = await import("../src/pages/category.js");
   const { routes } = await import("../src/data/strings.js");
 
   const langs = ["en", "fr"];
@@ -106,6 +106,10 @@ async function run() {
     built.push(out(routes.sgi[lang], sovereignGovernanceInfrastructure(lang))); srcOf[routes.sgi[lang]] = "src/data/category/sgi-doctrine.json";
     built.push(out(routes.governedCyber[lang], governedCybersecurity(lang))); srcOf[routes.governedCyber[lang]] = "src/data/category/governed-cyber.json";
     built.push(out(routes.cyberBuea[lang], cybersecurityBuea(lang))); srcOf[routes.cyberBuea[lang]] = "src/data/category/cyber-buea.json";
+    built.push(out(routes.cyberOrgs[lang], cybersecurityOrganizations(lang))); srcOf[routes.cyberOrgs[lang]] = "src/data/category/cyber-orgs.json";
+    built.push(out(routes.procurementHub[lang], procurementIntegrity(lang))); srcOf[routes.procurementHub[lang]] = "src/data/category/procurement-hub.json";
+    built.push(out(routes.siliconMountain[lang], siliconMountainPage(lang))); srcOf[routes.siliconMountain[lang]] = "src/data/category/silicon-mountain.json";
+    built.push(out(routes.glossary[lang], glossary(lang))); srcOf[routes.glossary[lang]] = "src/data/category/glossary.json";
     for (const np of notePages(lang)) { built.push(out(np.path, np.html)); srcOf[np.path] = "src/pages/notes.js"; }
   }
 

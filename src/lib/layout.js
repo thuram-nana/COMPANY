@@ -148,6 +148,7 @@ ${p.body}
         <a href="${routes.notes[p.lang]}">${s.nav.notes}</a>
         <a href="${routes.govtechHub[p.lang]}">${s.footer.govtechHub}</a>
         <a href="${routes.regtechHub[p.lang]}">${s.footer.regtechHub}</a>
+        <a href="${routes.glossary[p.lang]}">${s.footer.glossary}</a>
         <a href="${routes.sigil[p.lang]}">${s.footer.whichSigil}</a>
         <a href="/.well-known/security.txt">security.txt</a>
       </div>

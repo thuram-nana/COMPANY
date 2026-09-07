@@ -1,0 +1,175 @@
+{
+ "en": {
+  "title": "Building governed systems from Silicon Mountain",
+  "description": "What Silicon Mountain is, how it grew, and what it means for a tech company in Buea to build governed systems for public institutions from this ecosystem.",
+  "sections": [
+   {
+    "h": "What Silicon Mountain is",
+    "paras": [
+     "Silicon Mountain is the name Cameroon’s technology community gave to the ecosystem that grew up in and around <a href=\"https://en.wikipedia.org/wiki/Silicon_Mountain\" rel=\"noopener\">Buea, at the foot of Mount Fako</a> — a deliberate play on Silicon Valley and the volcano that dominates the town’s skyline. This page is written as a contribution to that ecosystem’s record: what Silicon Mountain is, where it came from, and what it means for a tech company in Buea — ours among them — to build governed systems for public institutions from Silicon Mountain.",
+     "The community is older than the name. Buea is home to the <a href=\"https://en.wikipedia.org/wiki/University_of_Buea\" rel=\"noopener\">University of Buea</a> — founded as a university centre in 1985 and made a full-fledged university in 1992 — and from the mid-2000s the town began to draw young people who wanted to build software. <a href=\"https://techcabal.com/2018/08/10/cameroons-silicon-mountain-its-history-resilience-and-future/\" rel=\"noopener\">TechCabal’s history of the ecosystem</a> calls it the first anglophone university in Cameroon, and traces the first web projects and the first informal developer community to around 2006 — students and self-taught programmers teaching one another, years before anyone thought to give the place a nickname.",
+     "Institutions followed the community, not the other way round. <a href=\"https://activspaces.com/\" rel=\"noopener\">ActivSpaces</a>, which describes itself as the first innovation hub in Cameroon, opened in Buea in 2009, with a precursor incubator in nearby Limbe before it. The name itself surfaced in a community video in 2011 and was popularized publicly by the Cameroonian tech entrepreneur Rebecca Enonchong at BarCamp Cameroon in 2013, hosted at the Catholic University Institute of Buea. In 2015 the community held the first <a href=\"https://en.wikipedia.org/wiki/Silicon_Mountain\" rel=\"noopener\">Silicon Mountain Conference</a>, under the theme “Let’s Build Products”; the conference has been held annually since and has grown to draw over five hundred participants.",
+     "The record also includes hard years. In 2017 and into 2018, internet shutdowns in Cameroon’s English-speaking regions cut the ecosystem off for months at a time. The community kept working — relocating, improvising connectivity, holding itself together — and that resilience is part of why the name Silicon Mountain commands the respect it does. Any honest account of building from Buea starts from both facts: the talent is real, and so are the constraints."
+    ],
+    "table": {
+     "head": [
+      "Year",
+      "What happened"
+     ],
+     "rows": [
+      [
+       "1985–1992",
+       "The University of Buea is founded as a university centre in 1985 and becomes a full-fledged university in 1992 — the first anglophone university in Cameroon."
+      ],
+      [
+       "c. 2006",
+       "Young developers around the university form the first informal tech community in Buea."
+      ],
+      [
+       "2009",
+       "ActivSpaces opens in Buea; it describes itself as the first innovation hub in Cameroon."
+      ],
+      [
+       "2013",
+       "The name “Silicon Mountain” is popularized publicly at BarCamp Cameroon, after appearing in a community video in 2011."
+      ],
+      [
+       "2015",
+       "The first Silicon Mountain Conference is held, themed “Let’s Build Products”."
+      ],
+      [
+       "2017–2018",
+       "The ecosystem works through the internet shutdowns felt across the English-speaking regions."
+      ]
+     ]
+    }
+   },
+   {
+    "h": "A tech company in Buea, building for public institutions",
+    "paras": [
+     "Most writing about tech ecosystems counts startups, funding rounds, and exits. There is a question about Silicon Mountain that almost nobody writes down, and it is the one that will decide what this ecosystem becomes: what does it mean to build systems for public institutions — registries, evidence platforms, procurement-integrity tooling — from Buea? That is the work we do, so this section is partial by construction; we think it is also the ecosystem’s most underrated possibility.",
+     "Start with talent. The ecosystem formed around the university, layered on a self-taught developer culture that goes back to the mid-2000s. Governed systems are not exotic to build; they are exacting. They need engineers who will treat an audit trail as a feature and a refusal as correct behaviour — and an ecosystem that taught itself to ship under internet shutdowns has already demonstrated the temperament that kind of engineering requires.",
+     "Then language. Cameroon’s constitution gives <a href=\"https://www.constituteproject.org/constitution/Cameroon_2008\" rel=\"noopener\">English and French the same status</a>, and any system a public institution operates must ultimately work in both. Buea sits precisely at that hinge: an English-tradition university town in a constitutionally bilingual state. A team formed here does not treat the second language as an afterthought to be translated later — it lives in both. Our own declarant-facing work is designed to go further still, into Cameroonian Pidgin, because an obligation a citizen cannot read is not an obligation.",
+     "Then proximity. A governance system embodies hundreds of small decisions about how an institution actually works — who may approve, what must be logged, what happens when the power fails or the network does. Made from far away, those decisions get imagined; made from here, they get lived. Building from Buea means the constraints of the institutions served — and of the citizens they answer to — are the designer’s own daily constraints, not a persona in a slide deck. The landscape of that work, and the frameworks that govern it, are mapped in our <a href=\"/govtech-cameroon/\">govtech</a> and <a href=\"/regtech-cameroon/\">regtech</a> hubs."
+    ]
+   },
+   {
+    "h": "SIGIL’s place, honestly",
+    "paras": [
+     "SIGIL SARL is a young company, and this page would be worth less if it pretended otherwise. We were founded in 2023 by Junior Thuram Nana and are registered in Buea (RCCM RC.BUA.2026.B.0190). From here we build three systems: <a href=\"/systems/vigil/\">VIGIL</a>, a governed cybersecurity and evidence platform; <a href=\"/systems/recor/\">RÉCOR</a>, a sovereign beneficial-ownership registry designed for Cameroon; and <a href=\"/systems/apex/\">APEX</a>, anti-corruption intelligence for public procurement. All three are pre-deployment, and their source code is kept strictly private.",
+     "Pre-deployment means exactly what it says: SIGIL has no customers, no deployments, no pilots, no revenue, and no partnerships today. What we have is a verifiable record, kept with its limits stated. RÉCOR was fully demonstrated to, and acknowledged by, <a href=\"https://www.openownership.org/\" rel=\"noopener\">Open Ownership</a> on 1 July 2026. This is a technical demonstration, not an endorsement. UNDP Cameroon issued a letter of appreciation in 2026; a letter of appreciation is neither an endorsement nor a contract. And APME, the Small and Medium Enterprises Promotion Agency, invited SIGIL to present to its digitalization unit in 2026. Each entry is listed in <a href=\"/record/\">the record</a>.",
+     "We do not claim to represent Silicon Mountain; no company does, and the ecosystem’s breadth is exactly its strength. Our claim is narrower: we are one demonstration that institutional-grade systems can be conceived, engineered, and proven from Buea. Who we are as a company is set out on <a href=\"/company/\">the company page</a>, and what building security from this town means in practice is set out on <a href=\"/cybersecurity-buea/\">our Buea cybersecurity page</a>."
+    ]
+   },
+   {
+    "h": "What the ecosystem needs next",
+    "paras": [
+     "Everything above says the ecosystem has proven talent and proven resilience. What we believe it needs next — and this is offered as a contribution, not a critique of anyone — is the layer of practice that lets institutions place systems from Silicon Mountain at the centre of how they govern. Consumer products and institutional systems carry different burdens. A social app can apologize and patch; a registry, an evidence platform, or a procurement system holds decisions people must be able to defend years later, and it has to be built accordingly.",
+     "Three disciplines make up that layer. First, institutional-grade engineering practice: systems that fail closed rather than open, that keep tamper-evident records of every consequential action, and that separate what is proven from what is merely observed. Second, standards: where an open standard exists, build to it and export to it, so an institution’s data outlives any vendor — including us. Third, verifiability: write claims an evaluator can test against the system in front of them, not claims a reader has to take on faith. Our own working rule is one sentence — <strong>the institution holds the keys; the data stays under the institution’s control; every consequential action is authorized, bounded, and proven</strong> — and our attempt to hold ourselves to it is written down in <a href=\"/doctrine/\">our doctrine</a>.",
+     "None of this belongs to one company. A shared engineering practice raises the value of every team’s word, the way the conference and the hubs raised the ecosystem’s visibility a decade ago. If Silicon Mountain adds verifiability to its virtues — if “built in Buea” comes to mean built to be checked — then the ecosystem that taught itself to ship through shutdowns will have taught itself something rarer: how to be trusted with institutions. What that infrastructure looks like in full is mapped under <a href=\"/sovereign-governance-infrastructure/\">sovereign governance infrastructure</a> and <a href=\"/governed-cybersecurity/\">governed cybersecurity</a>."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is Silicon Mountain?",
+    "a": "Silicon Mountain is the nickname for the technology ecosystem centred on Buea, in Cameroon’s South West Region, at the foot of Mount Fako. The community’s roots go back to the mid-2000s; the name — a play on Silicon Valley and the mountain — took hold in the early 2010s, and the ecosystem has held an annual Silicon Mountain Conference since 2015."
+   },
+   {
+    "q": "Why is SIGIL based in Buea?",
+    "a": "Because the three things a governance-systems company needs are here: engineering talent formed around the University of Buea and the ecosystem’s hubs, working fluency in both of Cameroon’s official languages, and proximity to the public institutions the systems are designed to serve. SIGIL SARL was founded in 2023 and is registered in Buea (RCCM RC.BUA.2026.B.0190)."
+   },
+   {
+    "q": "What does SIGIL build from Silicon Mountain?",
+    "a": "Three systems, all pre-deployment: VIGIL, a governed cybersecurity and evidence platform; RÉCOR, a sovereign beneficial-ownership registry designed for Cameroon; and APEX, anti-corruption intelligence for public procurement. SIGIL has no customers, deployments, or pilots to date, and says so plainly; its verifiable record is published on the site."
+   }
+  ]
+ },
+ "fr": {
+  "title": "Des systèmes gouvernés depuis Silicon Mountain",
+  "description": "Ce qu’est Silicon Mountain, et ce que signifie, pour une entreprise tech de Buea, construire des systèmes gouvernés pour les institutions publiques.",
+  "sections": [
+   {
+    "h": "Ce qu’est Silicon Mountain",
+    "paras": [
+     "Silicon Mountain est le nom que la communauté technologique camerounaise a donné à l’écosystème né à <a href=\"https://en.wikipedia.org/wiki/Silicon_Mountain\" rel=\"noopener\">Buea, au pied du mont Fako</a> — un clin d’œil délibéré à la Silicon Valley et au volcan qui domine la ville. Cette page est écrite comme une contribution aux archives de cet écosystème : ce qu’est Silicon Mountain, d’où il vient, et ce que signifie, pour une entreprise tech de Buea — la nôtre parmi d’autres —, construire des systèmes gouvernés pour les institutions publiques depuis Silicon Mountain.",
+     "La communauté est plus ancienne que le nom. Buea abrite l’<a href=\"https://en.wikipedia.org/wiki/University_of_Buea\" rel=\"noopener\">Université de Buea</a> — née centre universitaire en 1985 et devenue université de plein exercice en 1992 —, et dès le milieu des années 2000 la ville attire des jeunes venus pour construire du logiciel. <a href=\"https://techcabal.com/2018/08/10/cameroons-silicon-mountain-its-history-resilience-and-future/\" rel=\"noopener\">L’histoire de l’écosystème documentée par TechCabal</a> la qualifie de première université anglophone du Cameroun, et fait remonter les premiers projets web et la première communauté informelle de développeurs aux environs de 2006 — étudiants et autodidactes se formant les uns les autres, des années avant que quiconque ne songe à un surnom.",
+     "Les institutions ont suivi la communauté, et non l’inverse. <a href=\"https://activspaces.com/\" rel=\"noopener\">ActivSpaces</a>, qui se présente comme le premier hub d’innovation du Cameroun, ouvre à Buea en 2009, précédé d’un incubateur pionnier à Limbe, la ville voisine. Le nom lui-même apparaît dans une vidéo communautaire en 2011, puis est popularisé publiquement par l’entrepreneure camerounaise Rebecca Enonchong au BarCamp Cameroun de 2013, accueilli au Catholic University Institute of Buea. En 2015, la communauté tient la première <a href=\"https://en.wikipedia.org/wiki/Silicon_Mountain\" rel=\"noopener\">Silicon Mountain Conference</a>, sous le thème « Let’s Build Products » ; la conférence se tient chaque année depuis et réunit désormais plus de cinq cents participants.",
+     "Les archives comptent aussi des années difficiles. En 2017 et jusqu’en 2018, des coupures d’Internet dans les régions anglophones du Cameroun ont isolé l’écosystème des mois durant. La communauté a continué de travailler — en se déplaçant, en improvisant sa connectivité, en tenant bon — et cette résilience explique en partie le respect que le nom Silicon Mountain inspire. Tout récit honnête d’une construction depuis Buea part de ces deux faits : le talent est réel, et les contraintes aussi."
+    ],
+    "table": {
+     "head": [
+      "Année",
+      "Ce qui s’est passé"
+     ],
+     "rows": [
+      [
+       "1985–1992",
+       "L’Université de Buea naît centre universitaire en 1985 et devient université de plein exercice en 1992 — première université anglophone du Cameroun."
+      ],
+      [
+       "v. 2006",
+       "De jeunes développeurs autour de l’université forment la première communauté tech informelle de Buea."
+      ],
+      [
+       "2009",
+       "ActivSpaces ouvre à Buea ; il se présente comme le premier hub d’innovation du Cameroun."
+      ],
+      [
+       "2013",
+       "Le nom « Silicon Mountain » est popularisé publiquement au BarCamp Cameroun, après une apparition dans une vidéo communautaire en 2011."
+      ],
+      [
+       "2015",
+       "Première Silicon Mountain Conference, sous le thème « Let’s Build Products »."
+      ],
+      [
+       "2017–2018",
+       "L’écosystème traverse les coupures d’Internet subies par les régions anglophones."
+      ]
+     ]
+    }
+   },
+   {
+    "h": "Une entreprise tech à Buea, au service des institutions publiques",
+    "paras": [
+     "La plupart des textes sur les écosystèmes tech comptent des startups, des levées de fonds et des sorties. Il existe pourtant une question sur Silicon Mountain que presque personne n’écrit, et c’est celle qui décidera de ce que cet écosystème devient : que signifie construire des systèmes pour les institutions publiques — registres, plateformes de preuve, outils d’intégrité de la commande publique — depuis Buea ? C’est notre travail, et cette section est donc partiale par construction ; nous pensons que c’est aussi la possibilité la plus sous-estimée de l’écosystème.",
+     "D’abord le talent. L’écosystème s’est formé autour de l’université, sur le socle d’une culture développeur autodidacte qui remonte au milieu des années 2000. Les systèmes gouvernés ne sont pas exotiques à construire ; ils sont exigeants. Il leur faut des ingénieurs qui traitent une piste d’audit comme une fonctionnalité et un refus comme un comportement correct — et un écosystème qui a appris à livrer sous coupures d’Internet a déjà démontré le tempérament que demande cette ingénierie.",
+     "Ensuite la langue. La Constitution du Cameroun donne <a href=\"https://www.constituteproject.org/constitution/Cameroon_2008\" rel=\"noopener\">à l’anglais et au français le même statut</a>, et tout système qu’exploite une institution publique doit, au bout du compte, fonctionner dans les deux. Buea se tient exactement à cette charnière : une ville universitaire de tradition anglo-saxonne dans un État constitutionnellement bilingue. Une équipe formée ici ne traite pas la seconde langue comme un ajout à traduire plus tard — elle vit dans les deux. Notre propre travail tourné vers les déclarants est conçu pour aller plus loin encore, jusqu’au pidgin camerounais, car une obligation qu’un citoyen ne peut pas lire n’est pas une obligation.",
+     "Enfin la proximité. Un système de gouvernance incarne des centaines de petites décisions sur la manière dont une institution fonctionne réellement : qui peut approuver, ce qui doit être journalisé, ce qui se passe quand le courant tombe ou que le réseau tombe. Prises de loin, ces décisions s’imaginent ; prises d’ici, elles se vivent. Construire depuis Buea, c’est faire des contraintes des institutions servies — et des citoyens auxquels elles répondent — les contraintes quotidiennes du concepteur, et non un personnage dans une présentation. Le paysage de ce travail et les cadres qui le gouvernent sont cartographiés dans nos hubs <a href=\"/fr/govtech-cameroun/\">govtech</a> et <a href=\"/fr/regtech-cameroun/\">regtech</a>."
+    ]
+   },
+   {
+    "h": "La place de SIGIL, honnêtement",
+    "paras": [
+     "SIGIL SARL est une jeune entreprise, et cette page vaudrait moins si elle prétendait le contraire. Fondée en 2023 par Junior Thuram Nana, elle est immatriculée à Buea (RCCM RC.BUA.2026.B.0190). Depuis ici, nous construisons trois systèmes : <a href=\"/fr/systemes/vigil/\">VIGIL</a>, plateforme de cybersécurité gouvernée et de preuve ; <a href=\"/fr/systemes/recor/\">RÉCOR</a>, registre souverain des bénéficiaires effectifs conçu pour le Cameroun ; et <a href=\"/fr/systemes/apex/\">APEX</a>, renseignement anti-corruption pour la commande publique. Les trois sont en pré-déploiement, et leur code source est gardé strictement privé.",
+     "Pré-déploiement signifie exactement ce que le mot dit : SIGIL n’a aujourd’hui ni client, ni déploiement, ni pilote, ni revenu, ni partenariat. Ce que nous avons, c’est un dossier vérifiable, tenu avec ses limites énoncées. RÉCOR a fait l’objet d’une démonstration complète auprès d’<a href=\"https://www.openownership.org/\" rel=\"noopener\">Open Ownership</a> le 1 juillet 2026, et Open Ownership en a pris acte. Il s’agit d’une démonstration technique, non d’un soutien institutionnel. Le PNUD Cameroun a émis une lettre d’appréciation en 2026 ; une lettre d’appréciation ne constitue ni un soutien ni un contrat. Et l’APME, l’Agence de Promotion des Petites et Moyennes Entreprises, a invité SIGIL à présenter devant son unité de digitalisation en 2026. Chaque élément figure dans <a href=\"/fr/references/\">les références</a>.",
+     "Nous ne prétendons pas représenter Silicon Mountain ; aucune entreprise ne le peut, et l’ampleur de l’écosystème est précisément sa force. Notre affirmation est plus étroite : nous sommes une démonstration que des systèmes de niveau institutionnel peuvent être conçus, développés et prouvés depuis Buea. Qui nous sommes est exposé sur <a href=\"/fr/entreprise/\">la page entreprise</a>, et ce que signifie, en pratique, faire de la sécurité depuis cette ville est exposé sur <a href=\"/fr/cybersecurite-buea/\">notre page cybersécurité à Buea</a>."
+    ]
+   },
+   {
+    "h": "Ce dont l’écosystème a besoin ensuite",
+    "paras": [
+     "Tout ce qui précède dit que l’écosystème a prouvé son talent et sa résilience. Ce dont il a besoin ensuite, à notre sens — et ceci est offert comme une contribution, non comme une critique de quiconque —, c’est la couche de pratique qui permettra aux institutions de placer des systèmes venus de Silicon Mountain au cœur de leur manière de gouverner. Produits grand public et systèmes institutionnels ne portent pas les mêmes charges. Une application sociale peut s’excuser et corriger ; un registre, une plateforme de preuve ou un système de commande publique porte des décisions que des personnes devront pouvoir défendre des années plus tard, et il doit être construit en conséquence.",
+     "Trois disciplines composent cette couche. D’abord, une pratique d’ingénierie de niveau institutionnel : des systèmes qui échouent en position fermée plutôt qu’ouverte, qui tiennent une trace infalsifiable de chaque action conséquente, et qui séparent ce qui est prouvé de ce qui est seulement observé. Ensuite, les standards : là où un standard ouvert existe, construire selon lui et exporter vers lui, pour que les données d’une institution survivent à tout fournisseur — nous compris. Enfin, la vérifiabilité : écrire des affirmations qu’un évaluateur peut tester sur le système qu’il a devant lui, et non des affirmations à croire sur parole. Notre règle de travail tient en une phrase — <strong>l’institution détient les clés ; les données restent sous le contrôle de l’institution ; chaque action conséquente est autorisée, bornée et prouvée</strong> — et notre effort pour nous y tenir est écrit dans <a href=\"/fr/methode/\">notre méthode</a>.",
+     "Rien de cela n’appartient à une seule entreprise. Une pratique d’ingénierie partagée élève le prix de la parole de chaque équipe, comme la conférence et les hubs ont élevé la visibilité de l’écosystème il y a dix ans. Si Silicon Mountain ajoute la vérifiabilité à ses vertus — si « construit à Buea » finit par vouloir dire construit pour être vérifié —, alors l’écosystème qui a appris à livrer à travers les coupures aura appris quelque chose de plus rare : à mériter la confiance des institutions. Ce que cette infrastructure recouvre en entier est cartographié dans <a href=\"/fr/infrastructure-de-gouvernance-souveraine/\">l’infrastructure de gouvernance souveraine</a> et <a href=\"/fr/cybersecurite-gouvernee/\">la cybersécurité gouvernée</a>."
+    ]
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Qu’est-ce que Silicon Mountain ?",
+    "a": "Silicon Mountain est le surnom de l’écosystème technologique centré sur Buea, dans la région du Sud-Ouest du Cameroun, au pied du mont Fako. Les racines de la communauté remontent au milieu des années 2000 ; le nom — un jeu sur Silicon Valley et la montagne — s’impose au début des années 2010, et l’écosystème tient une Silicon Mountain Conference annuelle depuis 2015."
+   },
+   {
+    "q": "Pourquoi SIGIL est-elle basée à Buea ?",
+    "a": "Parce que les trois choses dont une entreprise de systèmes de gouvernance a besoin s’y trouvent : un talent d’ingénierie formé autour de l’Université de Buea et des hubs de l’écosystème, une aisance de travail dans les deux langues officielles du Cameroun, et la proximité des institutions publiques que ces systèmes sont conçus pour servir. SIGIL SARL a été fondée en 2023 et est immatriculée à Buea (RCCM RC.BUA.2026.B.0190)."
+   },
+   {
+    "q": "Que construit SIGIL depuis Silicon Mountain ?",
+    "a": "Trois systèmes, tous en pré-déploiement : VIGIL, plateforme de cybersécurité gouvernée et de preuve ; RÉCOR, registre souverain des bénéficiaires effectifs conçu pour le Cameroun ; et APEX, renseignement anti-corruption pour la commande publique. SIGIL n’a à ce jour ni client, ni déploiement, ni pilote, et le dit clairement ; son dossier vérifiable est publié sur le site."
+   }
+  ]
+ },
+ "notes": "VERIFIED SOURCES (all fetched/searched live 2026-09-06; UB and TechCabal re-fetched live 2026-09-06 during repair): (1) https://en.wikipedia.org/wiki/Silicon_Mountain — ecosystem definition (Buea epicenter, Mount Fako), name coined publicly by Rebecca Enonchong at BarCamp Cameroon 2013 at the Catholic University Institute of Buea, annual conference since 2015 drawing 500+, 2017 shutdowns. (2) https://techcabal.com/2018/08/10/cameroons-silicon-mountain-its-history-resilience-and-future/ — community roots c. 2006 (PassGCE), LimbeLabs precursor, ActivSpaces launched 2009, name in a 2011 VC4Africa video, first conference 2015 themed \"Let's Build Products\", shutdowns Jan 2017 and Oct 2017–early 2018; also states verbatim that Buea \"is home to the first anglophone university in Cameroon, the University of Buea\" — this citation now anchors the \"first anglophone university\" clause. The article contains NO mention of 2014 or any UB engineering/technology graduation (confirmed by targeted re-fetch); the earlier notes' attribution of a December 2014 first-cohort claim to this source was wrong and is retracted. (3) https://en.wikipedia.org/wiki/University_of_Buea — infobox \"Established: 1992\"; body: \"founded as a university centre in 1985 and became a full-fledged university in 1992, following a government decree\"; the article calls UB \"one of two English speaking universities in Cameroon, alongside the University of Bamenda\" and never \"the first\"; 1993 appears nowhere. Used only for the 1985/1992 dates; the \"first anglophone\" claim is anchored to TechCabal instead. The earlier notes' record for this source (\"established 1993, first English-tradition university\") was wrong and is retracted. (4) https://activspaces.com/ — self-description \"first innovation hub in Cameroon\" (site under reconstruction; used only for the self-description). (5) https://www.constituteproject.org/constitution/Cameroon_2008 — Art. 1: English and French official languages of equal status. DATE DISCREPANCY HANDLED: ActivSpaces founding is 2009 per TechCabal (founders named) but 2010 per VC4A; I asserted 2009 with the TechCabal citation and attributed \"first hub\" as its own self-description rather than fact. If you prefer zero exposure, change \"opened in Buea in 2009\" to \"opened in Buea at the turn of the 2010s\". DROPPED (unverifiable or conflicting): the December 2014 first-UB-engineering/technology-cohort claim (present in no cited source; a live search did not verify it — deleted in both languages, along with the dependent \"since 2014\"/\"depuis 2014\" talent anchor, now rephrased to the university plus a self-taught developer culture dating to the mid-2000s, which TechCabal supports); specific startup names/counts; funding figures; \"only English-speaking university\" framing (Bamenda exists — \"first anglophone university in Cameroon\" is asserted only as TechCabal states it, with that citation); Douala travel-time claim; any current conference edition details. CHARTER COMPLIANCE: register tripwire clean — no mention of any Cameroonian beneficial-ownership apparatus anywhere; RÉCOR described only with the ceiling phrase \"a sovereign beneficial-ownership registry designed for Cameroon\" (EN S3 p1 + FAQ 3; FR mirror). Open Ownership verbatim phrasing + disclaimer sentence used in both languages (FR matches facts.json wording exactly, \"le 1 juillet 2026\"). Thesis sentence verbatim in both languages in the closing section. Pre-deployment stated bluntly (no customers/deployments/pilots/revenue/partnerships). No regulator names asserted (not needed for this essay; avoids new verification surface). No email/social references. CANNIBALIZATION GUARDS: RÉCOR's pipeline/standards NOT restated — one clause on the trilingual declarant portal (from facts.json) only, linking /systems/recor/; doctrine summarized in one sentence + thesis, linking /doctrine/ (FR /fr/methode/) instead of restating principles; local-security detail deferred to /cybersecurity-buea/; regulator/framework landscape deferred to /govtech-cameroon/ and /regtech-cameroon/ hubs; infrastructure detail deferred to /sovereign-governance-infrastructure/ and /governed-cybersecurity/. Internal links use exact charter paths (EN: /systems/vigil|recor|apex/, /company/, /cybersecurity-buea/, /record/, /doctrine/, /govtech-cameroon/, /regtech-cameroon/, /sovereign-governance-infrastructure/, /governed-cybersecurity/; FR mirrors incl. /fr/references/ and /fr/methode/). SEO: EN title 47 chars, FR title 46 chars (both ≤55 before \" — SIGIL SARL\"); EN description 154 chars, FR 148; primary query \"tech company buea silicon mountain\" appears naturally in EN first paragraph and the S2 H2, FR analog \"entreprise tech ... Buea ... Silicon Mountain\" in first paragraph and S2 H2. Milestone table rows are all sourced from the cited prose (row 1 now 1985–1992 per the Wikipedia UB article, with the \"first anglophone\" clause per TechCabal). Length ~1,700–1,800 words per language including table and FAQs. REPAIR LOG 2026-09-06: (a) UB founding corrected from \"established in 1993\" to \"founded as a university centre in 1985 and became a full-fledged university in 1992\" in EN/FR prose and both table rows, matching the cited Wikipedia article re-verified live; (b) \"first anglophone university in Cameroon\" re-anchored to the TechCabal citation, re-verified live; (c) December 2014 first-engineering-cohort sentence deleted in EN/FR and the \"since 2014\"/\"depuis 2014\" dependency removed from EN/FR S2 p2; (d) this notes block corrected to match what the sources actually say."
+}
