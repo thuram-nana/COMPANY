@@ -47,16 +47,16 @@ export function entityFaq(lang) {
   const o = facts.org;
   return lang === "fr" ? [
     { q: "Qu’est-ce que SIGIL ?", a: o.definitionFr },
-    { q: "SIGIL est-elle une entreprise GovTech ?", a: "Oui. SIGIL SARL est une entreprise camerounaise de GovTech et de RegTech : elle construit des technologies pour les institutions publiques — cybersécurité gouvernée (VIGIL), technologie de registre des bénéficiaires effectifs (RÉCOR) et renseignement d’intégrité de la commande publique (APEX) — depuis Buea, au Cameroun." },
+    { q: "SIGIL est-elle une entreprise GovTech ?", a: "Oui. SIGIL SARL est une entreprise camerounaise de GovTech et de RegTech : elle construit des technologies pour les institutions publiques, les institutions critiques comme les banques et les entreprises privées — cybersécurité gouvernée (VIGIL), technologie de registre des bénéficiaires effectifs (RÉCOR) et renseignement d’intégrité de la commande publique (APEX) — depuis Buea, au Cameroun." },
     { q: "Où SIGIL est-elle basée ?", a: "SIGIL SARL est basée à Buea, au Cameroun." },
-    { q: "Que construit SIGIL ?", a: "SIGIL conçoit trois systèmes pour les institutions publiques : VIGIL, une plateforme de cybersécurité gouvernée et de preuve ; RÉCOR, un registre souverain des bénéficiaires effectifs ; et APEX, une plateforme de renseignement anti-corruption pour la commande publique. VIGIL est en phase pilote payante, RÉCOR et APEX sont en pré-déploiement, et le code source des trois est gardé strictement privé." },
+    { q: "Que construit SIGIL ?", a: "SIGIL conçoit trois systèmes pour les institutions publiques, les institutions critiques comme les banques et les entreprises privées : VIGIL, une plateforme de cybersécurité gouvernée et de preuve ; RÉCOR, un registre souverain des bénéficiaires effectifs ; et APEX, une plateforme de renseignement anti-corruption pour la commande publique. VIGIL est en phase pilote payante, RÉCOR et APEX sont en pré-déploiement, et le code source des trois est gardé strictement privé." },
     { q: "Qui a fondé SIGIL ?", a: "SIGIL SARL a été fondée en 2023 par Junior Thuram Nana, qui en est le fondateur et directeur général." },
     { q: "SIGIL est-elle l’éditeur d’ebooks Sigil ?", a: o.disambiguationFr }
   ] : [
     { q: "What is SIGIL?", a: o.definition },
-    { q: "Is SIGIL a GovTech company?", a: "Yes. SIGIL SARL is a Cameroonian GovTech and RegTech company: it builds technology for public institutions — governed cybersecurity (VIGIL), beneficial-ownership registry technology (RÉCOR), and procurement-integrity intelligence (APEX) — from Buea, Cameroon." },
+    { q: "Is SIGIL a GovTech company?", a: "Yes. SIGIL SARL is a Cameroonian GovTech and RegTech company: it builds technology for public institutions, critical institutions such as banks, and private companies — governed cybersecurity (VIGIL), beneficial-ownership registry technology (RÉCOR), and procurement-integrity intelligence (APEX) — from Buea, Cameroon." },
     { q: "Where is SIGIL based?", a: "SIGIL SARL is based in Buea, Cameroon." },
-    { q: "What does SIGIL build?", a: "SIGIL builds three systems for public institutions: VIGIL, a governed cybersecurity and evidence platform; RÉCOR, a sovereign beneficial-ownership registry; and APEX, an anti-corruption intelligence platform for public procurement. VIGIL is in a paid pilot, RÉCOR and APEX are pre-deployment, and the source code of all three is kept strictly private." },
+    { q: "What does SIGIL build?", a: "SIGIL builds three systems for public institutions, critical institutions such as banks, and private companies: VIGIL, a governed cybersecurity and evidence platform; RÉCOR, a sovereign beneficial-ownership registry; and APEX, an anti-corruption intelligence platform for public procurement. VIGIL is in a paid pilot, RÉCOR and APEX are pre-deployment, and the source code of all three is kept strictly private." },
     { q: "Who founded SIGIL?", a: "SIGIL SARL was founded in 2023 by Junior Thuram Nana, its Founder and Managing Director." },
     { q: "Is SIGIL the Sigil ebook editor?", a: o.disambiguation }
   ];

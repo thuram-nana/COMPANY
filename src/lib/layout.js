@@ -1,4 +1,4 @@
-import { mark } from "../assets/mark.js";
+import { mark, seal } from "../assets/mark.js";
 import { strings, routes } from "../data/strings.js";
 import { webPageNode, websiteNode } from "./jsonld.js";
 import facts from "../data/facts.json" with { type: "json" };
@@ -20,6 +20,21 @@ function navLinks(lang, current) {
     const cur = current === key ? ' aria-current="page"' : "";
     return `<a href="${href}"${cur}>${s[key]}</a>`;
   }).join("");
+}
+
+// Any page whose body mentions VIGIL closes with the same end-to-end account
+// of the system, so no page describes it only in part.
+function vigilEndToEnd(lang) {
+  const e = facts.systems.find((s) => s.slug === "vigil")[lang].endToEnd;
+  const steps = e.steps.map(([k, v]) => `<li><strong>${escapeHtml(k)}.</strong> ${escapeHtml(v)}</li>`).join("");
+  return `<section class="section wrap rule-top" aria-labelledby="vigil-e2e">
+  <h2 class="h-seal" id="vigil-e2e">${seal({ size: 22 })}<span>${escapeHtml(e.h)}</span></h2>
+  <div class="prose">
+    <p>${escapeHtml(e.intro)}</p>
+    <ol>${steps}</ol>
+    <p>${escapeHtml(e.close)} <a href="${routes.vigil[lang]}">${escapeHtml(e.link)} <span class="term" aria-hidden="true">→</span></a></p>
+  </div>
+</section>`;
 }
 
 /**
@@ -125,6 +140,7 @@ ${jsonldTag}
 </header>
 <main id="main">
 ${p.body}
+${/VIGIL/.test(p.body) ? vigilEndToEnd(p.lang) : ""}
 </main>
 <footer class="site-footer">
   <div class="wrap">

@@ -16,8 +16,8 @@
     "pgpFingerprint": "C1C4 A87F EB43 04DB 9E62 86A1 F013 6C58 BB19 5F0C",
     "rccm": "RC.BUA.2026.B.0190",
     "foundedYear": "2023",
-    "definition": "SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) is a Cameroonian company, founded in 2023 and based in Buea, that builds sovereign governance infrastructure for public institutions: systems where the institution holds the keys, the data stays under the institution’s control, and every consequential action is authorized, bounded, and proven.",
-    "definitionFr": "SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) est une entreprise camerounaise, fondée en 2023 et basée à Buea, qui conçoit une infrastructure de gouvernance souveraine pour les institutions publiques : des systèmes où l’institution détient les clés, où les données restent sous le contrôle de l’institution, et où chaque action conséquente est autorisée, bornée et prouvée.",
+    "definition": "SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) is a Cameroonian company, founded in 2023 and based in Buea, that builds sovereign governance infrastructure for public institutions, critical institutions such as banks, and private companies: systems where the institution holds the keys, the data stays under the institution’s control, and every consequential action is authorized, bounded, and proven.",
+    "definitionFr": "SIGIL SARL (Sovereign Integrity Governance Infrastructure Labs) est une entreprise camerounaise, fondée en 2023 et basée à Buea, qui conçoit une infrastructure de gouvernance souveraine pour les institutions publiques, les institutions critiques comme les banques et les entreprises privées : des systèmes où l’institution détient les clés, où les données restent sous le contrôle de l’institution, et où chaque action conséquente est autorisée, bornée et prouvée.",
     "disambiguation": "SIGIL SARL is a governance-infrastructure company in Cameroon. It is not related to the Sigil ebook editor, the common noun sigil (a magical seal), the “Sovereign Sigil” item in the video game Elden Ring Nightreign, or any other organisation named Sigil.",
     "disambiguationFr": "SIGIL SARL est une entreprise d’infrastructure de gouvernance au Cameroun. Elle n’a aucun lien avec l’éditeur d’ebooks Sigil, le nom commun sigil (un sceau magique), l’objet « Sovereign Sigil » du jeu vidéo Elden Ring Nightreign, ni aucune autre organisation nommée Sigil.",
     "sitePublished": "2026-08-30"
@@ -31,25 +31,81 @@
       "code_visibility": "private",
       "en": {
         "tagline": "Governed cybersecurity and evidence platform",
-        "answer": "VIGIL is a cybersecurity platform that helps duly authorized operators find, confirm, remediate, and document vulnerabilities — under one rule: a technical capability is never an authorization. No model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it.",
+        "answer": "VIGIL is a cybersecurity platform that protects an organization’s systems, whether it is a public institution, a critical institution such as a bank, or a private company. It detects, observes, and blocks cyberattacks, and helps duly authorized operators find, confirm, remediate, and document vulnerabilities — under one rule: a technical capability is never an authorization. No model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it. Every observation stays a lead until an independent check confirms it as a fact, and each engagement closes with a tamper-evident dossier that re-verifies offline.",
         "standards": [
           "OWASP",
           "MITRE ATT&CK",
           "NIST 800-115",
           "PTES",
           "PASTA"
-        ]
+        ],
+        "endToEnd": {
+          "h": "What VIGIL is, end to end",
+          "intro": "VIGIL is SIGIL’s governed cybersecurity and evidence platform for any organization — public institutions, critical institutions such as banks, and private companies alike — running on the organization’s own infrastructure. End to end, it works in five steps:",
+          "steps": [
+            [
+              "Protect",
+              "On the defensive side, VIGIL detects, observes, and blocks cyberattacks against the organization’s own systems; an attack is blocked only once an independent check has confirmed it."
+            ],
+            [
+              "Assess",
+              "Duly authorized operators use it to find vulnerabilities, and every action first passes a fail-closed authorization chain — identity, role, signed usage right, signed scope, risk class, human approval, and egress control. A technical capability is never an authorization; no model or agent can authorize itself."
+            ],
+            [
+              "Lead versus fact",
+              "Every observation is a lead — held, not trusted — until an independent, deterministic Oracle re-verifies it. Only then does it become a confirmed fact, signed and re-checkable offline. If the check does not fire, the lead is never quietly promoted."
+            ],
+            [
+              "Remediate",
+              "Fixes are proposed and applied under the same gate, and a remediation is proven by re-running the check, never assumed."
+            ],
+            [
+              "Dossier",
+              "Everything an engagement produced — reports, machine-readable exports, the proof bundle, the scrubbed activity log, and a manifest of hashes — is compiled into one self-contained, tamper-evident dossier that re-verifies offline, with what is proven kept separate from what is merely observed."
+            ]
+          ],
+          "close": "The organization holds the keys and the data; SIGIL has no default access and receives no telemetry.",
+          "link": "VIGIL in detail"
+        }
       },
       "fr": {
         "tagline": "Plateforme de cybersécurité gouvernée et de preuve",
-        "answer": "VIGIL est une plateforme de cybersécurité qui assiste des opérateurs dûment autorisés dans l’identification, la confirmation, la correction et la documentation de vulnérabilités — selon un principe unique : une capacité technique n’est jamais une autorisation. Aucun modèle ni agent ne s’auto-autorise, et aucun constat n’est retenu tant qu’une vérification indépendante et re-vérifiable ne l’a pas confirmé.",
+        "answer": "VIGIL est une plateforme de cybersécurité qui protège les systèmes d’une organisation, qu’il s’agisse d’une institution publique, d’une institution critique comme une banque ou d’une entreprise privée. Elle détecte, observe et bloque les cyberattaques, et assiste des opérateurs dûment autorisés dans l’identification, la confirmation, la correction et la documentation de vulnérabilités — selon un principe unique : une capacité technique n’est jamais une autorisation. Aucun modèle ni agent ne s’auto-autorise, et aucun constat n’est retenu tant qu’une vérification indépendante et re-vérifiable ne l’a pas confirmé. Toute observation reste une piste tant qu’une vérification indépendante ne l’a pas confirmée comme fait, et chaque intervention se clôt par un dossier dont toute altération est détectable, re-vérifiable hors ligne.",
         "standards": [
           "OWASP",
           "MITRE ATT&CK",
           "NIST 800-115",
           "PTES",
           "PASTA"
-        ]
+        ],
+        "endToEnd": {
+          "h": "VIGIL de bout en bout",
+          "intro": "VIGIL est la plateforme de cybersécurité gouvernée et de preuve de SIGIL, destinée à toute organisation — institutions publiques, institutions critiques comme les banques, et entreprises privées — et exécutée sur l’infrastructure de l’organisation elle-même. De bout en bout, elle fonctionne en cinq étapes :",
+          "steps": [
+            [
+              "Protéger",
+              "Côté défense, VIGIL détecte, observe et bloque les cyberattaques visant les systèmes de l’organisation ; une attaque n’est bloquée qu’une fois confirmée par une vérification indépendante."
+            ],
+            [
+              "Évaluer",
+              "Des opérateurs dûment autorisés l’utilisent pour rechercher des vulnérabilités, et chaque action passe d’abord une chaîne d’autorisation fail-closed — identité, rôle, droit d’usage signé, portée signée, classe de risque, approbation humaine et contrôle de sortie. Une capacité technique n’est jamais une autorisation ; aucun modèle ni agent ne s’auto-autorise."
+            ],
+            [
+              "Piste ou fait",
+              "Toute observation est une piste — retenue, non fiable — tant qu’un Oracle indépendant et déterministe ne l’a pas re-vérifiée. Elle devient alors un fait confirmé, signé et re-vérifiable hors ligne. Si la vérification ne se déclenche pas, la piste n’est jamais promue en silence."
+            ],
+            [
+              "Corriger",
+              "Les correctifs sont proposés et appliqués sous la même chaîne de contrôle, et une correction est prouvée en relançant la vérification, jamais présumée."
+            ],
+            [
+              "Dossier",
+              "Tout ce qu’une intervention a produit — rapports, exports lisibles par machine, lot de preuves, journal d’activité expurgé et manifeste d’empreintes — est rassemblé en un dossier autonome dont toute altération est détectable, re-vérifiable hors ligne, où ce qui est prouvé reste séparé de ce qui est seulement observé."
+            ]
+          ],
+          "close": "L’organisation détient les clés et les données ; SIGIL n’a aucun accès par défaut et ne reçoit aucune télémétrie.",
+          "link": "VIGIL en détail"
+        }
       }
     },
     {
