@@ -56,7 +56,7 @@
 
 ### VIGIL
 
-VIGIL is a cybersecurity platform that helps duly authorized operators find, confirm, remediate, and document vulnerabilities — under one rule: a technical capability is never an authorization. No model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it.
+VIGIL is a cybersecurity platform that protects an organization’s systems, whether it is a public institution, a critical institution such as a bank, or a private company. It detects, observes, and blocks cyberattacks, and helps duly authorized operators find, confirm, remediate, and document vulnerabilities — under one rule: a technical capability is never an authorization. No model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it. Every observation stays a lead until an independent check confirms it as a fact, and each engagement closes with a tamper-evident dossier that re-verifies offline.
 
 Standards: OWASP, MITRE ATT&CK, NIST 800-115, PTES, PASTA. Status: pilot. Source code: kept strictly private.
 
