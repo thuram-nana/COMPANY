@@ -4,6 +4,8 @@
   "buildCommand": "node scripts/gen-llms.mjs && node scripts/build.mjs && rm -f dist/_headers dist/.htaccess dist/fr/.htaccess dist/api/briefing.php",
   "outputDirectory": "dist",
   "redirects": [
+    { "source": "/silicon-mountain/?", "destination": "/company/", "permanent": true },
+    { "source": "/fr/silicon-mountain/?", "destination": "/fr/entreprise/", "permanent": true },
     {
       "source": "/:path((?!api/)(?:[^/]+/)*[^/.]+)",
       "destination": "/:path/",

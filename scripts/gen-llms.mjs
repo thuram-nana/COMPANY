@@ -53,7 +53,6 @@ ${sys}
 - [Governed cybersecurity](${O.url}/governed-cybersecurity/)
 - [Cybersecurity in Buea](${O.url}/cybersecurity-buea/)
 - [What to require of a cybersecurity company in Cameroon](${O.url}/cybersecurity-for-organizations-cameroon/)
-- [Silicon Mountain](${O.url}/silicon-mountain/)
 - [Glossary of governance technology](${O.url}/glossary/)
 - [BODS: the Beneficial Ownership Data Standard](${O.url}/beneficial-ownership-data-standard/)
 - [FATF Recommendation 24](${O.url}/fatf-recommendation-24/)

@@ -49,6 +49,10 @@ sigilsovereign.com {
 	}
 	header @feed Content-Type "application/atom+xml; charset=utf-8"
 
+	# retired pages
+	redir /silicon-mountain/ /company/ permanent
+	redir /fr/silicon-mountain/ /fr/entreprise/ permanent
+
 	# pretty URLs: /systems/vigil/ -> /systems/vigil/index.html
 	try_files {path} {path}/index.html {path}/ =404
 	file_server

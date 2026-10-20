@@ -14,7 +14,6 @@ import cyberBuea from "../data/category/cyber-buea.json" with { type: "json" };
 import glossaryData from "../data/category/glossary.json" with { type: "json" };
 import cyberOrgs from "../data/category/cyber-orgs.json" with { type: "json" };
 import procurementHub from "../data/category/procurement-hub.json" with { type: "json" };
-import siliconMountain from "../data/category/silicon-mountain.json" with { type: "json" };
 import bodsPage from "../data/category/bods-page.json" with { type: "json" };
 import r24Page from "../data/category/r24-page.json" with { type: "json" };
 import cyberCameroon from "../data/category/cybersecurity-cameroon.json" with { type: "json" };
@@ -49,7 +48,6 @@ const LABELS = {
   glossary: { en: "Glossary", fr: "Glossaire" },
   cyberOrgs: { en: "Choosing a cybersecurity partner in Cameroon", fr: "Cybersécurité des entreprises au Cameroun" },
   procurementHub: { en: "Procurement integrity in Cameroon", fr: "L’intégrité des marchés publics au Cameroun" },
-  siliconMountain: { en: "Silicon Mountain", fr: "Silicon Mountain" },
   bodsStandard: { en: "The BODS standard", fr: "La norme BODS" },
   fatfR24: { en: "FATF Recommendation 24", fr: "Recommandation 24 du GAFI" },
   cyberCameroon: { en: "Cybersecurity in Cameroon", fr: "La cybersécurité au Cameroun" }
@@ -59,11 +57,10 @@ const RELATED = {
   regtechHub: ["govtechHub", "bodsStandard", "fatfR24", "glossary"],
   sgi: ["governedCyber", "govtechHub", "glossary"],
   governedCyber: ["sgi", "cyberBuea", "cyberOrgs"],
-  cyberBuea: ["siliconMountain", "cyberOrgs", "cyberCameroon"],
+  cyberBuea: ["cyberOrgs", "cyberCameroon", "governedCyber"],
   glossary: ["govtechHub", "regtechHub", "procurementHub"],
   cyberOrgs: ["cyberCameroon", "cyberBuea", "governedCyber"],
   procurementHub: ["govtechHub", "glossary", "sgi"],
-  siliconMountain: ["cyberBuea", "govtechHub", "regtechHub"],
   bodsStandard: ["fatfR24", "regtechHub", "glossary"],
   fatfR24: ["bodsStandard", "regtechHub", "glossary"],
   cyberCameroon: ["cyberOrgs", "cyberBuea", "governedCyber"]
@@ -127,7 +124,6 @@ export const governedCybersecurity = categoryPage(governedCyber, "governedCyber"
 export const cybersecurityBuea = categoryPage(cyberBuea, "cyberBuea");
 export const cybersecurityOrganizations = categoryPage(cyberOrgs, "cyberOrgs");
 export const procurementIntegrity = categoryPage(procurementHub, "procurementHub");
-export const siliconMountainPage = categoryPage(siliconMountain, "siliconMountain");
 export const bodsStandard = categoryPage(bodsPage, "bodsStandard");
 export const fatfRecommendation24 = categoryPage(r24Page, "fatfR24");
 export const cybersecurityCameroon = categoryPage(cyberCameroon, "cyberCameroon");
