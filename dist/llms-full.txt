@@ -4,7 +4,7 @@
 
 ## Systems
 
-- [VIGIL](https://sigilsovereign.com/systems/vigil/): Governed cybersecurity and evidence platform. Status: pre-deployment. Source code: kept strictly private.
+- [VIGIL](https://sigilsovereign.com/systems/vigil/): Governed cybersecurity and evidence platform. Status: pilot. Source code: kept strictly private.
 - [RÉCOR](https://sigilsovereign.com/systems/recor/): Sovereign beneficial-ownership registry. Status: pre-deployment. Source code: kept strictly private.
 - [APEX](https://sigilsovereign.com/systems/apex/): Anti-corruption intelligence for public procurement. Status: pre-deployment. Source code: kept strictly private.
 
@@ -58,7 +58,7 @@
 
 VIGIL is a cybersecurity platform that helps duly authorized operators find, confirm, remediate, and document vulnerabilities — under one rule: a technical capability is never an authorization. No model or agent can authorize itself, and no finding is trusted until an independent, re-verifiable check confirms it.
 
-Standards: OWASP, MITRE ATT&CK, NIST 800-115, PTES, PASTA. Status: pre-deployment. Source code: kept strictly private.
+Standards: OWASP, MITRE ATT&CK, NIST 800-115, PTES, PASTA. Status: pilot. Source code: kept strictly private.
 
 ### RÉCOR
 

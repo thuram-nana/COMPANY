@@ -36,7 +36,7 @@
    {
     "h": "VIGIL, where the rules are built in",
     "paras": [
-     "VIGIL is SIGIL’s instantiation of governed cybersecurity: a platform designed to help duly authorized operators find, confirm, remediate, and document vulnerabilities under the three rules above. It is built against established public methodologies — OWASP, MITRE ATT&CK, NIST SP 800-115, PTES, and PASTA — and it is pre-deployment: SIGIL is a young company, founded in 2023, and VIGIL is described on this site exactly as it stands, with no customers implied. The system is presented in full on the <a href=\"/systems/vigil/\">VIGIL page</a>.",
+     "VIGIL is SIGIL’s instantiation of governed cybersecurity: a platform designed to help duly authorized operators find, confirm, remediate, and document vulnerabilities under the three rules above. It is built against established public methodologies — OWASP, MITRE ATT&CK, NIST SP 800-115, PTES, and PASTA — and it is in a paid pilot with an institution: SIGIL is a young company, founded in 2023, and VIGIL is described on this site exactly as it stands, with no customers implied beyond its paid pilot. The system is presented in full on the <a href=\"/systems/vigil/\">VIGIL page</a>.",
      "Three companion pages walk through the rules as engineering rather than principle: <a href=\"/systems/vigil/governance/\">the authorization chain</a> shows, step by step, how capability is separated from authorization; <a href=\"/systems/vigil/evidence/\">the Oracle model</a> shows how a lead becomes a signed, re-checkable fact; and <a href=\"/systems/vigil/sovereignty/\">deployment, keys, and revocation</a> shows how the institution keeps reading, exporting, and stopping whatever happens commercially. The same doctrine runs through <a href=\"/systems/recor/\">RÉCOR</a> and <a href=\"/systems/apex/\">APEX</a>. VIGIL is built in Buea — see <a href=\"/cybersecurity-buea/\">cybersecurity in Buea</a> for the local context, and the <a href=\"/govtech-cameroon/\">GovTech in Cameroon</a> hub for where governed systems sit in the wider public-technology landscape."
     ]
    }
@@ -52,7 +52,7 @@
    },
    {
     "q": "Is governed cybersecurity deployed anywhere today?",
-    "a": "Not yet by SIGIL. VIGIL, the platform that instantiates these rules, is pre-deployment: SIGIL SARL, founded in 2023 in Buea, Cameroon, currently has no customers or live deployments, and this site describes its systems exactly as they stand. Institutions that want to evaluate the approach can write to info@sigilsovereign.com."
+    "a": "Not in production by SIGIL. VIGIL, the platform that instantiates these rules, is in a paid, bounded pilot with an institution; beyond that pilot, SIGIL SARL, founded in 2023 in Buea, Cameroon, currently has no customers or live deployments, and this site describes its systems exactly as they stand. Institutions that want to evaluate the approach can write to info@sigilsovereign.com."
    }
   ]
  },
@@ -93,7 +93,7 @@
    {
     "h": "VIGIL, où les règles sont inscrites dans le système",
     "paras": [
-     "VIGIL est l’instanciation par SIGIL de la cybersécurité gouvernée : une plateforme conçue pour aider des opérateurs dûment autorisés à identifier, confirmer, corriger et documenter des vulnérabilités sous les trois règles ci-dessus. La plateforme est bâtie selon des méthodologies publiques établies — OWASP, MITRE ATT&CK, NIST SP 800-115, PTES et PASTA — et elle est en pré-déploiement : SIGIL est une jeune entreprise, fondée en 2023, et VIGIL est décrit sur ce site exactement tel qu’il est, sans clientèle sous-entendue. Le système est présenté en détail sur la <a href=\"/fr/systemes/vigil/\">page VIGIL</a>.",
+     "VIGIL est l’instanciation par SIGIL de la cybersécurité gouvernée : une plateforme conçue pour aider des opérateurs dûment autorisés à identifier, confirmer, corriger et documenter des vulnérabilités sous les trois règles ci-dessus. La plateforme est bâtie selon des méthodologies publiques établies — OWASP, MITRE ATT&CK, NIST SP 800-115, PTES et PASTA — et elle est en phase pilote payante avec une institution : SIGIL est une jeune entreprise, fondée en 2023, et VIGIL est décrit sur ce site exactement tel qu’il est, sans autre clientèle sous-entendue que son pilote payant. Le système est présenté en détail sur la <a href=\"/fr/systemes/vigil/\">page VIGIL</a>.",
      "Trois pages compagnes présentent les règles comme de l’ingénierie plutôt que comme des principes : <a href=\"/fr/systemes/vigil/gouvernance/\">la chaîne d’autorisation</a> montre, étape par étape, comment la capacité est séparée de l’autorisation ; <a href=\"/fr/systemes/vigil/preuve/\">le modèle des Oracles</a> montre comment une piste devient un fait signé et re-vérifiable ; et <a href=\"/fr/systemes/vigil/souverainete/\">déploiement, clés et révocation</a> montre comment l’institution conserve lecture, export et arrêt, quoi qu’il arrive commercialement. La même doctrine traverse <a href=\"/fr/systemes/recor/\">RÉCOR</a> et <a href=\"/fr/systemes/apex/\">APEX</a>. VIGIL est construit à Buea — voir <a href=\"/fr/cybersecurite-buea/\">la cybersécurité à Buea</a> pour le contexte local, et le hub <a href=\"/fr/govtech-cameroun/\">GovTech au Cameroun</a> pour la place des systèmes gouvernés dans le paysage technologique public."
     ]
    }
@@ -109,7 +109,7 @@
    },
    {
     "q": "La cybersécurité gouvernée est-elle déployée quelque part aujourd’hui ?",
-    "a": "Pas encore par SIGIL. VIGIL, la plateforme qui instancie ces règles, est en pré-déploiement : SIGIL SARL, fondée en 2023 à Buea, au Cameroun, n’a à ce jour ni clients ni déploiements en production, et ce site décrit ses systèmes exactement tels qu’ils sont. Les institutions qui souhaitent évaluer l’approche peuvent écrire à info@sigilsovereign.com."
+    "a": "Pas encore en production par SIGIL. VIGIL, la plateforme qui instancie ces règles, fait l’objet d’un pilote payant et borné avec une institution ; hors ce pilote, SIGIL SARL, fondée en 2023 à Buea, au Cameroun, n’a à ce jour ni clients ni déploiements en production, et ce site décrit ses systèmes exactement tels qu’ils sont. Les institutions qui souhaitent évaluer l’approche peuvent écrire à info@sigilsovereign.com."
    }
   ]
  },
