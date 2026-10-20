@@ -196,6 +196,19 @@
         "artifact": "Invitation à présenter",
         "detail": "L’APME (Agence de Promotion des Petites et Moyennes Entreprises) a invité SIGIL à présenter devant son unité de digitalisation."
       }
+    },
+    {
+      "date": "2026",
+      "en": {
+        "title": "CITS 2026 ecosystem roundtable",
+        "artifact": "Invitation-only participation",
+        "detail": "SIGIL was invited to, and took part in, the CITS 2026 ecosystem roundtable: about 50 participants, by invitation only, held under the Chatham House Rule, bringing together development partners, government representatives, and other institutions. Taking part is not an endorsement or a partnership."
+      },
+      "fr": {
+        "title": "Table ronde de l’écosystème, CITS 2026",
+        "artifact": "Participation sur invitation",
+        "detail": "SIGIL a été invitée à la table ronde de l’écosystème du CITS 2026 et y a pris part : une cinquantaine de participants, sur invitation uniquement, sous la règle de Chatham House, réunissant des partenaires au développement, des représentants du gouvernement et d’autres institutions. Y prendre part ne constitue ni un soutien ni un partenariat."
+      }
     }
   ]
 }

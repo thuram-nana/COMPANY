@@ -76,6 +76,7 @@ Standards: UNCAC, OCDS. Status: pre-deployment. Source code: kept strictly priva
 - 2026-07-01 — Open Ownership demonstration of RÉCOR (Technical demonstration of RÉCOR; acknowledged by Open Ownership). RÉCOR, built to the Beneficial Ownership Data Standard (BODS v0.4), was fully demonstrated to Open Ownership, which acknowledged the demonstration. This is a technical demonstration, not an endorsement.
 - 2026 — Letter of appreciation, UNDP Cameroon (Letter of appreciation). UNDP Cameroon issued a letter of appreciation. A letter of appreciation is not an endorsement or a contract.
 - 2026 — Invitation to present, APME (Invitation to present). APME (Small and Medium Enterprises Promotion Agency) invited SIGIL to present to its digitalization unit.
+- 2026 — CITS 2026 ecosystem roundtable (Invitation-only participation). SIGIL was invited to, and took part in, the CITS 2026 ecosystem roundtable: about 50 participants, by invitation only, held under the Chatham House Rule, bringing together development partners, government representatives, and other institutions. Taking part is not an endorsement or a partnership.
 
 ## Note
 
