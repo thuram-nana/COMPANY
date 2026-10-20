@@ -73,6 +73,10 @@ ErrorDocument 403 /404.html
   RewriteCond %{HTTP_HOST} !^sigilsovereign\.com$ [NC]
   RewriteRule ^ https://sigilsovereign.com%{REQUEST_URI} [R=301,L]
 
+  # Retired pages (2026-10): the Silicon Mountain page was removed.
+  RewriteRule ^silicon-mountain/?$ /company/ [R=301,L]
+  RewriteRule ^fr/silicon-mountain/?$ /fr/entreprise/ [R=301,L]
+
   # Briefing form: /api/briefing → api/briefing.php. Internal rewrite (no redirect)
   # so the POST body survives. Same path the Cloudflare Worker binds to.
   RewriteRule ^api/briefing/?$ api/briefing.php [L]

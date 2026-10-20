@@ -1,21 +1,20 @@
 {
  "en": {
   "title": "Cybersecurity in Buea",
-  "description": "Cybersecurity in Buea: the Silicon Mountain talent pipeline, the governance gap, and what SIGIL SARL builds from Buea for institutions, banks, and companies.",
+  "description": "Cybersecurity in Buea: the talent pipeline, the governance gap, and what SIGIL SARL builds from Buea for institutions, banks, and companies.",
   "sections": [
    {
     "h": "The honest answer, in two parts",
     "paras": [
-     "Ask about cybersecurity in Buea and you will mostly hear about training — and the training is real. The town on the slopes of Mount Cameroon hosts a university that teaches cryptosystems to master's level, an active <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">OWASP chapter</a>, and the developer community that calls itself Silicon Mountain. That is the first part of the answer, and Buea has earned it.",
+     "Ask about cybersecurity in Buea and you will mostly hear about training — and the training is real. The town on the slopes of Mount Cameroon hosts a university that teaches cryptosystems to master's level, an active <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">OWASP chapter</a>, and a growing developer community. That is the first part of the answer, and Buea has earned it.",
      "The second part is a gap. A region that produces security talent in numbers still has very little commercial practice built to the standard public institutions actually need: engagements that are authorized before they are technical, findings that are re-verified before they are reported, and evidence that survives an auditor. This page lays out both parts, and states plainly what <a href=\"/company/\">SIGIL SARL</a>, a company registered in Buea (RCCM RC.BUA.2026.B.0190), is building to close the second."
     ]
    },
    {
-    "h": "The talent pipeline on the mountain",
+    "h": "The talent pipeline",
     "paras": [
      "The <a href=\"https://www.ubuea.cm/index.php/faculties-schools/faculty-of-engineering-and-technology-fet/computer-engineering-cen/\" rel=\"noopener\">Department of Computer Engineering</a> at the University of Buea's Faculty of Engineering and Technology runs the region's most formal security pipeline: a B.Eng in Computer Engineering, an M.Eng in Cryptosystems and Cyber Security, and a Ph.D programme in Network Security and Distributed Systems. Security is not incidental coverage there; it is taught as a named discipline, from undergraduate network engineering through doctoral research.",
-     "Alongside the university sits the <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">OWASP Buea chapter</a>, established in 2024 under the OWASP Foundation to promote secure software development in the local tech community. The chapter runs workshops, meetups, and hackathons open to anyone, and collaborates with the University of Buea Cybersecurity Club on events that mix OWASP Top 10 demonstrations with capture-the-flag competitions and penetration-testing challenges.",
-     "Both draw on the broader ecosystem known as <a href=\"https://en.wikipedia.org/wiki/Silicon_Mountain\" rel=\"noopener\">Silicon Mountain</a> — the community of startups, developers, and hubs that has grown in Buea since the early 2010s. <a href=\"https://techcabal.com/2018/08/10/cameroons-silicon-mountain-its-history-resilience-and-future/\" rel=\"noopener\">ActivSpaces</a>, launched in 2009, is among the country's earliest tech hubs; Google Developer Group Buea has helped grow the ecosystem since 2013; and the community kept building through the internet shutdowns that disrupted Cameroon's anglophone regions in 2017. Talent, in short, is not Buea's problem."
+     "Alongside the university sits the <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">OWASP Buea chapter</a>, established in 2024 under the OWASP Foundation to promote secure software development in the local tech community. The chapter runs workshops, meetups, and hackathons open to anyone, and collaborates with the University of Buea Cybersecurity Club on events that mix OWASP Top 10 demonstrations with capture-the-flag competitions and penetration-testing challenges."
     ]
    },
    {
@@ -84,27 +83,26 @@
    },
    {
     "q": "Where can I learn cybersecurity in Buea?",
-    "a": "The University of Buea's Faculty of Engineering and Technology offers a B.Eng in Computer Engineering, an M.Eng in Cryptosystems and Cyber Security, and a Ph.D in Network Security and Distributed Systems. Outside the university, the OWASP Buea chapter runs free workshops, meetups, and hackathons, and Silicon Mountain community hubs such as ActivSpaces have hosted developer training in Buea for over a decade."
+    "a": "The University of Buea's Faculty of Engineering and Technology offers a B.Eng in Computer Engineering, an M.Eng in Cryptosystems and Cyber Security, and a Ph.D in Network Security and Distributed Systems. Outside the university, the OWASP Buea chapter runs free workshops, meetups, and hackathons."
    }
   ]
  },
  "fr": {
   "title": "La cybersécurité à Buea",
-  "description": "La cybersécurité à Buea : le vivier de Silicon Mountain, le déficit de pratique de niveau gouvernance, et ce que SIGIL SARL construit depuis Buea.",
+  "description": "La cybersécurité à Buea : le vivier de talents, le déficit de pratique de niveau gouvernance, et ce que SIGIL SARL construit depuis Buea.",
   "sections": [
    {
     "h": "La réponse honnête, en deux temps",
     "paras": [
-     "Interrogez qui vous voudrez sur la cybersécurité à Buea : on vous parlera d’abord de formation — et cette formation est réelle. La ville, sur les pentes du mont Cameroun, abrite une université qui enseigne les cryptosystèmes jusqu’au niveau master, un <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">chapitre OWASP</a> actif, et la communauté de développeurs qui se donne le nom de Silicon Mountain. C’est la première partie de la réponse, et Buea l’a méritée.",
+     "Interrogez qui vous voudrez sur la cybersécurité à Buea : on vous parlera d’abord de formation — et cette formation est réelle. La ville, sur les pentes du mont Cameroun, abrite une université qui enseigne les cryptosystèmes jusqu’au niveau master, un <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">chapitre OWASP</a> actif, et une communauté de développeurs en plein essor. C’est la première partie de la réponse, et Buea l’a méritée.",
      "La seconde partie est un déficit. Une région qui forme des talents en sécurité en nombre dispose encore de très peu de pratique commerciale au niveau qu’exigent réellement les institutions publiques : des interventions autorisées avant d’être techniques, des constats re-vérifiés avant d’être rapportés, des preuves qui résistent à un auditeur. Cette page expose les deux parties, et dit sans détour ce que <a href=\"/fr/entreprise/\">SIGIL SARL</a>, société immatriculée à Buea (RCCM RC.BUA.2026.B.0190), construit pour combler la seconde."
     ]
    },
    {
-    "h": "La filière des talents sur la montagne",
+    "h": "La filière des talents",
     "paras": [
      "Le <a href=\"https://www.ubuea.cm/index.php/faculties-schools/faculty-of-engineering-and-technology-fet/computer-engineering-cen/\" rel=\"noopener\">département de génie informatique</a> de la Faculté d’ingénierie et de technologie de l’Université de Buea porte la filière de sécurité la plus formelle de la région : un B.Eng en génie informatique, un M.Eng en cryptosystèmes et cybersécurité, et un doctorat en sécurité des réseaux et systèmes distribués. La sécurité n’y est pas un chapitre accessoire ; elle s’enseigne comme une discipline nommée, du génie des réseaux en licence jusqu’à la recherche doctorale.",
-     "À côté de l’université se tient le <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">chapitre OWASP de Buea</a>, établi en 2024 au sein de la Fondation OWASP pour promouvoir le développement logiciel sécurisé dans la communauté technologique locale. Le chapitre organise des ateliers, des rencontres et des hackathons ouverts à tous, et collabore avec le club de cybersécurité de l’Université de Buea sur des événements mêlant démonstrations du Top 10 OWASP, compétitions de capture du drapeau et défis de tests d’intrusion.",
-     "L’un et l’autre s’appuient sur l’écosystème plus large connu sous le nom de <a href=\"https://en.wikipedia.org/wiki/Silicon_Mountain\" rel=\"noopener\">Silicon Mountain</a> — la communauté de startups, de développeurs et de hubs qui grandit à Buea depuis le début des années 2010. <a href=\"https://techcabal.com/2018/08/10/cameroons-silicon-mountain-its-history-resilience-and-future/\" rel=\"noopener\">ActivSpaces</a>, lancé en 2009, compte parmi les premiers hubs technologiques du pays ; le Google Developer Group de Buea contribue à faire grandir l’écosystème depuis 2013 ; et la communauté a continué de bâtir à travers les coupures d’internet qui ont frappé les régions anglophones du Cameroun en 2017. Le talent, en somme, n’est pas le problème de Buea."
+     "À côté de l’université se tient le <a href=\"https://owasp.org/www-chapter-buea/\" rel=\"noopener\">chapitre OWASP de Buea</a>, établi en 2024 au sein de la Fondation OWASP pour promouvoir le développement logiciel sécurisé dans la communauté technologique locale. Le chapitre organise des ateliers, des rencontres et des hackathons ouverts à tous, et collabore avec le club de cybersécurité de l’Université de Buea sur des événements mêlant démonstrations du Top 10 OWASP, compétitions de capture du drapeau et défis de tests d’intrusion."
     ]
    },
    {
@@ -173,7 +171,7 @@
    },
    {
     "q": "Où apprendre la cybersécurité à Buea ?",
-    "a": "La Faculté d’ingénierie et de technologie de l’Université de Buea offre un B.Eng en génie informatique, un M.Eng en cryptosystèmes et cybersécurité et un doctorat en sécurité des réseaux et systèmes distribués. Hors de l’université, le chapitre OWASP de Buea organise gratuitement ateliers, rencontres et hackathons, et les hubs communautaires de Silicon Mountain, comme ActivSpaces, accueillent des formations de développeurs à Buea depuis plus d’une décennie."
+    "a": "La Faculté d’ingénierie et de technologie de l’Université de Buea offre un B.Eng en génie informatique, un M.Eng en cryptosystèmes et cybersécurité et un doctorat en sécurité des réseaux et systèmes distribués. Hors de l’université, le chapitre OWASP de Buea organise gratuitement ateliers, rencontres et hackathons."
    }
   ]
  },
