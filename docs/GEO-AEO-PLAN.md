@@ -127,4 +127,4 @@ In priority order. Each one, once done, gets added to `Organization.sameAs` — 
 ## 9. What is deliberately NOT done
 - No fabricated `sameAs`, reviews, ratings, awards, or "as seen in" — false structured data is a manual-action risk and, on this site, a credibility risk.
 - No keyword stuffing, doorway pages, or scaled AI-generated filler — Google warns explicitly against scaled content built to manipulate AI answers.
-- No claims of deployment, endorsement, or national status the record does not support (all three systems remain honestly marked pre-deployment).
+- No claims of deployment, endorsement, or national status the record does not support (each system is marked with its true status: VIGIL pilot, RÉCOR and APEX pre-deployment).

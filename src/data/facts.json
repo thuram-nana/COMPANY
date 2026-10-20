@@ -26,7 +26,7 @@
     {
       "slug": "vigil",
       "name": "VIGIL",
-      "status": "pre-deployment",
+      "status": "pilot",
       "category": "GovernmentApplication",
       "code_visibility": "private",
       "en": {
