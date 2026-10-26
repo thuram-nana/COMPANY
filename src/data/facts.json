@@ -159,6 +159,19 @@
   ],
   "record": [
     {
+      "date": "2026-04-09",
+      "en": {
+        "title": "Presentation of APEX to UNDP Cameroon",
+        "artifact": "Presentation of APEX",
+        "detail": "SIGIL presented APEX, its anti-corruption intelligence platform for public procurement, to UNDP Cameroon. A presentation is not an endorsement or a contract."
+      },
+      "fr": {
+        "title": "Présentation d’APEX au PNUD Cameroun",
+        "artifact": "Présentation d’APEX",
+        "detail": "SIGIL a présenté APEX, sa plateforme de renseignement anti-corruption pour la commande publique, au PNUD Cameroun. Une présentation ne constitue ni un soutien ni un contrat."
+      }
+    },
+    {
       "date": "2026-07-01",
       "en": {
         "title": "Open Ownership demonstration of RÉCOR",
@@ -172,7 +185,7 @@
       }
     },
     {
-      "date": "2026",
+      "date": "2026-08-04",
       "en": {
         "title": "Letter of appreciation, UNDP Cameroon",
         "artifact": "Letter of appreciation",
@@ -200,19 +213,6 @@
     {
       "date": "2026",
       "en": {
-        "title": "CITS 2026 ecosystem roundtable",
-        "artifact": "Invitation-only participation",
-        "detail": "SIGIL was invited to, and took part in, the CITS 2026 ecosystem roundtable: about 50 participants, by invitation only, held under the Chatham House Rule, bringing together development partners, government representatives, and other institutions. Taking part is not an endorsement or a partnership."
-      },
-      "fr": {
-        "title": "Table ronde de l’écosystème, CITS 2026",
-        "artifact": "Participation sur invitation",
-        "detail": "SIGIL a été invitée à la table ronde de l’écosystème du CITS 2026 et y a pris part : une cinquantaine de participants, sur invitation uniquement, sous la règle de Chatham House, réunissant des partenaires au développement, des représentants du gouvernement et d’autres institutions. Y prendre part ne constitue ni un soutien ni un partenariat."
-      }
-    },
-    {
-      "date": "2026",
-      "en": {
         "title": "Meeting called by ANTIC’s Director General",
         "artifact": "Presentation of VIGIL; preparing for a full-scope evaluation",
         "detail": "At the invitation of the Director General of ANTIC, Cameroon’s National Agency for Information and Communication Technologies, SIGIL presented VIGIL. SIGIL is now preparing for a full-scope evaluation by ANTIC. A meeting and an upcoming evaluation are not an endorsement or a contract."
@@ -221,6 +221,19 @@
         "title": "Réunion convoquée par le Directeur général de l’ANTIC",
         "artifact": "Présentation de VIGIL ; préparation d’une évaluation complète",
         "detail": "À l’invitation du Directeur général de l’ANTIC, l’Agence nationale des technologies de l’information et de la communication, SIGIL a présenté VIGIL. SIGIL se prépare désormais à une évaluation complète par l’ANTIC. Une réunion et une évaluation à venir ne constituent ni un soutien ni un contrat."
+      }
+    },
+    {
+      "date": "2026-10-16",
+      "en": {
+        "title": "CITS 2026 ecosystem roundtable",
+        "artifact": "Invitation-only participation",
+        "detail": "SIGIL was invited to, and took part in, the CITS 2026 ecosystem roundtable: about 50 participants, by invitation only, held under the Chatham House Rule, bringing together development partners, government representatives, and other institutions. Taking part is not an endorsement or a partnership."
+      },
+      "fr": {
+        "title": "Table ronde de l’écosystème, CITS 2026",
+        "artifact": "Participation sur invitation",
+        "detail": "SIGIL a été invitée à la table ronde de l’écosystème du CITS 2026 et y a pris part : une cinquantaine de participants, sur invitation uniquement, sous la règle de Chatham House, réunissant des partenaires au développement, des représentants du gouvernement et d’autres institutions. Y prendre part ne constitue ni un soutien ni un partenariat."
       }
     },
     {

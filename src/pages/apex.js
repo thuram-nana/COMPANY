@@ -40,7 +40,7 @@ const copy = {
     ],
     standardsH: "Standards and posture",
     standardsP: "APEX is built against the principles of the United Nations Convention Against Corruption (UNCAC) and the Open Contracting Data Standard (OCDS). It operates on public data only — mandated-disclosure portals, open APIs, and licensed access to public records. It does not decide guilt, does not prosecute, and does not publicly accuse; it compiles evidence and signals confidence, and a human institution makes every consequential decision.",
-    statusCallout: ["Pre-deployment", "APEX is a built Phase 1 platform undergoing engineering hardening. It is not yet in operational use by any institution: the governance council is not yet formed and multi-institution federation is designed and scaffolded, not running. Nothing on this page describes a live national deployment."],
+    statusCallout: ["Pre-deployment", "APEX is a built Phase 1 platform undergoing engineering hardening. It is not yet in operational use by any institution: the governance council is not yet formed and multi-institution federation is designed and scaffolded, not running. Nothing on this page describes a live national deployment. APEX was presented to UNDP Cameroon on 9 April 2026."],
     guarH: "Sovereignty guarantees",
     guarHead: ["Guarantee", "How APEX delivers it"],
     guarRows: [
@@ -92,7 +92,7 @@ const copy = {
     ],
     standardsH: "Standards et posture",
     standardsP: "APEX est bâti selon les principes de la Convention des Nations Unies contre la corruption (CNUCC) et du standard de données sur la commande ouverte (OCDS). Il fonctionne exclusivement sur des données publiques — portails à divulgation obligatoire, API ouvertes et accès licencié à des registres publics. Il ne décide pas de la culpabilité, ne poursuit pas et n’accuse pas publiquement ; il rassemble des preuves et signale un niveau de confiance, et une institution humaine prend chaque décision conséquente.",
-    statusCallout: ["Pré-déploiement", "APEX est une plateforme de Phase 1 construite, en cours de durcissement technique. Elle n’est pas encore en usage opérationnel par une institution : le conseil de gouvernance n’est pas encore constitué et la fédération multi-institutions est conçue et préparée, non exécutée. Rien sur cette page ne décrit un déploiement national en service."],
+    statusCallout: ["Pré-déploiement", "APEX est une plateforme de Phase 1 construite, en cours de durcissement technique. Elle n’est pas encore en usage opérationnel par une institution : le conseil de gouvernance n’est pas encore constitué et la fédération multi-institutions est conçue et préparée, non exécutée. Rien sur cette page ne décrit un déploiement national en service. APEX a été présenté au PNUD Cameroun le 9 avril 2026."],
     guarH: "Garanties de souveraineté",
     guarHead: ["Garantie", "Comment APEX l’assure"],
     guarRows: [
