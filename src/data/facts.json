@@ -222,6 +222,32 @@
         "artifact": "Présentation de VIGIL ; préparation d’une évaluation complète",
         "detail": "À l’invitation du Directeur général de l’ANTIC, l’Agence nationale des technologies de l’information et de la communication, SIGIL a présenté VIGIL. SIGIL se prépare désormais à une évaluation complète par l’ANTIC. Une réunion et une évaluation à venir ne constituent ni un soutien ni un contrat."
       }
+    },
+    {
+      "date": "2026",
+      "en": {
+        "title": "Paid pilot of VIGIL with DIGITT France",
+        "artifact": "Paid pilot",
+        "detail": "VIGIL is in a paid pilot with DIGITT France. A pilot is bounded and agreed; it is not a production deployment or an endorsement."
+      },
+      "fr": {
+        "title": "Pilote payant de VIGIL avec DIGITT France",
+        "artifact": "Pilote payant",
+        "detail": "VIGIL fait l’objet d’un pilote payant avec DIGITT France. Un pilote est borné et convenu ; ce n’est ni un déploiement en production ni un soutien."
+      }
+    },
+    {
+      "date": "2026-10-26",
+      "en": {
+        "title": "Call with Open Ownership and UNDP Cameroon on RÉCOR’s next steps",
+        "artifact": "Common objective and areas of work agreed",
+        "detail": "SIGIL, Open Ownership and UNDP Cameroon held a call on the next steps for RÉCOR. The participants agreed on a common objective and on the areas of work that will take RÉCOR from a developed system to a deployed one. A shared objective is not an endorsement or a contract."
+      },
+      "fr": {
+        "title": "Appel avec Open Ownership et le PNUD Cameroun sur les prochaines étapes de RÉCOR",
+        "artifact": "Objectif commun et axes de travail convenus",
+        "detail": "SIGIL, Open Ownership et le PNUD Cameroun ont tenu un appel sur les prochaines étapes de RÉCOR. Les participants ont convenu d’un objectif commun et des axes de travail qui feront passer RÉCOR d’un système développé à un système déployé. Un objectif commun ne constitue ni un soutien ni un contrat."
+      }
     }
   ]
 }

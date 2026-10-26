@@ -78,6 +78,8 @@ Standards: UNCAC, OCDS. Status: pre-deployment. Source code: kept strictly priva
 - 2026 — Invitation to present, APME (Invitation to present). APME (Small and Medium Enterprises Promotion Agency) invited SIGIL to present to its digitalization unit.
 - 2026 — CITS 2026 ecosystem roundtable (Invitation-only participation). SIGIL was invited to, and took part in, the CITS 2026 ecosystem roundtable: about 50 participants, by invitation only, held under the Chatham House Rule, bringing together development partners, government representatives, and other institutions. Taking part is not an endorsement or a partnership.
 - 2026 — Meeting called by ANTIC’s Director General (Presentation of VIGIL; preparing for a full-scope evaluation). At the invitation of the Director General of ANTIC, Cameroon’s National Agency for Information and Communication Technologies, SIGIL presented VIGIL. SIGIL is now preparing for a full-scope evaluation by ANTIC. A meeting and an upcoming evaluation are not an endorsement or a contract.
+- 2026 — Paid pilot of VIGIL with DIGITT France (Paid pilot). VIGIL is in a paid pilot with DIGITT France. A pilot is bounded and agreed; it is not a production deployment or an endorsement.
+- 2026-10-26 — Call with Open Ownership and UNDP Cameroon on RÉCOR’s next steps (Common objective and areas of work agreed). SIGIL, Open Ownership and UNDP Cameroon held a call on the next steps for RÉCOR. The participants agreed on a common objective and on the areas of work that will take RÉCOR from a developed system to a deployed one. A shared objective is not an endorsement or a contract.
 
 ## Note
 

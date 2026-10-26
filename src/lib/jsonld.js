@@ -126,8 +126,8 @@ export function statusTerms(f) {
   const terms = [
     ["Design", "Requirements and architecture defined; not yet built."],
     ["Build", "Under active construction."],
-    ["Pre-deployment", "Built and internally verified; not yet deployed with an institution."],
-    ["Pilot", "Running with an institution under a bounded, agreed pilot."],
+    ["Pre-deployment", "Built and internally verified; not yet deployed with a client organization."],
+    ["Pilot", "Running with a client organization under a bounded, agreed pilot."],
     ["Production", "Operating as a live institutional deployment."]
   ];
   return {
