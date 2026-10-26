@@ -34,7 +34,7 @@ const copy = {
     },
     standardsH: "Standards and conformance",
     standardsP: 'RÉCOR is built to satisfy <a href="https://www.fatf-gafi.org/en/topics/fatf-recommendations.html" rel="noopener">FATF Recommendations 24 and 25</a> and to export to the <a href="https://standard.openownership.org/" rel="noopener">Beneficial Ownership Data Standard (BODS) v0.4</a>. It was fully demonstrated to <a href="https://www.openownership.org/" rel="noopener">Open Ownership</a> on 1 July 2026, and Open Ownership acknowledged the demonstration.',
-    proofCallout: ["Verifiable", 'RÉCOR is built to the <a href="https://standard.openownership.org/" rel="noopener">Beneficial Ownership Data Standard (BODS v0.4)</a> and was fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026. This is a technical demonstration, not an endorsement.'],
+    proofCallout: ["Verifiable", 'RÉCOR is built to the <a href="https://standard.openownership.org/" rel="noopener">Beneficial Ownership Data Standard (BODS v0.4)</a> and was fully demonstrated to, and acknowledged by, Open Ownership on 1 July 2026. This is a technical demonstration, not an endorsement. On 26 October 2026, SIGIL, Open Ownership and UNDP Cameroon agreed on a common objective and on the areas of work to take RÉCOR from a developed system to a deployed one.'],
     guarH: "Sovereignty guarantees",
     guarHead: ["Guarantee", "How RÉCOR delivers it"],
     guarRows: [
@@ -78,7 +78,7 @@ const copy = {
     },
     standardsH: "Standards et conformité",
     standardsP: 'RÉCOR est bâti pour satisfaire les <a href="https://www.fatf-gafi.org/en/topics/fatf-recommendations.html" rel="noopener">recommandations 24 et 25 du GAFI</a> et pour exporter vers le <a href="https://standard.openownership.org/" rel="noopener">standard de données sur les bénéficiaires effectifs (BODS) v0.4</a>. Il a fait l’objet d’une démonstration complète auprès d’<a href="https://www.openownership.org/" rel="noopener">Open Ownership</a> le 1 juillet 2026, et Open Ownership en a pris acte.',
-    proofCallout: ["Vérifiable", 'RÉCOR est bâti selon le <a href="https://standard.openownership.org/" rel="noopener">standard de données sur les bénéficiaires effectifs (BODS v0.4)</a> et a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, qui en a pris acte. Il s’agit d’une démonstration technique, non d’un soutien institutionnel.'],
+    proofCallout: ["Vérifiable", 'RÉCOR est bâti selon le <a href="https://standard.openownership.org/" rel="noopener">standard de données sur les bénéficiaires effectifs (BODS v0.4)</a> et a fait l’objet d’une démonstration complète auprès d’Open Ownership le 1 juillet 2026, qui en a pris acte. Il s’agit d’une démonstration technique, non d’un soutien institutionnel. Le 26 octobre 2026, SIGIL, Open Ownership et le PNUD Cameroun ont convenu d’un objectif commun et des axes de travail pour faire passer RÉCOR d’un système développé à un système déployé.'],
     guarH: "Garanties de souveraineté",
     guarHead: ["Garantie", "Comment RÉCOR l’assure"],
     guarRows: [

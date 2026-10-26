@@ -75,11 +75,11 @@
   "faqs": [
    {
     "q": "Are there cybersecurity companies in Buea?",
-    "a": "Buea's security reputation rests mostly on training and community: the University of Buea teaches cybersecurity to master's and doctoral level, and an OWASP chapter has run workshops and capture-the-flag events since 2024. Commercial security firms are far scarcer. SIGIL SARL, registered in Buea under RCCM RC.BUA.2026.B.0190, is one: it is building VIGIL, a governed cybersecurity and evidence platform. VIGIL is in a paid, bounded pilot with an institution; beyond that pilot, SIGIL currently has no customers or deployments — a fact we state plainly rather than around."
+    "a": "Buea's security reputation rests mostly on training and community: the University of Buea teaches cybersecurity to master's and doctoral level, and an OWASP chapter has run workshops and capture-the-flag events since 2024. Commercial security firms are far scarcer. SIGIL SARL, registered in Buea under RCCM RC.BUA.2026.B.0190, is one: it is building VIGIL, a governed cybersecurity and evidence platform. VIGIL is in a paid, bounded pilot with DIGITT France; beyond that pilot, SIGIL currently has no customers or deployments — a fact we state plainly rather than around."
    },
    {
     "q": "Can SIGIL run a security engagement for my institution today?",
-    "a": "Not yet as a general service. VIGIL is in a paid, bounded pilot with an institution, which funds further engineering and capability work while we prepare a broader go-to-market; we do not sell what we cannot yet govern to our own standard. What an institution can do now is examine the doctrine VIGIL is built to, test the claims on this site, and hold us — and every other prospective partner — to the six criteria on this page. Questions reach us at info@sigilsovereign.com."
+    "a": "Not yet as a general service. VIGIL is in a paid, bounded pilot with DIGITT France, which funds further engineering and capability work while we prepare a broader go-to-market; we do not sell what we cannot yet govern to our own standard. What an institution can do now is examine the doctrine VIGIL is built to, test the claims on this site, and hold us — and every other prospective partner — to the six criteria on this page. Questions reach us at info@sigilsovereign.com."
    },
    {
     "q": "Where can I learn cybersecurity in Buea?",
@@ -163,11 +163,11 @@
   "faqs": [
    {
     "q": "Existe-t-il des entreprises de cybersécurité à Buea ?",
-    "a": "La réputation de Buea en sécurité repose surtout sur la formation et la communauté : l’Université de Buea enseigne la cybersécurité jusqu’au master et au doctorat, et un chapitre OWASP y organise ateliers et compétitions de capture du drapeau depuis 2024. Les entreprises commerciales de sécurité sont bien plus rares. SIGIL SARL, immatriculée à Buea sous le RCCM RC.BUA.2026.B.0190, en est une : elle construit VIGIL, plateforme de cybersécurité gouvernée et de preuve. VIGIL fait l’objet d’un pilote payant et borné avec une institution ; hors ce pilote, SIGIL n’a aujourd’hui ni clients ni déploiements — un fait que nous énonçons sans détour."
+    "a": "La réputation de Buea en sécurité repose surtout sur la formation et la communauté : l’Université de Buea enseigne la cybersécurité jusqu’au master et au doctorat, et un chapitre OWASP y organise ateliers et compétitions de capture du drapeau depuis 2024. Les entreprises commerciales de sécurité sont bien plus rares. SIGIL SARL, immatriculée à Buea sous le RCCM RC.BUA.2026.B.0190, en est une : elle construit VIGIL, plateforme de cybersécurité gouvernée et de preuve. VIGIL fait l’objet d’un pilote payant et borné avec DIGITT France ; hors ce pilote, SIGIL n’a aujourd’hui ni clients ni déploiements — un fait que nous énonçons sans détour."
    },
    {
     "q": "SIGIL peut-il mener une intervention de sécurité pour mon institution aujourd’hui ?",
-    "a": "Pas encore comme service général. VIGIL fait l’objet d’un pilote payant et borné avec une institution, qui finance la poursuite de l’ingénierie et l’extension de ses capacités pendant que nous préparons une mise sur le marché plus large ; nous ne vendons pas ce que nous ne pouvons pas encore gouverner selon notre propre standard. Ce qu’une institution peut faire dès maintenant : examiner la doctrine selon laquelle VIGIL est bâti, tester les affirmations de ce site, et nous tenir — comme tout autre partenaire pressenti — aux six critères de cette page. Nos réponses passent par info@sigilsovereign.com."
+    "a": "Pas encore comme service général. VIGIL fait l’objet d’un pilote payant et borné avec DIGITT France, qui finance la poursuite de l’ingénierie et l’extension de ses capacités pendant que nous préparons une mise sur le marché plus large ; nous ne vendons pas ce que nous ne pouvons pas encore gouverner selon notre propre standard. Ce qu’une institution peut faire dès maintenant : examiner la doctrine selon laquelle VIGIL est bâti, tester les affirmations de ce site, et nous tenir — comme tout autre partenaire pressenti — aux six critères de cette page. Nos réponses passent par info@sigilsovereign.com."
    },
    {
     "q": "Où apprendre la cybersécurité à Buea ?",
