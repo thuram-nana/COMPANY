@@ -41,7 +41,7 @@
         ],
         "endToEnd": {
           "h": "What VIGIL is, end to end",
-          "intro": "VIGIL is SIGIL’s governed cybersecurity and evidence platform for any organization — public institutions, critical institutions such as banks, and private companies alike — running on the organization’s own infrastructure. End to end, it works in five steps:",
+          "intro": "VIGIL is SIGIL’s governed cybersecurity and evidence platform for any organization — public institutions, critical institutions such as banks, and private companies alike — running on the organization’s own infrastructure or, soon, as a managed service. End to end, it works in five steps:",
           "steps": [
             [
               "Protect",
@@ -64,7 +64,7 @@
               "Everything an engagement produced — reports, machine-readable exports, the proof bundle, the scrubbed activity log, and a manifest of hashes — is compiled into one self-contained, tamper-evident dossier that re-verifies offline, with what is proven kept separate from what is merely observed."
             ]
           ],
-          "close": "The organization holds the keys and the data; SIGIL has no default access and receives no telemetry.",
+          "close": "With VIGIL Sovereign, installed on-premises or in the organization’s cloud, the organization holds the keys and the data, and SIGIL has no default access and receives no telemetry. With VIGIL SaaS, the managed service in preparation for clients who want quick security audits, SIGIL runs the infrastructure and holds the data and keys on the client’s behalf — and every dossier still re-verifies offline without trusting SIGIL.",
           "link": "VIGIL in detail"
         }
       },
@@ -80,7 +80,7 @@
         ],
         "endToEnd": {
           "h": "VIGIL de bout en bout",
-          "intro": "VIGIL est la plateforme de cybersécurité gouvernée et de preuve de SIGIL, destinée à toute organisation — institutions publiques, institutions critiques comme les banques, et entreprises privées — et exécutée sur l’infrastructure de l’organisation elle-même. De bout en bout, elle fonctionne en cinq étapes :",
+          "intro": "VIGIL est la plateforme de cybersécurité gouvernée et de preuve de SIGIL, destinée à toute organisation — institutions publiques, institutions critiques comme les banques, et entreprises privées — exécutée sur l’infrastructure de l’organisation elle-même ou, bientôt, en tant que service géré. De bout en bout, elle fonctionne en cinq étapes :",
           "steps": [
             [
               "Protéger",
@@ -103,7 +103,7 @@
               "Tout ce qu’une intervention a produit — rapports, exports lisibles par machine, lot de preuves, journal d’activité expurgé et manifeste d’empreintes — est rassemblé en un dossier autonome dont toute altération est détectable, re-vérifiable hors ligne, où ce qui est prouvé reste séparé de ce qui est seulement observé."
             ]
           ],
-          "close": "L’organisation détient les clés et les données ; SIGIL n’a aucun accès par défaut et ne reçoit aucune télémétrie.",
+          "close": "Avec VIGIL Sovereign, installé sur site ou dans le cloud de l’organisation, l’organisation détient les clés et les données, et SIGIL n’a aucun accès par défaut et ne reçoit aucune télémétrie. Avec VIGIL SaaS, le service géré en préparation pour les clients qui veulent des audits de sécurité rapides, SIGIL exploite l’infrastructure et détient les données et les clés pour le compte du client — et chaque dossier reste re-vérifiable hors ligne sans faire confiance à SIGIL.",
           "link": "VIGIL en détail"
         }
       }
