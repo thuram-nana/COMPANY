@@ -198,20 +198,20 @@
       }
     },
     {
-      "date": "2026",
+      "date": "2026-09-18",
       "en": {
-        "title": "Invitation to present, APME",
-        "artifact": "Invitation to present",
-        "detail": "APME (Small and Medium Enterprises Promotion Agency) invited SIGIL to present to its digitalization unit."
+        "title": "Meeting called by APME’s Director General",
+        "artifact": "Meeting attended; invitation to present",
+        "detail": "SIGIL attended a meeting called by the Director General of APME (Small and Medium Enterprises Promotion Agency), and was invited to present to APME’s digitalization unit. A meeting and an invitation are not an endorsement or a contract."
       },
       "fr": {
-        "title": "Invitation à présenter, APME",
-        "artifact": "Invitation à présenter",
-        "detail": "L’APME (Agence de Promotion des Petites et Moyennes Entreprises) a invité SIGIL à présenter devant son unité de digitalisation."
+        "title": "Réunion convoquée par le Directeur général de l’APME",
+        "artifact": "Réunion suivie ; invitation à présenter",
+        "detail": "SIGIL a pris part à une réunion convoquée par le Directeur général de l’APME (Agence de Promotion des Petites et Moyennes Entreprises), et a été invitée à présenter devant l’unité de digitalisation de l’APME. Une réunion et une invitation ne constituent ni un soutien ni un contrat."
       }
     },
     {
-      "date": "2026",
+      "date": "2026-09-29",
       "en": {
         "title": "Meeting called by ANTIC’s Director General",
         "artifact": "Presentation of VIGIL; preparing for a full-scope evaluation",
