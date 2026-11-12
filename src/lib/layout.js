@@ -51,7 +51,7 @@ export function page(p) {
   const xdefault = ORIGIN + (p.lang === "en" ? p.path : p.altPath);
 
   const brandMark = mark({ size: 40, cls: "brand-mk" });
-  const heroTitle = "SIGIL SARL — " + p.title;
+  const heroTitle = "SIGIL SARL | " + p.title;
 
   let jsonldOut = p.jsonld;
   if (jsonldOut) {
@@ -70,10 +70,10 @@ export function page(p) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${escapeHtml(p.title)} — SIGIL SARL</title>
+<title>${escapeHtml(p.title)} | SIGIL SARL</title>
 <meta name="description" content="${escapeAttr(p.description)}">
 <link rel="canonical" href="${canonical}">
-<link rel="alternate" type="application/atom+xml" title="SIGIL SARL — notes" href="${ORIGIN}/feed.xml">
+<link rel="alternate" type="application/atom+xml" title="SIGIL SARL notes" href="${ORIGIN}/feed.xml">
 <link rel="alternate" hreflang="${s.htmlLang}" href="${canonical}">
 <link rel="alternate" hreflang="${p.altLang}" href="${altHref}">
 <link rel="alternate" hreflang="x-default" href="${xdefault}">
@@ -86,14 +86,14 @@ export function page(p) {
 <meta property="og:site_name" content="SIGIL SARL">
 <meta property="og:locale" content="${p.lang === "fr" ? "fr_CM" : "en_US"}">
 <meta property="og:locale:alternate" content="${p.altLang === "fr" ? "fr_CM" : "en_US"}">
-<meta property="og:title" content="${escapeAttr(p.title)} — SIGIL SARL">
+<meta property="og:title" content="${escapeAttr(p.title)} | SIGIL SARL">
 <meta property="og:description" content="${escapeAttr(p.description)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${ORIGIN}/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${escapeAttr(p.title)} — SIGIL SARL">
+<meta name="twitter:title" content="${escapeAttr(p.title)} | SIGIL SARL">
 <meta name="twitter:description" content="${escapeAttr(p.description)}">
 <meta name="twitter:image" content="${ORIGIN}/og-image.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -123,7 +123,7 @@ ${jsonldTag}
 <header class="site-header">
   <div class="wrap">
     <div class="bar glass">
-      <a class="brand" href="${routes.home[p.lang]}" aria-label="SIGIL SARL — home">
+      <a class="brand" href="${routes.home[p.lang]}" aria-label="SIGIL SARL home">
         ${brandMark}<b>SIGIL SARL</b>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -146,7 +146,7 @@ ${/VIGIL/.test(p.body) ? vigilEndToEnd(p.lang) : ""}
   <div class="wrap">
     <div class="cols">
       <div>
-        <a class="brand" href="${routes.home[p.lang]}" aria-label="SIGIL SARL — home" style="margin-bottom:.6rem">${mark({ size: 36 })}<b>SIGIL SARL</b></a>
+        <a class="brand" href="${routes.home[p.lang]}" aria-label="SIGIL SARL home" style="margin-bottom:.6rem">${mark({ size: 36 })}<b>SIGIL SARL</b></a>
         <p class="mono muted" style="font-size:var(--step--1);margin-bottom:.8rem">Sovereign Integrity Governance Infrastructure Labs</p>
         <p class="muted" style="max-width:40ch">${s.footer.tagline}</p>
       </div>
