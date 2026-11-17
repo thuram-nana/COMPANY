@@ -20,6 +20,10 @@ function short() {
 
 ${sys}
 
+## Scope of published status
+
+${O.scope.en.join("\n\n")}
+
 ## Key facts
 
 - Legal name: ${O.legalName}
