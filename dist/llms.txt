@@ -8,6 +8,16 @@
 - [RÉCOR](https://sigilsovereign.com/systems/recor/): Sovereign beneficial-ownership registry. Status: pre-deployment. Source code: kept strictly private.
 - [APEX](https://sigilsovereign.com/systems/apex/): Anti-corruption intelligence for public procurement. Status: pre-deployment. Source code: kept strictly private.
 
+## Scope of published status
+
+SIGIL SARL develops proprietary technology platforms, including VIGIL, RÉCOR and APEX, alongside customer-specific institutional technology solutions.
+
+The deployment and commercialization statuses published on this website relate to SIGIL’s publicly marketed proprietary platforms. They do not constitute an exhaustive record of the company’s institutional delivery activities.
+
+Certain customer engagements and implementation details are not publicly disclosed due to contractual confidentiality and information-security obligations.
+
+VIGIL is undergoing a bounded, paid on-premise pilot, while its broader SaaS commercialization is in preparation. RÉCOR and APEX remain at their separately stated deployment stages.
+
 ## Key facts
 
 - Legal name: SIGIL SARL

@@ -10,14 +10,14 @@ const copy = {
   en: {
     title: "Record",
     description: "Interactions involving SIGIL SARL, Buea, Cameroon, each dated. Includes the RÉCOR demonstration to Open Ownership. Nothing is an endorsement unless stated.",
-    lede: "We list only interactions that happened, with their dates and the form they took. A demonstration is a demonstration; a letter of appreciation is a letter of appreciation. Nothing here is an endorsement or a contract unless it says so.",
+    lede: "We list only interactions that happened, with their dates and the form they took. A demonstration is a demonstration; a letter of appreciation is a letter of appreciation. Nothing here is an endorsement or a contract unless it says so. This record is not exhaustive: certain customer engagements are not publicly disclosed due to contractual confidentiality and information-security obligations.",
     dateH: "Date",
     fmt: (d) => d.length === 4 ? d : new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
   },
   fr: {
     title: "Références",
     description: "Relevé daté des interactions de SIGIL SARL (Buea, Cameroun). Inclut la démonstration de RÉCOR à Open Ownership. Rien ne constitue un soutien sauf mention.",
-    lede: "Nous ne listons que des interactions qui ont eu lieu, avec leurs dates et leur forme. Une démonstration est une démonstration ; une lettre d’appréciation est une lettre d’appréciation. Rien ici ne constitue un soutien ni un contrat, sauf mention expresse.",
+    lede: "Nous ne listons que des interactions qui ont eu lieu, avec leurs dates et leur forme. Une démonstration est une démonstration ; une lettre d’appréciation est une lettre d’appréciation. Rien ici ne constitue un soutien ni un contrat, sauf mention expresse. Ce relevé n’est pas exhaustif : certaines relations contractuelles ne sont pas rendues publiques en raison d’obligations de confidentialité et de sécurité de l’information.",
     dateH: "Date",
     fmt: (d) => d.length === 4 ? d : new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })
   }

@@ -12,6 +12,20 @@
     "sameAs": [],
     "founderName": "Junior Thuram Nana",
     "founderRole": "Founder & Managing Director",
+    "scope": {
+      "en": [
+        "SIGIL SARL develops proprietary technology platforms, including VIGIL, RÉCOR and APEX, alongside customer-specific institutional technology solutions.",
+        "The deployment and commercialization statuses published on this website relate to SIGIL’s publicly marketed proprietary platforms. They do not constitute an exhaustive record of the company’s institutional delivery activities.",
+        "Certain customer engagements and implementation details are not publicly disclosed due to contractual confidentiality and information-security obligations.",
+        "VIGIL is undergoing a bounded, paid on-premise pilot, while its broader SaaS commercialization is in preparation. RÉCOR and APEX remain at their separately stated deployment stages."
+      ],
+      "fr": [
+        "SIGIL SARL développe des plateformes technologiques propriétaires, notamment VIGIL, RÉCOR et APEX, ainsi que des solutions technologiques spécifiques pour des clients institutionnels.",
+        "Les statuts de déploiement et de commercialisation publiés sur ce site concernent les plateformes propriétaires commercialisées par SIGIL. Ils ne constituent pas un inventaire exhaustif des activités de livraison et d’intégration réalisées pour des clients institutionnels.",
+        "Certaines relations contractuelles et informations relatives aux déploiements ne sont pas rendues publiques en raison d’obligations de confidentialité et de sécurité de l’information.",
+        "VIGIL fait actuellement l’objet d’un pilote commercial payant et limité, avec un déploiement sur site, tandis que sa commercialisation plus large en mode SaaS est en préparation. RÉCOR et APEX conservent leurs statuts de déploiement respectifs."
+      ]
+    },
     "founderId": "https://thuramnana.com/#person",
     "pgpFingerprint": "C1C4 A87F EB43 04DB 9E62 86A1 F013 6C58 BB19 5F0C",
     "rccm": "RC.BUA.2026.B.0190",
@@ -239,14 +253,14 @@
     {
       "date": "2026",
       "en": {
-        "title": "Paid pilot of VIGIL with DIGITT France",
+        "title": "Paid on-premise pilot of VIGIL",
         "artifact": "Paid pilot",
-        "detail": "VIGIL is in a paid pilot with DIGITT France. A pilot is bounded and agreed; it is not a production deployment or an endorsement."
+        "detail": "VIGIL is in a paid, bounded commercial pilot, deployed on-premise at the client. A pilot is bounded and agreed; it does not mean that VIGIL SaaS is generally available, and it is not an endorsement."
       },
       "fr": {
-        "title": "Pilote payant de VIGIL avec DIGITT France",
+        "title": "Pilote payant de VIGIL sur site",
         "artifact": "Pilote payant",
-        "detail": "VIGIL fait l’objet d’un pilote payant avec DIGITT France. Un pilote est borné et convenu ; ce n’est ni un déploiement en production ni un soutien."
+        "detail": "VIGIL fait l’objet d’un pilote commercial payant et borné, déployé sur site chez le client. Un pilote est borné et convenu ; il ne signifie pas que VIGIL SaaS est commercialisé de façon générale, et ne constitue pas un soutien."
       }
     },
     {
